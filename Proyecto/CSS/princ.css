@@ -16,6 +16,13 @@ h1 {
 
 }
 
+.btn-cart{
+
+  border-radius: 40px !important;
+  width: 180px  !important;
+}
+
+
 .btn{
 
     border-radius: 50px !important;
