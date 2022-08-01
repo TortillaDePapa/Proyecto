@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <link rel="stylesheet" href="../CSS/DiseñoLogin.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
+    <title>Document</title>
 </head>
 <body>
     <div class="Centrar">
@@ -29,7 +29,7 @@
                 </div>
                 <div class="contraseña"> ¿Olvidaste tu contraseña? </div>
                 <input type="Submit" value="Iniciar">
-                <div class="Iniciar"> 
+                <div class="Registro"> 
                 <a href="Registro.php">  ¿No tienes cuenta?  </a>
                 </div>
                 
