@@ -28,7 +28,7 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `categoria` (
-  `NombreCategoria` varchar(30) NOT NULL,
+  `NombreCategoria` varchar(30) NOT NULL ,
   `Icono` varchar(80) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -39,11 +39,11 @@ CREATE TABLE `categoria` (
 --
 
 CREATE TABLE `cliente` (
-  `IDCliente` int NOT NULL,
+  `IDCliente` int NOT NULL Auto_increment ,
   `tarjeta` int NOT NULL,
   `NumeroPuerta` int NOT NULL,
   `Calle` varchar(30) NOT NULL,
-  `Estado` tinyint(1) NOT NULL
+  `Estado` tinyint(1) NOT NULL 
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -53,10 +53,9 @@ CREATE TABLE `cliente` (
 --
 
 CREATE TABLE `compra` (
-  `IdCompra` int NOT NULL,
-  `IdUsuario` int NOT NULL,
+  `IdCompra` int NOT NULL Auto_increment,  
   `idcliente` int NOT NULL,
-  `Codigobarra` int NOT NULL,
+  `idproducto` int NOT NULL,
   `fecha` date NOT NULL,
   `total` float DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -68,7 +67,7 @@ CREATE TABLE `compra` (
 --
 
 CREATE TABLE `envasado` (
-  `UnidadDeMedida` varchar(30) NOT NULL,
+  `UnidadDeMedida` varchar(30) NOT NULL  ,
   `marca` varchar(30) NOT NULL,
   `TipoDeEnvase` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -80,12 +79,12 @@ CREATE TABLE `envasado` (
 --
 
 CREATE TABLE `envio` (
-  `idenvio` int NOT NULL,
+  `idenvio` int NOT NULL Auto_increment,
   `direccion` varchar(50) DEFAULT NULL,
   `Idcompra` int NOT NULL,
   `idusuario` int NOT NULL,
   `idcliente` int NOT NULL,
-  `codigobarra` int NOT NULL
+  `idproducto` int NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -95,7 +94,7 @@ CREATE TABLE `envio` (
 --
 
 CREATE TABLE `persona` (
-  `IDPersona` int NOT NULL,
+  `IDPersona` int NOT NULL Auto_increment,
   `Usuario` varchar(30) NOT NULL,
   `Contraseña` varchar(255) NOT NULL,
   `Apellido` varchar(30) NOT NULL,
@@ -110,7 +109,8 @@ CREATE TABLE `persona` (
 --
 
 CREATE TABLE `producto` (
-  `CodigoBarra` int NOT NULL,
+  `IDProducto` int not null auto_increment,
+  `CodigoBarra` int NOT NULL unique,
   `imagen` varchar(80) NOT NULL,
   `SKU` int NOT NULL,
   `Stock` int NOT NULL,
@@ -129,7 +129,7 @@ CREATE TABLE `producto` (
 --
 
 CREATE TABLE `proveedores` (
-  `idproveedores` int NOT NULL,
+  `idproveedores` int NOT NULL Auto_increment,
   `email` varchar(30) NOT NULL,
   `nombre` varchar(40) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -141,8 +141,8 @@ CREATE TABLE `proveedores` (
 --
 
 CREATE TABLE `selecciona` (
-  `IdCliente` int NOT NULL,
-  `codigobarra` int NOT NULL
+  `IdCliente` int NOT NULL ,
+  `idproducto` int NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -153,7 +153,7 @@ CREATE TABLE `selecciona` (
 
 CREATE TABLE `suministra` (
   `IDproveedores` int NOT NULL,
-  `CodigoBarra` int NOT NULL
+  `idproducto` int NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -163,7 +163,7 @@ CREATE TABLE `suministra` (
 --
 
 CREATE TABLE `telefonocliente` (
-  `IDCliente` int NOT NULL,
+  `IDCliente` int NOT NULL ,
   `numero` int NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -185,7 +185,7 @@ CREATE TABLE `telefonoproveedores` (
 --
 
 CREATE TABLE `usuario` (
-  `IDUsuario` int NOT NULL
+  `IDUsuario` int NOT NULL Auto_increment
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -209,9 +209,8 @@ ALTER TABLE `cliente`
 --
 ALTER TABLE `compra`
   ADD PRIMARY KEY (`IdCompra`),
-  ADD KEY `IdUsuario` (`IdUsuario`),
   ADD KEY `idcliente` (`idcliente`),
-  ADD KEY `Codigobarra` (`Codigobarra`);
+  ADD KEY `idproducto` (`idproducto`);
 
 --
 -- Indices de la tabla `envasado`
@@ -227,7 +226,7 @@ ALTER TABLE `envio`
   ADD KEY `Idcompra` (`Idcompra`),
   ADD KEY `idusuario` (`idusuario`),
   ADD KEY `idcliente` (`idcliente`),
-  ADD KEY `codigobarra` (`codigobarra`);
+  ADD KEY `idproducto` (`idproducto`);
 
 --
 -- Indices de la tabla `persona`
@@ -239,7 +238,7 @@ ALTER TABLE `persona`
 -- Indices de la tabla `producto`
 --
 ALTER TABLE `producto`
-  ADD PRIMARY KEY (`CodigoBarra`),
+  ADD PRIMARY KEY (`idproducto`),
   ADD KEY `UnidadDeMedida` (`UnidadDeMedida`),
   ADD KEY `NombreCategoria` (`NombreCategoria`);
 
@@ -253,16 +252,17 @@ ALTER TABLE `proveedores`
 -- Indices de la tabla `selecciona`
 --
 ALTER TABLE `selecciona`
-  ADD PRIMARY KEY (`IdCliente`,`codigobarra`),
-  ADD KEY `codigobarra` (`codigobarra`);
+  ADD PRIMARY KEY (`IdCliente`,`idproducto`),
+  ADD KEY `idproducto` (`idproducto`);
+  ADD KEY `IdCliente` (`IdCliente`);
 
 --
 -- Indices de la tabla `suministra`
 --
 ALTER TABLE `suministra`
-  ADD PRIMARY KEY (`IDproveedores`,`CodigoBarra`),
-  ADD KEY `CodigoBarra` (`CodigoBarra`);
-
+  ADD PRIMARY KEY (`IDproveedores`,`idproducto`),
+  ADD KEY `idproducto` (`idproducto`);
+  ADD KEY `IDproveedores` (`IDproveedores`);
 --
 -- Indices de la tabla `telefonocliente`
 --
@@ -295,18 +295,18 @@ ALTER TABLE `cliente`
 -- Filtros para la tabla `compra`
 --
 ALTER TABLE `compra`
-  ADD CONSTRAINT `compra_ibfk_1` FOREIGN KEY (`IdUsuario`) REFERENCES `usuario` (`IDUsuario`),
   ADD CONSTRAINT `compra_ibfk_2` FOREIGN KEY (`idcliente`) REFERENCES `selecciona` (`IdCliente`),
-  ADD CONSTRAINT `compra_ibfk_3` FOREIGN KEY (`Codigobarra`) REFERENCES `producto` (`CodigoBarra`);
+  ADD CONSTRAINT `compra_ibfk_3` FOREIGN KEY (`idproducto`) REFERENCES `selecciona` (`idproducto`);
+
 
 --
 -- Filtros para la tabla `envio`
 --
 ALTER TABLE `envio`
   ADD CONSTRAINT `envio_ibfk_1` FOREIGN KEY (`Idcompra`) REFERENCES `compra` (`IdCompra`),
-  ADD CONSTRAINT `envio_ibfk_2` FOREIGN KEY (`idusuario`) REFERENCES `compra` (`IdUsuario`),
+  ADD CONSTRAINT `envio_ibfk_2` FOREIGN KEY (`idusuario`) REFERENCES `Usuario` (`IdUsuario`),
   ADD CONSTRAINT `envio_ibfk_3` FOREIGN KEY (`idcliente`) REFERENCES `compra` (`idcliente`),
-  ADD CONSTRAINT `envio_ibfk_4` FOREIGN KEY (`codigobarra`) REFERENCES `compra` (`Codigobarra`);
+  ADD CONSTRAINT `envio_ibfk_4` FOREIGN KEY (`idproducto`) REFERENCES `compra` (`idproducto`);
 
 --
 -- Filtros para la tabla `producto`
@@ -320,13 +320,13 @@ ALTER TABLE `producto`
 --
 ALTER TABLE `selecciona`
   ADD CONSTRAINT `selecciona_ibfk_1` FOREIGN KEY (`IdCliente`) REFERENCES `cliente` (`IDCliente`),
-  ADD CONSTRAINT `selecciona_ibfk_2` FOREIGN KEY (`codigobarra`) REFERENCES `producto` (`CodigoBarra`);
+  ADD CONSTRAINT `selecciona_ibfk_2` FOREIGN KEY (`idproducto`) REFERENCES `producto` (`idproducto`);
 
 --
 -- Filtros para la tabla `suministra`
 --
 ALTER TABLE `suministra`
-  ADD CONSTRAINT `suministra_ibfk_1` FOREIGN KEY (`CodigoBarra`) REFERENCES `producto` (`CodigoBarra`),
+  ADD CONSTRAINT `suministra_ibfk_1` FOREIGN KEY (`idproducto`) REFERENCES `producto` (`idproducto`),
   ADD CONSTRAINT `suministra_ibfk_2` FOREIGN KEY (`IDproveedores`) REFERENCES `proveedores` (`idproveedores`);
 
 --
