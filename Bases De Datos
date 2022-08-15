@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.0
+-- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1:3306
--- Tiempo de generación: 28-07-2022 a las 17:12:52
--- Versión del servidor: 8.0.23
--- Versión de PHP: 8.0.3
+-- Tiempo de generación: 14-08-2022 a las 23:55:44
+-- Versión del servidor: 5.7.36
+-- Versión de PHP: 7.4.26
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -24,103 +24,127 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `categoria`
+-- Estructura de tabla para la tabla `categorias`
 --
 
-CREATE TABLE `categoria` (
-  `NombreCategoria` varchar(30) NOT NULL ,
-  `Icono` varchar(80) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `cliente`
---
-
-CREATE TABLE `cliente` (
-  `IDCliente` int NOT NULL Auto_increment ,
-  `tarjeta` int NOT NULL,
-  `NumeroPuerta` int NOT NULL,
-  `Calle` varchar(30) NOT NULL,
-  `Estado` tinyint(1) NOT NULL 
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `compra`
---
-
-CREATE TABLE `compra` (
-  `IdCompra` int NOT NULL Auto_increment,  
-  `idcliente` int NOT NULL,
-  `idproducto` int NOT NULL,
-  `fecha` date NOT NULL,
-  `total` float DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `envasado`
---
-
-CREATE TABLE `envasado` (
-  `UnidadDeMedida` varchar(30) NOT NULL  ,
-  `marca` varchar(30) NOT NULL,
-  `TipoDeEnvase` varchar(30) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `envio`
---
-
-CREATE TABLE `envio` (
-  `idenvio` int NOT NULL Auto_increment,
-  `direccion` varchar(50) DEFAULT NULL,
-  `Idcompra` int NOT NULL,
-  `idusuario` int NOT NULL,
-  `idcliente` int NOT NULL,
-  `idproducto` int NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `persona`
---
-
-CREATE TABLE `persona` (
-  `IDPersona` int NOT NULL Auto_increment,
-  `Usuario` varchar(30) NOT NULL,
-  `Contraseña` varchar(255) NOT NULL,
-  `Apellido` varchar(30) NOT NULL,
-  `Nombre` varchar(30) NOT NULL,
-  `Email` varchar(30) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `producto`
---
-
-CREATE TABLE `producto` (
-  `IDProducto` int not null auto_increment,
-  `CodigoBarra` int NOT NULL unique,
-  `imagen` varchar(80) NOT NULL,
-  `SKU` int NOT NULL,
-  `Stock` int NOT NULL,
-  `Nombre` varchar(30) NOT NULL,
-  `Precio` int NOT NULL,
-  `fechavencimiento` date DEFAULT NULL,
-  `Estado` tinyint(1) NOT NULL,
+DROP TABLE IF EXISTS `categorias`;
+CREATE TABLE IF NOT EXISTS `categorias` (
   `NombreCategoria` varchar(30) NOT NULL,
-  `UnidadDeMedida` varchar(30) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `Icono` varchar(80) DEFAULT NULL,
+  PRIMARY KEY (`NombreCategoria`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `clientes`
+--
+
+DROP TABLE IF EXISTS `clientes`;
+CREATE TABLE IF NOT EXISTS `clientes` (
+  `IDCliente` int(11) NOT NULL AUTO_INCREMENT,
+  `Tarjeta` int(11) DEFAULT NULL,
+  `NumeroPuerta` int(11) DEFAULT NULL,
+  `Calle` varchar(30) DEFAULT NULL,
+  `Estado` tinyint(1) DEFAULT NULL,
+  PRIMARY KEY (`IDCliente`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `compras`
+--
+
+DROP TABLE IF EXISTS `compras`;
+CREATE TABLE IF NOT EXISTS `compras` (
+  `IDCompra` int(11) NOT NULL AUTO_INCREMENT,
+  `IDCliente` int(11) DEFAULT NULL,
+  `IDProducto` int(11) DEFAULT NULL,
+  `Fecha` date DEFAULT NULL,
+  `Total` float DEFAULT NULL,
+  PRIMARY KEY (`IDCompra`),
+  KEY `IDCliente` (`IDCliente`),
+  KEY `IDProducto` (`IDProducto`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `envasados`
+--
+
+DROP TABLE IF EXISTS `envasados`;
+CREATE TABLE IF NOT EXISTS `envasados` (
+  `UnidadMedida` varchar(30) NOT NULL,
+  `Marca` varchar(30) DEFAULT NULL,
+  `TipoEnvase` varchar(30) DEFAULT NULL,
+  PRIMARY KEY (`UnidadMedida`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `envios`
+--
+
+DROP TABLE IF EXISTS `envios`;
+CREATE TABLE IF NOT EXISTS `envios` (
+  `IDEnvio` int(11) NOT NULL AUTO_INCREMENT,
+  `Direccion` varchar(50) DEFAULT NULL,
+  `IDCompra` int(11) DEFAULT NULL,
+  `IDUsuario` int(11) DEFAULT NULL,
+  `IDCliente` int(11) DEFAULT NULL,
+  `IDProducto` int(11) DEFAULT NULL,
+  PRIMARY KEY (`IDEnvio`),
+  KEY `IDCompra` (`IDCompra`),
+  KEY `IDUsuario` (`IDUsuario`),
+  KEY `IDCliente` (`IDCliente`),
+  KEY `IDProducto` (`IDProducto`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `personas`
+--
+
+DROP TABLE IF EXISTS `personas`;
+CREATE TABLE IF NOT EXISTS `personas` (
+  `IDPersona` int(11) NOT NULL AUTO_INCREMENT,
+  `Usuario` varchar(30) DEFAULT NULL,
+  `Contraseña` varchar(255) DEFAULT NULL,
+  `Apellido` varchar(30) DEFAULT NULL,
+  `Nombre` varchar(30) DEFAULT NULL,
+  `Gmail` varchar(30) DEFAULT NULL,
+  PRIMARY KEY (`IDPersona`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `productos`
+--
+
+DROP TABLE IF EXISTS `productos`;
+CREATE TABLE IF NOT EXISTS `productos` (
+  `IDProducto` int(11) NOT NULL AUTO_INCREMENT,
+  `CodigoBarra` int(11) DEFAULT NULL,
+  `Imagen` varchar(80) DEFAULT NULL,
+  `SKU` int(11) DEFAULT NULL,
+  `Stock` int(11) DEFAULT NULL,
+  `Nombre` varchar(30) DEFAULT NULL,
+  `Precio` int(11) DEFAULT NULL,
+  `FechaVencimiento` int(11) DEFAULT NULL,
+  `Estado` tinyint(1) DEFAULT NULL,
+  `NombreCategoria` varchar(30) DEFAULT NULL,
+  `UnidadMedida` varchar(30) DEFAULT NULL,
+  PRIMARY KEY (`IDProducto`),
+  UNIQUE KEY `CodigoBarra` (`CodigoBarra`),
+  UNIQUE KEY `SKU` (`SKU`),
+  KEY `NombreCategoria` (`NombreCategoria`),
+  KEY `UnidadMedida` (`UnidadMedida`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -128,11 +152,13 @@ CREATE TABLE `producto` (
 -- Estructura de tabla para la tabla `proveedores`
 --
 
-CREATE TABLE `proveedores` (
-  `idproveedores` int NOT NULL Auto_increment,
-  `email` varchar(30) NOT NULL,
-  `nombre` varchar(40) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+DROP TABLE IF EXISTS `proveedores`;
+CREATE TABLE IF NOT EXISTS `proveedores` (
+  `IDProveedores` int(11) NOT NULL AUTO_INCREMENT,
+  `Nombre` varchar(40) DEFAULT NULL,
+  `Gmail` varchar(100) DEFAULT NULL,
+  PRIMARY KEY (`IDProveedores`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -140,10 +166,13 @@ CREATE TABLE `proveedores` (
 -- Estructura de tabla para la tabla `selecciona`
 --
 
-CREATE TABLE `selecciona` (
-  `IdCliente` int NOT NULL ,
-  `idproducto` int NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+DROP TABLE IF EXISTS `selecciona`;
+CREATE TABLE IF NOT EXISTS `selecciona` (
+  `IDCliente` int(11) NOT NULL,
+  `IDProducto` int(11) NOT NULL,
+  PRIMARY KEY (`IDCliente`,`IDProducto`),
+  KEY `IDProducto` (`IDProducto`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -151,21 +180,26 @@ CREATE TABLE `selecciona` (
 -- Estructura de tabla para la tabla `suministra`
 --
 
-CREATE TABLE `suministra` (
-  `IDproveedores` int NOT NULL,
-  `idproducto` int NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+DROP TABLE IF EXISTS `suministra`;
+CREATE TABLE IF NOT EXISTS `suministra` (
+  `IDProveedores` int(11) NOT NULL,
+  `IDProducto` int(11) NOT NULL,
+  PRIMARY KEY (`IDProveedores`,`IDProducto`),
+  KEY `IDProducto` (`IDProducto`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `telefonocliente`
+-- Estructura de tabla para la tabla `telefonoclientes`
 --
 
-CREATE TABLE `telefonocliente` (
-  `IDCliente` int NOT NULL ,
-  `numero` int NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+DROP TABLE IF EXISTS `telefonoclientes`;
+CREATE TABLE IF NOT EXISTS `telefonoclientes` (
+  `IDCliente` int(11) NOT NULL,
+  `Numero` int(11) NOT NULL,
+  PRIMARY KEY (`IDCliente`,`Numero`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -173,10 +207,12 @@ CREATE TABLE `telefonocliente` (
 -- Estructura de tabla para la tabla `telefonoproveedores`
 --
 
-CREATE TABLE `telefonoproveedores` (
-  `IDProveedores` int NOT NULL,
-  `numero` int NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+DROP TABLE IF EXISTS `telefonoproveedores`;
+CREATE TABLE IF NOT EXISTS `telefonoproveedores` (
+  `IDProveedores` int(11) NOT NULL,
+  `Numero` int(11) NOT NULL,
+  PRIMARY KEY (`IDProveedores`,`Numero`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -184,168 +220,11 @@ CREATE TABLE `telefonoproveedores` (
 -- Estructura de tabla para la tabla `usuario`
 --
 
-CREATE TABLE `usuario` (
-  `IDUsuario` int NOT NULL Auto_increment
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Índices para tablas volcadas
---
-
---
--- Indices de la tabla `categoria`
---
-ALTER TABLE `categoria`
-  ADD PRIMARY KEY (`NombreCategoria`);
-
---
--- Indices de la tabla `cliente`
---
-ALTER TABLE `cliente`
-  ADD PRIMARY KEY (`IDCliente`);
-
---
--- Indices de la tabla `compra`
---
-ALTER TABLE `compra`
-  ADD PRIMARY KEY (`IdCompra`),
-  ADD KEY `idcliente` (`idcliente`),
-  ADD KEY `idproducto` (`idproducto`);
-
---
--- Indices de la tabla `envasado`
---
-ALTER TABLE `envasado`
-  ADD PRIMARY KEY (`UnidadDeMedida`);
-
---
--- Indices de la tabla `envio`
---
-ALTER TABLE `envio`
-  ADD PRIMARY KEY (`idenvio`),
-  ADD KEY `Idcompra` (`Idcompra`),
-  ADD KEY `idusuario` (`idusuario`),
-  ADD KEY `idcliente` (`idcliente`),
-  ADD KEY `idproducto` (`idproducto`);
-
---
--- Indices de la tabla `persona`
---
-ALTER TABLE `persona`
-  ADD PRIMARY KEY (`IDPersona`);
-
---
--- Indices de la tabla `producto`
---
-ALTER TABLE `producto`
-  ADD PRIMARY KEY (`idproducto`),
-  ADD KEY `UnidadDeMedida` (`UnidadDeMedida`),
-  ADD KEY `NombreCategoria` (`NombreCategoria`);
-
---
--- Indices de la tabla `proveedores`
---
-ALTER TABLE `proveedores`
-  ADD PRIMARY KEY (`idproveedores`);
-
---
--- Indices de la tabla `selecciona`
---
-ALTER TABLE `selecciona`
-  ADD PRIMARY KEY (`IdCliente`,`idproducto`),
-  ADD KEY `idproducto` (`idproducto`);
-  ADD KEY `IdCliente` (`IdCliente`);
-
---
--- Indices de la tabla `suministra`
---
-ALTER TABLE `suministra`
-  ADD PRIMARY KEY (`IDproveedores`,`idproducto`),
-  ADD KEY `idproducto` (`idproducto`);
-  ADD KEY `IDproveedores` (`IDproveedores`);
---
--- Indices de la tabla `telefonocliente`
---
-ALTER TABLE `telefonocliente`
-  ADD PRIMARY KEY (`IDCliente`,`numero`);
-
---
--- Indices de la tabla `telefonoproveedores`
---
-ALTER TABLE `telefonoproveedores`
-  ADD PRIMARY KEY (`IDProveedores`,`numero`);
-
---
--- Indices de la tabla `usuario`
---
-ALTER TABLE `usuario`
-  ADD PRIMARY KEY (`IDUsuario`);
-
---
--- Restricciones para tablas volcadas
---
-
---
--- Filtros para la tabla `cliente`
---
-ALTER TABLE `cliente`
-  ADD CONSTRAINT `cliente_ibfk_1` FOREIGN KEY (`IDCliente`) REFERENCES `persona` (`IDPersona`);
-
---
--- Filtros para la tabla `compra`
---
-ALTER TABLE `compra`
-  ADD CONSTRAINT `compra_ibfk_2` FOREIGN KEY (`idcliente`) REFERENCES `selecciona` (`IdCliente`),
-  ADD CONSTRAINT `compra_ibfk_3` FOREIGN KEY (`idproducto`) REFERENCES `selecciona` (`idproducto`);
-
-
---
--- Filtros para la tabla `envio`
---
-ALTER TABLE `envio`
-  ADD CONSTRAINT `envio_ibfk_1` FOREIGN KEY (`Idcompra`) REFERENCES `compra` (`IdCompra`),
-  ADD CONSTRAINT `envio_ibfk_2` FOREIGN KEY (`idusuario`) REFERENCES `Usuario` (`IdUsuario`),
-  ADD CONSTRAINT `envio_ibfk_3` FOREIGN KEY (`idcliente`) REFERENCES `compra` (`idcliente`),
-  ADD CONSTRAINT `envio_ibfk_4` FOREIGN KEY (`idproducto`) REFERENCES `compra` (`idproducto`);
-
---
--- Filtros para la tabla `producto`
---
-ALTER TABLE `producto`
-  ADD CONSTRAINT `producto_ibfk_1` FOREIGN KEY (`UnidadDeMedida`) REFERENCES `envasado` (`UnidadDeMedida`),
-  ADD CONSTRAINT `producto_ibfk_2` FOREIGN KEY (`NombreCategoria`) REFERENCES `categoria` (`NombreCategoria`);
-
---
--- Filtros para la tabla `selecciona`
---
-ALTER TABLE `selecciona`
-  ADD CONSTRAINT `selecciona_ibfk_1` FOREIGN KEY (`IdCliente`) REFERENCES `cliente` (`IDCliente`),
-  ADD CONSTRAINT `selecciona_ibfk_2` FOREIGN KEY (`idproducto`) REFERENCES `producto` (`idproducto`);
-
---
--- Filtros para la tabla `suministra`
---
-ALTER TABLE `suministra`
-  ADD CONSTRAINT `suministra_ibfk_1` FOREIGN KEY (`idproducto`) REFERENCES `producto` (`idproducto`),
-  ADD CONSTRAINT `suministra_ibfk_2` FOREIGN KEY (`IDproveedores`) REFERENCES `proveedores` (`idproveedores`);
-
---
--- Filtros para la tabla `telefonocliente`
---
-ALTER TABLE `telefonocliente`
-  ADD CONSTRAINT `telefonocliente_ibfk_1` FOREIGN KEY (`IDCliente`) REFERENCES `cliente` (`IDCliente`);
-
---
--- Filtros para la tabla `telefonoproveedores`
---
-ALTER TABLE `telefonoproveedores`
-  ADD CONSTRAINT `telefonoproveedores_ibfk_1` FOREIGN KEY (`IDProveedores`) REFERENCES `proveedores` (`idproveedores`);
-
---
--- Filtros para la tabla `usuario`
---
-ALTER TABLE `usuario`
-  ADD CONSTRAINT `usuario_ibfk_1` FOREIGN KEY (`IDUsuario`) REFERENCES `persona` (`IDPersona`);
+DROP TABLE IF EXISTS `usuario`;
+CREATE TABLE IF NOT EXISTS `usuario` (
+  `IDUsuario` int(11) NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (`IDUsuario`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
