@@ -40,7 +40,6 @@ CREATE TABLE `categorias` (
 
 CREATE TABLE `clientes` (
   `IDCliente` int(11) NOT NULL,
-  `Tarjeta` int(11) DEFAULT NULL,
   `NumeroPuerta` int(11) DEFAULT NULL,
   `Calle` varchar(30) DEFAULT NULL,
   `Estado` tinyint(1) DEFAULT NULL
