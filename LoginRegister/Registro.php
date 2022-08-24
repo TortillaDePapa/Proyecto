@@ -58,16 +58,21 @@ include_once '../Logica/Persona.php';
     
 </body>
 <?php
-    if (isset($_POST['registro'])){
-        $registro = New Persona();
-        $registro -> setNombreUser(isset($_POST['nombreUser']));
-        $registro -> setContraseña(isset($_POST['contraseña']));
-        $registro -> setApellido(isset($_POST['apellido']));
-        $registro -> setNombre(isset($_POST['nombre']));
-        $registro -> setEmail(isset($_POST['email']));
-        $registro -> CargarPersona();
-       
-    }
+  
+  if(isset($_POST['registrar'])){
+    $p = new Cliente();
+    $p2 = new PersonaBD();
+    $p -> setUsuario($_POST['Usuario']);
+    $p -> setContraseña(md5($_POST['Contraseña']));
+    $p -> setCContraseña(md5($_POST['CContraseña']));
+    $p -> setNombre($_POST['Nombre']);
+    $p -> setApellido($_POST['Apellido']);
+    $p -> setTelefono($_POST['Telefono']);
+    $p -> setNumeroCasa($_POST['NumeroDeCasa']);
+    $p -> setNombreCalle($_POST['NombreDeCalle']);
+    
+    $p2 -> CargarPersona($p);
+}
 ?>
 
 </html>

@@ -36,5 +36,21 @@
             </form>
 
 </div>
+
+<?php
+
+ if(isset($_POST['Login'])){
+       
+    $p = new Cliente();
+    $p2 = new PersonaBD();
+    $p -> setUsuario($_POST['usuario']);
+    $p -> setContraseña(md5($_POST['contraseña']));
+
+
+    $p2 -> LoginPersona($p);
+}
+
+
+?>
 </body>
 </html>

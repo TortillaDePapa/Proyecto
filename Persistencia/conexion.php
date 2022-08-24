@@ -1,25 +1,25 @@
 <?php
-class conexion
+class Conexion
 {
     private $nombreServidor = "localhost";
     private $nombreUsuario = "root";
     private $contraseña = "";
     private $bd = "proyecto";
-    private $con;
+    public $conn;
 
-    public function Conectar()
-    {
-        $this->con = new mysqli($this->nombreServidor, $this->nombreUsuario, $this->contraseña, $this->bd);
-        if ($this->con->connect_error) {
-            die("Error al conectarse " . $this->con->connect_error);
+    public function Conectar(){
+        $this->conn = new mysqli($this->nombreServidor, $this->nombreUsuario, $this->contraseña, $this->bd);
+        if ($this->conn->connect_error) {
+            die("<script>alert('Error al conectarse a la base de datos')</script>" . $this->conn->connect_error);
+        return null;
         } else {
         
-            return $this->con;
+            return $this->conn;
         }
     }
     public function Desconectar()
     {
-        $this->con->close();
+        $this->conn->close();
     }
 }
 ?>
