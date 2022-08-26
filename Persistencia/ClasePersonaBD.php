@@ -11,7 +11,7 @@ Class PersonaBD extends Conexion{
         $this -> Conectar();
         $resultado = mysqli_query($this -> conn,$sql);
         if(!$resultado -> num_rows > 0){
-            $sql1 = "INSERT INTO personas(Usuario,Contraseña,Nombre,Apellido) VALUES('".$Persona -> getUsuario()."','".$Persona -> getContraseña()."','".$Persona -> getNombre()."','".$Persona -> getApellido()."')";
+            $sql1 = "INSERT INTO personas(Usuario,Contraseña,Nombre,Apellido,Gmail) VALUES('".$Persona -> getUsuario()."','".$Persona -> getContraseña()."','".$Persona -> getNombre()."','".$Persona -> getApellido()."','".$Persona -> getGmail()."')";
             $resultado1 = mysqli_query($this -> conn,$sql1);
             $sql3 = "SELECT idpersona FROM personas WHERE Usuario = '".$Persona -> getUsuario()."'" ;
 
@@ -25,7 +25,7 @@ Class PersonaBD extends Conexion{
                 if ($resultado2) {
                 echo "<script> alert('Usuario registrado correctamente')</script>";
                 header("Location: Login.php");
-            }else{
+                }else{
                 echo "<script> alert('Hubo un error al registrar el usuario')</script>";
             }
             }else {

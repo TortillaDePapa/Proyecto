@@ -9,6 +9,7 @@ class Persona
     private $Nombre;
     private $Apellido;
     private $Telefono;
+    private $Gmail;
     
     
     public function getIDPersona()
@@ -85,6 +86,17 @@ class Persona
     public function setCContraseña($CContraseña)
     {
         $this->CContraseña = $CContraseña;
+
+    }
+
+    public function getGmail()
+    {
+        return $this->Gmail;
+    }
+
+    public function setGmail($Gmail)
+    {
+        $this->Gmail = $Gmail;
 
     }
 }
