@@ -41,9 +41,7 @@ Class PersonaBD extends Conexion{
  }
 
  public function LoginPersona($Persona){
-
-    session_start();
-
+    
      $sql = "SELECT * from personas where Usuario = '".$Persona -> getUsuario()."' AND Contraseña = '".$Persona -> getContraseña()."'";
     $this -> Conectar(); 
     $resultado = mysqli_query($this -> conn, $sql);
