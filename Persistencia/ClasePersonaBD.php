@@ -41,14 +41,16 @@ Class PersonaBD extends Conexion{
  }
 
  public function LoginPersona($Persona){
-     
-     $sql = "SELECT * from persona where Usuario = '".$Persona -> getUsuario()."' AND Contraseña = '".$Persona -> getContraseña()."'";
+
+    session_start();
+
+     $sql = "SELECT * from personas where Usuario = '".$Persona -> getUsuario()."' AND Contraseña = '".$Persona -> getContraseña()."'";
     $this -> Conectar(); 
     $resultado = mysqli_query($this -> conn, $sql);
     if($resultado -> num_rows > 0){
         $fila = mysqli_fetch_assoc($resultado);
           $_SESSION["'".$Persona -> getUsuario()."'"] = $fila["'".$Persona -> getUsuario()."'"];
-             header('Location: Principal.php');
+             header("Location: PagPrincipal.php");
          }else{
             echo "<script>alert('Correo o contraseña incorrecta') </script>";
          }

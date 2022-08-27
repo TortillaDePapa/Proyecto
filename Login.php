@@ -14,19 +14,19 @@ include_once 'Clases/ClasePersona.php';
     <title>Document</title>
 </head>
 <body>
-    <div class="Centrar">
+    <div class="Centrar" >
         <h1>
             Login
         </h1>
-            <form action="post">
-                <div class="texto"> <input type="text" required> 
+            <form action="Login.php" method="post">
+                <div class="texto"> <input type="text" name="usuario" required> 
                     <span>
 
                     </span> <label>
                                  Usuario 
                         </label>
                 </div>
-                <div class="texto"> <input type="password" required> 
+                <div class="texto"> <input type="password" name="contraseña"required> 
                     <span>
 
                     </span> <label>
@@ -34,7 +34,7 @@ include_once 'Clases/ClasePersona.php';
                             </label> 
                 </div>
                 <div class="contraseña" ><a href="">¿Olvidaste tu contraseña?</a> </div>
-                <input type="Submit" value="Iniciar">
+                <input type="Submit" value="Iniciar" name="Login">
                 <div class="Registro"> 
                 <a href="Registro.php">  ¿No tienes cuenta?  </a>
                 </div>
