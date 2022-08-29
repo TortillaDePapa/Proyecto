@@ -46,14 +46,25 @@ Class PersonaBD extends Conexion{
     $this -> Conectar(); 
     $resultado = mysqli_query($this -> conn, $sql);
     if($resultado -> num_rows > 0){
-        $fila = mysqli_fetch_assoc($resultado);
-          $_SESSION["'".$Persona -> getUsuario()."'"] = $fila["'".$Persona -> getUsuario()."'"];
-             header("Location: PagPrincipal.php");
+        $sql1 = "SELECT idpersona FROM personas WHERE Usuario = '".$Persona -> getUsuario()."'" ;
+        $sql2 = "SELECT idusuario FROM usuario";
+    
+        $resultado1 = mysqli_query($this -> conn, $sql1);
+        $resultado2 = mysqli_query($this -> conn, $sql2);
+        $fila = mysqli_fetch_assoc($resultado1);
+        $fila1 = mysqli_fetch_assoc($resultado2);
+        if ($fila['idpersona'] == $fila1['idusuario']) {
+            header("Location: PagPrincipalAdmin.php");
+        }else{ 
+            $fila = mysqli_fetch_assoc($resultado);
+            $_SESSION["'".$Persona -> getUsuario()."'"] = $fila["'".$Persona -> getUsuario()."'"];
+            header("Location: PagPrincipal.php");
+            }
          }else{
             echo "<script>alert('Correo o contraseña incorrecta') </script>";
          }
- }
-
+    }
+ 
 }
 
 
