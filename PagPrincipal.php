@@ -28,7 +28,7 @@
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
               <li class="nav-item">
-                <a class="nav-link active " aria-current="page" href="#">Hogar</a>
+                <a class="nav-link active " aria-current="page" href="#">Local</a>
               </li>
               <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle me-2" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -54,7 +54,7 @@
   <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" data-bs-auto-close="outside">
   <i class="icon bi-person-fill"></i>
   </button>
-  <form class="dropdown-menu p-4">
+  <form class="dropdown-menu p-4" method="post" action="">
     <div class="mb-3">
       <label for="exampleDropdownFormEmail2" class="form-label">Email address</label>
       <input type="email" class="form-control" id="exampleDropdownFormEmail2" placeholder="email@example.com">

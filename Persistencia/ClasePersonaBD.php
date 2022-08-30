@@ -41,30 +41,39 @@ Class PersonaBD extends Conexion{
  }
 
  public function LoginPersona($Persona){
-    
+    session_start();
      $sql = "SELECT * from personas where Usuario = '".$Persona -> getUsuario()."' AND Contraseña = '".$Persona -> getContraseña()."'";
     $this -> Conectar(); 
     $resultado = mysqli_query($this -> conn, $sql);
     if($resultado -> num_rows > 0){
         $sql1 = "SELECT idpersona FROM personas WHERE Usuario = '".$Persona -> getUsuario()."'" ;
         $sql2 = "SELECT idusuario FROM usuario";
-    
+
         $resultado1 = mysqli_query($this -> conn, $sql1);
         $resultado2 = mysqli_query($this -> conn, $sql2);
         $fila = mysqli_fetch_assoc($resultado1);
         $fila1 = mysqli_fetch_assoc($resultado2);
-        if ($fila['idpersona'] == $fila1['idusuario']) {// se fija si los id del usuario que se mando sea un usuario o un cliente 
-            header("Location: PagPrincipalAdmin.php");
+        if ($fila['idpersona'] == $fila1['idusuario']){// se fija si los id del usuario que se mando sea un usuario o un cliente 
+            $_SESSION['Usuario'] = $fila1['idusuario'];
+            if ($_SESSION['Usuario'] =  true) {
+                header("Location: PagPrincipalAdmin.php");
+            }
+           
         }else{ 
-            $fila = mysqli_fetch_assoc($resultado);
-            $_SESSION["'".$Persona -> getUsuario()."'"] = $fila["'".$Persona -> getUsuario()."'"];
+            $fila2 = mysqli_fetch_assoc($resultado);
+            $_SESSION["'".$Persona -> getUsuario()."'"] = $fila2["'".$Persona -> getUsuario()."'"];
             header("Location: PagPrincipal.php");
             }
     }else{
             echo "<script>alert('Correo o contraseña incorrecta') </script>";
         }
     }
- 
+
+    
+    public function CerrarPersona(){
+        session_unset();
+        session_destroy();
+    }  
 }
 
 
