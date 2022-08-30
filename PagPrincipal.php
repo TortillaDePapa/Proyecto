@@ -138,7 +138,7 @@
                 <hr>
                 <h4 class="card-title">$ 78</h4>
                 <p class="card-text">Fideos nidos Cololo 500g </p>
-                <a href="#" class="btn btn-primary"> <i class="icon bi-cart3"></i>     </a>
+                <a href="#" class="btn btn-primary btn-dark bg-dark"> <i class="icon bi-cart3"></i>     </a>
               </div>
             </div>
           </div>
@@ -150,7 +150,7 @@
                 <hr>
                 <h4 class="card-title">$ 25</h4>
                 <p class="card-text">jabon de ultima  </p>
-                <a href="#" class="btn btn-primary"> <i class="icon bi-cart3"></i>    </a>
+                <a href="#" class="btn btn-primary btn-dark bg-dark"> <i class="icon bi-cart3"></i>    </a>
               </div>
             </div>
           </div>
@@ -162,7 +162,7 @@
                 <hr>
                 <h4 class="card-title">$ 25</h4>
                 <p class="card-text">jabon de ultima </p>
-                <a href="#" class="btn btn-primary">  <i class="icon bi-cart3"></i>   </a>
+                <a href="#" class="btn btn-primary btn-dark bg-dark">  <i class="icon bi-cart3"></i>   </a>
               </div>
             </div>
           </div>
@@ -174,7 +174,7 @@
                 <hr>
                 <h4 class="card-title">$ 25</h4>
                 <p class="card-text">jabon de ultima  </p>
-                <a href="#" class="btn btn-primary"> <i class="icon bi-cart3"></i>    </a>
+                <a href="#" class="btn btn-primary btn-dark bg-dark"> <i class="icon bi-cart3"></i>    </a>
               </div>
             </div>
           </div>
@@ -186,7 +186,7 @@
                 <hr>
                 <h4 class="card-title">$ 25</h4>
                 <p class="card-text">jabon de ultima  </p>
-                <a href="#" class="btn btn-primary"> <i class="icon bi-cart3"></i>    </a>
+                <a href="#" class="btn btn-primary btn-dark bg-dark"> <i class="icon bi-cart3"></i>    </a>
               </div>
             </div>
           </div>
@@ -198,7 +198,7 @@
                 <hr>
                 <h4 class="card-title">$ 25</h4>
                 <p class="card-text">jabon de ultima </p>
-                <a href="#" class="btn btn-primary"> <i class="icon bi-cart3"></i>    </a>
+                <a href="#" class="btn btn-primary btn-dark bg-dark"> <i class="icon bi-cart3"></i>    </a>
               </div>
             </div>
           </div>
@@ -210,7 +210,7 @@
                 <hr>
                 <h4 class="card-title">$ 25</h4>
                 <p class="card-text">jabon de ultima  </p>
-                <a href="#" class="btn btn-primary"> <i class="icon bi-cart3"></i>    </a>
+                <a href="#" class="btn btn-primary btn-dark bg-dark"> <i class="icon bi-cart3"></i>    </a>
               </div>
             </div>
           </div>
@@ -237,7 +237,7 @@
                 <hr>
                 <h4 class="card-title">$ 25</h4>
                 <p class="card-text">Jabon de YPE con aroma </p>
-                <button href="#" class="btn btn-primary"><i class="icon bi-cart3"></i> </button>
+                <button href="#" class="btn btn-primary btn-dark bg-dark"><i class="icon bi-cart3"></i> </button>
               </div>
             </div>
           </div>
@@ -249,7 +249,7 @@
                 <hr>
                 <h4 class="card-title">$ 78</h4>
                 <p class="card-text">Fideos nidos Cololo 500g </p>
-                <a href="#" class="btn btn-primary"> <i class="icon bi-cart3"></i>    </a>
+                <a href="#" class="btn btn-primary btn-dark bg-dark"> <i class="icon bi-cart3"></i>    </a>
               </div>
             </div>
           </div>
@@ -261,7 +261,7 @@
                 <hr>
                 <h4 class="card-title">$ 25</h4>
                 <p class="card-text">jabon de ultima  </p>
-                <a href="#" class="btn btn-primary"> <i class="icon bi-cart3"></i>   </a>
+                <a href="#" class="btn btn-primary btn-dark bg-dark"> <i class="icon bi-cart3"></i>   </a>
               </div>
             </div>
           </div>
@@ -273,7 +273,7 @@
                 <hr>
                 <h4 class="card-title">$ 25</h4>
                 <p class="card-text">jabon de ultima </p>
-                <a href="#" class="btn btn-primary">  <i class="icon bi-cart3"></i>  </a>
+                <a href="#" class="btn btn-primary btn-dark bg-dark">  <i class="icon bi-cart3"></i>  </a>
               </div>
             </div>
           </div>
