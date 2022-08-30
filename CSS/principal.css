@@ -64,3 +64,11 @@ body{
    
     padding-left: 95px !important;
   }
+
+  .dropdown-toggle::after {
+    
+    content: none !important;
+    
+}
+ 
+ 

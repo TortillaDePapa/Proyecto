@@ -49,20 +49,10 @@
             <button class="btn btn-buttom btn-custom me-1"  type="submit">  <i class="bi bi-box-arrow-in-right"></i> </button>
 
 
-              <button class="btn btn-buttom btn-custom"   type="submit"> <i class="icon bi-person-fill"></i> </button>
-
-              <button class="btn btn-buttom btn-custom"  type="submit"> <i class="icon bi-cart3"></i> </button>
             
-          </div>
-        </div>
-      </nav> 
-
-
-
-
-      <!-- div class="dropdown">
+              <div class="dropdown">
   <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" data-bs-auto-close="outside">
-    
+  <i class="icon bi-person-fill"></i>
   </button>
   <form class="dropdown-menu p-4">
     <div class="mb-3">
@@ -83,10 +73,21 @@
     </div>
     <button type="submit" class="btn btn-primary">Sign in</button>
   </form>
-</div> -->
+</div> 
+
+
+</button>
+
+              <button class="btn btn-buttom btn-custom"  type="submit"> <i class="icon bi-cart3"></i> </button>
+            
+          </div>
+        </div>
+      </nav> 
 
 
 
+
+  
 
 
 
