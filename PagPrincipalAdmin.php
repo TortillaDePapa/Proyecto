@@ -7,6 +7,8 @@
     <title>Document</title>
 </head>
 <body>
+
+
     <h1>Estas en la pagina del admin papa</h1>
 </body>
 </html>

@@ -19,7 +19,7 @@
 
   </head>
   <body>
-    <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
+  <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
         <div class="container-fluid">
           <a class="navbar-brand" href="#">AutoServicio</a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -28,7 +28,7 @@
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
               <li class="nav-item">
-                <a class="nav-link active " aria-current="page" href="#">Local</a>
+                <a class="nav-link active " aria-current="page" href="Local.php">Local</a>
               </li>
               <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle me-2" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -47,10 +47,11 @@
             <input class="form-control me-3" type="search" placeholder="Buscar" aria-label="Search" >
             <button class="btn btn-buttom btn-custom me-1 boton"  type="submit" > </button>
             <button class="btn btn-buttom btn-custom me-1"  type="submit">  <i class="bi bi-box-arrow-in-right"></i> </button>
+            <button class="btn btn-buttom btn-custom me-1"  type="submit">  <i class="bi bi-person-fill"></i> </button>
 
 
-            
-              <div class="dropdown">
+         
+              <!-- <div class="dropdown">
   <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" data-bs-auto-close="outside">
   <i class="icon bi-person-fill"></i>
   </button>
@@ -76,7 +77,7 @@
 </div> 
 
 
-</button>
+</button> -->
 
               <button class="btn btn-buttom btn-custom"  type="submit"> <i class="icon bi-cart3"></i> </button>
             
