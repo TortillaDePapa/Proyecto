@@ -13,7 +13,7 @@ include_once 'Clases/ClaseProducto.php';
 </head>
 <body>
 
-<marquee><h1>hola cacho perra</h1></marquee>
+<marquee><h1> Pagina Admin</h1></marquee>
     <form action="" method="post" enctype="multipart/form-data" autocomplete="off" >
 
 
