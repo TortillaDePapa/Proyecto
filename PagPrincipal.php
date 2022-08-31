@@ -1,3 +1,9 @@
+<?php
+include_once 'Clases/ClasePersona.php';
+include_once 'Persistencia/ClasePersonaBD.php';
+
+?>
+
 <!doctype html>
 <html lang="es">
   <head>
@@ -21,7 +27,7 @@
   <body>
   <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
         <div class="container-fluid">
-          <a class="navbar-brand" href="#">AutoServicio</a>
+          <a class="navbar-brand" href="PaginaPrincipal.php">AutoServicio</a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
@@ -46,7 +52,11 @@
             
             <input class="form-control me-3" type="search" placeholder="Buscar" aria-label="Search" >
             <button class="btn btn-buttom btn-custom me-1 boton"  type="submit" > </button>
-            <button class="btn btn-buttom btn-custom me-1"  type="submit">  <i class="bi bi-box-arrow-in-right"></i> </button>
+
+            <form method="post" action="">
+           <button class="btn btn-buttom btn-custom me-1" name="CerrarSesion"  type="submit">  <i class="bi bi-box-arrow-in-right"></i> </button> 
+           </form>
+
            <a href="Perfil.php"> <button class="btn btn-buttom btn-custom me-1"  type="submit">  <i class="bi bi-person-fill"></i> </button></a>
 
          
@@ -292,4 +302,14 @@
 
 
 <?php 
+
+if(isset($_POST['CerrarSesion'])){
+
+  
+ 
+  // $p = new persona();
+  // $p1 = new personaBD();
+  // $p1 -> CerrarSesion($p);
+
+}
 ?>

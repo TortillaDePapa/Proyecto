@@ -74,11 +74,12 @@ Class PersonaBD extends Conexion{
         }
     }
 
-    
-    public function CerrarPersona(){
-        session_unset();
-        session_destroy();
-    }  
+//     public function CerrarSesion(){
+       
+// session_destroy() ;
+// header ("Location : index.php");
+
+//     }  
 }
 
 
