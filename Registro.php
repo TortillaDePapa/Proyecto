@@ -15,7 +15,7 @@ include_once 'Clases/ClasePersona.php';
 <body>
     <div class="Centrar">
         <h1>Registro</h1>
-            <form action="Registro.php" method="post">
+            <form action="Registro.php" method="post" autocomplete="off">
                 <div class="texto"> <input type="text" required name="usuario"> 
                     <span>
 

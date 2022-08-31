@@ -1,3 +1,8 @@
+<?php
+include_once 'Clases/ClaseProducto.php';
+include_once 'Persistencia/ClaseProductoBD.php';
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,7 +13,33 @@
 </head>
 <body>
 
+<marquee><h1>hola cacho perra</h1></marquee>
+    <form action="" method="post" enctype="multipart/form-data" autocomplete="off" >
 
-    <h1>Estas en la pagina del admin papa</h1>
+
+
+    
+    </form>
+
+    <?php
+    
+    if (isset($_POST['NewArticulo'])) {
+      $a = new Producto();
+      $a1 = new ProductoBD();
+
+      $a -> setCodBarra($_POST['CodBarra']);
+      $a -> setImagen($_FILES['Imagen']);
+      $a -> setSKU($_POST['SKU']);
+      $a -> setStock($_POST['Stock']);
+      $a -> setNombre($_POST['NombreProducto']);
+      $a -> setPrecio($_POST['PrecioProducto']);
+      $a -> setFechaVencimiento($_POST['FechaVencimiento']);
+      $a -> setNombreCategoria($_POST['Categoria']);
+      $a -> setUnidadDeMedida($_POST['UnidadDeMedida']);
+
+      $a1 -> CargarProducto($a);
+    }
+    
+    ?>
 </body>
 </html>

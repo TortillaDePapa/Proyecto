@@ -19,7 +19,7 @@ include_once 'Clases/ClaseUsuario.php';
         <h1>
             Login
         </h1>
-            <form action="Login.php" method="post">
+            <form action="Login.php" method="post" autocomplete="off">
                 <div class="texto"> <input type="text" name="usuario" required> 
                     <span>
 
