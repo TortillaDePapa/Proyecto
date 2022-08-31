@@ -67,7 +67,7 @@ body{
 
   .dropdown-toggle::after {
     
-    content: none ;
+    content: none !important;
     
 }
 
@@ -77,4 +77,17 @@ body{
   width: 40%;
 }
  
- 
+.local{
+
+  margin-top: 4.5px;
+
+}
+
+.bi::before{
+  vertical-align: -0.24em !important;
+}
+
+.nav-link {
+  color: whitesmoke !important;
+}
+
