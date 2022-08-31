@@ -1,6 +1,6 @@
 <?php
-include_once 'Clases/ClaseProducto.php';
 include_once 'Persistencia/ClaseProductoBD.php';
+include_once 'Clases/ClaseProducto.php';
 ?>
 
 <!DOCTYPE html>

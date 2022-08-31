@@ -47,7 +47,10 @@
             <input class="form-control me-3" type="search" placeholder="Buscar" aria-label="Search" >
             <button class="btn btn-buttom btn-custom me-1 boton"  type="submit" > </button>
             <button class="btn btn-buttom btn-custom me-1"  type="submit">  <i class="bi bi-box-arrow-in-right"></i> </button>
-           <a href="Perfil.php"> <button class="btn btn-buttom btn-custom me-1"  type="submit">  <i class="bi bi-person-fill"></i> </button></a>
+           <a href="Login.php">
+            
+            <button class="btn btn-buttom btn-custom me-1"  type="submit">  <i class="bi bi-person-fill"></i> </button>
+            </a>
 
          
               <!-- <div class="dropdown">

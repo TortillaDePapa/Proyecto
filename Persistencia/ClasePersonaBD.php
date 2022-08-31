@@ -7,11 +7,12 @@ Class PersonaBD extends Conexion{
  public function CargarPersona($Persona){
 
     if($Persona -> getContraseña() == $Persona -> getCContraseña()){
-        $sql = "SELECT * FROM personas WHERE Usuario = '".$Persona -> getUsuario()."'" ;//obtiene el usuario que ingreso el usuario 
+        $sql = "SELECT * FROM personas WHERE Usuario = '".$Persona -> getUsuario()."'";//obtiene el usuario que ingreso el usuario 
         $this -> Conectar();
         $resultado = mysqli_query($this -> conn,$sql);
         if(!$resultado -> num_rows > 0){ // se fija que no exista ya en la base de datos el usuario registrado en la BD
-            $sql1 = "INSERT INTO personas(Usuario,Contraseña,Nombre,Apellido,Gmail) VALUES('".$Persona -> getUsuario()."','".$Persona -> getContraseña()."','".$Persona -> getNombre()."','".$Persona -> getApellido()."','".$Persona -> getGmail()."')";
+        $sql1 = "INSERT INTO personas(Usuario,Contraseña,Nombre,Apellido,Gmail) VALUES('".$Persona -> getUsuario()."','".$Persona -> getContraseña()."','".$Persona -> getNombre()."','".$Persona -> getApellido()."','".$Persona -> getGmail()."')";     
+        
             $resultado1 = mysqli_query($this -> conn,$sql1);
             $sql3 = "SELECT idpersona FROM personas WHERE Usuario = '".$Persona -> getUsuario()."'" ;
 
@@ -60,9 +61,13 @@ Class PersonaBD extends Conexion{
             }
            
         }else{ 
-            $fila2 = mysqli_fetch_assoc($resultado);
-            $_SESSION["'".$Persona -> getUsuario()."'"] = $fila2["'".$Persona -> getUsuario()."'"];
-            header("Location: PagPrincipal.php");
+            $sql3 = "SELECT Nombre FROM personas WHERE Usuario = '".$Persona -> getUsuario()."'" ;
+            $resultado3 = mysqli_query($this -> conn, $sql3);
+            if ($resultado3) {
+                $_SESSION['CLIENTE'] = $resultado3;
+                header("Location: PagPrincipal.php");    
+            }
+            
             }
     }else{
             echo "<script>alert('Correo o contraseña incorrecta') </script>";
