@@ -62,7 +62,7 @@
     </nav> 
     
     <?php
-    echo "<h1>".$_SESSION['CLIENTE']."</h1>";
+
     
     ?>
 </body>
