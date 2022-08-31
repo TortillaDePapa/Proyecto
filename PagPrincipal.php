@@ -1,6 +1,8 @@
 <?php
 include_once 'Clases/ClasePersona.php';
 include_once 'Persistencia/ClasePersonaBD.php';
+include_once 'Persistencia/ClaseProductoBD.php';
+
 
 ?>
 
@@ -127,21 +129,31 @@ include_once 'Persistencia/ClasePersonaBD.php';
 </div>
 
 <p></p>
-      <div class="container text-center">
-        <div class="row">
-          <div class="col-lg-3 col-sd-12 col-margin" >
-            <div class="card" style="width: 100%">
-              <img src="https://geant.vteximg.com.br/arquivos/ids/292125-1000-1000/649007.jpg?v=637751072494400000" class="card-img-top" alt="...">
-              <div class="card-body">
-                <h5 class="card-title">Jabón de tocador</h5>
-                <hr>
-                <h4 class="card-title">$ 25</h4>
-                <p class="card-text">Jabon de YPE con aroma </p>
-                <button href="#" class="btn btn-primary btn-dark bg-dark"><i class="icon bi-cart3"></i> </button>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-3 col-sd-12 col-margin">
+<?php    
+
+$p = new ProductoBD();
+$ListarProductos = $p -> Listarproductos();
+
+for($i = 1; $i < count($ListarProductos); $i++){
+
+     echo " <div class='container text-center'>";
+     echo"   <div class='row'> ";
+     echo "    <div class='col-lg-3 col-sd-12 col-margin' >";
+     echo "     <div class='card' style='width: 100%'>";
+     echo "       <img src='imagenes/".$ListarProductos[$i] -> getImagen()."'>";
+     echo "        <div class='card-body'>";
+     echo "          <h5 class='card-title'>".$ListarProductos[$i] -> getNombre()."</h5>";
+     echo "          <hr>";
+     echo "          <h4 class='card-title'>"."$".$ListarProductos[$i] -> getPrecio(). "</h4>";
+     echo "          <p class='card-text'>   </p>";
+     echo "          <button href='carrito.php?id=".$ListarProductos[$i] -> getIdProducto()." 'class='btn btn-primary btn-dark bg-dark'><i class='icon bi-cart3'></i> </button>";
+     echo "       </div>";
+     echo "      </div>";
+     echo "   </div>";
+      }
+
+        ?>
+          <!-- <div class="col-lg-3 col-sd-12 col-margin">
             <div class="card" style="width: 100%">
               <img src="http://cdn.shopify.com/s/files/1/0513/2494/4593/products/nidoscololo500g-59.jpg?v=1644082599" class="card-img-top" alt="...">
               <div class="card-body">
@@ -226,7 +238,7 @@ include_once 'Persistencia/ClasePersonaBD.php';
             </div>
           </div>
         </div>
-      </div>
+      </div> -->
 
 
       <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
@@ -238,7 +250,7 @@ include_once 'Persistencia/ClasePersonaBD.php';
 </div>
 
 <p></p>
-      <div class="container text-center">
+      <!-- <div class="container text-center">
         <div class="row">
           <div class="col-lg-3 col-sd-12 col-margin" >
             <div class="card" style="width: 100%">
@@ -287,7 +299,7 @@ include_once 'Persistencia/ClasePersonaBD.php';
                 <a href="#" class="btn btn-primary btn-dark bg-dark">  <i class="icon bi-cart3"></i>  </a>
               </div>
             </div>
-          </div>
+          </div> -->
 
 
       

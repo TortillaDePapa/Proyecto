@@ -1,7 +1,7 @@
 <?php
 class Categoria{
 
-    private $NombreCategoria
+    private $NombreCategoria;
 
     public function getNombreCategoria()
     {
@@ -12,7 +12,7 @@ class Categoria{
     {
         $this->NombreCategoria = $NombreCategoria;
 
-        return $this;
+        
     }
 }
 

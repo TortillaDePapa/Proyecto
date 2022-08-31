@@ -1,19 +1,19 @@
 <?php
 
-class UniMedida{
+class Envasado{
 
-    private $UniMedida;
+    private $Envasado;
     private $Marca;
     private $TipoEnvase;
 
-    public function getUniMedida()
+    public function getEnvasado()
     {
-        return $this->UniMedida;
+        return $this->Envasado;
     }
 
-    public function setUniMedida($UniMedida)
+    public function setEnvasado($Envasado)
     {
-        $this->UniMedida = $UniMedida;
+        $this->Envasado = $Envasado;
 
     }
 

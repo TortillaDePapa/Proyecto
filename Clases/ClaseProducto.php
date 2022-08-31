@@ -2,6 +2,7 @@
 
 class Producto{
 
+     
     private $IDProducto;
     private $CodBarra;
     private $imagen;
