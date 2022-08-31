@@ -11,8 +11,6 @@ class Producto{
     private $Precio;
     private $FechaVencimiento;
     private $Estado;
-    private $NombreCategoria;
-    private $UnidadDeMedida;
     
     public function getIDProducto()
     {
@@ -113,27 +111,6 @@ class Producto{
 
     }
 
-    public function getNombreCategoria()
-    {
-        return $this->NombreCategoria;
-    }
- 
-    public function setNombreCategoria($NombreCategoria)
-    {
-        $this->NombreCategoria = $NombreCategoria;
-
-    }
-
-    public function getUnidadDeMedida()
-    {
-        return $this->UnidadDeMedida;
-    }
-
-    public function setUnidadDeMedida($UnidadDeMedida)
-    {
-        $this->UnidadDeMedida = $UnidadDeMedida;
-
-    }
 }
 
 
