@@ -130,7 +130,7 @@
                 <hr>
                 <h4 class="card-title">$ 25</h4>
                 <p class="card-text">Jabon de YPE con aroma </p>
-                <button href="#" class="btn btn-primary btn-dark bg-dark"><i class="icon bi-cart3"></i> </button>
+                <input type="submit" name="AgregarAlCarrito" class="btn btn-primary btn-dark bg-dark" value=""><i class="icon bi-cart3"></i> 
               </div>
             </div>
           </div>

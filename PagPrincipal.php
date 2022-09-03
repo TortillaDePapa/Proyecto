@@ -2,7 +2,7 @@
 include_once 'Clases/ClasePersona.php';
 include_once 'Persistencia/ClasePersonaBD.php';
 include_once 'Persistencia/ClaseProductoBD.php';
-
+session_start();
 
 ?>
 
@@ -59,9 +59,13 @@ include_once 'Persistencia/ClaseProductoBD.php';
             <form method="post" action="">
            <button class="btn btn-buttom btn-custom me-1" name="CerrarSesion"  type="submit">  <i class="bi bi-box-arrow-in-right"></i> </button> 
            </form>
-
-           <a href="Perfil.php"> <button class="btn btn-buttom btn-custom me-1"  type="submit">  <i class="bi bi-person-fill"></i> </button></a>
-
+            <?php
+            if(isset($_SESSION['CLIENTE'])){
+              echo"<a href='Perfil.php'> <button class='btn btn-buttom btn-custom me-1'  type='submit'>  <i class='bi bi-person-fill'></i> </button></a>";
+            }else{
+              echo"<a href='Login.php'> <button class='btn btn-buttom btn-custom me-1'  type='submit'>  <i class='bi bi-person-fill'></i> </button></a>";
+            }
+           ?>
          
               <!-- <div class="dropdown">
   <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" data-bs-auto-close="outside">
@@ -135,10 +139,9 @@ include_once 'Persistencia/ClaseProductoBD.php';
 $p = new ProductoBD();
 $ListarProductos = $p -> Listarproductos();
 
-for($i = 1; $i < count($ListarProductos); $i++){
-
+for($i = 1; $i < count($ListarProductos) && $i <8 ; $i++){
      echo " <div class='container text-center'>";
-     echo"   <div class='row'> ";
+     echo"   <div class='row file'> ";
      echo "    <div class='col-lg-3 col-sd-12 col-margin' >";
      echo "     <div class='card' style='width: 100%'>";
      echo "       <img src='imagenes/".$ListarProductos[$i] -> getImagen()."'>";
@@ -147,12 +150,13 @@ for($i = 1; $i < count($ListarProductos); $i++){
      echo "          <hr>";
      echo "          <h4 class='card-title'>"."$".$ListarProductos[$i] -> getPrecio(). "</h4>";
      echo "          <p class='card-text'>   </p>";
-     echo "          <button href='carrito.php?id=".$ListarProductos[$i] -> getIdProducto()." 'class='btn btn-primary btn-dark bg-dark'><i class='icon bi-cart3'></i> </button>";
+     echo "       <form action='' method='post'>   <input type='hidden' value=".$ListarProductos[$i] -> getIdProducto()." 'class='btn btn-primary btn-dark bg-dark' name='IDProducto'>";       
+     echo "          <input type='submit' name='Agregar' class='btn btn-primary btn-dark bg-dark' value='AGREGAR'> </form>";     
      echo "       </div>";
      echo "      </div>";
      echo "   </div>";
       }
-
+    
         ?>
           <!-- <div class="col-lg-3 col-sd-12 col-margin">
             <div class="card" style="width: 100%">
@@ -241,7 +245,6 @@ for($i = 1; $i < count($ListarProductos); $i++){
         </div>
       </div> -->
 
-
       <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
   <div class="carousel-inner">
     <div class="carousel-item active">
@@ -316,13 +319,5 @@ for($i = 1; $i < count($ListarProductos); $i++){
 
 <?php 
 
-if(isset($_POST['CerrarSesion'])){
 
-  
- 
-  // $p = new persona();
-  // $p1 = new personaBD();
-  // $p1 -> CerrarSesion($p);
-
-}
 ?>

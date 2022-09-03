@@ -10,7 +10,7 @@ Class PersonaBD extends Conexion{
         $sql = "SELECT * FROM personas WHERE Usuario = '".$Persona -> getUsuario()."'";//obtiene el usuario que ingreso el usuario 
         $this -> Conectar();
         $resultado = mysqli_query($this -> conn,$sql);
-        if(!$resultado -> num_rows > 0){ // se fija que no exista ya en la base de datos el usuario registrado en la BD
+        if(!$resultado -> num_rows > 0){ // se fija que no exista  el usuario registrado en la BD
         $sql1 = "INSERT INTO personas(Usuario,Contraseña,Nombre,Apellido,Gmail) VALUES('".$Persona -> getUsuario()."','".$Persona -> getContraseña()."','".$Persona -> getNombre()."','".$Persona -> getApellido()."','".$Persona -> getGmail()."')";     
         
             $resultado1 = mysqli_query($this -> conn,$sql1);
@@ -42,44 +42,26 @@ Class PersonaBD extends Conexion{
  }
 
  public function LoginPersona($Persona){
-    session_start();
      $sql = "SELECT * from personas where Usuario = '".$Persona -> getUsuario()."' AND Contraseña = '".$Persona -> getContraseña()."'";
     $this -> Conectar(); 
     $resultado = mysqli_query($this -> conn, $sql);
     if($resultado -> num_rows > 0){
         $sql1 = "SELECT idpersona FROM personas WHERE Usuario = '".$Persona -> getUsuario()."'" ;
-        $sql2 = "SELECT idusuario FROM usuario";
+        $sql2 = "SELECT * FROM usuario";
 
         $resultado1 = mysqli_query($this -> conn, $sql1);
         $resultado2 = mysqli_query($this -> conn, $sql2);
-        $fila = mysqli_fetch_assoc($resultado1);
-        $fila1 = mysqli_fetch_assoc($resultado2);
-        if ($fila['idpersona'] == $fila1['idusuario']){// se fija si los id del usuario que se mando sea un usuario o un cliente 
-            $_SESSION['Usuario'] = $fila1['idusuario'];
-            if ($_SESSION['Usuario'] =  true) {
+        if ($resultado2 == $resultado1){// se fija si los id que se mandaron son de un usuario o un cliente 
                 header("Location: PagPrincipalAdmin.php");
+            }else{ 
+                    header("Location: PagPrincipal.php");   
             }
-           
-        }else{ 
-            $sql3 = "SELECT Nombre FROM personas WHERE Usuario = '".$Persona -> getUsuario()."'" ;
-            $resultado3 = mysqli_query($this -> conn, $sql3);
-            if ($resultado3) {
-                $_SESSION['CLIENTE'] = $resultado3;
-                header("Location: PagPrincipal.php");    
-            }
-            
-            }
-    }else{
+        }else{
             echo "<script>alert('Correo o contraseña incorrecta') </script>";
         }
     }
+   
 
-//     public function CerrarSesion(){
-       
-// session_destroy() ;
-// header ("Location : index.php");
-
-//     }  
 }
 
 
