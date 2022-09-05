@@ -155,7 +155,7 @@ for($i = 1; $i < count($ListarProductos) && $i <8 ; $i++){
      echo "       </div>";
      echo "      </div>";
      echo "   </div>";
-      }
+      }z
     
         ?>
           <!-- <div class="col-lg-3 col-sd-12 col-margin">
