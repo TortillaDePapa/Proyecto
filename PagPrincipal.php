@@ -141,7 +141,7 @@ $ListarProductos = $p -> Listarproductos();
 
 for($i = 1; $i < count($ListarProductos) && $i <8 ; $i++){
      echo " <div class='container text-center'>";
-     echo"   <div class='row file'> ";
+     echo "   <div class='row file'> ";
      echo "    <div class='col-lg-3 col-sd-12 col-margin' >";
      echo "     <div class='card' style='width: 100%'>";
      echo "       <img src='imagenes/".$ListarProductos[$i] -> getImagen()."'>";
