@@ -4,6 +4,7 @@ include_once 'Persistencia/ClasePersonaBD.php';
 include_once 'Persistencia/ClaseProductoBD.php';
 session_start();
 
+
 ?>
 
 <!doctype html>
@@ -57,7 +58,7 @@ session_start();
             <button class="btn btn-buttom btn-custom me-1 boton"  type="submit" > </button>
 
             <form method="post" action="">
-           <button class="btn btn-buttom btn-custom me-1" name="CerrarSesion"  type="submit">  <i class="bi bi-box-arrow-in-right"></i> </button> 
+           <button class="btn btn-buttom btn-custom me-1" name="CerrarSesion"  type="submit" onclick="Cerrar();">  <i class="bi bi-box-arrow-in-right"></i> </button> 
            </form>
             <?php
             if(isset($_SESSION['CLIENTE'])){
@@ -135,6 +136,11 @@ session_start();
 
 <p></p>
 <?php    
+if(isset($_SESSION['CLIENTE'])){
+  echo $_SESSION['CLIENTE']-> getNombre();
+}else{
+echo "<script>  window.location.href = 'index.php';</script>";
+}
 
 $p = new ProductoBD();
 $ListarProductos = $p -> Listarproductos();
@@ -155,7 +161,7 @@ for($i = 1; $i < count($ListarProductos) && $i <8 ; $i++){
      echo "       </div>";
      echo "      </div>";
      echo "   </div>";
-      }z
+      }
     
         ?>
           <!-- <div class="col-lg-3 col-sd-12 col-margin">
@@ -309,7 +315,25 @@ for($i = 1; $i < count($ListarProductos) && $i <8 ; $i++){
       
 
 
-      
+<script>
+function Cerrar()
+{
+<?php
+ 
+    session_destroy();
+    header("Location: index.php");
+  
+?>
+
+}
+</script>
+
+
+
+
+
+
+</script>
       
   </body>
 </html>
@@ -318,6 +342,7 @@ for($i = 1; $i < count($ListarProductos) && $i <8 ; $i++){
 
 
 <?php 
+
 
 
 ?>

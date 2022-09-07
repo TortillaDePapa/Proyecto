@@ -64,7 +64,12 @@ Class PersonaBD extends Conexion{
             $sql3 = "SELECT Nombre FROM personas WHERE Usuario = '".$Persona -> getUsuario()."'" ;
             $resultado3 = mysqli_query($this -> conn, $sql3);
             if ($resultado3) {
-                $_SESSION['CLIENTE'] = $resultado3;
+                while ($row = $resultado3 -> fetch_assoc()) {
+                   $p = new Persona();
+                   $p -> setNombre($row['Nombre']);
+
+                }
+                $_SESSION['CLIENTE'] = $p;
                 header("Location: PagPrincipal.php");    
             }
             
@@ -73,6 +78,7 @@ Class PersonaBD extends Conexion{
             echo "<script>alert('Correo o contraseña incorrecta') </script>";
         }
     }
+
 
 }
 
