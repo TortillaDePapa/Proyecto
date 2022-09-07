@@ -122,7 +122,7 @@
 <p></p>
       <div class="container text-center">
         <div class="row">
-          <div class="col-lg-3 col-sd-12 col-margin" >
+          <div class="col-lg-3 col-sm-12 col-margin" >
             <div class="card" style="width: 100%">
               <img src="https://geant.vteximg.com.br/arquivos/ids/292125-1000-1000/649007.jpg?v=637751072494400000" class="card-img-top" alt="...">
               <div class="card-body">
@@ -134,7 +134,7 @@
               </div>
             </div>
           </div>
-          <div class="col-lg-3 col-sd-12 col-margin">
+          <div class="col-lg-3 col-sm-12 col-margin">
             <div class="card" style="width: 100%">
               <img src="http://cdn.shopify.com/s/files/1/0513/2494/4593/products/nidoscololo500g-59.jpg?v=1644082599" class="card-img-top" alt="...">
               <div class="card-body">
@@ -146,7 +146,7 @@
               </div>
             </div>
           </div>
-          <div class="col-lg-3 col-sd-12 col-margin">
+          <div class="col-lg-3 col-sm-12 col-margin">
             <div class="card" style="width: 100%">
               <img src="https://tatauy.vteximg.com.br/arquivos/ids/335998-1000-1000/Fideos-Para-Sopa-Adria-Tripolino-500-G-1-22780.jpg?v=637853097849870000" class="card-img-top" alt="...">
               <div class="card-body">
@@ -158,7 +158,7 @@
               </div>
             </div>
           </div>
-          <div class="col-lg-3 col-sd-12 col-margin">
+          <div class="col-lg-3 col-sm-12 col-margin">
             <div class="card" style="width: 100%">
               <img src="https://geant.vteximg.com.br/arquivos/ids/282193-1000-1000/631194.jpg?v=637656905481400000" class="card-img-top" alt="...">
               <div class="card-body">
@@ -170,7 +170,7 @@
               </div>
             </div>
           </div>
-          <div class="col-lg-3 col-sd-12 col-margin">
+          <div class="col-lg-3 col-sm-12 col-margin">
             <div class="card" style="width: 100%">
               <img src="https://geant.vteximg.com.br/arquivos/ids/258163-1000-1000/662432.jpg?v=637352490059830000" class="card-img-top" alt="...">
               <div class="card-body">
@@ -182,7 +182,7 @@
               </div>
             </div>
           </div>
-          <div class="col-lg-3 col-sd-12 col-margin">
+          <div class="col-lg-3 col-sm-12 col-margin">
             <div class="card" style="width: 100%">
               <img src="https://pbs.twimg.com/media/Dr0yXBNVsAAufY2.jpg" class="card-img-top" alt="...">
               <div class="card-body">
@@ -194,7 +194,7 @@
               </div>
             </div>
           </div>
-          <div class="col-lg-3 col-sd-12 col-margin">
+          <div class="col-lg-3 col-sm-12 col-margin">
             <div class="card" style="width: 100%">
               <img src="https://geant.vteximg.com.br/arquivos/ids/197199-1000-1000/704289.jpg?v=636343468025270000" class="card-img-top" alt="...">
               <div class="card-body">
@@ -206,7 +206,7 @@
               </div>
             </div>
           </div>
-          <div class="col-lg-3 col-sd-12 col-margin">
+          <div class="col-lg-3 col-sm-12 col-margin">
             <div class="card" style="width: 100%">
               <img src="https://geant.vteximg.com.br/arquivos/ids/287401-1000-1000/704860.jpg?v=637703322868370000" class="card-img-top" alt="...">
               <div class="card-body">

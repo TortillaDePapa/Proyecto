@@ -57,9 +57,9 @@ session_start();
             <input class="form-control me-3" type="search" placeholder="Buscar" aria-label="Search" >
             <button class="btn btn-buttom btn-custom me-1 boton"  type="submit" > </button>
 
-            <form method="post" action="">
+          
            <button class="btn btn-buttom btn-custom me-1" name="CerrarSesion"  type="submit" onclick="Cerrar();">  <i class="bi bi-box-arrow-in-right"></i> </button> 
-           </form>
+           
             <?php
             if(isset($_SESSION['CLIENTE'])){
               echo"<a href='Perfil.php'> <button class='btn btn-buttom btn-custom me-1'  type='submit'>  <i class='bi bi-person-fill'></i> </button></a>";
@@ -145,27 +145,21 @@ echo "<script>  window.location.href = 'index.php';</script>";
 $p = new ProductoBD();
 $ListarProductos = $p -> Listarproductos();
 
-for($i = 1; $i < count($ListarProductos) && $i <8 ; $i++){
-     echo " <div class='container text-center'>";
-     echo "   <div class='row file'> ";
-     echo "    <div class='col-lg-3 col-sd-12 col-margin' >";
-     echo "     <div class='card' style='width: 100%'>";
-     echo "       <img src='imagenes/".$ListarProductos[$i] -> getImagen()."'>";
-     echo "        <div class='card-body'>";
-     echo "          <h5 class='card-title'>".$ListarProductos[$i] -> getNombre()."</h5>";
-     echo "          <hr>";
-     echo "          <h4 class='card-title'>"."$".$ListarProductos[$i] -> getPrecio(). "</h4>";
-     echo "          <p class='card-text'>   </p>";
-     echo "       <form action='' method='post'>   <input type='hidden' value=".$ListarProductos[$i] -> getIdProducto()." 'class='btn btn-primary btn-dark bg-dark' name='IDProducto'>";       
-     echo "          <input type='submit' name='Agregar' class='btn btn-primary btn-dark bg-dark' value='AGREGAR'> </form>";     
-     echo "       </div>";
-     echo "      </div>";
-     echo "   </div>";
+echo "<div class='grid-container'>";
+
+for($i = 1; $i < count($ListarProductos) && $i <=8 ; $i++){
+
+  echo "<div>";
+  echo "<img src='imagenes/".$ListarProductos[$i] -> getImagen()."'alt='Image'>";
+  echo "<h4 class='nombre'".$ListarProductos[$i] -> getNombre()."</h4>";
+  echo "<h4 class='descripcion'".$ListarProductos[$i] -> getNombre()."</h4>";
+  
+ 
+
       }
-    
         ?>
-          <!-- <div class="col-lg-3 col-sd-12 col-margin">
-            <div class="card" style="width: 100%">
+        <!-- <div class="col-lg-3 col-sd-12 col-margin">
+          <div class="card" style="width: 100%">
               <img src="http://cdn.shopify.com/s/files/1/0513/2494/4593/products/nidoscololo500g-59.jpg?v=1644082599" class="card-img-top" alt="...">
               <div class="card-body">
                 <h5 class="card-title">Fideos nidos </h5>
@@ -320,19 +314,11 @@ function Cerrar()
 {
 <?php
  
-    session_destroy();
-    header("Location: index.php");
+   
   
 ?>
 
 }
-</script>
-
-
-
-
-
-
 </script>
       
   </body>

@@ -91,3 +91,12 @@ body{
   color: whitesmoke !important;
 }
 
+.container{
+  display: grid;
+  grid-template-columns: auto auto auto auto;
+  gap: 10px;
+  padding: 10px;
+  display: flex;
+  align-items: flex-end;
+}
+
