@@ -148,17 +148,19 @@ $ListarProductos = $p -> Listarproductos();
 echo "<div class='grid-container'>";
 
 for($i = 1; $i < count($ListarProductos) && $i <=8 ; $i++){
-
+  echo "<section class='card1'>";
   echo "<div>";
   echo "<img src='imagenes/".$ListarProductos[$i] -> getImagen()."'alt='Image'>";
   echo "<h4 class='nombre'".$ListarProductos[$i] -> getNombre()."</h4>";
   echo "<h4 class='descripcion'".$ListarProductos[$i] -> getNombre()."</h4>";
-  
- 
+  echo "</div>";
+  echo "</section>";
 
       }
+      
         ?>
-        <!-- <div class="col-lg-3 col-sd-12 col-margin">
+      
+      <!-- <div class="col-lg-3 col-sd-12 col-margin">
           <div class="card" style="width: 100%">
               <img src="http://cdn.shopify.com/s/files/1/0513/2494/4593/products/nidoscololo500g-59.jpg?v=1644082599" class="card-img-top" alt="...">
               <div class="card-body">

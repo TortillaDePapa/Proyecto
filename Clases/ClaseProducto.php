@@ -6,7 +6,7 @@ class Producto{
     private $IDProducto;
     private $CodBarra;
     private $imagen;
-    private $SKU;
+    private $Descripcion;
     private $Stock;
     private $Nombre;
     private $Precio;
@@ -43,17 +43,6 @@ class Producto{
     public function setImagen($imagen)
     {
         $this->imagen = $imagen;
-
-    }
-
-    public function getSKU()
-    {
-        return $this->SKU;
-    }
-
-    public function setSKU($SKU)
-    {
-        $this->SKU = $SKU;
 
     }
 
@@ -112,6 +101,17 @@ class Producto{
 
     }
 
+
+    public function getDescripcion()
+    {
+        return $this->Descripcion;
+    }
+
+    public function setDescripcion($Descripcion)
+    {
+        $this->Descripcion = $Descripcion;
+
+    }
 }
 
 
