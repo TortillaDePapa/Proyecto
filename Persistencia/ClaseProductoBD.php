@@ -7,21 +7,19 @@ include_once 'Clases/ClaseEnvasados.php';
     Class ProductoBD extends Conexion{
 
          public function CargarProducto($Producto){
-        //     $this -> Conectar();
-        //     $sql = "SELECT * FROM Productos WHERE CodigoBarra = '".$Producto -> getCodBarra()."'";
-        //     $resultado = mysqli_query($this -> conn, $sql);
-        //     if (!$result -> num_rows > 0) {
-        //             $sql2 = "INSERT INTO Envasados(UnidadMedida,Marca,Envase) VALUES('".$Producto -> getCodBarra()."',)"
-        //             $resultado1 = myslqi_query($this -> conn,$sql2);
-                    
-
-        //             $resultado2 = myslqi_query($this -> conn,$sql3);
-        //             $fila = fetch_assoc($resultado2);
-        //             if ($resultado2) {
-        //                 $sql4 =//"INSERT INTO productos(CodigoBarra,Imagen,Descripcion,Stock,Nombre,Precio,FechaVencimiento,Estado) VALUES('".$Producto -> getCodBarra()."','".$Producto -> getImagen()."','".$Producto -> getDescripcion()."','".$Producto -> getStock()."','".$Producto -> getNombre()."','".$Producto -> getPrecio()."','".$Producto -> getFechaVencimiento()."','1')";
-        //             }
-        //     }else {
-        //         echo"<script>alert('Codigo de barras ya existente')";
+        $this -> Conectar();
+        $sql = "SELECT * FROM Productos WHERE CodigoBarra = '".$Producto -> getCodBarra()."'";
+        $resultado = mysqli_query($this -> conn, $sql);
+            if (!$result -> num_rows > 0) {
+                $sql2 = "INSERT INTO Productos(CodigoBarra,Imagen,Stock,Nombre,Precio,FechaVencimiento,Estado,NombreCategoria,UnidadMedida) VALUES('".$Producto -> getCodBarra()."','".$Producto -> getImagen()."','".$Producto -> getStock()."','".$Producto -> getNombre()."','".$Producto -> getPrecio()."','".$Producto -> getDescripcion()."','".$Producto -> getFechaVencimiento()."','1','".$Producto -> getNombreCategoria()."','".$Producto -> getTipoEnvase()."')";
+                $resultado1 = myslqi_query($this -> conn,$sql2);
+                    if ($resultado1){
+                        echo"<script>alert('Nuevo articulo registrado correctamente')";
+                    }else{
+                        echo"<script>alert('Error al registrar el nuevo articulo')";
+                    }
+             }else {
+                echo"<script>alert('Codigo de barras ya existente')";
              }
         
 
@@ -67,7 +65,16 @@ include_once 'Clases/ClaseEnvasados.php';
         }
     }
 
-
+    public function EliminarProducto(){
+         $sql = "UPDATE Producto SET Estado = '0' where Codigobarra = '".$Producto -> getCodBarra()."'";
+         $this -> Conectar();
+         $resultado = mysqli_query($this -> conn, $sql);
+         if($resultado){
+            echo"<script>alert('Articulo eliminado con exito')";
+         }else{
+            echo"<script>alert('Error al eliminar el articulo')";
+         }
+    }
 
 
 ?>

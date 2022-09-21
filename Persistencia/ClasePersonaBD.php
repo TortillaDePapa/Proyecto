@@ -18,7 +18,7 @@ Class PersonaBD extends Conexion{
 
             $resultado3 = mysqli_query($this -> conn,$sql3);
             $fila = mysqli_fetch_assoc($resultado3);
-            if ($resultado3) { // valida resultado3
+            if ($resultado3) {
                 $sql2 = "INSERT INTO Clientes(idcliente, Calle, NumeroPuerta, Estado) VALUES('".$fila['idpersona']."', '".$Persona -> getNombreCalle()."','".$Persona -> getNumeroCasa()."', '1')";
                 $sql4 = "INSERT INTO TelefonoClientes(idcliente, Numero) VALUES('".$fila['idpersona']."','".$Persona -> getTelefono()[0]."')";
                 $resultado2 = mysqli_query($this -> conn,$sql2);
