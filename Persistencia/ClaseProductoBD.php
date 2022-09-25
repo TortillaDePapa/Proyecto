@@ -22,13 +22,6 @@ include_once 'Clases/ClaseEnvasados.php';
                 echo"<script>alert('Codigo de barras ya existente')";
              }
         
-
-
-
-        
-        
-        
-
        public function ListarProductos(){
             
             $sql = "SELECT * FROM productos";

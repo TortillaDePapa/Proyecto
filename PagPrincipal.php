@@ -145,7 +145,7 @@ echo "<script>  window.location.href = 'index.php';</script>";
 $p = new ProductoBD();
 $ListarProductos = $p -> Listarproductos();
 
-echo "<div class='grid-container'>";
+
 
 for($i = 1; $i < count($ListarProductos) && $i <=8 ; $i++){
   echo "<section class='card1'>";
