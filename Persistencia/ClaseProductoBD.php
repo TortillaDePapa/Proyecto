@@ -21,10 +21,10 @@ include_once 'Clases/ClaseEnvasados.php';
              }else {
                 echo"<script>alert('Codigo de barras ya existente')";
              }
-        
+            }
        public function ListarProductos(){
             
-            $sql = "SELECT * FROM productos";
+            $sql = "SELECT * FROM productos WHERE Estado ='1'";
             $this -> Conectar();
            $result = mysqli_query($this -> conn, $sql);
             
@@ -56,18 +56,19 @@ include_once 'Clases/ClaseEnvasados.php';
             }
         
         }
+        public function EliminarProducto(){
+            $sql = "UPDATE Producto SET Estado = '0' where Codigobarra = '".$Producto -> getCodBarra()."'";
+            $this -> Conectar();
+            $resultado = mysqli_query($this -> conn, $sql);
+            if($resultado){
+               echo"<script>alert('Articulo eliminado con exito')";
+            }else{
+               echo"<script>alert('Error al eliminar el articulo')";
+            }
+       }
+   
     }
 
-    public function EliminarProducto(){
-         $sql = "UPDATE Producto SET Estado = '0' where Codigobarra = '".$Producto -> getCodBarra()."'";
-         $this -> Conectar();
-         $resultado = mysqli_query($this -> conn, $sql);
-         if($resultado){
-            echo"<script>alert('Articulo eliminado con exito')";
-         }else{
-            echo"<script>alert('Error al eliminar el articulo')";
-         }
-    }
-
+ 
 
 ?>

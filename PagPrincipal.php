@@ -62,7 +62,16 @@ session_start();
            
             <?php
             if(isset($_SESSION['CLIENTE'])){
-              echo"<a href='Perfil.php'> <button class='btn btn-buttom btn-custom me-1'  type='submit'>  <i class='bi bi-person-fill'></i> </button></a>";
+            echo "<div class='dropdown'>";
+            echo "<button class='btn btn-secondary dropdown-toggle' type='button' data-bs-toggle='dropdown' aria-expanded='false'>";
+            echo "<i class='icon bi-person-fill'></i>";
+            echo " </button>";
+            echo "<ul class='dropdown-menu'>";
+            echo "<li><a class='dropdown-item NoSelect' href='#'>".$_SESSION['CLIENTE']-> getNombre()."</a></li>";
+            echo "<li><a class='dropdown-item' href='Perfil.php'>Perfil</a></li>";
+            echo "<li><a class='dropdown-item' href='#'>Cerrar session</a></li>";
+            echo "</ul>";
+            echo "</div>";
             }else{
               echo"<a href='Login.php'> <button class='btn btn-buttom btn-custom me-1'  type='submit'>  <i class='bi bi-person-fill'></i> </button></a>";
             }
@@ -136,11 +145,7 @@ session_start();
 
 <p></p>
 <?php    
-if(isset($_SESSION['CLIENTE'])){
-  echo $_SESSION['CLIENTE']-> getNombre();
-}else{
-echo "<script>  window.location.href = 'index.php';</script>";
-}
+
 
 $p = new ProductoBD();
 $ListarProductos = $p -> Listarproductos();

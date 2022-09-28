@@ -74,6 +74,12 @@ include_once 'Clases/ClaseEnvasados.php';
       $a1 -> CargarProducto($a,$a2,$a3);
     }
     
+    if(isset($_POST['EliminarProducto'])){
+        $a = new Producto();
+        $a1 = new ProductoBD();
+        $a -> setCodBarra($_POST['CodBarraEliminar']);        
+        $a1 -> EliminarProducto($a);
+      }
     ?>
 
    

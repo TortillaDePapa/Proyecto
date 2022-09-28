@@ -53,8 +53,6 @@ include_once 'Clases/ClaseUsuario.php';
     $p2 = new PersonaBD();
     $p -> setUsuario($_POST['usuario']);
     $p -> setContraseña(md5($_POST['contraseña']));
-
-
     $p2 -> LoginPersona($p,$p1);
 }
 ?>
