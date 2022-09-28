@@ -41,9 +41,30 @@ include_once 'Clases/ClaseEnvasados.php';
          <input type="text" name="NombreProducto">
          <h4>Precio del producto</h4>
          <input type="number" name="PrecioProducto">
-          CATEGORIAS DEBE DE DESPLEGAR LAS CATEGORIAS DISPONIBLES PARA LOS ARTICULOS 
-         <h4>Unidad de medida</h4>
-         <input type="text" name="UnidadDeMedida"> 
+         <?php    
+          $p = new ProductoBD();
+          $ListarCategorias = $p -> ObtenerCategorias();
+          echo "<h4>Categorias</h4>";
+          echo "<select name='' id=''>";
+          for($i = 1; $i < count($ListarCategorias); $i++){
+          
+            echo " <option value='' name='Categoria'>".$ListarCategorias[$i] -> getNombreCategoria()."</option>";
+            
+          }
+          echo "</select>";
+        ?>
+         <?php    
+          $p = new ProductoBD();
+          $ListarMedidas= $p -> ObtenerMedida();
+          echo "<h4>Unidad de medida</h4>";
+          echo "<select name='' id=''>";
+          for($i = 1; $i < count($ListarMedidas); $i++){
+          
+            echo " <option value=''>".$ListarMedidas[$i] -> getEnvasado()."</option>";
+            
+          }
+          echo "</select>";
+        ?>
          </div>
          <div class="contenedor">
          <input type="submit" name="NewArticulo" value="Agregar" class="btn-submit" >

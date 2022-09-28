@@ -66,7 +66,45 @@ include_once 'Clases/ClaseEnvasados.php';
                echo"<script>alert('Error al eliminar el articulo')";
             }
        }
+
+
+
+
+       public function ObtenerCategorias(){
+        $sql = "SELECT * from categorias";
+        $this -> Conectar();
+        $resultado = mysqli_query($this -> conn, $sql);
+
+        if($resultado -> num_rows > 0){
+            $ListarCategorias[] = new Categoria();
+            while($row = $resultado -> fetch_assoc()){
+                $p = new Categoria();
+                $p -> setNombreCategoria($row['NombreCategoria']);
+                $ListarCategorias [] = $p;
+            }
+            return $ListarCategorias;
+        }else{
+            return null;
+        }
+       }
    
+       public function ObtenerMedida(){
+        $sql = "SELECT UnidadMedida from envasados";
+        $this -> Conectar();
+        $resultado = mysqli_query($this -> conn, $sql);
+
+        if($resultado -> num_rows > 0){
+            $ListarMedidas[] = new Envasado();
+            while($row = $resultado -> fetch_assoc()){
+                $p = new Envasado();
+                $p -> setEnvasado($row['UnidadMedida']);
+                $ListarMedidas [] = $p;
+            }
+            return $ListarMedidas;
+        }else{
+            return null;
+        }
+       }
     }
 
  
