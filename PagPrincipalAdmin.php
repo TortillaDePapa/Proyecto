@@ -60,7 +60,7 @@ include_once 'Clases/ClaseEnvasados.php';
           echo "<select name='' id=''>";
           for($i = 1; $i < count($ListarMedidas); $i++){
           
-            echo " <option value=''>".$ListarMedidas[$i] -> getEnvasado()."</option>";
+            echo " <option value='' name='UnidadDeMedida'>".$ListarMedidas[$i] -> getEnvasado()."</option>";
             
           }
           echo "</select>";
