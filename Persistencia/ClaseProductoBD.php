@@ -67,9 +67,6 @@ include_once 'Clases/ClaseEnvasados.php';
             }
        }
 
-
-
-
        public function ObtenerCategorias(){
         $sql = "SELECT * from categorias";
         $this -> Conectar();

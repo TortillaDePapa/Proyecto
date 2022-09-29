@@ -58,7 +58,7 @@ session_start();
             <button class="btn btn-buttom btn-custom me-1 boton"  type="submit" > </button>
 
           
-           <button class="btn btn-buttom btn-custom me-1" name="CerrarSesion"  type="submit" onclick="Cerrar();">  <i class="bi bi-box-arrow-in-right"></i> </button> 
+           <button class="btn btn-buttom btn-custom me-1"  type="submit" onclick='Cerrar()'>  <i class="bi bi-box-arrow-in-right"></i> </button> 
            
             <?php
             if(isset($_SESSION['CLIENTE'])){
@@ -69,7 +69,7 @@ session_start();
             echo "<ul class='dropdown-menu'>";
             echo "<li><a class='dropdown-item NoSelect' href='#'>".$_SESSION['CLIENTE']-> getNombre()."</a></li>";
             echo "<li><a class='dropdown-item' href='Perfil.php'>Perfil</a></li>";
-            echo "<li><a class='dropdown-item' href='#'>Cerrar session</a></li>";
+            echo "<li><input type='submit' value='Cerrar sesion' name='CerrarSesion'></li>";
             echo "</ul>";
             echo "</div>";
             }else{
@@ -316,18 +316,18 @@ for($i = 1; $i < count($ListarProductos) && $i <=8 ; $i++){
       
 
 
-<script>
-function Cerrar()
-{
-<?php
- 
-   
-  
-?>
-
+          <script>
+function Cerrar(){
+  console.log('hola');
+var obAjax = new XMLHttpRequest();
+obAjax.open('POST','Persistencia/Control.php', true);
+obAjax.setRequestHeader('Content-Type','application/x-www-form-urlencoded');
+obAjax.onreadystatechange = function(){
+  window.location.reload();
+}
+obAjax.send('Cerrar');
 }
 </script>
-      
   </body>
 </html>
 
@@ -335,7 +335,9 @@ function Cerrar()
 
 
 <?php 
-
+if(!isset($_SESSION['CLIENTE'])){
+ header("Location: ndex.php");
+}
 
 
 ?>
