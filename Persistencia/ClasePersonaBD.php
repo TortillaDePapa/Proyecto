@@ -57,7 +57,8 @@ Class PersonaBD extends Conexion{
         if ($fila['idpersona'] == $fila1['idusuario']){// se fija si los id del usuario que se mando sea un usuario o un cliente 
             $_SESSION['Usuario'] = $fila1['idusuario'];
             if ($_SESSION['Usuario'] =  true) {
-                header("Location: PagPrincipalAdmin.php");
+                header("Location: Admin/frame.html");
+
             }
            
         }else{ 

@@ -62,15 +62,13 @@ session_start();
             <?php
             echo"<button class='btn btn-buttom btn-custom me-1'  type='submit' onclick='Cerrar()'>  <i class='bi bi-box-arrow-in-right'></i> </button>";          
            
-            if(isset($_SESSION['CLIENTE'])){
+            if(isset($_SESSION['CLIENTE']) or isset($_POST['ADMIN'])){
             echo "<div class='dropdown'>";
             echo "<button class='btn btn-buttom btn-secondary dropdown-toggle bg-dark' type='button' data-bs-toggle='dropdown' aria-expanded='false'>";
             echo "<i class='icon bi-person-fill'></i>";
             echo " </button>";
             echo "<ul class='dropdown-menu'>";
             echo "<li><a class='dropdown-item NoSelect' href='Perfil.php'>".$_SESSION['CLIENTE']-> getNombre()."</a></li>";
-            // echo "<li><a class='dropdown-item' href=''>Perfil</a></li>";
-            echo "<li><input type='submit' value='Cerrar sesion' name='CerrarSesion'></li>";
             echo "</ul>";
             echo "</div>";
             }else{
@@ -285,7 +283,6 @@ for($i = 1; $i < count($ListarProductos) && $i <=8 ; $i++){
 
   <script>
     function Cerrar(){
-          console.log('hola');
           var obAjax = new XMLHttpRequest();
           obAjax.open('POST','Persistencia/Control.php', true);
           obAjax.setRequestHeader('Content-Type','application/x-www-form-urlencoded');
