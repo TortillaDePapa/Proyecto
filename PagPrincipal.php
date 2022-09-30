@@ -58,12 +58,13 @@ session_start();
             <button class="btn btn-buttom btn-custom me-1 boton"  type="submit" > </button>
 
           
-           <button class="btn btn-buttom btn-custom me-1"  type="submit" onclick='Cerrar()'>  <i class="bi bi-box-arrow-in-right"></i> </button> 
            
             <?php
+            echo"<button class='btn btn-buttom btn-custom me-1'  type='submit' onclick='Cerrar()'>  <i class='bi bi-box-arrow-in-right'></i> </button>";          
+           
             if(isset($_SESSION['CLIENTE'])){
             echo "<div class='dropdown'>";
-            echo "<button class='btn btn-secondary dropdown-toggle' type='button' data-bs-toggle='dropdown' aria-expanded='false'>";
+            echo "<button class='btn btn-buttom btn-secondary dropdown-toggle bg-dark' type='button' data-bs-toggle='dropdown' aria-expanded='false'>";
             echo "<i class='icon bi-person-fill'></i>";
             echo " </button>";
             echo "<ul class='dropdown-menu'>";
@@ -75,51 +76,13 @@ session_start();
             }else{
               echo"<a href='Login.php'> <button class='btn btn-buttom btn-custom me-1'  type='submit'>  <i class='bi bi-person-fill'></i> </button></a>";
             }
-           ?>
-         
-              <!-- <div class="dropdown">
-  <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" data-bs-auto-close="outside">
-  <i class="icon bi-person-fill"></i>
-  </button>
-  <form class="dropdown-menu p-4" method="post" action="">
-    <div class="mb-3">
-      <label for="exampleDropdownFormEmail2" class="form-label">Email address</label>
-      <input type="email" class="form-control" id="exampleDropdownFormEmail2" placeholder="email@example.com">
-    </div>
-    <div class="mb-3">
-      <label for="exampleDropdownFormPassword2" class="form-label">Password</label>
-      <input type="password" class="form-control" id="exampleDropdownFormPassword2" placeholder="Password">
-    </div>
-    <div class="mb-3">
-      <div class="form-check">
-        <input type="checkbox" class="form-check-input" id="dropdownCheck2">
-        <label class="form-check-label" for="dropdownCheck2">
-          Remember me
-        </label>
-      </div>
-    </div>
-    <button type="submit" class="btn btn-primary">Sign in</button>
-  </form>
-</div> 
-
-
-</button> -->
-
-              <button class="btn btn-buttom btn-custom"  type="submit"> <i class="icon bi-cart3"></i> </button>
-            
+            echo "<button class='btn btn-buttom btn-custom'  type='submit'> <i class='icon bi-cart3'></i> </button>";
+           ?>      
           </div>
         </div>
       </nav> 
 
-
-
-
-  
-
-
-
-
-
+<!-- CARRUSEL -->
 
       <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
   <div class="carousel-inner">
@@ -144,6 +107,10 @@ session_start();
 </div>
 
 <p></p>
+
+<!-- CARRUSEL -->
+
+
 <?php    
 
 
