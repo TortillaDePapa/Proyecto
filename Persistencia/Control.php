@@ -3,7 +3,7 @@
 session_start();
 
 if(isset($_POST['Cerrar'])){
-    if(isset($_SESSION['CLIENTE'])){
+    if(isset($_SESSION['CLIENTE']) or isset($_SESSION['ADMIN'])){
         session_destroy();
        
     }

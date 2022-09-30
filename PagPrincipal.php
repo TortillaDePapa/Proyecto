@@ -62,7 +62,7 @@ session_start();
             <?php
             echo"<button class='btn btn-buttom btn-custom me-1'  type='submit' onclick='Cerrar()'>  <i class='bi bi-box-arrow-in-right'></i> </button>";          
            
-            if(isset($_SESSION['CLIENTE']) or isset($_POST['ADMIN'])){
+            if(isset($_SESSION['CLIENTE'])){
             echo "<div class='dropdown'>";
             echo "<button class='btn btn-buttom btn-secondary dropdown-toggle bg-dark' type='button' data-bs-toggle='dropdown' aria-expanded='false'>";
             echo "<i class='icon bi-person-fill'></i>";
@@ -72,8 +72,19 @@ session_start();
             echo "</ul>";
             echo "</div>";
             }else{
+              if(isset($_SESSION['ADMIN'])){
+              echo "<div class='dropdown'>";
+              echo "<button class='btn btn-buttom btn-secondary dropdown-toggle bg-dark' type='button' data-bs-toggle='dropdown' aria-expanded='false'>";
+              echo "<i class='icon bi-person-fill'></i>";
+              echo " </button>";
+              echo "<ul class='dropdown-menu'>";
+              echo "<li><a class='dropdown-item NoSelect' href='Perfil.php'>".$_SESSION['ADMIN']-> getNombre()."</a></li>";
+              echo "</ul>";
+              echo "</div>";
+            }else{
               echo"<a href='Login.php'> <button class='btn btn-buttom btn-custom me-1'  type='submit'>  <i class='bi bi-person-fill'></i> </button></a>";
             }
+          }
             echo "<button class='btn btn-buttom btn-custom'  type='submit'> <i class='icon bi-cart3'></i> </button>";
            ?>      
           </div>

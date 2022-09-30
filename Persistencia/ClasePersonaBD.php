@@ -55,12 +55,19 @@ Class PersonaBD extends Conexion{
         $fila = mysqli_fetch_assoc($resultado1);
         $fila1 = mysqli_fetch_assoc($resultado2);
         if ($fila['idpersona'] == $fila1['idusuario']){// se fija si los id del usuario que se mando sea un usuario o un cliente 
-            $_SESSION['Usuario'] = $fila1['idusuario'];
-            if ($_SESSION['Usuario'] =  true) {
-                header("Location: Admin/frame.html");
-
+            $sql4 = "SELECT * FROM personas WHERE Usuario = '".$Persona -> getUsuario()."'" ;
+            $resultado4 = mysqli_query($this -> conn, $sql4);
+            if ($resultado4) { 
+            while ($row = $resultado4 -> fetch_assoc()) {
+                $p1 = new Persona();
+                $p1 -> setNombre($row['Nombre']);
+                $p1 -> setApellido($row['Apellido']);
+            
             }
-           
+             $_SESSION['ADMIN'] = $p1;
+                header("Location: PagPrincipal.php");
+             }
+            
         }else{ 
             $sql3 = "SELECT Nombre FROM personas WHERE Usuario = '".$Persona -> getUsuario()."'" ;
             $resultado3 = mysqli_query($this -> conn, $sql3);
