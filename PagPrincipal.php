@@ -68,8 +68,8 @@ session_start();
             echo "<i class='icon bi-person-fill'></i>";
             echo " </button>";
             echo "<ul class='dropdown-menu'>";
-            echo "<li><a class='dropdown-item NoSelect' href='#'>".$_SESSION['CLIENTE']-> getNombre()."</a></li>";
-            echo "<li><a class='dropdown-item' href='Perfil.php'>Perfil</a></li>";
+            echo "<li><a class='dropdown-item NoSelect' href='Perfil.php'>".$_SESSION['CLIENTE']-> getNombre()."</a></li>";
+            // echo "<li><a class='dropdown-item' href=''>Perfil</a></li>";
             echo "<li><input type='submit' value='Cerrar sesion' name='CerrarSesion'></li>";
             echo "</ul>";
             echo "</div>";
@@ -283,17 +283,17 @@ for($i = 1; $i < count($ListarProductos) && $i <=8 ; $i++){
       
 
 
-          <script>
-function Cerrar(){
-  console.log('hola');
-var obAjax = new XMLHttpRequest();
-obAjax.open('POST','Persistencia/Control.php', true);
-obAjax.setRequestHeader('Content-Type','application/x-www-form-urlencoded');
-obAjax.onreadystatechange = function(){
-  window.location.reload();
-}
-obAjax.send('Cerrar');
-}
+  <script>
+    function Cerrar(){
+          console.log('hola');
+          var obAjax = new XMLHttpRequest();
+          obAjax.open('POST','Persistencia/Control.php', true);
+          obAjax.setRequestHeader('Content-Type','application/x-www-form-urlencoded');
+          obAjax.onreadystatechange = function(){
+          window.location.reload();
+          }
+        obAjax.send('Cerrar');
+    }
 </script>
   </body>
 </html>
@@ -302,9 +302,7 @@ obAjax.send('Cerrar');
 
 
 <?php 
-if(!isset($_SESSION['CLIENTE'])){
- header("Location: ndex.php");
-}
+  
 
 
 ?>
