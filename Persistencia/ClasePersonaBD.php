@@ -69,12 +69,16 @@ Class PersonaBD extends Conexion{
              }
             
         }else{ 
-            $sql3 = "SELECT Nombre FROM personas WHERE Usuario = '".$Persona -> getUsuario()."'" ;
+            $sql3 = "SELECT * FROM personas WHERE Usuario = '".$Persona -> getUsuario()."'" ;
             $resultado3 = mysqli_query($this -> conn, $sql3);
             if ($resultado3) {
                 while ($row = $resultado3 -> fetch_assoc()) {
                    $p = new Persona();
                    $p -> setNombre($row['Nombre']);
+                   $p -> setApellido($row['Apellido']);
+                   $p -> setUsuario($row['Usuario']);
+                   $p -> setContraseña($row['Contraseña']);
+                   
 
                 }
                 $_SESSION['CLIENTE'] = $p;
