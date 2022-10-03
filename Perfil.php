@@ -95,6 +95,13 @@ session_start();
     </div>
   </nav>
 
+  <?php
+  if(!isset($_SESSION['CLIENTE'])){
+    header("Location: PagPrincipal.php");
+  }
+  
+  ?>
+
 
 
  <!-- Formato Perfil -->
@@ -135,35 +142,36 @@ session_start();
               <div class="col-7">
                 
                 <div class="form-group row">
-                  <label for="usuario" class="col-4">usuario: </label>
-                  <div class="col-8">
-                    <input type="text" class="form-control" value="" placeholder="Atrox123" >
-                  </div>
-                  <br>
-                  <label for="usuario" class="col-4">Nombre: </label>
-                  <div class="col-8">
-                    <input type="text" class="form-control" value="" placeholder="Lucas" >
-                  </div>
-                  <br>
-                  <label for="usuario" class="col-4">Apellido: </label>
-                  <div class="col-8">
-                    <input type="text" class="form-control" value="" placeholder="Leguizamón" >
-                  </div>
-                  <br>
 
-                </div>
-                <div class="form-group row">
-                  <label for="email" class="col-4"> email: </label>
-                  <div class="col-8">
-                    <input type="text" class="form-control" value="" placeholder="lucas@gmail.com" >
-                  </div>
-                  <br>
-                </div>
-                <div class="form-group row">
-                  <label for="email" class="col-4"> numero: </label>
-                  <div class="col-8">
-                    <input type="text" class="form-control" value="" placeholder="numero" >
-                  </div>
+                <?php
+           echo"       <label for='usuario' class='col-4'></label>";
+           echo"       <div class='col-8'>";
+           echo"         <input type='hidden' class='form-control' value='".$_SESSION['CLIENTE'] -> getIDPersona()."' >";
+           echo"      </div>";
+           echo"       <label for='usuario' class='col-4'>usuario: </label>";
+           echo"       <div class='col-8'>";
+           echo"         <input type='text' class='form-control' value='".$_SESSION['CLIENTE'] -> getUsuario()."' placeholder='' disabled >";
+           echo"      </div>";
+           echo"      <br>";
+           echo"      <label for='usuario' class='col-4'>Nombre: </label> ";
+           echo"      <div class='col-8'>";
+           echo"         <input type='text' class='form-control' value='".$_SESSION['CLIENTE'] -> getNombre()."' placeholder='' disabled  >";
+           echo"      </div>";
+           echo"       <br>";
+           echo"       <label for='usuario' class='col-4'>Apellido: </label>";
+           echo"       <div class='col-8'> ";
+           echo"         <input type='text' class='form-control' value='".$_SESSION['CLIENTE'] -> getApellido()."' placeholder=''  disabled >";
+           echo"      </div>";
+           echo"       <br>";
+           echo"       <label for='usuario' class='col-4'>Telefono: </label>";
+           echo"       <div class='col-8'> ";
+           echo"         <input type='text' class='form-control' value='".$_SESSION['CLIENTE'] -> getTelefono()."' placeholder=''  disabled >";
+           echo"      </div>";
+           echo"       <br>";
+          
+
+                
+                  ?>
                  
                 </div>
                 <br>
@@ -267,7 +275,6 @@ session_start();
                 <br>
 
                 <div class="form-group text-center">
-                <input type="submit" value="Registrarse" name="registrar">
                   <button class="btn btn-info"  onclick="ActualizarDatos()">Actualizar</button>
 
                 </div>
@@ -313,6 +320,7 @@ session_start();
       obAjax.send('Cerrar');
     }
   </script>
+  
 </body>
 
 </html>
@@ -364,3 +372,18 @@ session_start();
 
           </div>
         </div> -->
+
+
+         <!-- </div>
+           <div class="form-group row">
+             <label for="email" class="col-4"> email: </label>
+             <div class="col-8">
+               <input type="text" class="form-control" value="" placeholder="lucas@gmail.com" >
+             </div>
+             <br>
+           </div>
+           <div class="form-group row">
+             <label for="email" class="col-4"> numero: </label>
+             <div class="col-8">
+               <input type="text" class="form-control" value="" placeholder="numero" >
+             </div>  -->

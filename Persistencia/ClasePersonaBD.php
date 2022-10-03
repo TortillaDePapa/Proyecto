@@ -78,9 +78,11 @@ Class PersonaBD extends Conexion{
                    $p -> setApellido($row['Apellido']);
                    $p -> setUsuario($row['Usuario']);
                    $p -> setContraseña($row['Contraseña']);
+                   $p -> setTelefono($row['Telefono']);
                    
 
                 }
+                
                 $_SESSION['CLIENTE'] = $p;
                 header("Location: PagPrincipal.php");    
             }
@@ -90,14 +92,7 @@ Class PersonaBD extends Conexion{
             echo "<script>alert('Correo o contraseña incorrecta') </script>";
         }
     }
+    
 
-    public function ModificarDatos($Persona){
-        $this-> Conectar();
-        $sql = "UPDATE Persona SET   "
     }
-
-
-}
-
-
 ?>
