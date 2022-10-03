@@ -61,6 +61,7 @@
 
         <input class="form-control me-3" type="search" placeholder="Buscar" aria-label="Search">
         <button class="btn btn-buttom btn-custom me-1 boton" type="submit"> </button>
+        
         <button class="btn btn-buttom btn-custom me-1" type="submit"> <i class="bi bi-box-arrow-in-right"></i> </button>
         <a href="Perfil.php"> <button class="btn btn-buttom btn-custom me-1" type="submit"> <i
               class="bi bi-person-fill"></i> </button></a>
@@ -105,7 +106,7 @@
             <div class="col-12">
               <div class="col-5">
                 <img class="img-thumbnail"
-                  src="https://w7.pngwing.com/pngs/811/233/png-transparent-computer-icons-user-login-desktop-others-blue-computer-prints.png"
+                  src="http://pm1.narvii.com/6880/0b2cc13eba0822a642b4d82d241bc695d59e310er1-400-400v2_uhq.jpg"
                   alt="">
 
               </div>
@@ -141,12 +142,13 @@
                   <div class="col-8">
                     <input type="text" class="form-control" value="" placeholder="numero" >
                   </div>
-                  <br>
+                 
                 </div>
+                <br>
                 <div class="form-group text-center">
-                
-                </div>
+                  <button class="btn btn-info"  > Eliminar </button>
 
+                </div>
 
 
               </div>
@@ -164,29 +166,86 @@
               
               <div class="col-7">
                 <div class="form-group row">
-                  <label for="codigo" class="col-4">codigo: </label>
+                  <label for="codigo" class="col-4">Usuario  </label>
                   <div class="col-8">
-                    <input type="text" class="form-control" value="00054DE">
+                    <input type="text" class="form-control" value="">
                   </div>
-                  <br>
                 </div>
-                <div class="form-group row">
-                  <label for="usuario" class="col-4">usuario: </label>
-                  <div class="col-8">
-                    <input type="text" class="form-control" value="Lucas">
-                  </div>
-                  <br>
 
-                </div>
+                <br>
                 <div class="form-group row">
-                  <label for="email" class="col-4">email: </label>
+                  <label for="usuario" class="col-4">Actual contraseña </label>
                   <div class="col-8">
-                    <input type="text" class="form-control" value="lucas@gmail.com">
+                    <input type="text" class="" value="">
                   </div>
-                  <br>
                 </div>
+
+                <br>
+                <div class="form-group row">
+                  <label for="email" class="col-4">Nueva contraseña </label>
+                  <div class="col-8">
+                    <input type="text" class="form-control" value="">
+                  </div>
+                </div>
+
+                <br>
+                
+                <div class="form-group row">
+                  <label for="email" class="col-4"> Nombre </label>
+                  <div class="col-8">
+                    <input type="text" class="form-control" value="">
+                  </div>
+                </div>
+
+                <br>
+
+                <div class="form-group row">
+                  <label for="email" class="col-4"> Apellido </label>
+                  <div class="col-8">
+                    <input type="text" class="form-control" value="">
+                  </div>
+                </div>
+
+                <br>
+
+                <div class="form-group row">
+                  <label for="email" class="col-4"> Gmail </label>
+                  <div class="col-8">
+                    <input type="text" class="form-control" value="">
+                  </div>
+                </div>
+                
+                <br>
+
+                <div class="form-group row">
+                  <label for="email" class="col-4"> Telefono </label>
+                  <div class="col-8">
+                    <input type="text" class="form-control" value="" >
+                  </div>
+                </div>
+
+                <br>
+
+                <div class="form-group row">
+                  <label for="email" class="col-4"> Calle </label>
+                  <div class="col-8">
+                    <input type="text" class="form-control" value="">
+                  </div>
+                </div>
+
+                <br>
+
+                <div class="form-group row">
+                  <label for="email" class="col-4"> Nro Puerta</label>
+                  <div class="col-8">
+                    <input type="text" class="form-control" value="">
+                  </div>
+                </div>
+
+                <br>
+
                 <div class="form-group text-center">
-                  <button class="btn btn-info">Actualizar</button>
+                  <button class="btn btn-info"  >Actualizar</button>
 
                 </div>
 
