@@ -79,7 +79,6 @@ Class PersonaBD extends Conexion{
                    $p -> setUsuario($row['Usuario']);
                    $p -> setContraseña($row['Contraseña']);
                    
-
                 }
                 $_SESSION['CLIENTE'] = $p;
                 header("Location: PagPrincipal.php");    
