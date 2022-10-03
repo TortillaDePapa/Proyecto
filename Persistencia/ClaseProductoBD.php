@@ -40,7 +40,7 @@ include_once 'Clases/ClaseEnvasados.php';
                     $p -> setIDProducto($row['IDProducto']);
                     $p -> setCodBarra($row['CodigoBarra']);
                     $p -> setImagen($row['Imagen']);
-                    $p -> setDescripcion($row['Descripcion']);
+                    // $p -> setDescripcion($row['Descripcion']);
                     $p -> setStock($row['Stock']);
                     $p -> setNombre($row['Nombre']);
                     $p -> setPrecio($row['Precio']);

@@ -129,48 +129,81 @@ session_start();
 
   <p></p>
 
-  <!-- CARRUSEL -->
+  <!-- CARDS -->
 
+<!-- <div class="container text-center">
+        <div class="row">
+          <div class="col-lg-3 col-sd-12 col-margin" >
+            <div class="card" style="width: 100%"> -->
 
-  <?php    
+  <!-- CARDS -->
 
+  <?php
 
-// $p = new ProductoBD();
-// $ListarProductos = $p -> Listarproductos();
+  $p = new ProductoBD();
+$ListarProductos = $p -> Listarproductos();
 
+for($i = 1; $i < count($ListarProductos); $i++){
 
+     echo " <div class='container text-center'>";
+     echo"   <div class='row'> ";
+     echo "    <div class='col-lg-4 col-sd-12 col-margin d-flex' >";
+     echo "     <div class='card' style='width: 100%'>";
+     echo "       <img src='imagenes/".$ListarProductos[$i] -> getImagen()."'>";
+     echo "        <div class='card-body'>";
+     echo "          <h5 class='card-title'>".$ListarProductos[$i] -> getNombre()."</h5>";
+     echo "          <hr>";
+     echo "          <h4 class='card-title'>"."$".$ListarProductos[$i] -> getPrecio(). "</h4>";
+     echo "          <p class='card-text'>   </p>";
+     echo "          <button href='carrito.php?id=".$ListarProductos[$i] -> getIdProducto()." 'class='btn btn-primary btn-dark bg-dark'><i class='icon bi-cart3'></i> </button>";
+     echo "       </div>";
+     echo "      </div>";
+     echo "   </div>";
 
-// for($i = 1; $i < count($ListarProductos) && $i <=8 ; $i++){
-//   echo "<section class='card1'>";
-//   echo "<div>";
-//   echo "<img src='imagenes/".$ListarProductos[$i] -> getImagen()."'alt='Image'>";
-//   echo "<h4 class='nombre'".$ListarProductos[$i] -> getNombre()."</h4>";
-//   echo "<h4 class='descripcion'".$ListarProductos[$i] -> getNombre()."</h4>";
-//   echo "</div>";
-//   echo "</section>";
+      }
 
-      // }
-      
         ?>
 
-  
-
-  <!-- <div class="col-lg-3 col-sd-12 col-margin">
-          <div class="card" style="width: 100%">
-              <img src="http://cdn.shopify.com/s/files/1/0513/2494/4593/products/nidoscololo500g-59.jpg?v=1644082599" class="card-img-top" alt="...">
-              <div class="card-body">
-                <h5 class="card-title">Fideos nidos </h5>
-                <hr>
-                <h4 class="card-title">$ 78</h4>
-                <p class="card-text">Fideos nidos Cololo 500g </p>
-                <a href="#" class="btn btn-primary btn-dark bg-dark"> <i class="icon bi-cart3"></i>     </a>
-              </div>
-            </div>
-          </div>
-          !-->
-
-
-
+        <div class="row">
+  <div class="col-lg-4 col-sd-12 col-margin" >
+    <div class="card" style="width: 100%">
+      <img src="https://melyplan.com.uy/wp-content/uploads/2021/07/Jabon-de-tocador-Luxo-Ype-Azul-800x800.png" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">Jabón de tocador</h5>
+        <hr>
+        <h4 class="card-title">$ 25</h4>
+        <p class="card-text">jabon de ultima generacion flor de owo olor </p>
+        <button href="#" class="btn btn-primary btn-dark bg-dark"><i class="bi bi-cart"></i> </button>
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-4 col-sd-12 col-margin">
+    <div class="card" style="width: 100%">
+      <img src="https://melyplan.com.uy/wp-content/uploads/2021/07/Jabon-de-tocador-Luxo-Ype-Azul-800x800.png" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">Jabón de tocador</h5>
+        <hr>
+        <h4 class="card-title">$ 25</h4>
+        <p class="card-text">jabon de ultima generacion flor de owo olor </p>
+        <a href="#" class="btn btn-primary"> <i class="bi bi-cart"></i>     </a>
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-4 col-sd-12 col-margin">
+    <div class="card" style="width: 100%">
+      <img src="https://melyplan.com.uy/wp-content/uploads/2021/07/Jabon-de-tocador-Luxo-Ype-Azul-800x800.png" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">Jabón de tocador</h5>
+        <hr>
+        <h4 class="card-title">$ 25</h4>
+        <p class="card-text">jabon de ultima generacion flor de owo olor </p>
+        <a href="#" class="btn btn-primary">  <i class="bi bi-cart"></i>    </a>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+          
 
 
   <script>
@@ -196,3 +229,4 @@ session_start();
 
 
 ?>
+
