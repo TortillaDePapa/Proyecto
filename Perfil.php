@@ -1,8 +1,11 @@
 <?php
-    session_start();
-    include_once 'Persistencia/ClasePersonaBD.php';
-    
-    ?>
+include_once 'Clases/ClasePersona.php';
+include_once 'Persistencia/ClasePersonaBD.php';
+include_once 'Persistencia/ClaseProductoBD.php';
+session_start();
+
+
+?>
 <!doctype html>
 <html lang="es">
 
@@ -57,18 +60,37 @@
             </ul>
           </li>
         </ul>
-
-
         <input class="form-control me-3" type="search" placeholder="Buscar" aria-label="Search">
         <button class="btn btn-buttom btn-custom me-1 boton" type="submit"> </button>
-        
-        <button class="btn btn-buttom btn-custom me-1" type="submit"> <i class="bi bi-box-arrow-in-right"></i> </button>
-        <a href="Perfil.php"> <button class="btn btn-buttom btn-custom me-1" type="submit"> <i
-              class="bi bi-person-fill"></i> </button></a>
 
-
-        <button class="btn btn-buttom btn-custom" type="submit"> <i class="icon bi-cart3"></i> </button>
-
+        <?php
+            echo"<button class='btn btn-buttom btn-custom me-1'  type='submit' onclick='Cerrar()'>  <i class='bi bi-box-arrow-in-right'></i> </button>";          
+           
+            if(isset($_SESSION['CLIENTE'])){
+            echo "<div class='dropdown'>";
+            echo "<button class='btn btn-buttom btn-secondary dropdown-toggle bg-dark' type='button' data-bs-toggle='dropdown' aria-expanded='false'>";
+            echo "<i class='icon bi-person-fill'></i>";
+            echo " </button>";
+            echo "<ul class='dropdown-menu'>";
+            echo "<li><a class='dropdown-item NoSelect' href='Perfil.php'>".$_SESSION['CLIENTE']-> getNombre()."</a></li>";
+            echo "</ul>";
+            echo "</div>";
+            }else{
+              if(isset($_SESSION['ADMIN'])){
+              echo "<div class='dropdown'>";
+              echo "<button class='btn btn-buttom btn-secondary dropdown-toggle bg-dark' type='button' data-bs-toggle='dropdown' aria-expanded='false'>";
+              echo "<i class='icon bi-person-fill'></i>";
+              echo " </button>";
+              echo "<ul class='dropdown-menu'>";
+              echo "<li><a class='dropdown-item NoSelect' href='Perfil.php'>".$_SESSION['ADMIN']-> getNombre()."</a></li>";
+              echo "</ul>";
+              echo "</div>";
+            }else{
+              echo"<a href='Login.php'> <button class='btn btn-buttom btn-custom me-1'  type='submit'>  <i class='bi bi-person-fill'></i> </button></a>";
+            }
+          }
+            echo "<button class='btn btn-buttom btn-custom'  type='submit'> <i class='icon bi-cart3'></i> </button>";
+           ?>
       </div>
     </div>
   </nav>
@@ -146,7 +168,7 @@
                 </div>
                 <br>
                 <div class="form-group text-center">
-                  <button class="btn btn-info"  > Eliminar </button>
+                  <button class="btn btn-info"  onclick="EliminarDatos()"> Eliminar </button>
 
                 </div>
 
@@ -184,7 +206,7 @@
                 <div class="form-group row">
                   <label for="email" class="col-4">Nueva contraseña </label>
                   <div class="col-8">
-                    <input type="text" class="form-control" value="">
+                    <input type="text" class="form-control" value="nombre">
                   </div>
                 </div>
 
@@ -245,7 +267,8 @@
                 <br>
 
                 <div class="form-group text-center">
-                  <button class="btn btn-info"  >Actualizar</button>
+                <input type="submit" value="Registrarse" name="registrar">
+                  <button class="btn btn-info"  onclick="ActualizarDatos()">Actualizar</button>
 
                 </div>
 
@@ -268,7 +291,28 @@
   </div>
           </div>
 
-
+          <script>
+    function Cerrar() {
+      var obAjax = new XMLHttpRequest();
+      obAjax.open('POST', 'Persistencia/Control.php', true);
+      obAjax.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+      obAjax.onreadystatechange = function () {
+        window.location.reload();
+      }
+      obAjax.send('Cerrar');
+    }
+  </script>
+            <script>
+    function EliminarDatos() {
+      var obAjax = new XMLHttpRequest();
+      obAjax.open('POST', 'Persistencia/Control.php', true);
+      obAjax.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+      obAjax.onreadystatechange = function () {
+        window.location.reload();
+      }
+      obAjax.send('Cerrar');
+    }
+  </script>
 </body>
 
 </html>

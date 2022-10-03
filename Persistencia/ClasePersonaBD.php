@@ -91,6 +91,11 @@ Class PersonaBD extends Conexion{
         }
     }
 
+    public function ModificarDatos($Persona){
+        $this-> Conectar();
+        $sql = "UPDATE Persona SET   "
+    }
+
 
 }
 

@@ -67,6 +67,12 @@ include_once 'Clases/ClaseEnvasados.php';
             }
        }
 
+       public function ModificarProducto(){
+           $this -> conectar();
+         
+        
+       }
+
        public function ObtenerCategorias(){
         $sql = "SELECT * from categorias";
         $this -> Conectar();
