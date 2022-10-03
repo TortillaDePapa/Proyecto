@@ -79,12 +79,16 @@
   <div class="container">
     <div class="row">
       <div class="col-md-12 offset-md-4">
+      <div class="col-12">
+              <div class="col-5">
 
         <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
           <li class="nav-item" role="presentation">
             <button class="nav-link bg-dark" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-profile"
               type="button" role="tab" aria-controls="pills-profile" aria-selected="false">Perfil</button>
+
           </li>
+   
           <li class="nav-item" role="presentation">
             <button class="nav-link bg-dark" id="pills-contact-tab" data-bs-toggle="pill" data-bs-target="#pills-contact"
               type="button" role="tab" aria-controls="pills-contact" aria-selected="false">Modificar datos</button>
@@ -106,31 +110,41 @@
 
               </div>
               <div class="col-7">
-                <div class="form-group row">
-                  <label for="codigo" class="col-4">codigo: </label>
-                  <div class="col-8">
-                    <input type="text" class="form-control" value="00054DE">
-                  </div>
-                  <br>
-                </div>
+                
                 <div class="form-group row">
                   <label for="usuario" class="col-4">usuario: </label>
                   <div class="col-8">
-                    <input type="text" class="form-control" value="Lucas">
+                    <input type="text" class="form-control" value="" placeholder="Atrox123" >
+                  </div>
+                  <br>
+                  <label for="usuario" class="col-4">Nombre: </label>
+                  <div class="col-8">
+                    <input type="text" class="form-control" value="" placeholder="Lucas" >
+                  </div>
+                  <br>
+                  <label for="usuario" class="col-4">Apellido: </label>
+                  <div class="col-8">
+                    <input type="text" class="form-control" value="" placeholder="Leguizamón" >
                   </div>
                   <br>
 
                 </div>
                 <div class="form-group row">
-                  <label for="email" class="col-4">email: </label>
+                  <label for="email" class="col-4"> email: </label>
                   <div class="col-8">
-                    <input type="text" class="form-control" value="lucas@gmail.com">
+                    <input type="text" class="form-control" value="" placeholder="lucas@gmail.com" >
+                  </div>
+                  <br>
+                </div>
+                <div class="form-group row">
+                  <label for="email" class="col-4"> numero: </label>
+                  <div class="col-8">
+                    <input type="text" class="form-control" value="" placeholder="numero" >
                   </div>
                   <br>
                 </div>
                 <div class="form-group text-center">
-                  <button class="btn btn-info">Actualizar</button>
-                  <button class="btn btn-danger">Actualizar</button>
+                
                 </div>
 
 
@@ -142,17 +156,12 @@
             </div>
           </div>
 
-              <!--  Contacto -->
+              <!--  Modificar -->
 
           <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab"
             tabindex="0">
             <div class="col-12">
-              <div class="col-5">
-                <img class="img-thumbnail"
-                  src="https://t3.ftcdn.net/jpg/02/50/27/14/360_F_250271442_s1JYQbkJXr4yypcZ2ZTk2xEqkTnE85Zr.jpg"
-                  alt="">
-
-              </div>
+              
               <div class="col-7">
                 <div class="form-group row">
                   <label for="codigo" class="col-4">codigo: </label>
@@ -178,7 +187,7 @@
                 </div>
                 <div class="form-group text-center">
                   <button class="btn btn-info">Actualizar</button>
-                  <button class="btn btn-danger">Actualizar</button>
+
                 </div>
 
 
@@ -196,6 +205,9 @@
       </div>
     </div>
   </div>
+
+  </div>
+          </div>
 
 
 </body>
