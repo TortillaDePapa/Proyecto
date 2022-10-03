@@ -2,6 +2,10 @@
 include_once 'Clases/ClasePersona.php';
 include_once 'Persistencia/ClasePersonaBD.php';
 include_once 'Persistencia/ClaseProductoBD.php';
+include_once 'Clases/ClaseCliente.php';
+
+
+
 session_start();
 
 
@@ -196,81 +200,71 @@ session_start();
               
               <div class="col-7">
                 <div class="form-group row">
-                  <label for="codigo" class="col-4">Usuario  </label>
-                  <div class="col-8">
-                    <input type="text" class="form-control" value="">
-                  </div>
-                </div>
 
-                <br>
-                <div class="form-group row">
-                  <label for="usuario" class="col-4">Actual contraseña </label>
-                  <div class="col-8">
-                    <input type="text" class="" value="">
-                  </div>
-                </div>
+                <?php
 
-                <br>
-                <div class="form-group row">
-                  <label for="email" class="col-4">Nueva contraseña </label>
-                  <div class="col-8">
-                    <input type="text" class="form-control" value="nombre">
-                  </div>
-                </div>
+              echo"       <label for='usuario' class='col-4'></label>";
+              echo"       <div class='col-8'>";
+              echo"         <input type='hidden' class='form-control' value='".$_SESSION['CLIENTE'] -> getIDPersona()."' >";
+              echo"      </div>";
 
-                <br>
-                
-                <div class="form-group row">
-                  <label for="email" class="col-4"> Nombre </label>
-                  <div class="col-8">
-                    <input type="text" class="form-control" value="">
-                  </div>
-                </div>
+              echo"    <label for='codigo' class='col-4'>Usuario:  </label>";
+              echo"    <div class='col-8'>";
+              echo"      <input type='text' class='form-control' value='".$_SESSION['CLIENTE'] -> getUsuario()."'>";
+              echo"    </div>";
+              echo"  </div>";
 
-                <br>
+              echo"    <label for='codigo' class='col-4'>Actual contraseña:  </label>";
+              echo"    <div class='col-8'>";
+              echo"      <input type='text' class='form-control' value=''>";
+              echo"    </div>";
+              echo"  </div>";
 
-                <div class="form-group row">
-                  <label for="email" class="col-4"> Apellido </label>
-                  <div class="col-8">
-                    <input type="text" class="form-control" value="">
-                  </div>
-                </div>
+              echo"    <label for='codigo' class='col-4'>Nueva contraseña:  </label>";
+              echo"    <div class='col-8'>";
+              echo"      <input type='text' class='form-control' value=''>";
+              echo"    </div>";
+              echo"  </div>";
 
-                <br>
+              echo"    <label for='codigo' class='col-4'>Nombre:  </label>";
+              echo"    <div class='col-8'>";
+              echo"      <input type='text' class='form-control' value='".$_SESSION['CLIENTE'] -> getNombre()."'>";
+              echo"    </div>";
+              echo"  </div>";
 
-                <div class="form-group row">
-                  <label for="email" class="col-4"> Gmail </label>
-                  <div class="col-8">
-                    <input type="text" class="form-control" value="">
-                  </div>
-                </div>
-                
-                <br>
+              echo"    <label for='codigo' class='col-4'>Apellido:  </label>";
+              echo"    <div class='col-8'>";
+              echo"      <input type='text' class='form-control' value='".$_SESSION['CLIENTE'] -> getApellido()."'>";
+              echo"    </div>";
+              echo"  </div>";
 
-                <div class="form-group row">
-                  <label for="email" class="col-4"> Telefono </label>
-                  <div class="col-8">
-                    <input type="text" class="form-control" value="" >
-                  </div>
-                </div>
+              echo"    <label for='codigo' class='col-4'>Gmail:  </label>";
+              echo"    <div class='col-8'>";
+              echo"      <input type='text' class='form-control' value='".$_SESSION['CLIENTE'] -> getGmail()."'>";
+              echo"    </div>";
+              echo"  </div>";
 
-                <br>
+              echo"    <label for='codigo' class='col-4'>Telefono:  </label>";
+              echo"    <div class='col-8'>";
+              echo"      <input type='text' class='form-control' value='".$_SESSION['CLIENTE'] -> getTelefono()."'>";
+              echo"    </div>";
+              echo"  </div>";
 
-                <div class="form-group row">
-                  <label for="email" class="col-4"> Calle </label>
-                  <div class="col-8">
-                    <input type="text" class="form-control" value="">
-                  </div>
-                </div>
+              echo"    <label for='codigo' class='col-4'>Calle:  </label>";
+              echo"    <div class='col-8'>";
+              echo"      <input type='text' class='form-control' value='".$_SESSION['CLIENTE'] -> getNombreCalle()."'>";
+              echo"    </div>";
+              echo"  </div>";
 
-                <br>
+              echo"    <label for='codigo' class='col-4'>Nro de casa:  </label>";
+              echo"    <div class='col-8'>";
+              echo"      <input type='text' class='form-control' value='".$_SESSION['CLIENTE'] -> getNumeroCasa()."'>";
+              echo"    </div>";
+              echo"  </div>";
 
-                <div class="form-group row">
-                  <label for="email" class="col-4"> Nro Puerta</label>
-                  <div class="col-8">
-                    <input type="text" class="form-control" value="">
-                  </div>
-                </div>
+              
+
+                ?>
 
                 <br>
 
