@@ -9,57 +9,64 @@ session_start();
 
 <!doctype html>
 <html lang="es">
-  <head>
 
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="CSS/principal.css">
+<head>
 
-     <!-- Icon Bootstrap CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="CSS/principal.css">
 
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    
-    <!-- Bootstrap JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-    <title>TITLE</title>
+  <!-- Icon Bootstrap CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+    crossorigin="anonymous"></script>
+  <title>TITLE</title>
 
 
-  </head>
-  <body>
+</head>
+
+<body>
   <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
-        <div class="container-fluid">
-          <a class="navbar-brand" href="PagPrincipal.php"> AutoServicio </a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-              <li class="nav-item">
-                <a class="nav-link active local" aria-current="page" href="Local.php">Local</a>
-              </li>
-              <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle me-2" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                  Categorias <i class="bi bi-list"></i>
-                </a>
-                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <li><a class="dropdown-item" href="#">Limpieza</a> </li>
-                  <!-- <li><hr class="dropdown-divider"></li> -->
-                  <li><a class="dropdown-item" href="#">Hogar</a></li>
-                  <li><a class="dropdown-item" href="#">Carniceria</a></li>
-                </ul>
-              </li>
+    <div class="container-fluid">
+      <a class="navbar-brand" href="PagPrincipal.php"> AutoServicio </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active local" aria-current="page" href="Local.php">Local</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle me-2" href="#" id="navbarDropdown" role="button"
+              data-bs-toggle="dropdown" aria-expanded="false">
+              Categorias <i class="bi bi-list"></i>
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <li><a class="dropdown-item" href="#">Limpieza</a> </li>
+              <!-- <li><hr class="dropdown-divider"></li> -->
+              <li><a class="dropdown-item" href="#">Hogar</a></li>
+              <li><a class="dropdown-item" href="#">Carniceria</a></li>
             </ul>
+          </li>
+        </ul>
 
-            
-            <input class="form-control me-3" type="search" placeholder="Buscar" aria-label="Search" >
-            <button class="btn btn-buttom btn-custom me-1 boton"  type="submit" > </button>
 
-          
-           
-            <?php
+        <input class="form-control me-3" type="search" placeholder="Buscar" aria-label="Search">
+        <button class="btn btn-buttom btn-custom me-1 boton" type="submit"> </button>
+
+
+
+        <?php
             echo"<button class='btn btn-buttom btn-custom me-1'  type='submit' onclick='Cerrar()'>  <i class='bi bi-box-arrow-in-right'></i> </button>";          
            
             if(isset($_SESSION['CLIENTE'])){
@@ -86,62 +93,69 @@ session_start();
             }
           }
             echo "<button class='btn btn-buttom btn-custom'  type='submit'> <i class='icon bi-cart3'></i> </button>";
-           ?>      
-          </div>
-        </div>
-      </nav> 
+           ?>
+      </div>
+    </div>
+  </nav>
 
-<!-- CARRUSEL -->
+  <!-- CARRUSEL -->
 
-      <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
-  <div class="carousel-inner">
-    <div class="carousel-item active">
-      <img src="https://tatauy.vteximg.com.br/arquivos/ids/443770/Banner1920x300-BombazosFDS-S5-Web.png?v=637965228057770000" class="d-block " alt="...">
+  <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img
+          src="https://tatauy.vteximg.com.br/arquivos/ids/443770/Banner1920x300-BombazosFDS-S5-Web.png?v=637965228057770000"
+          class="d-block " alt="...">
+      </div>
+      <div class="carousel-item ">
+        <img
+          src="https://tatauy.vteximg.com.br/arquivos/ids/438982/Banner-1920x300-Maquillaje-Home.png?v=637961759526630000"
+          class="d-block " alt="...">
+      </div>
+      <div class="carousel-item">
+        <img src="https://tatauy.vteximg.com.br/arquivos/ids/425475/Bimbo_1920x300.jpg?v=637950478713970000"
+          class="d-block " alt="...">
+      </div>
     </div>
-    <div class="carousel-item ">
-      <img src="https://tatauy.vteximg.com.br/arquivos/ids/438982/Banner-1920x300-Maquillaje-Home.png?v=637961759526630000" class="d-block " alt="...">
-    </div>
-    <div class="carousel-item">
-      <img src="https://tatauy.vteximg.com.br/arquivos/ids/425475/Bimbo_1920x300.jpg?v=637950478713970000" class="d-block " alt="...">
-    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
   </div>
-  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Previous</span>
-  </button>
-  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Next</span>
-  </button>
-</div>
 
-<p></p>
+  <p></p>
 
-<!-- CARRUSEL -->
+  <!-- CARRUSEL -->
 
 
-<?php    
+  <?php    
 
 
-$p = new ProductoBD();
-$ListarProductos = $p -> Listarproductos();
+// $p = new ProductoBD();
+// $ListarProductos = $p -> Listarproductos();
 
 
 
-for($i = 1; $i < count($ListarProductos) && $i <=8 ; $i++){
-  echo "<section class='card1'>";
-  echo "<div>";
-  echo "<img src='imagenes/".$ListarProductos[$i] -> getImagen()."'alt='Image'>";
-  echo "<h4 class='nombre'".$ListarProductos[$i] -> getNombre()."</h4>";
-  echo "<h4 class='descripcion'".$ListarProductos[$i] -> getNombre()."</h4>";
-  echo "</div>";
-  echo "</section>";
+// for($i = 1; $i < count($ListarProductos) && $i <=8 ; $i++){
+//   echo "<section class='card1'>";
+//   echo "<div>";
+//   echo "<img src='imagenes/".$ListarProductos[$i] -> getImagen()."'alt='Image'>";
+//   echo "<h4 class='nombre'".$ListarProductos[$i] -> getNombre()."</h4>";
+//   echo "<h4 class='descripcion'".$ListarProductos[$i] -> getNombre()."</h4>";
+//   echo "</div>";
+//   echo "</section>";
 
-      }
+      // }
       
         ?>
-      
-      <!-- <div class="col-lg-3 col-sd-12 col-margin">
+
+  
+
+  <!-- <div class="col-lg-3 col-sd-12 col-margin">
           <div class="card" style="width: 100%">
               <img src="http://cdn.shopify.com/s/files/1/0513/2494/4593/products/nidoscololo500g-59.jpg?v=1644082599" class="card-img-top" alt="...">
               <div class="card-body">
@@ -154,23 +168,24 @@ for($i = 1; $i < count($ListarProductos) && $i <=8 ; $i++){
             </div>
           </div>
           !-->
-         
 
-      
+
+
 
 
   <script>
-    function Cerrar(){
-          var obAjax = new XMLHttpRequest();
-          obAjax.open('POST','Persistencia/Control.php', true);
-          obAjax.setRequestHeader('Content-Type','application/x-www-form-urlencoded');
-          obAjax.onreadystatechange = function(){
-          window.location.reload();
-          }
-        obAjax.send('Cerrar');
+    function Cerrar() {
+      var obAjax = new XMLHttpRequest();
+      obAjax.open('POST', 'Persistencia/Control.php', true);
+      obAjax.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+      obAjax.onreadystatechange = function () {
+        window.location.reload();
+      }
+      obAjax.send('Cerrar');
     }
-</script>
-  </body>
+  </script>
+</body>
+
 </html>
 
 
