@@ -78,6 +78,7 @@ Class PersonaBD extends Conexion{
                    $p -> setApellido($row['Apellido']);
                    $p -> setUsuario($row['Usuario']);
                    $p -> setContraseña($row['Contraseña']);
+                   $p -> setGmail($row['Gmail'])
                    
                 }
                 $_SESSION['CLIENTE'] = $p;
