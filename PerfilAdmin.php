@@ -181,30 +181,7 @@ session_start();
         <input type="text" name="NombreProducto">
         <h4>Precio del producto</h4>
         <input type="number" name="PrecioProducto">
-        <?php    
-          $p = new ProductoBD();
-          $ListarCategorias = $p -> ObtenerCategorias();
-          echo "<h4>Categorias</h4>";
-          echo "<select name='Categoria' id=''>";
-          for($i = 1; $i < count($ListarCategorias); $i++){
-          
-            echo " <option value='' name=''>".$ListarCategorias[$i] -> getCategoria()."</option>";
-            
-          }
-          echo "</select>";
-        ?>
-         <?php    
-          $p = new ProductoBD();
-          $ListarMedidas= $p -> ObtenerMedida();
-          echo "<h4>Unidad de medida</h4>";
-          echo "<select name='UnidadDeMedida' id=''>";
-          for($i = 1; $i < count($ListarMedidas); $i++){
-          
-            echo " <option value='' name=''>".$ListarMedidas[$i] -> getEnvasado()."</option>";
-            
-          }
-          echo "</select>";
-        ?>
+        
         <p>
         <input type="Submit" value="Agregar" name="AgregarArticulo">
         </p>
@@ -255,18 +232,14 @@ if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg
   if (move_uploaded_file($_FILES["Imagen"]["tmp_name"], $archivoDestino)) {
     $a = new ProductoBD();
     $a1 = new Producto();
-    $a2 = new Categoria();
-    $a3 = new Envasado();
     $a1 -> setCodBarra($_POST['CodBarra']);
     $a1 -> setImagen(htmlspecialchars( basename( $_FILES["Imagen"]["name"])));
     $a1 -> setDescripcion($_POST['Descripcion']);
     $a1 -> setStock($_POST['Stock']);
     $a1 -> setNombre($_POST['NombreProducto']);
     $a1 -> setPrecio($_POST['PrecioProducto']);
-    $a2 -> setCategoria($_POST['Categoria']);
-    $a3 -> setEnvasado($_POST['UnidadDeMedida']);
 
-  $a -> CargarProducto($a1,$a2,$a3);
+  $a -> CargarProducto($a1);
   } else {
     echo "Lo sentimos, hubo un error al cargar su archivo.";
   }

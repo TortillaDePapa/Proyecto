@@ -6,7 +6,7 @@ include_once 'Clases/ClaseEnvasados.php';
 
     Class ProductoBD extends Conexion{
 
-         public function CargarProducto($Producto,$Categoria,$Envasado){
+         public function CargarProducto($Producto){
         $this -> Conectar();
         $sql = "SELECT * FROM Productos WHERE CodigoBarra = '".$Producto -> getCodBarra()."'";
         $resultado = mysqli_query($this -> conn, $sql);
