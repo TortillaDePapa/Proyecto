@@ -116,6 +116,8 @@ session_start();
         <div class="col-12">
           <div class="col-5">
 
+             <!--   boton de perfil -->
+
             <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
               <li class="nav-item" role="presentation">
                 <button class="nav-link bg-dark" id="pills-profile-tab" data-bs-toggle="pill"
@@ -124,21 +126,45 @@ session_start();
 
               </li>
 
+                 <!--   espacio en blanco -->
+
+
+              <li class="nav-item" role="presentation">
+                <button class="nav-link bg-light" id="" data-bs-toggle=""
+                  data-bs-target="" type="button" role="tab" aria-controls=""
+                  aria-selected="false" disabled></button>
+
+              </li>
+
+                 <!--   boton de modificar -->
+
+
               <li class="nav-item" role="presentation">
                 <button class="nav-link bg-dark" id="pills-contact-tab" data-bs-toggle="pill"
-                  data-bs-target="#pills-contact" type="button" role="tab" aria-controls="pills-contact"
+                  data-bs-target="#pills-contact1" type="button" role="tab" aria-controls="pills-contact"
                   aria-selected="false">Modificar datos</button>
               </li>
 
+                 <!--   espacio en blanco -->
+
               <li class="nav-item" role="presentation">
-                <button class="nav-link bg-dark" id="pills-delete-tab" data-bs-toggle="pill"
-                  data-bs-target="#pills-delete" type="button" role="tab" aria-controls="pills-delete"
-                  aria-selected="false">Eliminar cuenta</button>
+                <button class="nav-link bg-light" id="" data-bs-toggle=""
+                  data-bs-target="" type="button" role="tab" aria-controls=""
+                  aria-selected="false" disabled></button>
 
               </li>
-            </ul>
+                 <!--   boton de eliminar -->
 
-            <div class="tab-content" id="pills-tabContent">
+                 <li class="nav-item" role="presentation">
+                 <button class="nav-link bg-dark" id="pills-home-tab" 
+                 data-bs-toggle="pill" data-bs-target="#pills-home1" type="button" 
+                 role="tab" aria-controls="pills-home" aria-selected="false"> Eliminar cuenta</button>
+                </li>
+
+
+</ul>
+
+<div class="tab-content" id="pills-tabContent">
 
 
               <!--   Perfil -->
@@ -189,7 +215,6 @@ session_start();
                     </div>
                     <br>
                     <div class="form-group text-center">
-                      <button class="btn btn-info" onclick="EliminarDatos()"> Eliminar </button>
 
                     </div>
 
@@ -203,7 +228,7 @@ session_start();
 
               <!--  Modificar -->
 
-              <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab"
+              <div class="tab-pane fade" id="pills-contact1" role="tabpanel" aria-labelledby="pills-contact-tab"
                 tabindex="0">
                 <div class="col-12">
 
@@ -257,13 +282,13 @@ session_start();
 
               echo"    <label for='codigo' class='col-4'>Calle:  </label>";
               echo"    <div class='col-8'>";
-              echo"      <input type='text' class='form-control' value='".$_SESSION['CLIENTE'] -> getNombreCalle()."'>";
+              // echo"      <input type='text' class='form-control' value='".$_SESSION['CLIENTE'] -> getNombreCalle()."'>";
               echo"    </div>";
 
 
               echo"    <label for='codigo' class='col-4'>Nro de casa:  </label>";
               echo"    <div class='col-8'>";
-              echo"      <input type='text' class='form-control' value='".$_SESSION['CLIENTE'] -> getNumeroCasa()."'>";
+              // echo"      <input type='text' class='form-control' value='".$_SESSION['CLIENTE'] -> getNumeroCasa()."'>";
               echo"    </div>";
 
 
@@ -274,7 +299,7 @@ session_start();
                       <br>
 
                       <div class="form-group text-center">
-                        <button class="btn btn-info" onclick="ActualizarDatos()">Actualizar</button>
+                        <button class="btn btn-danger">Actualizar</button>
 
                       </div>
 
@@ -290,50 +315,34 @@ session_start();
               </div>
 
               <!--  Borrar -->
-              <div class="tab-pane fade" id="pills-delete" role="tabpanel" aria-labelledby="pills-delete-tab"
-                tabindex="0">
-                <div class="col-12">
+              <div class="tab-pane fade " id="pills-home1" role="tabpanel" aria-labelledby="pills-home-tab" >...</div>
+ <?php
+ 
+ echo"       <label for='usuario' class='col-4'></label>";
+ echo"       <div class='col-8'>";
+ echo"         <input type='hidden' class='form-control' value='".$_SESSION['CLIENTE'] -> getIDPersona()."' >";
+ echo"      </div>";
 
-                  <div class="col-7">
-                    <div class="form-group row">
+ echo"    <label for='codigo' class='col-4'>Usuario:  </label>";
+ echo"    <div class='col-8'>";
+ echo"      <input type='text' class='form-control' value=''>";
+ echo"    </div>";
 
-                      <?php
+ echo"    <label for='codigo' class='col-4'>Actual contraseña:  </label>";
+ echo"    <div class='col-8'>";
+ echo"      <input type='text' class='form-control' value=''>";
+ echo"    </div>";
 
-  echo"       <label for='usuario' class='col-4'></label>";
-  echo"       <div class='col-8'>";
-  echo"         <input type='hidden' class='form-control' value='".$_SESSION['CLIENTE'] -> getIDPersona()."' >";
-  echo"      </div>";
+ 
+ 
+ ?>
+           
+           <br>
 
-  echo"    <label for='codigo' class='col-4'>Usuario:  </label>";
-  echo"    <div class='col-8'>";
-  echo"      <input type='text' class='form-control' value='".$_SESSION['CLIENTE'] -> getUsuario()."'>";
-  echo"    </div>";
+<div class="form-group text-center">
+  <button class="btn btn-danger">Eliminar</button>
 
-
-  echo"    <label for='codigo' class='col-4'>Actual contraseña:  </label>";
-  echo"    <div class='col-8'>";
-  echo"      <input type='text' class='form-control' value=''>";
-  echo"    </div>";
-
-    ?>
-
-                      <br>
-
-                      <div class="form-group text-center">
-
-
-                      </div>
-
-
-
-                    </div>
-
-
-
-                  </div>
-                </div>
-
-              </div>
+</div>
 
 
             </div>

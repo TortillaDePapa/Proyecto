@@ -145,7 +145,7 @@ $ListarProductos = $p -> Listarproductos();
 
 for($i = 1; $i < count($ListarProductos); $i++){
 
-     echo " <div class='container text-center'>";
+     echo " <div class='container text-center flex-column'>";
      echo"   <div class='row'> ";
      echo "    <div class='col-lg-4 col-sd-12 col-margin d-flex' >";
      echo "     <div class='card' style='width: 100%'>";
