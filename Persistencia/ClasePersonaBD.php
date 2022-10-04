@@ -80,6 +80,7 @@ Class PersonaBD extends Conexion{
                    $p -> setContraseña($row['Contraseña']);
                    $p -> setGmail($row['Gmail']);
                    
+                   
                 }
                 $_SESSION['CLIENTE'] = $p;
                 header("Location: PagPrincipal.php");    

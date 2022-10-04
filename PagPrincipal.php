@@ -73,6 +73,9 @@ session_start();
             echo "<div class='dropdown'>";
             echo "<button class='btn btn-buttom btn-secondary dropdown-toggle bg-dark' type='button' data-bs-toggle='dropdown' aria-expanded='false'>";
             echo "<i class='icon bi-person-fill'></i>";
+            echo "<span class='position-absolute top-1 start-95 translate-middle p-1 bg-success border border-light rounded-circle'>";
+            echo" <span class='visually-hidden'>New alerts</span> ";
+            echo" </span>";
             echo " </button>";
             echo "<ul class='dropdown-menu'>";
             echo "<li><a class='dropdown-item NoSelect' href='Perfil.php'>".$_SESSION['CLIENTE']-> getNombre()."</a></li>";
@@ -92,7 +95,11 @@ session_start();
               echo"<a href='Login.php'> <button class='btn btn-buttom btn-custom me-1'  type='submit'>  <i class='bi bi-person-fill'></i> </button></a>";
             }
           }
-            echo "<button class='btn btn-buttom btn-custom'  type='submit'> <i class='icon bi-cart3'></i> </button>";
+            echo "<button class='btn btn-buttom btn-custom btn-xs'  type='submit'> <i class='icon bi-cart3'></i> </button>";
+            // echo "<span class='position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger'>";
+            // echo " 9+ ";
+            // echo " <span class='visually-hidden'>unread messages</span> ";
+            // echo " </span> ";
            ?>
       </div>
     </div>
@@ -140,14 +147,18 @@ session_start();
 
   <?php
 
-  $p = new ProductoBD();
+
+
+$p = new ProductoBD();
 $ListarProductos = $p -> Listarproductos();
 
-for($i = 1; $i < count($ListarProductos); $i++){
 
-     echo " <div class='container text-center flex-column'>";
+
+     echo " <div class='container text-center'>";
      echo"   <div class='row'> ";
-     echo "    <div class='col-lg-4 col-sd-12 col-margin d-flex' >";
+     for($i = 1; $i < count($ListarProductos); $i++){
+
+     echo "    <div class='col-lg-3 col-sd-12 col-margin' >";
      echo "     <div class='card' style='width: 100%'>";
      echo "       <img src='imagenes/".$ListarProductos[$i] -> getImagen()."'>";
      echo "        <div class='card-body'>";
@@ -159,53 +170,11 @@ for($i = 1; $i < count($ListarProductos); $i++){
      echo "       </div>";
      echo "      </div>";
      echo "   </div>";
-
       }
 
         ?>
 
-        <div class="row">
-  <div class="col-lg-4 col-sd-12 col-margin" >
-    <div class="card" style="width: 100%">
-      <img src="https://melyplan.com.uy/wp-content/uploads/2021/07/Jabon-de-tocador-Luxo-Ype-Azul-800x800.png" class="card-img-top" alt="...">
-      <div class="card-body">
-        <h5 class="card-title">Jabón de tocador</h5>
-        <hr>
-        <h4 class="card-title">$ 25</h4>
-        <p class="card-text">jabon de ultima generacion flor de owo olor </p>
-        <button href="#" class="btn btn-primary btn-dark bg-dark"><i class="bi bi-cart"></i> </button>
-      </div>
-    </div>
-  </div>
-  <div class="col-lg-4 col-sd-12 col-margin">
-    <div class="card" style="width: 100%">
-      <img src="https://melyplan.com.uy/wp-content/uploads/2021/07/Jabon-de-tocador-Luxo-Ype-Azul-800x800.png" class="card-img-top" alt="...">
-      <div class="card-body">
-        <h5 class="card-title">Jabón de tocador</h5>
-        <hr>
-        <h4 class="card-title">$ 25</h4>
-        <p class="card-text">jabon de ultima generacion flor de owo olor </p>
-        <a href="#" class="btn btn-primary"> <i class="bi bi-cart"></i>     </a>
-      </div>
-    </div>
-  </div>
-  <div class="col-lg-4 col-sd-12 col-margin">
-    <div class="card" style="width: 100%">
-      <img src="https://melyplan.com.uy/wp-content/uploads/2021/07/Jabon-de-tocador-Luxo-Ype-Azul-800x800.png" class="card-img-top" alt="...">
-      <div class="card-body">
-        <h5 class="card-title">Jabón de tocador</h5>
-        <hr>
-        <h4 class="card-title">$ 25</h4>
-        <p class="card-text">jabon de ultima generacion flor de owo olor </p>
-        <a href="#" class="btn btn-primary">  <i class="bi bi-cart"></i>    </a>
-      </div>
-    </div>
-  </div>
-</div>
-</div>
-          
-
-
+      
   <script>
     function Cerrar() {
       var obAjax = new XMLHttpRequest();

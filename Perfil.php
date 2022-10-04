@@ -74,6 +74,9 @@ session_start();
             echo "<div class='dropdown'>";
             echo "<button class='btn btn-buttom btn-secondary dropdown-toggle bg-dark' type='button' data-bs-toggle='dropdown' aria-expanded='false'>";
             echo "<i class='icon bi-person-fill'></i>";
+            echo "<span class='position-absolute top-1 start-95 translate-middle p-1 bg-success border border-light rounded-circle'>";
+            echo" <span class='visually-hidden'>New alerts</span> ";
+            echo" </span>";
             echo " </button>";
             echo "<ul class='dropdown-menu'>";
             echo "<li><a class='dropdown-item NoSelect' href='Perfil.php'>".$_SESSION['CLIENTE']-> getNombre()."</a></li>";
@@ -228,8 +231,8 @@ session_start();
 
               <!--  Modificar -->
 
-              <div class="tab-pane fade" id="pills-contact1" role="tabpanel" aria-labelledby="pills-contact-tab"
-                tabindex="0">
+              <div class="tab-pane fade" id="pills-contact1" role="tabpanel" aria-labelledby="pills-contact-tab" tabindex="0">
+
                 <div class="col-12">
 
                   <div class="col-7">
@@ -315,7 +318,14 @@ session_start();
               </div>
 
               <!--  Borrar -->
-              <div class="tab-pane fade " id="pills-home1" role="tabpanel" aria-labelledby="pills-home-tab" >...</div>
+              
+            <div class="tab-pane fade " id="pills-home1" role="tabpanel" aria-labelledby="pills-home-tab"   >
+
+              <div class="col-12">
+
+                <div class="col-7">
+                  <div class="form-group row">
+          
  <?php
  
  echo"       <label for='usuario' class='col-4'></label>";
@@ -328,11 +338,10 @@ session_start();
  echo"      <input type='text' class='form-control' value=''>";
  echo"    </div>";
 
- echo"    <label for='codigo' class='col-4'>Actual contraseña:  </label>";
+ echo"    <label for='codigo' class='col-4'>Contraseña:  </label>";
  echo"    <div class='col-8'>";
  echo"      <input type='text' class='form-control' value=''>";
  echo"    </div>";
-
  
  
  ?>
@@ -344,7 +353,10 @@ session_start();
 
 </div>
 
-
+</div>
+</div>
+</div>
+</div>
             </div>
           </div>
         </div>
