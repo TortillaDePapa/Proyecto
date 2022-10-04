@@ -59,12 +59,12 @@ Class PersonaBD extends Conexion{
             $resultado4 = mysqli_query($this -> conn, $sql4);
             if ($resultado4) { 
             while ($row = $resultado4 -> fetch_assoc()) {
-                $p1 = new Persona();
-                $p1 -> setNombre($row['Nombre']);
-                $p1 -> setApellido($row['Apellido']);
+                $a = new Persona();
+                $a -> setNombre($row['Nombre']);
+                $a -> setApellido($row['Apellido']);
             
             }
-             $_SESSION['ADMIN'] = $p1;
+             $_SESSION['ADMIN'] = $a;
                 header("Location: PagPrincipal.php");
              }
             

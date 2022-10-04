@@ -375,17 +375,6 @@ session_start();
       obAjax.send('Cerrar');
     }
   </script>
-            <script>
-    function EliminarDatos() {
-      var obAjax = new XMLHttpRequest();
-      obAjax.open('POST', 'Persistencia/Control.php', true);
-      obAjax.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-      obAjax.onreadystatechange = function () {
-        window.location.reload();
-      }
-      obAjax.send('Cerrar');
-    }
-  </script>
 
 <?php
 if(isset($_POST['Eliminar'])){
