@@ -324,7 +324,7 @@ session_start();
               <div class="col-12">
 
                 <div class="col-7">
-                  <div class="form-group row">
+                  
           
  <?php
  
@@ -353,7 +353,7 @@ session_start();
 
 </div>
 
-</div>
+
 </div>
 </div>
 </div>
