@@ -1,16 +1,16 @@
 <?php
 class Categoria{
 
-    private $NombreCategoria;
+    private $Categoria;
 
-    public function getNombreCategoria()
+    public function getCategoria()
     {
-        return $this->NombreCategoria;
+        return $this->Categoria;
     }
 
-    public function setNombreCategoria($NombreCategoria)
+    public function setCategoria($Categoria)
     {
-        $this->NombreCategoria = $NombreCategoria;
+        $this->Categoria = $Categoria;
 
         
     }

@@ -2,6 +2,7 @@
 include_once 'Conexion.php';
 include_once 'Clases/ClasePersona.php';
 
+
 Class PersonaBD extends Conexion{
 
  public function CargarPersona($Persona){
@@ -82,7 +83,7 @@ Class PersonaBD extends Conexion{
                    
                    
                 }
-                $_SESSION['CLIENTE'] = $p;
+                $_SESSION['CLIENTE'][] = $p;
                 header("Location: PagPrincipal.php");    
             }
             

@@ -6,13 +6,13 @@ include_once 'Clases/ClaseEnvasados.php';
 
     Class ProductoBD extends Conexion{
 
-         public function CargarProducto($Producto){
+         public function CargarProducto($Producto,$Categoria,$Envasado){
         $this -> Conectar();
         $sql = "SELECT * FROM Productos WHERE CodigoBarra = '".$Producto -> getCodBarra()."'";
         $resultado = mysqli_query($this -> conn, $sql);
-            if (!$result -> num_rows > 0) {
-                $sql2 = "INSERT INTO Productos(CodigoBarra,Imagen,Stock,Nombre,Precio,FechaVencimiento,Estado,NombreCategoria,UnidadMedida) VALUES('".$Producto -> getCodBarra()."','".$Producto -> getImagen()."','".$Producto -> getStock()."','".$Producto -> getNombre()."','".$Producto -> getPrecio()."','".$Producto -> getDescripcion()."','".$Producto -> getFechaVencimiento()."','1','".$Producto -> getNombreCategoria()."','".$Producto -> getTipoEnvase()."')";
-                $resultado1 = myslqi_query($this -> conn,$sql2);
+            if (!$resultado -> num_rows > 0) {
+                $sql2 = "INSERT INTO Productos(CodigoBarra,Imagen,Stock,Nombre,Precio,Estado,Descripcion) VALUES('".$Producto -> getCodBarra()."','".$Producto -> getImagen()."','".$Producto -> getStock()."','".$Producto -> getNombre()."','".$Producto -> getPrecio()."','1','".$Producto -> getDescripcion()."')";
+                $resultado1 = mysqli_query($this -> conn, $sql2);
                     if ($resultado1){
                         echo"<script>alert('Nuevo articulo registrado correctamente')";
                     }else{
@@ -44,9 +44,8 @@ include_once 'Clases/ClaseEnvasados.php';
                     $p -> setStock($row['Stock']);
                     $p -> setNombre($row['Nombre']);
                     $p -> setPrecio($row['Precio']);
-                    $p -> setFechaVencimiento($row['FechaVencimiento']);
                     $p -> setEstado($row['Estado']);
-                    $p1 -> setNombreCategoria($row['NombreCategoria']);
+                    $p1 -> setCategoria($row['NombreCategoria']);
                     $p2 -> setEnvasado($row['UnidadMedida']);
                     $ListarProductos [] = $p;
                 }
@@ -82,7 +81,7 @@ include_once 'Clases/ClaseEnvasados.php';
             $ListarCategorias[] = new Categoria();
             while($row = $resultado -> fetch_assoc()){
                 $p = new Categoria();
-                $p -> setNombreCategoria($row['NombreCategoria']);
+                $p -> setCategoria($row['NombreCategoria']);
                 $ListarCategorias [] = $p;
             }
             return $ListarCategorias;
