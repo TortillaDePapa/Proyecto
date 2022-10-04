@@ -10,6 +10,7 @@ class Persona
     private $Apellido;
     private $Telefono;
     private $Gmail;
+    private $Estado;
     
     
     public function getIDPersona()
@@ -99,6 +100,18 @@ class Persona
         $this->Gmail = $Gmail;
 
     }
+
+    public function getEstado()
+    {
+        return $this->Estado;
+    }
+
+    public function setEstado($Estado)
+    {
+        $this->Estado = $Estado;
+
+    }
+
 }
 
 ?>

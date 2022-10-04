@@ -325,7 +325,7 @@ session_start();
 
                 <div class="col-7">
                   
-          
+          <form action="" method="post">
  <?php
  
  echo"       <label for='usuario' class='col-4'></label>";
@@ -335,12 +335,12 @@ session_start();
 
  echo"    <label for='codigo' class='col-4'>Usuario:  </label>";
  echo"    <div class='col-8'>";
- echo"      <input type='text' class='form-control' value=''>";
+ echo"      <input type='text' class='form-control' value='' name='Usuario'>";
  echo"    </div>";
 
  echo"    <label for='codigo' class='col-4'>Contraseña:  </label>";
  echo"    <div class='col-8'>";
- echo"      <input type='text' class='form-control' value=''>";
+ echo"      <input type='text' class='form-control' value='' name='Contraseña'>";
  echo"    </div>";
  
  
@@ -349,8 +349,8 @@ session_start();
            <br>
 
 <div class="form-group text-center">
-  <button class="btn btn-danger">Eliminar</button>
-
+  <input type="submit" value="Eliminar" name="Eliminar">
+  </form>
 </div>
 
 
@@ -386,7 +386,18 @@ session_start();
       obAjax.send('Cerrar');
     }
   </script>
-  
+
+<?php
+if(isset($_POST['Eliminar'])){
+  $p = new Persona();
+  $p1 = new PersonaBD();
+  $p -> setUsuario($_POST['Usuario']);
+  $p -> setContraseña(md5($_POST['Contraseña']));
+  $p1 -> EliminarCuenta($p);
+}
+
+?>
+
 </body>
 
 </html>

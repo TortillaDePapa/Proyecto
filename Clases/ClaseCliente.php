@@ -6,7 +6,6 @@ class Cliente extends Persona{
     private $IDCiente;
     private $NumeroCasa;
     private $NombreCalle;
-    private $Estado;
 
   
     public function getIDCiente()
@@ -19,18 +18,6 @@ class Cliente extends Persona{
         $this->IDCiente = $IDCiente;
 
     }
-
-    public function getEstado()
-    {
-        return $this->Estado;
-    }
-
-    public function setEstado($Estado)
-    {
-        $this->Estado = $Estado;
-
-    }
-
 
     public function getNumeroCasa()
     {

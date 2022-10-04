@@ -11,7 +11,7 @@ Class PersonaBD extends Conexion{
         $this -> Conectar();
         $resultado = mysqli_query($this -> conn,$sql);
         if(!$resultado -> num_rows > 0){ // se fija que no exista  el usuario registrado en la BD
-        $sql1 = "INSERT INTO personas(Usuario,Contraseña,Nombre,Apellido,Gmail) VALUES('".$Persona -> getUsuario()."','".$Persona -> getContraseña()."','".$Persona -> getNombre()."','".$Persona -> getApellido()."','".$Persona -> getGmail()."')";     
+        $sql1 = "INSERT INTO personas(Usuario,Contraseña,Nombre,Apellido,Gmail,Estado) VALUES('".$Persona -> getUsuario()."','".$Persona -> getContraseña()."','".$Persona -> getNombre()."','".$Persona -> getApellido()."','".$Persona -> getGmail()."', '1')";     
         
             $resultado1 = mysqli_query($this -> conn,$sql1);
             $sql3 = "SELECT idpersona FROM personas WHERE Usuario = '".$Persona -> getUsuario()."'" ;
@@ -19,7 +19,7 @@ Class PersonaBD extends Conexion{
             $resultado3 = mysqli_query($this -> conn,$sql3);
             $fila = mysqli_fetch_assoc($resultado3);
             if ($resultado3) {
-                $sql2 = "INSERT INTO Clientes(idcliente, Calle, NumeroPuerta, Estado) VALUES('".$fila['idpersona']."', '".$Persona -> getNombreCalle()."','".$Persona -> getNumeroCasa()."', '1')";
+                $sql2 = "INSERT INTO Clientes(idcliente, Calle, NumeroPuerta) VALUES('".$fila['idpersona']."', '".$Persona -> getNombreCalle()."','".$Persona -> getNumeroCasa()."')";
                 $sql4 = "INSERT INTO TelefonoClientes(idcliente, Numero) VALUES('".$fila['idpersona']."','".$Persona -> getTelefono()[0]."')";
                 $resultado2 = mysqli_query($this -> conn,$sql2);
                 mysqli_query($this -> conn,$sql4);
@@ -43,7 +43,7 @@ Class PersonaBD extends Conexion{
 
  public function LoginPersona($Persona){
     session_start();
-     $sql = "SELECT * from personas where Usuario = '".$Persona -> getUsuario()."' AND Contraseña = '".$Persona -> getContraseña()."'";
+     $sql = "SELECT * from personas where Usuario = '".$Persona -> getUsuario()."' AND Contraseña = '".$Persona -> getContraseña()."' AND Estado = '1'";
     $this -> Conectar(); 
     $resultado = mysqli_query($this -> conn, $sql);
     if($resultado -> num_rows > 0){
@@ -97,6 +97,22 @@ Class PersonaBD extends Conexion{
         $sql = "UPDATE Persona SET  Nombre = '".$Persona -> getNombre()."', Apellido ='".$Persona -> getApellido()."', ";
     }
 
+    public function EliminarCuenta($Persona){
+        $sql = "SELECT * from personas where Usuario = '".$Persona -> getUsuario()."' AND Contraseña = '".$Persona -> getContraseña()."'";
+        $this -> Conectar();
+        $resultado = mysqli_query($this -> conn, $sql);
+        if ($resultado -> num_rows > 0 ) {
+            $sql1 = "UPDATE Personas SET Estado = '0' where Usuario = '".$Persona -> getUsuario()."' AND Contraseña = '".$Persona -> getContraseña()."'";
+            $resultado1 = mysqli_query($this -> conn, $sql1);
+            if ($resultado1) {
+                echo "<script> alert('Cuenta eliminada con exito ')</script>";
+            }else{
+                echo "<script> alert('Error al eliminar la cuenta ')</script>";
+            }
+        }else{
+            echo "<script> alert('usuario o contraseña incorecta')</script>";
+        }
+    }
 
 }
 
