@@ -45,8 +45,6 @@ include_once 'Clases/ClaseEnvasados.php';
                     $p -> setNombre($row['Nombre']);
                     $p -> setPrecio($row['Precio']);
                     $p -> setEstado($row['Estado']);
-                    $p1 -> setCategoria($row['NombreCategoria']);
-                    $p2 -> setEnvasado($row['UnidadMedida']);
                     $ListarProductos [] = $p;
                 }
                 return $ListarProductos;

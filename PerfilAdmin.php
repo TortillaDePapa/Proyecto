@@ -255,5 +255,18 @@ if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg
       
     // }
     ?>
+
+
+<script>
+    function Cerrar() {
+      var obAjax = new XMLHttpRequest();
+      obAjax.open('POST', 'Persistencia/Control.php', true);
+      obAjax.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+      obAjax.onreadystatechange = function () {
+        window.location.reload();
+      }
+      obAjax.send('Cerrar');
+    }
+  </script>
 </body>
 </html>

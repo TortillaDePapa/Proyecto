@@ -83,7 +83,7 @@ Class PersonaBD extends Conexion{
                    
                    
                 }
-                $_SESSION['CLIENTE'][] = $p;
+                $_SESSION['CLIENTE'] = $p;
                 header("Location: PagPrincipal.php");    
             }
             

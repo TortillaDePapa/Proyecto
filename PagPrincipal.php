@@ -67,9 +67,9 @@ session_start();
 
 
         <?php
-            echo"<button class='btn btn-buttom btn-custom me-1'  type='submit' onclick='Cerrar()'>  <i class='bi bi-box-arrow-in-right'></i> </button>";          
+             echo"<button class='btn btn-buttom btn-custom me-1'  type='submit' onclick='Cerrar()'>  <i class='bi bi-box-arrow-in-right'></i> </button>";          
            
-            if(isset($_SESSION['CLIENTE'])){
+             if(isset($_SESSION['CLIENTE'])){
             echo "<div class='dropdown'>";
             echo "<button class='btn btn-buttom btn-secondary dropdown-toggle bg-dark' type='button' data-bs-toggle='dropdown' aria-expanded='false'>";
             echo "<i class='icon bi-person-fill'></i>";
@@ -97,12 +97,12 @@ session_start();
             }else{
               echo"<a href='Login.php'> <button class='btn btn-buttom btn-custom me-1'  type='submit'>  <i class='bi bi-person-fill'></i> </button></a>";
             }
-          }
+           }
             echo "<button class='btn btn-buttom btn-custom btn-xs'  type='submit'> <i class='icon bi-cart3'></i> </button>";
-            // echo "<span class='position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger'>";
-            // echo " 9+ ";
-            // echo " <span class='visually-hidden'>unread messages</span> ";
-            // echo " </span> ";
+            echo "<span class='position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger'>";
+            echo " 9+ ";
+            echo " <span class='visually-hidden'>unread messages</span> ";
+            echo " </span> ";
            ?>
       </div>
     </div>
@@ -152,10 +152,9 @@ session_start();
 
 
 
+
 $p = new ProductoBD();
 $ListarProductos = $p -> Listarproductos();
-
-
 
      echo " <div class='container text-center'>";
      echo"   <div class='row'> ";
