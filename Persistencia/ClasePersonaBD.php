@@ -96,8 +96,30 @@ Class PersonaBD extends Conexion{
     }
 
     public function ModificarDatos($Persona){
-        $this-> Conectar();
-        $sql = "UPDATE Persona SET  Nombre = '".$Persona -> getNombre()."', Apellido ='".$Persona -> getApellido()."', ";
+        $sql4 = "SELECT Usuario FROM personas WHERE Usuario = '".$Persona -> getUsuario()."'";
+        $this -> Conectar();
+        $result = mysqli_query($this -> conn, $sql4);
+         if(!$result -> num_rows > 0){
+                $sql = "SELECT idpersona from Personas where usuario = '".$Persona -> getUsuario()."'";
+                $resultado = mysqli_query($this -> conn, $sql);
+                $fila = mysqli_fetch_assoc($resultado);
+                if($resultado){
+                $sql1 = "UPDATE Personas SET  Nombre = '".$Persona -> getNombre()."', Apellido ='".$Persona -> getApellido()."', Usuario='".$Persona -> getUsuario()."', Gmail='".$Persona -> getGmail()."' WHERE contraseña ='".$Persona -> getContraseña()."'";
+                $sql2 = "UPDATE clientes SET  NumeroPuerta ='".$Persona -> getNombreCalle()."','".$Persona -> getNumeroCasa()."', idcliente ='".$fila['idpersona']."' ";
+                $sql3 = "UPDATE telefonoClientes set numero = '".$Persona -> getTelefono()."', idcliente ='".$fila['idpersona']."'";
+                $resultado1 = mysqli_query($this -> conn, $sql1);
+                $resultado2 = mysqli_query($this -> conn, $sql2);
+                $resultado3 = mysqli_query($this -> conn, $sql3);
+                if($resultado1){
+                    if($resultado2){
+                        if($resultado3){
+                            echo "<script> window.location.reload()</script>";
+                            echo "<script>alert('Datos modificados con exito') </script>";
+                        }
+                    }
+                }
+           }
+        }echo "<script>alert('El usuario ya existe') </script>";
     }
 
     public function EliminarCuenta($Persona){
@@ -108,7 +130,10 @@ Class PersonaBD extends Conexion{
             $sql1 = "UPDATE Personas SET Estado = '0' where Usuario = '".$Persona -> getUsuario()."' AND Contraseña = '".$Persona -> getContraseña()."'";
             $resultado1 = mysqli_query($this -> conn, $sql1);
             if ($resultado1) {
+                session_destroy();
                 echo "<script> alert('Cuenta eliminada con exito ')</script>";
+                echo "<script> window.location.reload()</script>";
+                
             }else{
                 echo "<script> alert('Error al eliminar la cuenta ')</script>";
             }

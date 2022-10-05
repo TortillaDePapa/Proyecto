@@ -98,9 +98,26 @@ session_start();
               echo"<a href='Login.php'> <button class='btn btn-buttom btn-custom me-1'  type='submit'>  <i class='bi bi-person-fill'></i> </button></a>";
             }
            }
-            echo "<button class='btn btn-buttom btn-custom btn-xs'  type='submit'> <i class='icon bi-cart3'></i> </button>";
+            // echo "<button class='btn btn-buttom  btn-custom btn-xs'  type='submit'> <i class='icon bi-cart3'></i> </button>";
   
            ?>
+        <button class="btn btn-buttom  btn-custom btn-xs" type="button" data-bs-toggle="offcanvas"
+          data-bs-target="#offcanvasRight" aria-controls="offcanvasRight"> <i class="icon bi-cart3"></i> </button>
+        <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="offcanvasExampleLabelRight">
+              <i class="bi bi-cart2" width="16" height="16"></i>Carrito
+            </h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+          </div>
+          <hr />
+          <div class="offcanvas-body">
+            <div class="">
+
+            </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </nav>

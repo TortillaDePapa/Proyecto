@@ -247,75 +247,73 @@ session_start();
 
                   <div class="col-7">
                     <div class="form-group row">
+                      <form action="" method="post">
 
                       <?php
 
               echo"       <label for='usuario' class='col-4'></label>";
               echo"       <div class='col-8'>";
-              echo"         <input type='hidden' class='form-control' value='".$_SESSION['CLIENTE'] -> getIDPersona()."' >";
+              echo"         <input type='hidden' class='form-control' value='".$_SESSION['CLIENTE'] -> getIDPersona()."' name='IDPersona'>";
               echo"      </div>";
 
               echo"    <label for='codigo' class='col-4'>Usuario:  </label>";
               echo"    <div class='col-8'>";
-              echo"      <input type='text' class='form-control' value='".$_SESSION['CLIENTE'] -> getUsuario()."'>";
+              echo"      <input type='text' class='form-control' value='".$_SESSION['CLIENTE'] -> getUsuario()."' name='usuario'>";
               echo"    </div>";
 
               echo"    <label for='codigo' class='col-4'>Actual contraseña:  </label>";
               echo"    <div class='col-8'>";
-              echo"      <input type='text' class='form-control' value=''>";
+              echo"      <input type='text' class='form-control' value='' name='contraseña'>";
               echo"    </div>";
 
-              echo"    <label for='codigo' class='col-4'>Nueva contraseña:  </label>";
-              echo"    <div class='col-8'>";
-              echo"      <input type='text' class='form-control' value=''>";
-              echo"    </div>";
+
 
               echo"    <label for='codigo' class='col-4'>Nombre:  </label>";
               echo"    <div class='col-8'>";
-              echo"      <input type='text' class='form-control' value='".$_SESSION['CLIENTE'] -> getNombre()."'>";
+              echo"      <input type='text' class='form-control' value='".$_SESSION['CLIENTE'] -> getNombre()."' name='nombre'>";
               echo"    </div>";
 
               echo"    <label for='codigo' class='col-4'>Apellido:  </label>";
               echo"    <div class='col-8'>";
-              echo"      <input type='text' class='form-control' value='".$_SESSION['CLIENTE'] -> getApellido()."'>";
+              echo"      <input type='text' class='form-control' value='".$_SESSION['CLIENTE'] -> getApellido()."' name='apellido'>";
               echo"    </div>";
 
 
               echo"    <label for='codigo' class='col-4'>Gmail:  </label>";
               echo"    <div class='col-8'>";
-              echo"      <input type='text' class='form-control' value='".$_SESSION['CLIENTE'] -> getGmail()."'>";
+              echo"      <input type='text' class='form-control' value='".$_SESSION['CLIENTE'] -> getGmail()."' name='gmail'>";
               echo"    </div>";
 
 
               echo"    <label for='codigo' class='col-4'>Telefono:  </label>";
               echo"    <div class='col-8'>";
-              echo"      <input type='text' class='form-control' value='".$_SESSION['CLIENTE'] -> getTelefono()."'>";
+              echo"      <input type='text' class='form-control' value='".$_SESSION['CLIENTE'] -> getTelefono()."' name='Telefono'>";
               echo"    </div>";
 
 
               echo"    <label for='codigo' class='col-4'>Calle:  </label>";
               echo"    <div class='col-8'>";
-              echo"      <input type='text' class='form-control' value='".$_SESSION['CLIENTE'] -> getNombreCalle()."'>";
+              echo"      <input type='text' class='form-control' value='".$_SESSION['CLIENTE'] -> getNombreCalle()."' name='Calle'>";
               echo"    </div>";
 
 
               echo"    <label for='codigo' class='col-4'>Nro de casa:  </label>";
               echo"    <div class='col-8'>";
-              echo"      <input type='text' class='form-control' value='".$_SESSION['CLIENTE'] -> getNumeroCasa()."'>";
+              echo"      <input type='text' class='form-control' value='".$_SESSION['CLIENTE'] -> getNumeroCasa()."' name='NumeroCasa'> ";
               echo"    </div>";
 
 
               
 
                 ?>
-<h1>Mamabicho</h1>
+
                       <br>
 
                       <div class="form-group text-center">
-                        <button class="btn btn-danger">Actualizar</button>
-
+                        <input type="submit" value="Actualizar datos de la cuenta" name="ActualizarDatos">
+                        
                       </div>
-
+                      </form>
 
 
                     </div>
@@ -358,8 +356,8 @@ session_start();
            
            <br>
 
-<div class="form-group text-center">
-  <input type="submit" value="Eliminar" name="Eliminar">
+<div class="form-group text-center" id="Alert">
+  <input type="submit" value="Eliminar" name="Eliminar" id="LiveAlert" >
   </form>
 </div>
 
@@ -384,6 +382,9 @@ session_start();
       }
       obAjax.send('Cerrar');
     }
+
+
+
   </script>
 
 <?php
@@ -395,6 +396,21 @@ if(isset($_POST['Eliminar'])){
   $p1 -> EliminarCuenta($p);
 }
 
+
+  if(isset($_POST['ActualizarDatos'])){
+    $p = new Persona();
+    $p1 = new PersonaBD();
+    $p -> setUsuario($_POST['usuario']);
+    $p -> setContraseña(md5($_POST['contraseña']));
+    $p -> setNombre($_POST['nombre']);
+    $p -> setApellido($_POST['apellido']);
+    $p -> setGmail($_POST['gmail']);
+    $p -> setTelefono($_POST['Telefono']);
+    $p -> setNumeroCasa($_POST['NumeroCasa']);
+    $p -> setNombreCalle($_POST['Calle']);
+    
+    $p1 -> ModificarDatos($p);
+  }
 ?>
 
 </body>
