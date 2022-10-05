@@ -28,8 +28,7 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `categorias` (
-  `NombreCategoria` varchar(30) NOT NULL,
-  `Icono` varchar(80) DEFAULT NULL
+  `NombreCategoria` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -42,7 +41,6 @@ CREATE TABLE `clientes` (
   `IDCliente` int(11) NOT NULL,
   `NumeroPuerta` int(11) DEFAULT NULL,
   `Calle` varchar(30) DEFAULT NULL,
-  `Estado` tinyint(1) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -59,19 +57,7 @@ CREATE TABLE `compras` (
   `Total` float DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
--- --------------------------------------------------------
 
---
--- Estructura de tabla para la tabla `envasados`
---
-
-CREATE TABLE `envasados` (
-  `UnidadMedida` varchar(30) NOT NULL,
-  `Marca` varchar(30) DEFAULT NULL,
-  `TipoEnvase` varchar(30) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
--- --------------------------------------------------------
 
 --
 -- Estructura de tabla para la tabla `envios`
@@ -97,6 +83,7 @@ CREATE TABLE `personas` (
   `Usuario` varchar(30) DEFAULT NULL,
   `Contraseña` varchar(255) DEFAULT NULL,
   `Apellido` varchar(30) DEFAULT NULL,
+  `Estado` tinyint(1) DEFAULT NULL,
   `Nombre` varchar(30) DEFAULT NULL,
   `Gmail` varchar(40) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -111,14 +98,13 @@ CREATE TABLE `productos` (
   `IDProducto` int(11) NOT NULL,
   `CodigoBarra` int(11) DEFAULT NULL,
   `Imagen` varchar(80) DEFAULT NULL,
-  `SKU` int(11) DEFAULT NULL,
   `Stock` int(11) DEFAULT NULL,
   `Nombre` varchar(30) DEFAULT NULL,
   `Precio` int(11) DEFAULT NULL,
   `FechaVencimiento` int(11) DEFAULT NULL,
   `Estado` tinyint(1) DEFAULT NULL,
   `NombreCategoria` varchar(30) DEFAULT NULL,
-  `UnidadMedida` varchar(30) DEFAULT NULL
+  `Descripcion` varchar(200) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -211,11 +197,7 @@ ALTER TABLE `compras`
   ADD KEY `IDCliente` (`IDCliente`),
   ADD KEY `IDProducto` (`IDProducto`);
 
---
--- Indices de la tabla `envasados`
---
-ALTER TABLE `envasados`
-  ADD PRIMARY KEY (`UnidadMedida`);
+
 
 --
 -- Indices de la tabla `envios`
@@ -239,9 +221,7 @@ ALTER TABLE `personas`
 ALTER TABLE `productos`
   ADD PRIMARY KEY (`IDProducto`),
   ADD UNIQUE KEY `CodigoBarra` (`CodigoBarra`),
-  ADD UNIQUE KEY `SKU` (`SKU`),
   ADD KEY `NombreCategoria` (`NombreCategoria`),
-  ADD KEY `UnidadMedida` (`UnidadMedida`);
 
 --
 -- Indices de la tabla `proveedores`
@@ -348,7 +328,6 @@ ALTER TABLE `envios`
 --
 ALTER TABLE `productos`
   ADD CONSTRAINT `productos_ibfk_1` FOREIGN KEY (`NombreCategoria`) REFERENCES `categorias` (`NombreCategoria`),
-  ADD CONSTRAINT `productos_ibfk_2` FOREIGN KEY (`UnidadMedida`) REFERENCES `envasados` (`UnidadMedida`);
 
 --
 -- Filtros para la tabla `selecciona`
