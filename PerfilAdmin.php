@@ -210,10 +210,10 @@ if(isset($_POST["submit"])) {
 }
 
 //chequeamos si el archivo existe
-// if (file_exists($archivoDestino)) {
-//   echo "Lo sentimos, el archivo ya existe.";
-//   $subirOK = false;
-// }
+if (file_exists($archivoDestino)) {
+  echo "Lo sentimos, el archivo ya existe.";
+  $subirOK = false;
+}
 
 //Comprobar el tamaño del archivo
 if ($_FILES["Imagen"]["size"] > 500000) {
