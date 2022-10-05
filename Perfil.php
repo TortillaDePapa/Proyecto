@@ -2,7 +2,7 @@
 include_once 'Clases/ClasePersona.php';
 include_once 'Persistencia/ClasePersonaBD.php';
 include_once 'Persistencia/ClaseProductoBD.php';
-include_once 'Clases/ClaseCliente.php';
+
 
 
 
@@ -207,7 +207,17 @@ session_start();
            echo"       <br>";
            echo"       <label for='usuario' class='col-4'>Telefono: </label>";
            echo"       <div class='col-8'> ";
-           echo"         <input type='text' class='form-control' value='".$_SESSION['CLIENTE'] -> getTelefono()."' placeholder=''  disabled >";
+           echo"         <input type='number' class='form-control' value='".$_SESSION['CLIENTE'] -> getTelefono()."' placeholder=''  disabled >";
+           echo"      </div>";
+           echo"       <br>";
+           echo"       <label for='usuario' class='col-4'>Calle: </label>";
+           echo"       <div class='col-8'> ";
+           echo"         <input type='text' class='form-control' value='".$_SESSION['CLIENTE'] -> getNombreCalle()."' placeholder=''  disabled >";
+           echo"      </div>";
+           echo"       <br>";
+           echo"       <label for='usuario' class='col-4'>Numero Casa: </label>";
+           echo"       <div class='col-8'> ";
+           echo"         <input type='number' class='form-control' value='".$_SESSION['CLIENTE'] -> getNumeroCasa()."' placeholder=''  disabled >";
            echo"      </div>";
            echo"       <br>";
           
@@ -285,13 +295,13 @@ session_start();
 
               echo"    <label for='codigo' class='col-4'>Calle:  </label>";
               echo"    <div class='col-8'>";
-              // echo"      <input type='text' class='form-control' value='".$_SESSION['CLIENTE'] -> getNombreCalle()."'>";
+              echo"      <input type='text' class='form-control' value='".$_SESSION['CLIENTE'] -> getNombreCalle()."'>";
               echo"    </div>";
 
 
               echo"    <label for='codigo' class='col-4'>Nro de casa:  </label>";
               echo"    <div class='col-8'>";
-              // echo"      <input type='text' class='form-control' value='".$_SESSION['CLIENTE'] -> getNumeroCasa()."'>";
+              echo"      <input type='text' class='form-control' value='".$_SESSION['CLIENTE'] -> getNumeroCasa()."'>";
               echo"    </div>";
 
 

@@ -1,6 +1,5 @@
 <?php
 include_once 'Persistencia/ClasePersonaBD.php';
-include_once 'Clases/ClaseCliente.php';
 include_once 'Clases/ClasePersona.php';
 include_once 'Clases/ClaseUsuario.php';
 ?>
@@ -48,7 +47,7 @@ include_once 'Clases/ClaseUsuario.php';
 
  if(isset($_POST['Login'])){
        
-    $p = new Cliente();
+    $p = new Persona();
     $p1 = new Usuario();
     $p2 = new PersonaBD();
     $p -> setUsuario($_POST['usuario']);

@@ -1,6 +1,5 @@
 <?php
 include_once 'Persistencia/ClasePersonaBD.php';
-include_once 'Clases/ClaseCliente.php';
 include_once 'Clases/ClasePersona.php';
 ?>
 <!DOCTYPE html>
@@ -65,7 +64,7 @@ include_once 'Clases/ClasePersona.php';
                                   Ingrese su telefono   
                         </label>
                 </div>
-                <div class="texto"> <input type="text" required name="Calle"> 
+                <div class="texto"> <input type="text" required name="Calle" minlength="9" maxlength="9"> 
                     <span>
 
                     </span> <label>
@@ -91,7 +90,7 @@ include_once 'Clases/ClasePersona.php';
 <?php
   
   if(isset($_POST['registrar'])){
-    $p = new Cliente();
+    $p = new Persona();
     $p2 = new PersonaBD();
     $p -> setUsuario($_POST['usuario']);
     $p -> setContraseña(md5($_POST['contraseña']));

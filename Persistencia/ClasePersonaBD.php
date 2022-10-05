@@ -70,18 +70,20 @@ Class PersonaBD extends Conexion{
              }
             
         }else{ 
-            $sql3 = "SELECT * FROM personas WHERE Usuario = '".$Persona -> getUsuario()."'" ;
+         $sql3 = "SELECT * from personas,telefonoclientes,clientes WHERE clientes.IDCliente = personas.IDPersona AND telefonoclientes.IDCliente = clientes.IDCliente AND personas.Usuario = '".$Persona -> getUsuario()."'" ;
             $resultado3 = mysqli_query($this -> conn, $sql3);
             if ($resultado3) {
                 while ($row = $resultado3 -> fetch_assoc()) {
+                    
                    $p = new Persona();
                    $p -> setNombre($row['Nombre']);
                    $p -> setApellido($row['Apellido']);
                    $p -> setUsuario($row['Usuario']);
                    $p -> setContraseña($row['Contraseña']);
                    $p -> setGmail($row['Gmail']);
-                   
-                   
+                   $p -> setTelefono($row['Numero']);
+                   $p -> setNombreCalle($row['Calle']);
+                   $p -> setNumeroCasa($row['NumeroPuerta']);
                 }
                 $_SESSION['CLIENTE'] = $p;
                 header("Location: PagPrincipal.php");    

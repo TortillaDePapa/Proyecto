@@ -2,7 +2,7 @@
 include_once 'Clases/ClasePersona.php';
 include_once 'Persistencia/ClasePersonaBD.php';
 include_once 'Persistencia/ClaseProductoBD.php';
-include_once 'Clases/ClaseCliente.php';
+
 
 
 
