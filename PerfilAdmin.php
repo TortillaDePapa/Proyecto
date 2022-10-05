@@ -22,6 +22,8 @@ session_start();
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="CSS/principal.css">
+  <link rel="stylesheet" href="CSS/textarea.css">
+
 
   <!-- Icon Bootstrap CSS -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
@@ -109,7 +111,7 @@ session_start();
     </div>
   </nav>
 
-  
+
 
 
 
@@ -121,75 +123,214 @@ session_start();
         <div class="col-12">
           <div class="col-5">
 
-             <!--   boton de perfil -->
+            <!--   boton de productos -->
 
             <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
               <li class="nav-item" role="presentation">
                 <button class="nav-link bg-dark" id="pills-profile-tab" data-bs-toggle="pill"
                   data-bs-target="#pills-profile" type="button" role="tab" aria-controls="pills-profile"
-                  aria-selected="false">Perfil</button>
+                  aria-selected="false">Productos</button>
 
               </li>
 
-                 <!--   espacio en blanco -->
+              <!--   espacio en blanco -->
 
 
               <li class="nav-item" role="presentation">
-                <button class="nav-link bg-light" id="" data-bs-toggle=""
-                  data-bs-target="" type="button" role="tab" aria-controls=""
-                  aria-selected="false" disabled></button>
+                <button class="nav-link bg-light" id="" data-bs-toggle="" data-bs-target="" type="button" role="tab"
+                  aria-controls="" aria-selected="false" disabled></button>
 
               </li>
 
-                 <!--   boton de modificar -->
+              <!--   boton de proveedores -->
 
 
               <li class="nav-item" role="presentation">
                 <button class="nav-link bg-dark" id="pills-contact-tab" data-bs-toggle="pill"
                   data-bs-target="#pills-contact1" type="button" role="tab" aria-controls="pills-contact"
-                  aria-selected="false">Modificar datos</button>
+                  aria-selected="false">Proveedores</button>
               </li>
 
-                 <!--   espacio en blanco -->
-
-              <li class="nav-item" role="presentation">
-                <button class="nav-link bg-light" id="" data-bs-toggle=""
-                  data-bs-target="" type="button" role="tab" aria-controls=""
-                  aria-selected="false" disabled></button>
-
-              </li>
-                 <!--   boton de eliminar -->
-
-                 <li class="nav-item" role="presentation">
-                 <button class="nav-link bg-dark" id="pills-home-tab" 
-                 data-bs-toggle="pill" data-bs-target="#pills-home1" type="button" 
-                 role="tab" aria-controls="pills-home" aria-selected="false"> Eliminar cuenta</button>
-                </li>
 
 
 
+              <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab"
+                tabindex="0">
+                <div class="col-12">
+                  <div class="col-7">
+                    <div class="form-group row">
 
-        <h1>Agregar articulo</h1>
-        <form action="" method="post"  enctype="multipart/form-data">
-        <div class="contenedor-inputs">
-        <h4>Codigo de barras</h4>
-        <input type="number" name="CodBarra">
-        <h4>Imagen del producto</h4>
-        <input type="file" name="Imagen">
-        <h4>Descripcion del producto</h4>
-        <input type="text" name="Descripcion" maxlength="200" minlength="10">
-        <h4>Stock del producto</h4>
-        <input type="number" name="Stock">
-        <h4>Nombre del producto</h4>
-        <input type="text" name="NombreProducto">
-        <h4>Precio del producto</h4>
-        <input type="number" name="PrecioProducto">
-        
-        <p>
-        <input type="Submit" value="Agregar" name="AgregarArticulo">
-        </p>
-      </ul>
+                      <br>
+
+
+                      <form action="" method="post" enctype="multipart/form-data">
+
+                        <div class="contenedor-inputs">
+
+                          <!-- Agregar codigo de barras del producto -->
+
+                          <label for="codigo" class="col-8"> Codigo de barras </label>
+                          <div class="col-8">
+                            <input type="number" class="form-control" value="" name="CodBarra">
+                          </div>
+
+                          <br>
+
+                          <!-- Agregar imagen del producto -->
+
+                          <label for="codigo" class="col-8"> Imagen del producto </label>
+                          <div class="col-8">
+                            <input type="file" class="form-control" value="" name="Imagen">
+                          </div>
+
+                          <br>
+
+                          <!-- Agregar descripcion producto -->
+
+                          <label for="codigo" class="col-8"> Descripcion </label>
+                          <div class="col-8">
+                            <textarea class="textarea" name="Descripcion" maxlength="200" minlength="10" cols="65"
+                              rows="5"> </textarea>
+                          </div>
+
+                          <br>
+
+                          <!-- Agregar stock producto -->
+
+                          <label for="codigo" class="col-8"> Stock </label>
+                          <div class="col-8">
+                            <input type="number" class="form-control" value="" name="Stock">
+                          </div>
+
+                          <br>
+
+                          <!-- Agregar nombre producto -->
+
+                          <label for="codigo" class="col-8"> Nombre del producto </label>
+                          <div class="col-8">
+                            <input type="text" class="form-control" value="" name="NombreProducto">
+                          </div>
+
+                          <br>
+
+                          <!-- Agregar precio producto -->
+
+                          <label for="codigo" class="col-8"> Precio </label>
+                          <div class="col-8">
+                            <input type="number" class="form-control" value="" name="PrecioProducto">
+                          </div>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="col form-group text-center">
+
+                      <input type="Submit" value="Agregar" name="AgregarArticulo">
+                      <input type="Submit" value="Modificar" name="ModificarArticulo">
+                      <input type="Submit" value="Eliminar" name="EliminarArticulo">
+                      <input type="Submit" value="Mostrar" name="MostrarArticulo">
+
+                    </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+
+
+
+              <div class="tab-pane fade " id="pills-contact1" role="tabpanel" aria-labelledby="pills-contact-tab"   >
+
+                <div class="col-12">
+                  <div class="col-7">
+                    <div class="form-group row">
+
+                      <br>
+
+
+                      <form action="" method="post" enctype="multipart/form-data">
+
+                        <div class="contenedor-inputs">
+
+                          <!-- Agregar codigo de barras del producto -->
+
+                          <label for="codigo" class="col-8"> Codigo de barras </label>
+                          <div class="col-8">
+                            <input type="number" class="form-control" value="" name="CodBarra">
+                          </div>
+
+                          <br>
+
+                          <!-- Agregar imagen del producto -->
+
+                          <label for="codigo" class="col-8"> Imagen del producto </label>
+                          <div class="col-8">
+                            <input type="file" class="form-control" value="" name="Imagen">
+                          </div>
+
+                          <br>
+
+                          <!-- Agregar descripcion producto -->
+
+                          <label for="codigo" class="col-8"> Descripcion </label>
+                          <div class="col-8">
+                            <textarea class="textarea" name="Descripcion" maxlength="200" minlength="10" cols="65"
+                              rows="5"> </textarea>
+                          </div>
+
+                          <br>
+
+                          <!-- Agregar stock producto -->
+
+                          <label for="codigo" class="col-8"> Stock </label>
+                          <div class="col-8">
+                            <input type="number" class="form-control" value="" name="Stock">
+                          </div>
+
+                          <br>
+
+                          <!-- Agregar nombre producto -->
+
+                          <label for="codigo" class="col-8"> Nombre del producto </label>
+                          <div class="col-8">
+                            <input type="text" class="form-control" value="" name="NombreProducto">
+                          </div>
+
+                          <br>
+
+                          <!-- Agregar precio producto -->
+
+                          <label for="codigo" class="col-8"> Precio </label>
+                          <div class="col-8">
+                            <input type="number" class="form-control" value="" name="PrecioProducto">
+                          </div>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="col form-group text-center">
+
+                      <input type="Submit" value="Agregar" name="AgregarArticulo">
+                      <input type="Submit" value="Modificar" name="ModificarArticulo">
+                      <input type="Submit" value="Eliminar" name="EliminarArticulo">
+                      <input type="Submit" value="Mostrar" name="MostrarArticulo">
+
+                    </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+
+
+
+          </div>
+          </ul>
+        </div>
+      </div>
+      </div>
+    </div>
+  </div>
       <?php
+
+
+// Agrega articulo
     
     if (isset($_POST['AgregarArticulo'])) {
       $Directorio = "imagenes/";
@@ -248,9 +389,20 @@ if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg
     echo "Lo sentimos, hubo un error al cargar su archivo.";
   }
 }
- 
-      
-    // }
+
+  // Elimina producto
+
+if (isset($_POST['EliminarArticulo'])) {
+  $a = new ProductoBD();
+  $a1 = new Producto();
+  $a1 -> setCodBarra($_POST['CodBarra']);
+
+  $a -> EliminarProducto($a1);
+
+  }
+
+
+
     ?>
 
 

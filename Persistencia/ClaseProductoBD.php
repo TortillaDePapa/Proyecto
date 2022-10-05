@@ -53,8 +53,8 @@ include_once 'Clases/ClaseEnvasados.php';
             }
         
         }
-        public function EliminarProducto(){
-            $sql = "UPDATE Producto SET Estado = '0' where Codigobarra = '".$Producto -> getCodBarra()."'";
+        public function EliminarProducto($Producto){
+            $sql = "UPDATE Productos SET Estado = '0' where Codigobarra = '".$Producto -> getCodBarra()."'";
             $this -> Conectar();
             $resultado = mysqli_query($this -> conn, $sql);
             if($resultado){

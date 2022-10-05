@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <H1> BOTON </H1>
+    
+<button class="favorite styled" type="button">
+aceptar
+</button>
+
+<br>
+<H1> DATA LIST </H1>
+
+
+<label for="helados">Elige un sabor</label>
+<input list="sabores helados" id="helados" name="helados">
+<datalist id="sabores helados">
+    <option value="Chocolate">
+        <option value="Coco">
+            <option value="Frutilla">
+                <option value="Vanilla">
+</datalist>
+
+<br>
+
+<H1> FIELD SET </H1>
+<form>
+    <fieldset>
+        <legend> Elige tu monstruo favorito</legend>
+        <input type="radio" id="kraken" name="monster">
+        <label for="kraken"> Kraken </label> <br>
+        
+        <input type="radio" id="kraken" name="monster">
+        <label for="sasquatch"> Sasquatch </label> <br>
+
+        <input type="radio" id="kraken" name="monster">
+        <label for="mothman"> Mothman</label> 
+
+    </fieldset>
+</form>
+<br>
+<H1> FROM </H1>
+<form action="" method="get" class="form-example">
+<div class="form-example">
+<label for="name"> Ingresa tu nombre </label>
+<input type="text" name="name" id="name" required>
+</div>
+<div class="form-example">
+<label for="email"> Ingresa tu email: </label>
+<input type="email" name="email" id="email" required>
+</div>
+<div class="form-example">
+    <input type="submit" value="Subscribete">
+</div>
+</form>
+<br>
+
+
+<h1> LABEL </h1>
+<div class="preferencia">
+<label for="queso"> Te gusta el queso? </label>
+<input type="checkbox" name="queso" id="queso">
+</div>
+<div class="preferencia"> 
+<label for="peas"> Te gusta el chocolate? </label>
+<input type="checkbox" name="choco" id="choco">
+</div>
+<br>
+
+<h1> METER </h1>
+<label for="rendimiento"> Nivel de rendimiento </label>
+<meter id="rendimiento"
+min="0" max="100"
+low="33" high="66" optimum="80"
+value="80"
+at 80/100
+>
+</meter>
+<br>
+
+<h1> LISTAS DESPLEGABLES </h1>
+<label for="pet-select"> Elige una mascota </label>
+<select id="pet-select">
+
+<option value=""> --Por favor, elije una opcion--  </option>
+<option value="dog"> Perro </option>
+<option value="gato"> Gato </option>
+<option value="oso">  Oso </option>
+<option value="parrot"> Loro </option>
+</select>
+
+<br>
+
+<h1> OPTGROUP </h1>
+<label for="dinero-select"> Elige un perro:</label>
+<select id="dinero-select">
+<optgroup label="Raza pequeña">
+<option> Chihuahua </option>
+<option> Bulldog </option>
+<option> Caniche </option>
+</optgroup>
+<optgroup label="Raza mediana">
+<option value="labrador">  Labrador </option>
+<option> Boxer  </option>
+<option>  Husky  </option>
+</optgroup>
+<optgroup label="Raza grande">
+    <option>  Fila </option>
+    <option>  San Bernardo </option>
+    <option> Dogo Argentino  </option>
+    </optgroup>
+</select>
+<br>
+
+<h1> EL ELEMENTO INDICADOR DE PROGRESO </h1>
+<label for="file"> Progreso del archivo</label>
+<progress id="file" max="100" value="70"> 705 </progress>
+<br>
+
+<h1> TEXT AREA </h1>
+<label for="story"> Cuentanos tu historia </label>
+<textarea id="story" name="story" rows="5" cols="33"> Era una noche oscura y tormentosa... </textarea>
+<br>
+
+
+<div>
+<h1> EJEMPLOS DE INPUT </h1>
+
+
+<input class="Favorite styled" 
+type="button"
+value="Agregar a los favoritos">
+
+<p>
+    Elige las caracteristicas del mounstruo:
+</p>
+<div>
+    <input type="checkbox" id="escamas" name="escamas" checked>
+    <label for="escamas">Escamas</label>
+
+</div>
+<div>
+    <input type="checkbox" id="cuernos" name="cuernos">
+    <label for="cuernos">Cuernos</label>
+</div>
+<p>Elige los colores de tu mounstruo:</p>
+<div>
+    <input type="color" id="cabeza" name="cabeza" 
+    value="#e66465">
+<label for="cabeza">Cabeza</label>
+
+</div>
+<div>
+    <input type="color" id="cuerpo" name="cuerpo" 
+    value="#f6b73c">
+<label for="cuerpo">Cuerpo</label>
+
+<br>
+<br>
+<label for="tentacles">Numero de tentaculos(10-100):</label>
+<input type="number" id="tentaculo" name="tentaculo"
+min="10" max="100">
+
+
+</div>
+
+<h1> OTROS </h1>
+
+
+<label for="start">Fecha de inicio</label>
+<input type="date" id="start" name="trip-start" 
+value="2022-04-05"
+min="1980-01-01" max="2022-12-31">
+
+<br>
+
+<label for="meeting-time">Elija una hora para su cita</label>
+<br>
+<input type="date-local" id="meeting-time" name="meeting-time"
+value="2022-04-05T19:30"
+min="2022-04-07T00:00" max="2022-06-14T00:00">
+<br>
+<label for="avatar">Elige la foto de tu perfil</label>
+<input type="file" id="avatar" name="avatar" accept="image/png, image/jpeg">
+<br>
+<label for="start">Mes de inicio:</label>
+<input type="month" id="start" name="start"
+min="2022-W18" max="2022W26" required>
+<br>
+
+<label for="week">Elija una semana en mayo o junio:</label>
+<input type="week" name="week" id="camp-week" min="2022-W18" MAX="2022-W26" required>
+ 
+<div>
+    <label for="username"> Username:</label>
+    <input type="text" id="username" name="username">
+</div>
+
+<div>
+    <label for="pass"> Password (8 characters minimum): </label>
+    <input tpye="password" id="pass" name="password" minlength="8" required>
+
+</div>
+ 
+<input type="submit" value="Aceptar">
+<p> Selecciona un celular: </p>
+
+<div>
+    <input type="radio" id="celu1" name="celular" value="celu1" checked>
+
+    <label for="celu1"> A50 </label>
+</div>
+
+<div>
+    <input type="radio" id="celu2" name="celular" value="celu2">
+    <label for="celu2"> A30</label>
+</div>
+
+<p> Configuracion de audio: </p>
+<div>
+    <input type="range" id="volume" name="volume" min="0" max="11">
+    <label for="volume"> Volumen</label>
+
+</div>
+<div>
+    <input type="range" id="cowbell" name="cowbbell" min="0" max="100" value="90" step="10">
+    <label for="cowbell"> Cowbell</label>
+</div>
+
+<br>
+
+<form>
+    <div class="controls">
+
+    <label for="id"> USER ID: </label>
+    <input type="text" id="id" name="id" >
+    <input type="reset" value="Reset">
+    <input type="submit" value="Submit">
+</div>
+
+
+
+</form>
+<br>
+
+<label for="site-search"> Busca el sitio: </label>
+<input type="search" id="site-search" name="q">
+
+<button> Search </button>
+
+<br>
+
+
+<label for="email">Ingrese su email: </label>
+
+<input type="email" id="email" pattern=".+@gmail\.com" size="30" required>
+<br>
+<label for="phone"> Ingrese su celular:</label>
+<input type="tel" id="phone" name="phone" pattern="[0-9]{3}-[0-9]{3}-[0-9]{3}" required>
+<small> Format: 099-123-745</small>
+
+<br>
+
+
+<label for="appt"> Elija una hora para su reunion:</label>
+
+<input type="time" id="appt" name="appt" min="09:00" max="18:00" required>
+<small> El horario de oficina es de 9 am a 6 pm</small>
+
+<br>
+
+<label for="url"> Introduzca una URL:</label>
+
+<input type="url" name="url" id="url" paceholder="https://example.com" pattern="https://.*" size="30" required>
+
+
+
+
