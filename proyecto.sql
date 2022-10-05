@@ -40,7 +40,7 @@ CREATE TABLE `categorias` (
 CREATE TABLE `clientes` (
   `IDCliente` int(11) NOT NULL,
   `NumeroPuerta` int(11) DEFAULT NULL,
-  `Calle` varchar(30) DEFAULT NULL,
+  `Calle` varchar(30) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -221,7 +221,7 @@ ALTER TABLE `personas`
 ALTER TABLE `productos`
   ADD PRIMARY KEY (`IDProducto`),
   ADD UNIQUE KEY `CodigoBarra` (`CodigoBarra`),
-  ADD KEY `NombreCategoria` (`NombreCategoria`),
+  ADD KEY `NombreCategoria` (`NombreCategoria`);
 
 --
 -- Indices de la tabla `proveedores`
@@ -327,7 +327,7 @@ ALTER TABLE `envios`
 -- Filtros para la tabla `productos`
 --
 ALTER TABLE `productos`
-  ADD CONSTRAINT `productos_ibfk_1` FOREIGN KEY (`NombreCategoria`) REFERENCES `categorias` (`NombreCategoria`),
+  ADD CONSTRAINT `productos_ibfk_1` FOREIGN KEY (`NombreCategoria`) REFERENCES `categorias` (`NombreCategoria`);
 
 --
 -- Filtros para la tabla `selecciona`
