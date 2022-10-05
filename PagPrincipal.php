@@ -168,7 +168,7 @@ $ListarProductos = $p -> Listarproductos();
      echo "          <h5 class='card-title'>".$ListarProductos[$i] -> getNombre()."</h5>";
      echo "          <hr>";
      echo "          <h4 class='card-title'>"."$".$ListarProductos[$i] -> getPrecio(). "</h4>";
-     echo "          <p class='card-text'>   </p>";
+     echo "          <p class='card-text'>  ".$ListarProductos[$i] -> getDescripcion()." </p>";
      echo "          <button href='carrito.php?id=".$ListarProductos[$i] -> getIdProducto()." 'class='btn btn-primary btn-dark bg-dark'><i class='icon bi-cart3'></i> </button>";
      echo "       </div>";
      echo "      </div>";
