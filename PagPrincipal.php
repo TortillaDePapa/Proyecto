@@ -99,10 +99,7 @@ session_start();
             }
            }
             echo "<button class='btn btn-buttom btn-custom btn-xs'  type='submit'> <i class='icon bi-cart3'></i> </button>";
-            echo "<span class='position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger'>";
-            echo " 9+ ";
-            echo " <span class='visually-hidden'>unread messages</span> ";
-            echo " </span> ";
+  
            ?>
       </div>
     </div>
