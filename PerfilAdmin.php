@@ -104,10 +104,6 @@ session_start();
             }
           }
                echo "<button class='btn btn-buttom btn-custom'  type='submit'> <i class='icon bi-cart3'></i> </button>";
-  //           echo " <span class='position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger'>";
-  //           echo "  99+ ";
-  //           echo" <span class='visually-hidden'>unread messages</span>";
-  //           echo"</span>";
            ?>
       </div>
     </div>
@@ -236,6 +232,7 @@ if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg
 //   echo "Lo sentimos, su archivo no fue subido.";
 // // si todo está bien, intente cargar el archivo
 // } else {
+
   if (move_uploaded_file($_FILES["Imagen"]["tmp_name"], $archivoDestino)) {
     $a = new ProductoBD();
     $a1 = new Producto();
