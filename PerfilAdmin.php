@@ -58,7 +58,7 @@ session_start();
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle me-2" href="#" id="navbarDropdown" role="button"
               data-bs-toggle="dropdown" aria-expanded="false">
-              Categorias
+              Categorias <i class="bi bi-list"></i>
             </a>
             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
               <li><a class="dropdown-item" href="#">Limpieza</a> </li>
@@ -91,6 +91,9 @@ session_start();
               echo "<div class='dropdown'>";
               echo "<button class='btn btn-buttom btn-secondary dropdown-toggle bg-dark' type='button' data-bs-toggle='dropdown' aria-expanded='false'>";
               echo "<i class='icon bi-person-fill'></i>";
+              echo "<span class='position-absolute top-1 start-95 translate-middle p-1 bg-success border border-light rounded-circle'>";
+              echo" <span class='visually-hidden'>New alerts</span> ";
+              echo" </span>";
               echo " </button>";
               echo "<ul class='dropdown-menu'>";
               echo "<li><a class='dropdown-item NoSelect' href='PerfilAdmin.php'>".$_SESSION['ADMIN']-> getNombre()."</a></li>";
@@ -100,7 +103,11 @@ session_start();
               echo"<a href='Login.php'> <button class='btn btn-buttom btn-custom me-1'  type='submit'>  <i class='bi bi-person-fill'></i> </button></a>";
             }
           }
-            echo "<button class='btn btn-buttom btn-custom'  type='submit'> <i class='icon bi-cart3'></i> </button>";
+               echo "<button class='btn btn-buttom btn-custom'  type='submit'> <i class='icon bi-cart3'></i> </button>";
+  //           echo " <span class='position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger'>";
+  //           echo "  99+ ";
+  //           echo" <span class='visually-hidden'>unread messages</span>";
+  //           echo"</span>";
            ?>
       </div>
     </div>

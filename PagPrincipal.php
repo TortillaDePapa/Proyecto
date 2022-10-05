@@ -43,9 +43,9 @@ session_start();
       </button>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <li class="nav-item">
+          <!-- <li class="nav-item">
             <a class="nav-link active local" aria-current="page" href="Local.php">Local</a>
-          </li>
+          </li> -->
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle me-2" href="#" id="navbarDropdown" role="button"
               data-bs-toggle="dropdown" aria-expanded="false">
@@ -86,6 +86,9 @@ session_start();
               echo "<div class='dropdown'>";
               echo "<button class='btn btn-buttom btn-secondary dropdown-toggle bg-dark' type='button' data-bs-toggle='dropdown' aria-expanded='false'>";
               echo "<i class='icon bi-person-fill'></i>";
+              echo "<span class='position-absolute top-1 start-95 translate-middle p-1 bg-success border border-light rounded-circle'>";
+              echo" <span class='visually-hidden'>New alerts</span> ";
+              echo" </span>";
               echo " </button>";
               echo "<ul class='dropdown-menu'>";
               echo "<li><a class='dropdown-item NoSelect' href='PerfilAdmin.php'>".$_SESSION['ADMIN']-> getNombre()."</a></li>";
@@ -111,12 +114,12 @@ session_start();
     <div class="carousel-inner">
       <div class="carousel-item active">
         <img
-          src="https://tatauy.vteximg.com.br/arquivos/ids/443770/Banner1920x300-BombazosFDS-S5-Web.png?v=637965228057770000"
+          src="https://tatauy.vteximg.com.br/arquivos/ids/533239/PRINCIPAL-Aniversario.jpg?v=638001582923730000"
           class="d-block " alt="...">
       </div>
       <div class="carousel-item ">
         <img
-          src="https://tatauy.vteximg.com.br/arquivos/ids/438982/Banner-1920x300-Maquillaje-Home.png?v=637961759526630000"
+          src="https://tatauy.vteximg.com.br/arquivos/ids/534491/banner-Dove-promo-Tata-1920x300.jpg?v=638004862626600000"
           class="d-block " alt="...">
       </div>
       <div class="carousel-item">
