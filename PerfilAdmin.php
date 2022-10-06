@@ -158,7 +158,7 @@ session_start();
 
               <!--  Productos -->
 
-              <div class="tab-pane fade show active" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab"
+              <div class="tab-pane fade " id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab"
                 tabindex="0">
                 <div class="col-12">
                   <div class="col-7">
@@ -231,14 +231,20 @@ session_start();
                     </div>
                     <br>
                     <div class="col form-group text-center">
-
+<!-- 
                       <input type="Submit" value="Agregar" name="AgregarArticulo">
                       <input type="Submit" value="Modificar" name="ModificarArticulo">
-                      <input type="Submit" value="Eliminar" name="EliminarArticulo">
-                      
-                    </form>
-                    <button onclick="MostrarProducto()" name="MostrarProducto" id="MostrarProducto">Mostrar</button>
+                      <input type="Submit" value="Eliminar" name="EliminarArticulo"> -->
 
+                      
+                    <button class="btn btn-info" onclick="" name="ModificarArticulo" id="">Modificar</button>
+                    <button class="btn btn-info" onclick="" name="EliminarArticulo" id="">Eliminar</button>
+
+                    <button class="btn btn-info" onclick="" name="AgregarArticulo" id="">Cargar</button>
+
+                    </form>
+                    
+                    <button class="btn btn-danger" onclick="MostrarProducto()" name="MostrarProducto" id="MostrarProducto">Mostrar</button>
 
 
                     </div>
@@ -257,7 +263,7 @@ session_start();
 
               <!--  Proveedores -->
 
-              <div class="tab-pane fade show active" id="pills-contact1" role="tabpanel" aria-labelledby="pills-contact-tab"
+              <div class="tab-pane fade " id="pills-contact1" role="tabpanel" aria-labelledby="pills-contact-tab"
                 tabindex="0">
 
                 <div class="col-12">
@@ -442,6 +448,7 @@ if (isset($_POST['EliminarArticulo'])) {
       obAjax.send(formData);
     }
 
+    
   </script>
 </body>
 
