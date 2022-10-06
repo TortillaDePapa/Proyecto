@@ -299,7 +299,7 @@ session_start();
 
               echo"    <label for='codigo' class='col-4'>Nro de casa:  </label>";
               echo"    <div class='col-8'>";
-              echo"      <input type='text' class='form-control' value='".$_SESSION['CLIENTE'] -> getNumeroCasa()."' name='NumeroCasa'> ";
+              echo"      <input type='number' class='form-control' value='".$_SESSION['CLIENTE'] -> getNumeroCasa()."' name='NumeroCasa'> ";
               echo"    </div>";
 
 
@@ -400,6 +400,7 @@ if(isset($_POST['Eliminar'])){
   if(isset($_POST['ActualizarDatos'])){
     $p = new Persona();
     $p1 = new PersonaBD();
+    $p -> setIDPersona($_POST['IDPersona']);
     $p -> setUsuario($_POST['usuario']);
     $p -> setContraseña(md5($_POST['contraseña']));
     $p -> setNombre($_POST['nombre']);

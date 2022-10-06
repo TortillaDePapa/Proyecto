@@ -76,6 +76,7 @@ Class PersonaBD extends Conexion{
                 while ($row = $resultado3 -> fetch_assoc()) {
                     
                    $p = new Persona();
+                   $p -> setIDPersona($row['IDPersona']);
                    $p -> setNombre($row['Nombre']);
                    $p -> setApellido($row['Apellido']);
                    $p -> setUsuario($row['Usuario']);
@@ -96,30 +97,44 @@ Class PersonaBD extends Conexion{
     }
 
     public function ModificarDatos($Persona){
-        $sql4 = "SELECT Usuario FROM personas WHERE Usuario = '".$Persona -> getUsuario()."'";
-        $this -> Conectar();
-        $result = mysqli_query($this -> conn, $sql4);
-         if(!$result -> num_rows > 0){
-                $sql = "SELECT idpersona from Personas where usuario = '".$Persona -> getUsuario()."'";
-                $resultado = mysqli_query($this -> conn, $sql);
-                $fila = mysqli_fetch_assoc($resultado);
-                if($resultado){
-                $sql1 = "UPDATE Personas SET  Nombre = '".$Persona -> getNombre()."', Apellido ='".$Persona -> getApellido()."', Usuario='".$Persona -> getUsuario()."', Gmail='".$Persona -> getGmail()."' WHERE contraseña ='".$Persona -> getContraseña()."'";
-                $sql2 = "UPDATE clientes SET  NumeroPuerta ='".$Persona -> getNombreCalle()."','".$Persona -> getNumeroCasa()."', idcliente ='".$fila['idpersona']."' ";
-                $sql3 = "UPDATE telefonoClientes set numero = '".$Persona -> getTelefono()."', idcliente ='".$fila['idpersona']."'";
-                $resultado1 = mysqli_query($this -> conn, $sql1);
-                $resultado2 = mysqli_query($this -> conn, $sql2);
-                $resultado3 = mysqli_query($this -> conn, $sql3);
-                if($resultado1){
-                    if($resultado2){
-                        if($resultado3){
-                            echo "<script> window.location.reload()</script>";
-                            echo "<script>alert('Datos modificados con exito') </script>";
-                        }
-                    }
-                }
-           }
-        }echo "<script>alert('El usuario ya existe') </script>";
+       $sql1 = "SELECT Contraseña from personas where usuario= '".$Persona -> getUsuario()."' ";
+       $this -> Conectar();
+       $resultado1 = mysqli_query($this -> conn, $sql1);
+        if($resultado1){
+        $sql = "UPDATE personas, clientes, telefonoclientes SET personas.usuario = '".$Persona -> getUsuario()."', personas.apellido ='".$Persona -> getApellido()."', personas.Nombre = '".$Persona -> getNombre()."', personas.Gmail = '".$Persona -> getGmail()."', clientes.NumeroPuerta = '".$Persona -> getNumeroCasa()."', clientes.Calle ='".$Persona -> getNombreCalle()."', telefonoclientes.Numero ='".$Persona -> getTelefono()."' WHERE clientes.IDCliente = personas.IDPersona AND telefonoclientes.IDCliente = clientes.IDCliente AND personas.IDPersona = '".$Persona -> getIDPersona()."' ";
+        $resultado = mysqli_query($this -> conn, $sql);  
+        if($resultado){
+            echo "<script>alert('Datos actualizados con exito') </script>";
+        }else{
+            echo "<script>alert('Error al actualizar los datos') </script>";
+        }
+        }else{
+            echo "<script>alert('Contraseña incorrecta') </script>";
+        }
+        
+        
+        
+        // $sql = "SELECT idpersona from Personas where usuario = '".$Persona -> getUsuario()."'";
+            // $this -> Conectar();
+            // $resultado = mysqli_query($this -> conn, $sql);
+            //     $fila1 = mysqli_fetch_assoc($resultado);
+            //     if($resultado){
+            //     $sql1 = "UPDATE Personas SET  Nombre = '".$Persona -> getNombre()."', Apellido ='".$Persona -> getApellido()."', Usuario='".$Persona -> getUsuario()."', Gmail='".$Persona -> getGmail()."' WHERE contraseña ='".$Persona -> getContraseña()."'";
+            //     $sql2 = "UPDATE clientes SET  NumeroPuerta ='".$Persona -> getNombreCalle()."','".$Persona -> getNumeroCasa()."', WHERE idcliente ='".$fila1['idpersona']."' ";
+            //     $sql3 = "UPDATE telefonoClientes set numero = '".$Persona -> getTelefono()."', WHERE idcliente ='".$fila1['idpersona']."'";
+            //     $resultado1 = mysqli_query($this -> conn, $sql1);
+            //     $resultado2 = mysqli_query($this -> conn, $sql2);
+            //     $resultado3 = mysqli_query($this -> conn, $sql3);
+            //     if($resultado1){
+            //         if($resultado2){
+            //             if($resultado3){
+            //                 echo "<script> window.location.reload()</script>";
+            //                 echo "<script>alert('Datos modificados con exito') </script>";
+            //             }
+            //         }
+            //     }
+        //    }
+       
     }
 
     public function EliminarCuenta($Persona){
