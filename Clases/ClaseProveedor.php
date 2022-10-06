@@ -1,8 +1,8 @@
 <?php
-class Proveedores{
+class Proveedor{
 
     private $IDProveedor;
-    private $Nombre;
+    private $NombreProveedor;
     private $Gmail;
     private $TelefonoProveedor;
 
@@ -10,7 +10,7 @@ class Proveedores{
 
     public function getIDProveedor()
     {
-        return $this->getIDProveedor;
+        return $this->IDProveedor;
     }
 
     public function setIDProveedor($IDProveedor)
@@ -20,21 +20,21 @@ class Proveedores{
     }
 
 
-    public function getNombre()
+    public function getNombreProveedor()
     {
-        return $this->IDNombre;
+        return $this->NombreProveedor;
     }
 
-    public function setNombre($Nombre)
+    public function setNombreProveedor($NombreProveedor)
     {
-        $this->Nombre = $Nombre;
+        $this->NombreProveedor = $NombreProveedor;
 
     }
 
 
     public function getGmail()
     {
-        return $this->getGmail;
+        return $this->Gmail;
     }
 
     public function setGmail($Gmail)

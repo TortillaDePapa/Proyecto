@@ -1,8 +1,9 @@
 <?php
 include_once 'Clases/ClasePersona.php';
+include_once 'Clases/ClaseProveedor.php';
 include_once 'Persistencia/ClasePersonaBD.php';
 include_once 'Persistencia/ClaseProductoBD.php';
-
+include_once 'Persistencia/ClaseProveedorBD.php';
 
 
 
@@ -239,11 +240,10 @@ session_start();
                       
                     <button class="btn btn-info" onclick="" name="ModificarArticulo" id="">Modificar</button>
                     <button class="btn btn-info" onclick="" name="EliminarArticulo" id="">Eliminar</button>
-
                     <button class="btn btn-info" onclick="" name="AgregarArticulo" id="">Cargar</button>
-
+                    <input type="Submit" value="Mostrar Articulos" name="MostrarArticulos">
                     </form>
-                    <button onclick="MostrarProducto()" name="MostrarProducto" id="MostrarProducto">Mostrar</button>
+                    <button onclick="MostrarProducto()" name="MostrarProducto" id="MostrarProducto">Buscar</button>
                     
 
 
@@ -261,8 +261,8 @@ session_start();
                 </div>
               </div>
 
-                Proveedores -->
-
+                <!-- Proveedores  -->
+              <form action="" method="post">
               <div class="tab-pane fade " id="pills-contact1" role="tabpanel" aria-labelledby="pills-contact-tab"
                 tabindex="0">
 
@@ -279,7 +279,7 @@ session_start();
 
                           <label for="codigo" class="col-8"> Nombre </label>
                           <div class="col-8">
-                            <input type="text" class="form-control" value="" name="NombreProveedor">
+                            <input type="text" class="form-control" value="" name="ProveedorN">
                           </div>
 
                           <br>
@@ -289,7 +289,7 @@ session_start();
 
                           <label for="codigo" class="col-8"> Gmail </label>
                           <div class="col-8">
-                            <input type="text" class="form-control" value="" name="GmailProveedor">
+                            <input type="text" class="form-control" value="" name="ProveedorG">
                           </div>
 
                           <br>
@@ -298,7 +298,7 @@ session_start();
 
                           <label for="codigo" class="col-8"> Telefono </label>
                           <div class="col-8">
-                            <input type="number" class="form-control" value="" name="">
+                            <input type="number" class="form-control" value="" name="ProveedorT">
                           </div>
 
                           <br>
@@ -342,7 +342,14 @@ session_start();
 
 
   <?php
+  if(isset($_POST['AgregarProveedor']))
+  $p1 = new ProveedorBD();
+  $p2 = new Proveedor();  
+  $p2 -> setNombreProveedor($_POST['ProveedorN']);
+  $p2 -> setGmail($_POST['ProveedorG']);
+  $p2 -> setTelefonoProveedor($_POST['ProveedorT']);
 
+  $p1 -> AgregarProveedor($p2);
 
 // Agrega articulo
     
@@ -474,7 +481,7 @@ if (isset($_POST['EliminarArticulo'])) {
 
   }
 
-  if(isset($_POST['Articulos'])){
+  if(isset($_POST['MostrarArticulos'])){
     $p = new ProductoBD();
   $ListarProductos = $p -> Listarproductos();
   echo "<table>";
@@ -485,9 +492,10 @@ if (isset($_POST['EliminarArticulo'])) {
 echo "</table>";
   }
 
+
+
     ?>
-<tr></tr>
-<td></td>
+
   <script>
     function Cerrar() {
       var obAjax = new XMLHttpRequest();
