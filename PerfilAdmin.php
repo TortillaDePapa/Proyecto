@@ -120,13 +120,13 @@ session_start();
         <div class="col-12">
           <div class="col-5">
 
-            <!--   boton de perfil -->
+            <!--   boton de Productos -->
 
             <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
               <li class="nav-item" role="presentation">
                 <button class="nav-link bg-dark" id="pills-profile-tab" data-bs-toggle="pill"
                   data-bs-target="#pills-profile" type="button" role="tab" aria-controls="pills-profile"
-                  aria-selected="false">Perfil</button>
+                  aria-selected="false">Productos</button>
 
               </li>
 
@@ -139,13 +139,13 @@ session_start();
 
               </li>
 
-              <!--   boton de modificar -->
+              <!--   boton de Proveedores -->
 
 
               <li class="nav-item" role="presentation">
                 <button class="nav-link bg-dark" id="pills-contact-tab" data-bs-toggle="pill"
                   data-bs-target="#pills-contact1" type="button" role="tab" aria-controls="pills-contact"
-                  aria-selected="false">Modificar datos</button>
+                  aria-selected="false">Proveedores</button>
               </li>
 
 
