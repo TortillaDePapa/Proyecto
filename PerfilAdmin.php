@@ -267,7 +267,7 @@ session_start();
 
                           <label for="codigo" class="col-8"> Nombre </label>
                           <div class="col-8">
-                            <input type="number" class="form-control" value="" name="NombreProveedor">
+                            <input type="text" class="form-control" value="" name="NombreProveedor">
                           </div>
 
                           <br>
