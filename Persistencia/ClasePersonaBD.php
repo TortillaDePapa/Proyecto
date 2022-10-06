@@ -97,21 +97,36 @@ Class PersonaBD extends Conexion{
     }
 
     public function ModificarDatos($Persona){
-       $sql1 = "SELECT Contraseña from personas where usuario= '".$Persona -> getUsuario()."' ";
-       $this -> Conectar();
-       $resultado1 = mysqli_query($this -> conn, $sql1);
-        if($resultado1){
-        $sql = "UPDATE personas, clientes, telefonoclientes SET personas.usuario = '".$Persona -> getUsuario()."', personas.apellido ='".$Persona -> getApellido()."', personas.Nombre = '".$Persona -> getNombre()."', personas.Gmail = '".$Persona -> getGmail()."', clientes.NumeroPuerta = '".$Persona -> getNumeroCasa()."', clientes.Calle ='".$Persona -> getNombreCalle()."', telefonoclientes.Numero ='".$Persona -> getTelefono()."' WHERE clientes.IDCliente = personas.IDPersona AND telefonoclientes.IDCliente = clientes.IDCliente AND personas.IDPersona = '".$Persona -> getIDPersona()."' ";
-        $resultado = mysqli_query($this -> conn, $sql);  
-        if($resultado){
-            echo "<script>alert('Datos actualizados con exito') </script>";
-        }else{
-            echo "<script>alert('Error al actualizar los datos') </script>";
+        $sql2 = "SELECT * FROM personas WHERE Usuario = '".$Persona -> getUsuario()."'";
+        $this -> Conectar();
+        $resultado2 = mysqli_query($this -> conn,$sql2);
+        if($resultado2 -> num_rows > 0){
+        $sql1 = "SELECT Contraseña from personas where usuario= '".$Persona -> getUsuario()."' ";
+        $resultado1 = mysqli_query($this -> conn, $sql1);
+            if($resultado1){
+                $sql4 = "SELECT usuario from Personas where Usuario = '".$Persona -> getUsuario()."'";
+                $resultado3 = mysqli_query($this -> conn, $sql4);
+                if(!$resultado3 -> num_rows > 0){
+                    $sql5 = "UPDATE personas, clientes, telefonoclientes SET personas.usuario = '".$Persona -> getUsuario()."', personas.apellido ='".$Persona -> getApellido()."', personas.Nombre = '".$Persona -> getNombre()."', personas.Gmail = '".$Persona -> getGmail()."', clientes.NumeroPuerta = '".$Persona -> getNumeroCasa()."', clientes.Calle ='".$Persona -> getNombreCalle()."', telefonoclientes.Numero ='".$Persona -> getTelefono()."' WHERE clientes.IDCliente = personas.IDPersona AND telefonoclientes.IDCliente = clientes.IDCliente AND personas.IDPersona = '".$Persona -> getIDPersona()."' ";
+                    $resultado5 = mysqli_query($this -> conn, $sql5);  
+                        if($resultado5){
+                             echo "<script>alert('Datos actualizados con exito') </script>";
+                        }else{
+                            echo "<script>alert('Error al actualizar los datos') </script>";
+                        }
+                }else{
+            $sql = "UPDATE personas, clientes, telefonoclientes SET  personas.apellido ='".$Persona -> getApellido()."', personas.Nombre = '".$Persona -> getNombre()."', personas.Gmail = '".$Persona -> getGmail()."', clientes.NumeroPuerta = '".$Persona -> getNumeroCasa()."', clientes.Calle ='".$Persona -> getNombreCalle()."', telefonoclientes.Numero ='".$Persona -> getTelefono()."' WHERE clientes.IDCliente = personas.IDPersona AND telefonoclientes.IDCliente = clientes.IDCliente AND personas.IDPersona = '".$Persona -> getIDPersona()."' ";
+            $resultado = mysqli_query($this -> conn, $sql);  
+                if($resultado){
+                     echo "<script>alert('Datos actualizados con exito') </script>";
+                }else{
+                    echo "<script>alert('Error al actualizar los datos') </script>";
+                }
+            }
+            }else{
+                 echo "<script>alert('Contraseña incorrecta') </script>";
+            }   
         }
-        }else{
-            echo "<script>alert('Contraseña incorrecta') </script>";
-        }
-        
         
         
         // $sql = "SELECT idpersona from Personas where usuario = '".$Persona -> getUsuario()."'";
