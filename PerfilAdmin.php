@@ -112,9 +112,6 @@ session_start();
   </nav>
 
 
-
-
-
   <!-- Formato Perfil -->
 
   <div class="container">
@@ -123,13 +120,13 @@ session_start();
         <div class="col-12">
           <div class="col-5">
 
-            <!--   boton de productos -->
+            <!--   boton de perfil -->
 
             <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
               <li class="nav-item" role="presentation">
                 <button class="nav-link bg-dark" id="pills-profile-tab" data-bs-toggle="pill"
                   data-bs-target="#pills-profile" type="button" role="tab" aria-controls="pills-profile"
-                  aria-selected="false">Productos</button>
+                  aria-selected="false">Perfil</button>
 
               </li>
 
@@ -142,17 +139,24 @@ session_start();
 
               </li>
 
-              <!--   boton de proveedores -->
+              <!--   boton de modificar -->
 
 
               <li class="nav-item" role="presentation">
                 <button class="nav-link bg-dark" id="pills-contact-tab" data-bs-toggle="pill"
                   data-bs-target="#pills-contact1" type="button" role="tab" aria-controls="pills-contact"
-                  aria-selected="false">Proveedores</button>
+                  aria-selected="false">Modificar datos</button>
               </li>
 
 
 
+
+            </ul>
+
+            <div class="tab-content" id="pills-tabContent">
+
+
+              <!--  Productos -->
 
               <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab"
                 tabindex="0">
@@ -160,14 +164,12 @@ session_start();
                   <div class="col-7">
                     <div class="form-group row">
 
-                      <br>
-
 
                       <form action="" method="post" enctype="multipart/form-data">
 
                         <div class="contenedor-inputs">
 
-                          <!-- Agregar codigo de barras del producto -->
+                          <!--  codigo de barras del producto -->
 
                           <label for="codigo" class="col-8"> Codigo de barras </label>
                           <div class="col-8">
@@ -176,7 +178,7 @@ session_start();
 
                           <br>
 
-                          <!-- Agregar imagen del producto -->
+                          <!--  imagen del producto -->
 
                           <label for="codigo" class="col-8"> Imagen del producto </label>
                           <div class="col-8">
@@ -185,7 +187,7 @@ session_start();
 
                           <br>
 
-                          <!-- Agregar descripcion producto -->
+                          <!-- descripcion producto -->
 
                           <label for="codigo" class="col-8"> Descripcion </label>
                           <div class="col-8">
@@ -195,7 +197,7 @@ session_start();
 
                           <br>
 
-                          <!-- Agregar stock producto -->
+                          <!--  stock producto -->
 
                           <label for="codigo" class="col-8"> Stock </label>
                           <div class="col-8">
@@ -204,7 +206,7 @@ session_start();
 
                           <br>
 
-                          <!-- Agregar nombre producto -->
+                          <!--  nombre producto -->
 
                           <label for="codigo" class="col-8"> Nombre del producto </label>
                           <div class="col-8">
@@ -213,7 +215,7 @@ session_start();
 
                           <br>
 
-                          <!-- Agregar precio producto -->
+                          <!--  precio producto -->
 
                           <label for="codigo" class="col-8"> Precio </label>
                           <div class="col-8">
@@ -229,105 +231,105 @@ session_start();
                       <input type="Submit" value="Eliminar" name="EliminarArticulo">
                       <input type="Submit" value="Mostrar" name="MostrarArticulo">
 
+
+
+
+
                     </div>
-                    </form>
+                    <br>
+                    <div class="form-group text-center">
+
+                    </div>
+
+
                   </div>
+
+
+
                 </div>
               </div>
 
+              <!--  Proveedores -->
 
-
-              <div class="tab-pane fade " id="pills-contact1" role="tabpanel" aria-labelledby="pills-contact-tab"   >
+              <div class="tab-pane fade" id="pills-contact1" role="tabpanel" aria-labelledby="pills-contact-tab"
+                tabindex="0">
 
                 <div class="col-12">
+
                   <div class="col-7">
                     <div class="form-group row">
 
-                      <br>
-
-
                       <form action="" method="post" enctype="multipart/form-data">
 
                         <div class="contenedor-inputs">
 
-                          <!-- Agregar codigo de barras del producto -->
+                          <!-- Nombre proveedor -->
 
-                          <label for="codigo" class="col-8"> Codigo de barras </label>
+                          <label for="codigo" class="col-8"> Nombre </label>
                           <div class="col-8">
-                            <input type="number" class="form-control" value="" name="CodBarra">
+                            <input type="number" class="form-control" value="" name="NombreProveedor">
                           </div>
 
                           <br>
 
-                          <!-- Agregar imagen del producto -->
+                      
+                          <!-- Gmail proveedor -->
 
-                          <label for="codigo" class="col-8"> Imagen del producto </label>
+                          <label for="codigo" class="col-8"> Gmail </label>
                           <div class="col-8">
-                            <input type="file" class="form-control" value="" name="Imagen">
+                            <input type="text" class="form-control" value="" name="GmailProveedor">
                           </div>
 
                           <br>
 
-                          <!-- Agregar descripcion producto -->
+                          <!-- Telefono proveedor -->
 
-                          <label for="codigo" class="col-8"> Descripcion </label>
+                          <label for="codigo" class="col-8"> Telefono </label>
                           <div class="col-8">
-                            <textarea class="textarea" name="Descripcion" maxlength="200" minlength="10" cols="65"
-                              rows="5"> </textarea>
+                            <input type="number" class="form-control" value="" name="NombreProducto">
                           </div>
 
                           <br>
 
-                          <!-- Agregar stock producto -->
-
-                          <label for="codigo" class="col-8"> Stock </label>
-                          <div class="col-8">
-                            <input type="number" class="form-control" value="" name="Stock">
-                          </div>
-
-                          <br>
-
-                          <!-- Agregar nombre producto -->
-
-                          <label for="codigo" class="col-8"> Nombre del producto </label>
-                          <div class="col-8">
-                            <input type="text" class="form-control" value="" name="NombreProducto">
-                          </div>
-
-                          <br>
-
-                          <!-- Agregar precio producto -->
-
-                          <label for="codigo" class="col-8"> Precio </label>
-                          <div class="col-8">
-                            <input type="number" class="form-control" value="" name="PrecioProducto">
-                          </div>
+                          
                         </div>
                     </div>
                     <br>
                     <div class="col form-group text-center">
 
-                      <input type="Submit" value="Agregar" name="AgregarArticulo">
-                      <input type="Submit" value="Modificar" name="ModificarArticulo">
-                      <input type="Submit" value="Eliminar" name="EliminarArticulo">
-                      <input type="Submit" value="Mostrar" name="MostrarArticulo">
+                      <input type="Submit" value="Agregar" name="AgregarProveedor">
+                      <input type="Submit" value="Modificar" name="ModificarProveedor">
+                      <input type="Submit" value="Eliminar" name="EliminarProveedor">
+                      <input type="Submit" value="Mostrar" name="MostrarProveedor">
+                      <br>
+                      </form>
+
 
                     </div>
-                    </form>
+
+
+
                   </div>
                 </div>
+
               </div>
 
 
-
+            </div>
           </div>
-          </ul>
         </div>
       </div>
-      </div>
+
     </div>
   </div>
-      <?php
+
+
+
+
+
+
+
+  <?php
 
 
 // Agrega articulo
@@ -406,7 +408,7 @@ if (isset($_POST['EliminarArticulo'])) {
     ?>
 
 
-<script>
+  <script>
     function Cerrar() {
       var obAjax = new XMLHttpRequest();
       obAjax.open('POST', 'Persistencia/Control.php', true);
@@ -418,4 +420,5 @@ if (isset($_POST['EliminarArticulo'])) {
     }
   </script>
 </body>
+
 </html>

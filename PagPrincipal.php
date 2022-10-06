@@ -179,6 +179,7 @@ $ListarProductos = $p -> Listarproductos();
      echo "       <img src='imagenes/".$ListarProductos[$i] -> getImagen()."'>";
      echo "        <div class='card-body'>";
      echo "          <h5 class='card-title'>".$ListarProductos[$i] -> getNombre()."</h5>";
+     echo "          <small class='text-muted d-grid gap-2 d-md-flex justify-content-md-end'>" . $ListarProductos[$i]->getstock()."</small>";
      echo "          <hr>";
      echo "          <h4 class='card-title'>"."$".$ListarProductos[$i] -> getPrecio(). "</h4>";
      echo "          <p class='card-text'>  ".$ListarProductos[$i] -> getDescripcion()." </p>";
