@@ -74,7 +74,7 @@ session_start();
         <button class="btn btn-buttom btn-custom me-1 boton" type="submit"> </button>
 
         <?php
-            echo"<button class='btn btn-buttom btn-custom me-1'  type='submit' onclick='Cerrar()'>  <i class='bi bi-box-arrow-in-right'></i> </button>";          
+            echo"<button class='btn btn-buttom btn-custom me-1'  onclick='Cerrar()'>  <i class='bi bi-box-arrow-in-right'></i> </button>";          
            
             if(isset($_SESSION['CLIENTE'])){
             echo "<div class='dropdown'>";
@@ -165,15 +165,21 @@ session_start();
                     <div class="form-group row">
 
 
-                      <form action="" method="post" enctype="multipart/form-data">
+                      <form action="" method="post" enctype="multipart/form-data" id="Productos-form">
 
                         <div class="contenedor-inputs">
 
+                        <label for="codigo" class="col-8">ID Producto </label>
+                          <div class="col-8">
+                            <input type="number" class="form-control" value="" name="IDProducto" id="IDProducto">
+                          </div>
+
+                          <br>
                           <!--  codigo de barras del producto -->
 
                           <label for="codigo" class="col-8"> Codigo de barras </label>
                           <div class="col-8">
-                            <input type="number" class="form-control" value="" name="CodBarra">
+                            <input type="number" class="form-control" value="" name="CodBarra" id="CodBarra">
                           </div>
 
                           <br>
@@ -182,7 +188,7 @@ session_start();
 
                           <label for="codigo" class="col-8"> Imagen del producto </label>
                           <div class="col-8">
-                            <input type="file" class="form-control" value="" name="Imagen">
+                            <input type="file" class="form-control" value="" name="Imagen" >
                           </div>
 
                           <br>
@@ -191,7 +197,7 @@ session_start();
 
                           <label for="codigo" class="col-8"> Descripcion </label>
                           <div class="col-8">
-                            <textarea class="textarea" name="Descripcion" maxlength="200" minlength="10" cols="65"
+                            <textarea class="textarea" name="Descripcion" maxlength="200" minlength="10" cols="65" id ="Descripcion"
                               rows="5"> </textarea>
                           </div>
 
@@ -201,7 +207,7 @@ session_start();
 
                           <label for="codigo" class="col-8"> Stock </label>
                           <div class="col-8">
-                            <input type="number" class="form-control" value="" name="Stock">
+                            <input type="number" class="form-control" value="" name="Stock" id="Stock">
                           </div>
 
                           <br>
@@ -210,7 +216,7 @@ session_start();
 
                           <label for="codigo" class="col-8"> Nombre del producto </label>
                           <div class="col-8">
-                            <input type="text" class="form-control" value="" name="NombreProducto">
+                            <input type="text" class="form-control" value="" name="NombreProducto" id="NombreProducto">
                           </div>
 
                           <br>
@@ -219,7 +225,7 @@ session_start();
 
                           <label for="codigo" class="col-8"> Precio </label>
                           <div class="col-8">
-                            <input type="number" class="form-control" value="" name="PrecioProducto">
+                            <input type="number" class="form-control" value="" name="PrecioProducto" id="PrecioProducto">
                           </div>
                         </div>
                     </div>
@@ -229,9 +235,9 @@ session_start();
                       <input type="Submit" value="Agregar" name="AgregarArticulo">
                       <input type="Submit" value="Modificar" name="ModificarArticulo">
                       <input type="Submit" value="Eliminar" name="EliminarArticulo">
-                      <input type="Submit" value="Mostrar" name="MostrarArticulo">
-
-
+                      
+                    </form>
+                    <button onclick="MostrarProducto()" name="MostrarProducto" id="MostrarProducto">Mostrar</button>
 
 
 
@@ -286,7 +292,7 @@ session_start();
 
                           <label for="codigo" class="col-8"> Telefono </label>
                           <div class="col-8">
-                            <input type="number" class="form-control" value="" name="NombreProducto">
+                            <input type="number" class="form-control" value="" name="">
                           </div>
 
                           <br>
@@ -418,6 +424,24 @@ if (isset($_POST['EliminarArticulo'])) {
       }
       obAjax.send('Cerrar');
     }
+
+    function MostrarProducto(){
+
+      let formData = new FormData(document.getElementById('Productos-form'));
+      var obAjax = new XMLHttpRequest();
+      obAjax.open('POST', 'Persistencia/ControlMostrar.php', true);
+      obAjax.onreadystatechange = function () {
+        var Rellenar  = JSON.parse(this.responseText);
+        document.getElementById('CodBarra').value = Rellenar['CodBarra'];
+        document.getElementById('Descripcion').value = Rellenar['Descripcion'];
+        document.getElementById('Stock').value = Rellenar['Stock'];
+        document.getElementById('NombreProducto').value = Rellenar['NombreProducto'];
+        document.getElementById('PrecioProducto').value = Rellenar['Precio'];
+      }
+      formData.append('MostrarProducto', '');
+      obAjax.send(formData);
+    }
+
   </script>
 </body>
 

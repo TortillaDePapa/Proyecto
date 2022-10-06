@@ -64,11 +64,18 @@ include_once 'Clases/ClaseEnvasados.php';
             }
        }
 
-       public function ModificarProducto(){
-           $this -> conectar();
-         
+       
+    //    public function ModificarProducto($Producto){
+    //     $sql = "SELECT * from productos WHERE CodigoBarra = '".$Producto -> getCodBarra()."'";
+    //     $this -> conectar();
+    //     $resultado = mysqli_query($this -> conn, $sql);
+    //     if($resultado -> num_rows > 0){
+    //         $sql1 = "SELECT "
+    //     }else {
+    //         echo"<script>alert('El codigo de barras no existe')";
+    //     }
         
-       }
+    //    }
 
        public function ObtenerCategorias(){
         $sql = "SELECT * from categorias";
