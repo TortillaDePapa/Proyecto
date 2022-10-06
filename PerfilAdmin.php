@@ -158,7 +158,7 @@ session_start();
 
               <!--  Productos -->
 
-              <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab"
+              <div class="tab-pane fade show active" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab"
                 tabindex="0">
                 <div class="col-12">
                   <div class="col-7">
@@ -257,7 +257,7 @@ session_start();
 
               <!--  Proveedores -->
 
-              <div class="tab-pane fade" id="pills-contact1" role="tabpanel" aria-labelledby="pills-contact-tab"
+              <div class="tab-pane fade show active" id="pills-contact1" role="tabpanel" aria-labelledby="pills-contact-tab"
                 tabindex="0">
 
                 <div class="col-12">
