@@ -66,13 +66,21 @@ include_once 'Clases/ClaseEnvasados.php';
 
        
        public function ModificarProducto($Producto){
-        $sql = "SELECT * from productos WHERE  = IDProducto '".$Producto -> getIDProducto()."'";
+        $sql = "SELECT idproducto from productos WHERE IDProducto =  '".$Producto -> getIDProducto()."'";
         $this -> conectar();
         $resultado = mysqli_query($this -> conn, $sql);
         if($resultado -> num_rows > 0){
-            $sql1 = "SELECT ";
+            $sql1 = "SELECT codigoBarra from productos where IDProducto =  '".$Producto -> getIDProducto()."'";
+            $resultado1 = mysqli_query($this -> conn, $sql1);
+            if($resultado1 -> num_rows > 0){
+                $sql2 = "UPDATE productos SET CodigoBarra = '".$Producto -> getCodBarra()."', nombre ='".$Producto -> getNombre()."', imagen = '".$Producto -> getImagen()."', Stock = '".$Producto -> getStock()."', Precio = '".$Producto -> getPrecio()."', Descripcion = '".$Producto -> getDescripcion()."' where IDProducto =  '".$Producto -> getIDProducto()."' " ;
+                $resultado2 = mysqli_query($this -> conn, $sql2);
+                if ($resultado2) {
+                    echo"<script>alert('Producto modificado correctamente')";
+                }
+            }
         }else {
-            echo"<script>alert('El codigo de barras no existe')";
+            echo"<script>alert('No existe ningun producto con esa ID')";
         }
     
        }
