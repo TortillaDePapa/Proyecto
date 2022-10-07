@@ -49,13 +49,10 @@ session_start();
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item">
-                        <a class="nav-link active " aria-current="page" href="Local.php">Local</a>
-                    </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle me-2" href="#" id="navbarDropdown" role="button"
                             data-bs-toggle="dropdown" aria-expanded="false">
-                            Categorias
+                            Categorias  <i class="bi bi-list"></i>
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <li><a class="dropdown-item" href="#">Limpieza</a> </li>
@@ -90,7 +87,7 @@ session_start();
               echo "<i class='icon bi-person-fill'></i>";
               echo " </button>";
               echo "<ul class='dropdown-menu'>";
-              echo "<li><a class='dropdown-item NoSelect' href='Perfil.php'>".$_SESSION['ADMIN']-> getNombre()."</a></li>";
+              echo "<li><a class='dropdown-item NoSelect' href='PerfilAdmin.php'>".$_SESSION['ADMIN']-> getNombre()."</a></li>";
               echo "</ul>";
               echo "</div>";
             }else{
@@ -105,7 +102,7 @@ session_start();
 
     <?php
   if(!isset($_SESSION['CLIENTE'])){
-    header("Location: PagPrincipal.php");
+    header("Location: index.php");
   }
   
   ?>
@@ -417,65 +414,3 @@ if(isset($_POST['Eliminar'])){
 
 </html>
 
-<!--   
-          <div class="col-12">
-            <div class="col-5">
-              <img class="img-thumbnail"
-                src="https://w7.pngwing.com/pngs/811/233/png-transparent-computer-icons-user-login-desktop-others-blue-computer-prints.png"
-                alt="">
-
-            </div>
-            <div class="col-7">
-              <div class="form-group row">
-                <label for="codigo" class="col-4">codigo: </label>
-                <div class="col-8">
-                  <input type="text" class="form-control" value="00054DE">
-                </div>
-                <br>
-              </div>
-              <div class="form-group row">
-                <label for="usuario" class="col-4">usuario: </label>
-                <div class="col-8">
-                  <input type="text" class="form-control" value="Lucas">
-                </div>
-                <br>
-
-              </div>
-              <div class="form-group row">
-                <label for="email" class="col-4">email: </label>
-                <div class="col-8">
-                  <input type="text" class="form-control" value="lucas@gmail.com">
-                </div>
-                <br>
-              </div>
-              <div class="form-group text-center">
-                <button class="btn btn-info">Actualizar</button>
-                 <button class="btn btn-danger">Actualizar</button>
-            </div>
-            
-            </div>
-
-          </div>
-
-          <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
-
-          </div>
-          <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
-
-          </div>
-        </div> -->
-
-
-<!-- </div>
-           <div class="form-group row">
-             <label for="email" class="col-4"> email: </label>
-             <div class="col-8">
-               <input type="text" class="form-control" value="" placeholder="lucas@gmail.com" >
-             </div>
-             <br>
-           </div>
-           <div class="form-group row">
-             <label for="email" class="col-4"> numero: </label>
-             <div class="col-8">
-               <input type="text" class="form-control" value="" placeholder="numero" >
-             </div>  -->

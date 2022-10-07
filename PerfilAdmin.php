@@ -10,7 +10,7 @@ include_once 'Persistencia/ClaseProveedorBD.php';
 session_start();
 
   if(!isset($_SESSION['ADMIN'])){
-     header("Location: PagPrincipal.php");
+     header("Location: index.php");
   }
   
   
@@ -55,9 +55,6 @@ session_start();
       </button>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <li class="nav-item">
-            <a class="nav-link active " aria-current="page" href="Local.php">Local</a>
-          </li>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle me-2" href="#" id="navbarDropdown" role="button"
               data-bs-toggle="dropdown" aria-expanded="false">
