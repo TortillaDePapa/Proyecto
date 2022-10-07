@@ -10,7 +10,7 @@ include_once 'Persistencia/ClaseProveedorBD.php';
 session_start();
 
   if(!isset($_SESSION['ADMIN'])){
-     header("Location: PagPrincipal.php");
+     header("Location: index.php");
   }
   
   
@@ -48,16 +48,13 @@ session_start();
 
   <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
     <div class="container-fluid">
-      <a class="navbar-brand" href="PagPrincipal.php">AutoServicio</a>
+      <a class="navbar-brand" href="index.php">AutoServicio</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
         aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <li class="nav-item">
-            <a class="nav-link active " aria-current="page" href="Local.php">Local</a>
-          </li>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle me-2" href="#" id="navbarDropdown" role="button"
               data-bs-toggle="dropdown" aria-expanded="false">
@@ -309,6 +306,8 @@ session_start();
                         </div>
                     </div>
                     <br>
+
+                    <!-- Botones tipo submit -->
                     <div class="col form-group text-center">
 
                       <input type="Submit" value="Agregar" name="AgregarProveedor">
@@ -364,6 +363,16 @@ if(isset($_POST['ModificarProveedor'])){
   $p1 -> ModificarProveedor($p2);
 
 }
+
+if(isset($_POST['EliminarProveedor'])){
+  $p1 = new ProveedorBD();
+  $p2 = new Proveedor(); 
+
+  $p2 -> setIDProveedor($_POST['ProveedorID']);
+
+  $p1 -> EliminarProveedores($p2);
+
+  }
 
 // Agrega articulo
     

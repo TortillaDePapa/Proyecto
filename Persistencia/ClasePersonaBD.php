@@ -66,7 +66,7 @@ Class PersonaBD extends Conexion{
             
             }
              $_SESSION['ADMIN'] = $a;
-                header("Location: PagPrincipal.php");
+                header("Location: index.php");
              }
             
         }else{ 
@@ -87,7 +87,7 @@ Class PersonaBD extends Conexion{
                    $p -> setNumeroCasa($row['NumeroPuerta']);
                 }
                 $_SESSION['CLIENTE'] = $p;
-                header("Location: PagPrincipal.php");    
+                header("Location: index.php");    
             }
             
             }

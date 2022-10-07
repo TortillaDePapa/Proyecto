@@ -8,7 +8,7 @@ class ProveedorBD extends Conexion{
         $this -> Conectar();
         $resultado2 = mysqli_query($this -> conn, $sql2);
         if(!$resultado2 -> num_rows > 0){
-            $sql = "INSERT INTO Proveedores(Nombre,Gmail) VALUES('".$Proveedor -> getNombreProveedor()."','".$Proveedor -> getGmail()."')";
+            $sql = "INSERT INTO Proveedores(Nombre,Gmail,Estado) VALUES('".$Proveedor -> getNombreProveedor()."','".$Proveedor -> getGmail()."','1')";
             $resultado = mysqli_query($this -> conn, $sql);
             if($resultado){
                 $sql1 = "SELECT idProveedor FROM proveedores Where Nombre = '".$Proveedor -> getNombreProveedor()."'";
@@ -57,6 +57,18 @@ class ProveedorBD extends Conexion{
             echo "<script> alert('Este proveedor no existe')</script>";
         }
     }
+
+    public function EliminarProveedores($Proveedor){
+        $sql = "UPDATE Proveedores SET Estado = '0' where IDProveedor = '".$Proveedor -> getIDProveedor()."'";
+        $this -> Conectar();
+        $resultado = mysqli_query($this -> conn, $sql);
+        if($resultado){
+           echo"<script>alert('Proveedor eliminado con exito')";
+        }else{
+           echo"<script>alert('Error al eliminar al proveedor')";
+        }
+   }
+
     
 }
 
