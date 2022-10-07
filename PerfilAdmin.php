@@ -232,15 +232,15 @@ session_start();
                     </div>
                     <br>
                     <div class="col form-group text-center">
-<!-- 
-                      <input type="Submit" value="Agregar" name="AgregarArticulo">
-                      <input type="Submit" value="Modificar" name="ModificarArticulo">
-                      <input type="Submit" value="Eliminar" name="EliminarArticulo"> -->
 
-                      
+                     <input type="Submit" value="Agregar" name="AgregarArticulo">
+                      <input type="Submit" value="Modificar" name="ModificarArticulo">
+                      <input type="Submit" value="Eliminar" name="EliminarArticulo"> 
+
+<!--                       
                     <button class="btn btn-info" onclick="" name="ModificarArticulo" id="">Modificar</button>
                     <button class="btn btn-info" onclick="" name="EliminarArticulo" id="">Eliminar</button>
-                    <button class="btn btn-info" onclick="" name="AgregarArticulo" id="">Cargar</button>
+                    <button class="btn btn-info" onclick="" name="AgregarArticulo" id="">Cargar</button> -->
                     <input type="Submit" value="Mostrar Articulos" name="MostrarArticulos">
                     </form>
                     <button onclick="MostrarProducto()" name="MostrarProducto" id="MostrarProducto">Buscar</button>
@@ -314,6 +314,8 @@ session_start();
                         </div>
                     </div>
                     <br>
+
+                    <!-- Botones tipo submit -->
                     <div class="col form-group text-center">
 
                       <input type="Submit" value="Agregar" name="AgregarProveedor">
@@ -369,6 +371,16 @@ if(isset($_POST['ModificarProveedor'])){
   $p1 -> ModificarProveedor($p2);
 
 }
+
+if(isset($_POST['EliminarProveedor'])){
+  $p1 = new ProveedorBD();
+  $p2 = new Proveedor(); 
+
+  $p2 -> setIDProveedor($_POST['ProveedorID']);
+
+  $p1 -> EliminarProveedores($p2);
+
+  }
 
 // Agrega articulo
     

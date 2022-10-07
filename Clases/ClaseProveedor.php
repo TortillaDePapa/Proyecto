@@ -5,6 +5,7 @@ class Proveedor{
     private $NombreProveedor;
     private $Gmail;
     private $TelefonoProveedor;
+    private $Estado;
 
     
 
@@ -54,6 +55,17 @@ class Proveedor{
         $this->TelefonoProveedor = $TelefonoProveedor;
 
     }
+    public function getEstado()
+    {
+        return $this->Estado;
+    }
+
+    public function setEstado($Estado)
+    {
+        $this->Estado = $Estado;
+
 }
+}
+
 
 ?>
