@@ -13,10 +13,13 @@ class ProveedorBD extends Conexion{
             if($resultado){
                 $sql1 = "SELECT idProveedor FROM proveedores Where Nombre = '".$Proveedor -> getNombreProveedor()."'";
                 $resultado1 = mysqli_query($this -> conn, $sql1);
-                $fila = mysqli_fetch_asssoc($resultado1);
+                $fila = mysqli_fetch_assoc($resultado1);
                 if($resultado1){
-                    $sql4 = "INSERT INTO TelefonoProveedor(idproveedor, TelefonoProveedor) VALUES('".$fila['idproveedor']."','".$Proveedor -> getTelefonoProveedor()."')";
+                    $sql4 = "INSERT INTO TelefonoProveedores(idproveedor, Numero) VALUES('".$fila['idProveedor']."','".$Proveedor -> getTelefonoProveedor()."')";
+                    $resultado3 = mysqli_query($this -> conn, $sql4);
+                    if($resultado3){
                     echo "<script> alert('Proveedor Agregado Correctamente')</script>";
+                }
                 }else{
                     echo "<script> alert('Hubo un Error al agregar el telefono del proveedor')</script>";
                 }
@@ -25,6 +28,33 @@ class ProveedorBD extends Conexion{
             }
         }else{
             echo "<script> alert('Este Proveedor ya existe')</script>";
+        }
+    }
+
+    public function ModificarProveedor($Proveedor){
+        $sql = "SELECT idproveedor FROM proveedores WHERE idProveedor = '".$Proveedor -> getIDProveedor()."'";
+        $this -> Conectar();
+        $resultado = mysqli_query($this -> conn, $sql);
+        if($resultado -> num_rows > 0){
+            $sql1 = "SELECT * FROM proveedores WHERE idProveedor = '".$Proveedor -> getIDProveedor()."'";
+            $this -> Conectar();
+            $resultado1 = mysqli_query($this -> conn, $sql1);
+            if($resultado1){
+                $sql3 = "UPDATE proveedores, telefonoProveedores SET proveedores.Nombre = '".$Proveedor -> getNombreProveedor()."', proveedores.Gmail='".$Proveedor -> getGmail()."',telefonoProveedores.numero='".$Proveedor -> getTelefonoProveedor()."' WHERE proveedores.IDProveedor = TelefonoProveedores.IDProveedor AND proveedores.idProveedor = '".$Proveedor -> getIDProveedor()."'";
+                $resultado2 = mysqli_query($this -> conn, $sql3);
+                if($resultado2){
+                    echo "<script> alert('Proveedor modificado Correctamente')</script>";
+                }
+            }
+            }elseif(!$resultado -> num_rows > 0){
+                $sql2 = "UPDATE proveedores, telefonoProveedores SET proveedores.Nombre = '".$Proveedor -> getNombreProveedor()."', proveedores.Gmail='".$Proveedor -> getGmail()."',telefonoProveedores.numero='".$Proveedor -> getTelefonoProveedor()."' WHERE proveedores.IDProveedor = TelefonoProvedores.IDProveedor AND proveedores.idProveedor = '".$Proveedor -> getIDProveedor()."'";
+                $resultado2 = mysqli_query($this -> conn, $sql2);
+                if($resultado2){
+                    echo "<script> alert('Proveedor modificado Correctamente')</script>";
+                }
+            
+        }else{
+            echo "<script> alert('Este proveedor no existe')</script>";
         }
     }
     

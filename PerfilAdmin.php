@@ -262,7 +262,7 @@ session_start();
               </div>
 
                 <!-- Proveedores  -->
-              <form action="" method="post">
+           
               <div class="tab-pane fade " id="pills-contact1" role="tabpanel" aria-labelledby="pills-contact-tab"
                 tabindex="0">
 
@@ -271,15 +271,22 @@ session_start();
                   <div class="col-7">
                     <div class="form-group row">
 
-                      <form action="" method="post" enctype="multipart/form-data">
+                      <form action="" method="post" enctype="multipart/form-data"  id="Proveedor-form">
 
                         <div class="contenedor-inputs">
+              <!-- Nombre proveedor -->
 
+                            <label for="codigo" class="col-8"> ID Proveedor</label>
+                          <div class="col-8">
+                            <input type="number" class="form-control" value="" name="ProveedorID" id="IDProveedor">
+                          </div>
+
+                          <br>
                           <!-- Nombre proveedor -->
 
                           <label for="codigo" class="col-8"> Nombre </label>
                           <div class="col-8">
-                            <input type="text" class="form-control" value="" name="ProveedorN">
+                            <input type="text" class="form-control" value="" name="ProveedorN" id="ProveedorN">
                           </div>
 
                           <br>
@@ -289,7 +296,7 @@ session_start();
 
                           <label for="codigo" class="col-8"> Gmail </label>
                           <div class="col-8">
-                            <input type="text" class="form-control" value="" name="ProveedorG">
+                            <input type="text" class="form-control" value="" name="ProveedorG" id="ProveedorG">
                           </div>
 
                           <br>
@@ -298,7 +305,7 @@ session_start();
 
                           <label for="codigo" class="col-8"> Telefono </label>
                           <div class="col-8">
-                            <input type="number" class="form-control" value="" name="ProveedorT">
+                            <input type="number" class="form-control" value="" name="ProveedorT" id="ProveedorT"> 
                           </div>
 
                           <br>
@@ -315,7 +322,7 @@ session_start();
                       <input type="Submit" value="Mostrar" name="MostrarProveedor">
                       <br>
                       </form>
-                     
+                      <button onclick="MostrarProveedor()" name="MostrarProveedor" id="MostrarProveedor">Buscar</button>
 
                     </div>
 
@@ -342,7 +349,7 @@ session_start();
 
 
   <?php
-  if(isset($_POST['AgregarProveedor']))
+  if(isset($_POST['AgregarProveedor'])){
   $p1 = new ProveedorBD();
   $p2 = new Proveedor();  
   $p2 -> setNombreProveedor($_POST['ProveedorN']);
@@ -350,6 +357,18 @@ session_start();
   $p2 -> setTelefonoProveedor($_POST['ProveedorT']);
 
   $p1 -> AgregarProveedor($p2);
+}
+if(isset($_POST['ModificarProveedor'])){
+  $p1 = new ProveedorBD();
+  $p2 = new Proveedor();  
+  $p2 -> setIDProveedor($_POST['ProveedorID']);
+  $p2 -> setNombreProveedor($_POST['ProveedorN']);
+  $p2 -> setGmail($_POST['ProveedorG']);
+  $p2 -> setTelefonoProveedor($_POST['ProveedorT']);
+
+  $p1 -> ModificarProveedor($p2);
+
+}
 
 // Agrega articulo
     
@@ -464,7 +483,7 @@ $a1 -> setStock($_POST['Stock']);
 $a1 -> setNombre($_POST['NombreProducto']);
 $a1 -> setPrecio($_POST['PrecioProducto']);
 
-$a -> ModificarArticulo($a1);
+$a -> ModificarProducto($a1);
 } else {
 echo "Lo sentimos, hubo un error al cargar su archivo.";
 }
@@ -513,7 +532,7 @@ echo "</table>";
       var obAjax = new XMLHttpRequest();
       obAjax.open('POST', 'Persistencia/ControlMostrar.php', true);
       obAjax.onreadystatechange = function () {
-        var Rellenar  = JSON.parse(this.responseText);
+        var Rellenar = JSON.parse(this.responseText);
         document.getElementById('CodBarra').value = Rellenar['CodBarra'];
         document.getElementById('Descripcion').value = Rellenar['Descripcion'];
         document.getElementById('Stock').value = Rellenar['Stock'];
@@ -524,7 +543,20 @@ echo "</table>";
       obAjax.send(formData);
     }
 
-    
+    function MostrarProveedor(){
+     
+let formData = new FormData(document.getElementById('Proveedor-form'));
+var obAjax = new XMLHttpRequest();
+obAjax.open('POST', 'Persistencia/ControlMostrarProveedor.php', true);
+obAjax.onreadystatechange = function () {
+  var Rellenar = JSON.parse(this.responseText);
+  document.getElementById('ProveedorN').value = Rellenar['ProveedorN'];
+  document.getElementById('ProveedorG').value = Rellenar['ProveedorG'];
+  document.getElementById('ProveedorT').value = Rellenar['ProveedorT'];
+}
+formData.append('ControlMostrarProveedor.php', '');
+obAjax.send(formData);
+}
   </script>
 </body>
 
