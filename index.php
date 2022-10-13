@@ -116,7 +116,14 @@ session_start();
                     <hr>
                     <div class="offcanvas-body">
                         <div class="">
-
+                            <?php
+                            if(isset($_SESSION['MostrarCarrito'])){
+                          echo " <p>'".$_SESSION['MostrarCarrito']['Precio']."''".$_SESSION['MostrarCarrito']['Nombre']."'</p>";
+                        }  else{
+                          echo "null";
+                        }
+                            
+                            ?>
                         </div>
                     </div>
                 </div>
@@ -164,11 +171,8 @@ session_start();
             <div class="card" style="width: 100%"> -->
 
     <!-- CARDS -->
-
-    <?php
-
-
-
+<form action="" method="post" id="productos-form">
+<?php
 
 $p = new ProductoBD();
 $ListarProductos = $p -> Listarproductos();
@@ -176,7 +180,7 @@ $ListarProductos = $p -> Listarproductos();
      echo " <div class='container text-center'>";
      echo"   <div class='row'> ";
      for($i = 1; $i < count($ListarProductos); $i++){
-
+     echo "<input type='hidden' value='".$ListarProductos[$i] -> getIDProducto()."' name='idproducto' id='idproducto'>";
      echo "    <div class='col-lg-3 col-sd-12 col-margin' >";
      echo "     <div class='card' style='width: 100%'>";
      echo "       <img src='imagenes/".$ListarProductos[$i] -> getImagen()."'>";
@@ -186,14 +190,14 @@ $ListarProductos = $p -> Listarproductos();
      echo "          <hr>";
      echo "          <h4 class='card-title'>"."$".$ListarProductos[$i] -> getPrecio(). "</h4>";
      echo "          <p class='card-text'>  ".$ListarProductos[$i] -> getDescripcion()." </p>";
-     echo "          <button href='carrito.php?id=".$ListarProductos[$i] -> getIdProducto()." 'class='btn btn-primary btn-dark bg-dark'><i class='icon bi-cart3'></i> </button>";
+     echo "          <button class='btn btn-primary btn-dark bg-dark' onclick='MostrarCarrito()'><i class='icon bi-cart3'></i> </button>";
      echo "       </div>";
      echo "      </div>";
      echo "   </div>";
       }
 
         ?>
-
+</form>
     <script>
     function Cerrar() {
         var obAjax = new XMLHttpRequest();
@@ -203,6 +207,18 @@ $ListarProductos = $p -> Listarproductos();
             window.location.reload();
         }
         obAjax.send('Cerrar');
+    }
+
+    function MostrarCarrito() {
+        console.log("ingreso");
+        let formData = document.getElementById('idproducto').value;
+        var obAjax = new XMLHttpRequest();
+        obAjax.open('POST', 'Persistencia/ControlCarrito.php', true);
+        obAjax.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+        obAjax.onreadystatechange = function() {
+            console.log(this.responseText);
+        }
+      obAjax.send('id='+formData);
     }
     </script>
 </body>
