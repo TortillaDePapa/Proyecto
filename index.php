@@ -216,6 +216,12 @@ $ListarProductos = $p -> Listarproductos();
 
         ?>
 </form>
+
+
+
+
+
+
     <script>
     function Cerrar() {
         var obAjax = new XMLHttpRequest();
@@ -243,6 +249,7 @@ $ListarProductos = $p -> Listarproductos();
     //   +'&'+'Cantidad='+cantD 
     }
     </script>
+
 </body>
 
 </html>
