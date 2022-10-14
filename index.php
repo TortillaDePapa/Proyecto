@@ -115,15 +115,32 @@ session_start();
                     </div>
                     <hr>
                     <div class="offcanvas-body">
-                        <div class="">
-                            <?php
-                            if(isset($_SESSION['MostrarCarrito'])){
-                          echo " <p>'".$_SESSION['MostrarCarrito']['Precio']."''".$_SESSION['MostrarCarrito']['Nombre']."'</p>";
-                        }  else{
-                          echo "null";
-                        }
-                            
-                            ?>
+
+                    <div class="card mb-3" style="max-width: 540px;">
+      <div class="row g-0">
+      <?php
+      if(isset($_SESSION['MostrarCarrito'])){
+        
+            echo    " <div class='col-md-4'>";
+            for($i = 0; $i <count($_SESSION['MostrarCarrito']); $i++){
+            echo   "<img src='imagenes/".$_SESSION['MostrarCarrito'][$i]['Imagen']."' class='img-fluid rounded-start' alt='...'>";
+            echo   "</div>";
+            echo   "<div class='col-md-8'>";
+            echo   "<div class='card-body'>";
+            echo    "<h5 class='card-title'>".$_SESSION['MostrarCarrito'][$i]['Nombre']."</h5>";
+            echo    "<h5 class='card-title'>$".$_SESSION['MostrarCarrito'][$i]['Precio']*$_SESSION['MostrarCarrito'][$i]['Cantidad']."</h5>";
+            echo    "<h6 class='card-title'>Cantidad:".$_SESSION['MostrarCarrito'][$i]['Cantidad']." </h6>";
+        }
+        }  else{
+            echo "null";
+        }
+            ?>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
                         </div>
                     </div>
                 </div>
@@ -183,6 +200,7 @@ $ListarProductos = $p -> Listarproductos();
      echo "<input type='hidden' value='".$ListarProductos[$i] -> getIDProducto()."' name='idproducto' id='idproducto'>";
      echo "    <div class='col-lg-3 col-sd-12 col-margin' >";
      echo "     <div class='card' style='width: 100%'>";
+    //  echo "         <input type='number' id='cantidad' value='0'>";
      echo "       <img src='imagenes/".$ListarProductos[$i] -> getImagen()."'>";
      echo "        <div class='card-body'>";
      echo "          <h5 class='card-title'>".$ListarProductos[$i] -> getNombre()."</h5>";
@@ -190,7 +208,7 @@ $ListarProductos = $p -> Listarproductos();
      echo "          <hr>";
      echo "          <h4 class='card-title'>"."$".$ListarProductos[$i] -> getPrecio(). "</h4>";
      echo "          <p class='card-text'>  ".$ListarProductos[$i] -> getDescripcion()." </p>";
-     echo "          <button class='btn btn-primary btn-dark bg-dark' onclick='MostrarCarrito()'><i class='icon bi-cart3'></i> </button>";
+     echo "          <button class='btn btn-primary btn-dark bg-dark' onclick='MostrarCarrito(\"".$ListarProductos[$i] -> getIDProducto()."\",\"".$ListarProductos[$i] -> getPrecio()."\")'><i class='icon bi-cart3'></i> </button>";
      echo "       </div>";
      echo "      </div>";
      echo "   </div>";
@@ -209,16 +227,20 @@ $ListarProductos = $p -> Listarproductos();
         obAjax.send('Cerrar');
     }
 
-    function MostrarCarrito() {
+    function MostrarCarrito(idProducto,precioP) {
         console.log("ingreso");
-        let formData = document.getElementById('idproducto').value;
+        let formData = idProducto;
+        let precio = precioP
+        // let cantD = document.getElementById('cantidad').value;
+        console.log(formData);
         var obAjax = new XMLHttpRequest();
         obAjax.open('POST', 'Persistencia/ControlCarrito.php', true);
         obAjax.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
         obAjax.onreadystatechange = function() {
             console.log(this.responseText);
         }
-      obAjax.send('id='+formData);
+      obAjax.send('id='+formData+'&'+'Precio='+precio ); 
+    //   +'&'+'Cantidad='+cantD 
     }
     </script>
 </body>
