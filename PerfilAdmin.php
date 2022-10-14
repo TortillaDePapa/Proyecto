@@ -342,6 +342,7 @@ session_start();
 
 
 
+
   <?php
   if(isset($_POST['AgregarProveedor'])){
   $p1 = new ProveedorBD();
@@ -462,13 +463,45 @@ if (isset($_POST['EliminarArticulo'])) {
   if(isset($_POST['MostrarArticulos'])){
     $p = new ProductoBD();
   $ListarProductos = $p -> Listarproductos();
-  echo "<table>";
-  echo "<tr><th>Codigo de barras</th><th>Descripcion</th><th>Stock</th><th>Nombre</th><th>Precio</th></tr>";
+
+
+  echo "<table class='table table-dark table-striped'> ";
+  echo "<thead> ";
+  echo " <tr> ";
+  echo "    <th scope='col'> ID </th> ";
+  echo "    <th scope='col'>Codigo Barras</th> ";
+  echo "    <th scope='col'>Nombre</th> ";
+  echo "   <th scope='col'>Precio</th>";
+  echo "   <th scope='col'>Descripcion</th>";
+  echo "   <th scope='col'>Stock</th>";
+  echo "  </tr> ";
+  echo " </thead> ";
+  echo " <tbody> ";
+  echo " <tr> ";
   for($i = 1; $i < count($ListarProductos); $i++){
-  echo "<tr><td>".$ListarProductos[$i] -> getCodBarra()."</td><td>".$ListarProductos[$i] -> getDescripcion()."</td><td>".$ListarProductos[$i] -> getStock()."</td><td>".$ListarProductos[$i] -> getNombre()."</td><td>".$ListarProductos[$i] -> getPrecio()."</td></tr>";
+
+  echo "  <th scope='row'> ".$ListarProductos[$i] -> getIDProducto()." </th> ";
+  echo "  <td> ".$ListarProductos[$i] -> getCodBarra()."  </td> ";
+  echo "   <td> ".$ListarProductos[$i] -> getNombre()."</td> ";
+  echo "   <td> ".$ListarProductos[$i] -> getPrecio()."</td> ";
+  echo "   <td> ".$ListarProductos[$i] -> getDescripcion()."  </td> ";
+  echo "   <td> ".$ListarProductos[$i] -> getStock()."  </td> ";
+  echo "  </tr>";
 }
-echo "</table>";
-  }
+  echo " </tbody> ";
+  echo "</table> ";
+}
+
+
+
+
+//   echo "<table>";
+//   echo "<tr><th>Codigo de barras</th><th>Descripcion</th><th>Stock</th><th>Nombre</th><th>Precio</th></tr>";
+//   for($i = 1; $i < count($ListarProductos); $i++){
+//   echo "<tr><td>".$ListarProductos[$i] -> getCodBarra()."</td><td>".$ListarProductos[$i] -> getDescripcion()."</td><td>".$ListarProductos[$i] -> getStock()."</td><td>".$ListarProductos[$i] -> getNombre()."</td><td>".$ListarProductos[$i] -> getPrecio()."</td></tr>";
+// }
+// echo "</table>";
+//   }
 
 
 
