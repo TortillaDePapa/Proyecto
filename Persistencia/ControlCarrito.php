@@ -1,4 +1,5 @@
 <?php
+
 include_once 'conexion.php';
 session_start();
 
@@ -22,7 +23,7 @@ if (isset($_POST['id'])) {
         'Cantidad'  =>    $cantidad
           );
         }
-        echo "10";
+
         if(isset($_SESSION['MostrarCarrito'])){
 
             for($i = 0; $i <count($_SESSION['MostrarCarrito']); $i++){
@@ -36,9 +37,10 @@ if (isset($_POST['id'])) {
                 
 
             }  
-            if($existe == false){
-               
+            if($existe == true){
+
             }           
+
         }else{
             $_SESSION['MostrarCarrito'] = $MostrarCarrito;
             echo  $MostrarCarrito['id'];
@@ -50,6 +52,5 @@ if (isset($_POST['id'])) {
   
     
 }
-
 
       ?> 
