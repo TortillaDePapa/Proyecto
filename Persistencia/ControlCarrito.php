@@ -37,13 +37,13 @@ if (isset($_POST['id'])) {
                 
 
             }  
-            if($existe == true){
+            if($existe == false){
 
             }           
 
         }else{
             $_SESSION['MostrarCarrito'] = $MostrarCarrito;
-            echo  $MostrarCarrito['id'];
+            
             
         }
     }else{
