@@ -218,9 +218,9 @@ echo " </div>";
         </div>
 
         <div class="modal-footer">
-        <input type="submit" name="AgregarArticulos" id="AgregarArticulo" value="Agregar">
+        <!-- <input type="submit" name="AgregarArticulos" id="AgregarArticulo" value="Agregar"> -->
 
-          <!-- <button type="button" name="AgregarArticulos"  id="AgregarArticulos" class="btn btn-primary"> Agregar </button> -->
+          <button type="button " name="AgregarArticulos"  id="AgregarArticulos" class="btn btn-primary"> Agregar </button>
         </div>
         </form>
       </div>
