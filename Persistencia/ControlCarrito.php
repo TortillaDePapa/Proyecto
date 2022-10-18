@@ -33,12 +33,16 @@ if (isset($_POST['id'])) {
                     $_SESSION['MostrarCarrito'][$i]['Cantidad']++;
                     $existe = true;
 
+                }else{
+
+                    
                 }
                 
 
             }  
-            if($existe == true){
-
+            if($existe == false){
+               
+               
             }           
 
         }else{
