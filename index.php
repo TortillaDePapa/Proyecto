@@ -120,7 +120,6 @@ session_start();
       <div class="row g-0">
       <?php
       if(isset($_SESSION['MostrarCarrito'])){
-        
             echo    " <div class='col-md-4'>";
             for($i = 0; $i <count($_SESSION['MostrarCarrito']); $i++){
             echo   "<img src='imagenes/".$_SESSION['MostrarCarrito'][$i]['Imagen']."' class='img-fluid rounded-start' alt='...'>";
