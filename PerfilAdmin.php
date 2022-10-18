@@ -23,7 +23,7 @@ session_start();
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="CSS/principal.css">
-  <link rel="stylesheet" href="CSS/textarea.css">
+  <link rel="stylesheet" href="CSS/admin.css">
 
 
   <!-- Icon Bootstrap CSS -->
@@ -110,205 +110,7 @@ session_start();
   </nav>
 
 
-  <!-- Formato Perfil -->
-
-  <div class="container">
-    <div class="row">
-      <div class="col-md-12 offset-md-4">
-        <div class="col-12">
-          <div class="col-5">
-
-            <!--   boton de Productos -->
-
-            <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
-              <li class="nav-item" role="presentation">
-                <button class="nav-link bg-dark" id="pills-profile-tab" data-bs-toggle="pill"
-                  data-bs-target="#pills-profile" type="button" role="tab" aria-controls="pills-profile"
-                  aria-selected="false">Productos</button>
-
-              </li>
-
-              <!--   espacio en blanco -->
-
-
-              <li class="nav-item" role="presentation">
-                <button class="nav-link bg-light" id="" data-bs-toggle="" data-bs-target="" type="button" role="tab"
-                  aria-controls="" aria-selected="false" disabled></button>
-
-              </li>
-
-              <!--   boton de Proveedores -->
-
-
-              <li class="nav-item" role="presentation">
-                <button class="nav-link bg-dark" id="pills-contact-tab" data-bs-toggle="pill"
-                  data-bs-target="#pills-contact1" type="button" role="tab" aria-controls="pills-contact"
-                  aria-selected="false">Proveedores</button>
-              </li>
-
-
-
-
-            </ul>
-
-            <div class="tab-content" id="pills-tabContent">
-
-
-              <!--  Productos -->
-
-              <div class="tab-pane fade " id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab"
-                tabindex="0">
-                <div class="col-12">
-                  <div class="col-7">
-                    <div class="form-group row">
-
-
-                      <form action="" method="post" enctype="multipart/form-data" id="Productos-form">
-
-                        <div class="contenedor-inputs">
-
-                        <label for="codigo" class="col-8">ID Producto </label>
-                          <div class="col-8">
-                            <input type="number" class="form-control" value="" name="IDProducto" id="IDProducto">
-                          </div>
-
-                          <br>
-                          <!--  codigo de barras del producto -->
-
-                          <label for="codigo" class="col-8"> Codigo de barras </label>
-                          <div class="col-8">
-                            <input type="number" class="form-control" value="" name="CodBarra" id="CodBarra" >
-                          </div>
-
-                          <br>
-
-                          <!--  imagen del producto -->
-
-                          <label for="codigo" class="col-8"> Imagen del producto </label>
-                          <div class="col-8">
-                            <input type="file" class="form-control" value="" name="Imagen" >
-                          </div>
-
-                          <br>
-
-                          <!-- descripcion producto -->
-
-                          <label for="codigo" class="col-8"> Descripcion </label>
-                          <div class="col-8">
-                            <textarea class="textarea" name="Descripcion" maxlength="200" minlength="10" cols="65" id ="Descripcion"
-                              rows="5"> </textarea>
-                          </div>
-
-                          <br>
-
-                          <!--  stock producto -->
-
-                          <label for="codigo" class="col-8"> Stock </label>
-                          <div class="col-8">
-                            <input type="number" class="form-control" value="" name="Stock" id="Stock">
-                          </div>
-
-                          <br>
-
-                          <!--  nombre producto -->
-
-                          <label for="codigo" class="col-8"> Nombre del producto </label>
-                          <div class="col-8">
-                            <input type="text" class="form-control" value="" name="NombreProducto" id="NombreProducto">
-                          </div>
-
-                          <br>
-
-                          <!--  precio producto -->
-
-                          <label for="codigo" class="col-8"> Precio </label>
-                          <div class="col-8">
-                            <input type="number" class="form-control" value="" name="PrecioProducto" id="PrecioProducto">
-                          </div>
-                        </div>
-                    </div>
-                    <br>
-                    <div class="col form-group text-center">
-
-                    <input type="submit" name="AgregarArticulos" id="AgregarArticulo" value="Agregar">
-                    <input type="submit" name="ModificarArticulo" id="ModificarArticulo" value="Modificar">
-                    <input type="submit" name="EliminarArticulo" id="EliminarArticulo" value="Eliminar">
-                    <input type="Submit" value="Mostrar Articulos" name="MostrarArticulos">
-                    </form>
-                    <button onclick="MostrarProducto()" name="MostrarProducto" id="MostrarProducto">Buscar</button>
-                    
-
-
-                    </div>
-                    <br>
-                    <div class="form-group text-center">
-
-                    </div>
-
-
-                  </div>
-
-
-
-                </div>
-              </div>
-
-                <!-- Proveedores  -->
-           
-              <div class="tab-pane fade " id="pills-contact1" role="tabpanel" aria-labelledby="pills-contact-tab"
-                tabindex="0">
-
-                <div class="col-12">
-
-                  <div class="col-7">
-                    <div class="form-group row">
-
-                      <form action="" method="post" enctype="multipart/form-data"  id="Proveedor-form">
-
-                        <div class="contenedor-inputs">
-              <!-- Nombre proveedor -->
-
-                            <label for="codigo" class="col-8"> ID Proveedor</label>
-                          <div class="col-8">
-                            <input type="number" class="form-control" value="" name="ProveedorID" id="IDProveedor">
-                          </div>
-
-                          <br>
-                          <!-- Nombre proveedor -->
-
-                          <label for="codigo" class="col-8"> Nombre </label>
-                          <div class="col-8">
-                            <input type="text" class="form-control" value="" name="ProveedorN" id="ProveedorN">
-                          </div>
-
-                          <br>
-
-                      
-                          <!-- Gmail proveedor -->
-
-                          <label for="codigo" class="col-8"> Gmail </label>
-                          <div class="col-8">
-                            <input type="text" class="form-control" value="" name="ProveedorG" id="ProveedorG">
-                          </div>
-
-                          <br>
-
-                          <!-- Telefono proveedor -->
-
-                          <label for="codigo" class="col-8"> Telefono </label>
-                          <div class="col-8">
-                            <input type="number" class="form-control" value="" name="ProveedorT" id="ProveedorT"> 
-                          </div>
-
-                          <br>
-
-                          
-                        </div>
-                    </div>
-                    <br>
-
-                    <!-- Botones tipo submit -->
-                    <div class="col form-group text-center">
+  <!--  
 
                       <input type="Submit" value="Agregar" name="AgregarProveedor">
                       <input type="Submit" value="Modificar" name="ModificarProveedor">
@@ -318,27 +120,125 @@ session_start();
                       </form>
                       <button onclick="MostrarProveedor()" name="MostrarProveedor" id="MostrarProveedor">Buscar</button>
 
-                    </div>
+                  -->
+
+  <?php
+
+
+$p = new ProductoBD();
+$ListarProductos = $p -> Listarproductos();
+
+
+echo "  <button class='btn btn-success' type='submit' data-bs-toggle='modal' data-bs-target='#ModalAgregarProducto'> Agregar producto</button>";
+echo "  <div class='tabla'>";
+echo "  <table class='table table-dark table-striped table-hover'>";
+echo "  <thead>";
+echo "  <tr>";
+echo "   <th scope='col'> ID </th>";
+echo "   <th scope='col'> Codigo Barra</th>";
+echo "   <th scope='col'> Nombre</th>";
+echo "   <th scope='col'> Precio</th>";
+echo "   <th scope='col'> Descripcion</th>";
+echo "   <th scope='col'> Stock </th>";
+echo "   <th scope='col'> Modificar </th>";
+echo "    <th scope='col'> Eliminar </th>";
+echo " </tr>";
+echo "  </thead>";
+echo " <tbody>";
+echo "   <tr>";
+
+for($i = 1; $i < count($ListarProductos); $i++){
+
+echo "    <th scope='row'> ".$ListarProductos[$i] -> getIDProducto()." </th>";
+echo "     <td> ".$ListarProductos[$i] -> getCodBarra()." </td>";
+echo "     <td> ".$ListarProductos[$i] -> getNombre()." </td>";
+echo "     <td> ".$ListarProductos[$i] -> getPrecio()." </td>";
+echo "     <td> ".$ListarProductos[$i] -> getDescripcion()."  </td>";
+echo "     <td> ".$ListarProductos[$i] -> getStock()."  </td>";
+echo "     <td>  <button class='btn-sm btn-success'  type='submit' data-toggle='modal' data-target='#ModalModificar'> Modificar </button> </td>";
+echo "     <td>  <button class='btn-sm btn-danger'  type='submit' name='' > Eliminar </button> </td>";
+echo "    </tr>";
+
+}
+echo " </tbody>";
+echo " </table>";
+echo " </div>";
+
+?>
 
 
 
-                  </div>
-                </div>
-
-              </div>
-
-
-            </div>
-          </div>
+  <div class="modal fade" id="ModalAgregarProducto" tabindex="-1" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 id="exampleModalLabel">Agregar Productos</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
-      </div>
 
+
+        <div class="modal-body">
+
+        <form action="" method="post" enctype="multipart/form-data" id="Productos-form">
+
+            <div class="mb-3">
+              <label for="codigo" class="col-8"> Codigo de barra </label>
+              <input type="text" class="form-control" value="" name="CodBarra" id="NombreProducto">
+            </div>
+
+            <div class="mb-3">
+              <label for="codigo" class="col-8"> Imagen del producto </label>
+              <input type="file" class="form-control" value="" name="Imagen">
+            </div>
+
+            <div class="mb-3">
+              <label for="codigo" class="col-8"> Descripcion </label>
+              <textarea class="textarea" name="Descripcion" maxlength="200" minlength="10" cols="65" id="Descripcion"
+                rows="5"> </textarea>
+            </div>
+
+
+            <div class="mb-3">
+              <label for="codigo" class="col-8"> Stock </label>
+              <input type="number" class="form-control" value="" name="Stock" id="Stock">
+            </div>
+
+
+            <div class="mb-3">
+              <label for="codigo" class="col-8"> Nombre del producto </label>
+              <input type="text" class="form-control" value="" name="NombreProducto" id="NombreProducto">
+            </div>
+
+            <div class="mb-3">
+              <label for="codigo" class="col-8"> Precio </label>
+              <input type="number" class="form-control" value="" name="PrecioProducto" id="PrecioProducto">
+            </div>
+
+          
+        </div>
+
+        <div class="modal-footer">
+        <input type="submit" name="AgregarArticulos" id="AgregarArticulo" value="Agregar">
+
+          <!-- <button type="button" name="AgregarArticulos"  id="AgregarArticulos" class="btn btn-primary"> Agregar </button> -->
+        </div>
+        </form>
+      </div>
     </div>
   </div>
 
 
 
 
+
+<!-- <div class="col form-group text-center"> -->
+
+<!-- <input type="submit" name="AgregarArticulos" id="AgregarArticulo" value="Agregar">
+<input type="submit" name="ModificarArticulo" id="ModificarArticulo" value="Modificar">
+<input type="submit" name="EliminarArticulo" id="EliminarArticulo" value="Eliminar">
+<input type="Submit" value="Mostrar Articulos" name="MostrarArticulos">
+ -->
 
 
 
@@ -395,11 +295,11 @@ if(isset($_POST["submit"])) {
   }
 }
 
-//chequeamos si el archivo existe
-if (file_exists($archivoDestino)) {
-  echo "Lo sentimos, el archivo ya existe.";
-  $subirOK = false;
-}
+// //chequeamos si el archivo existe
+// if (file_exists($archivoDestino)) {
+//   echo "Lo sentimos, el archivo ya existe.";
+//   $subirOK = false;
+// }
 
 //Comprobar el tamaño del archivo
 if ($_FILES["Imagen"]["size"] > 500000) {

@@ -36,7 +36,7 @@ body{
     }
 
     .form-control{
-      width: 500px !important
+      width: 100% !important;
           }
   
     .d-block{
@@ -76,15 +76,4 @@ body{
   color: whitesmoke !important;
 }
 
-
-/* 
-.container{
-  display: grid;
-  grid-template-columns: auto auto auto auto !;
-  gap: 10px;
-  padding: 10px;
-  display: flex;
-  align-items: flex-end;
-
-} */
 

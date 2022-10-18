@@ -15,6 +15,7 @@ include_once 'Clases/ClaseEnvasados.php';
                 $resultado1 = mysqli_query($this -> conn, $sql2);
                     if ($resultado1){
                         echo"<script>alert('Nuevo articulo registrado correctamente')";
+                        echo"<script> window.location.reload()";
                     }else{
                         echo"<script>alert('Error al registrar el nuevo articulo')";
                     }
