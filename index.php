@@ -179,14 +179,7 @@ session_start();
 
     <p></p>
 
-    <!-- CARDS -->
-
-    <!-- <div class="container text-center">
-        <div class="row">
-          <div class="col-lg-3 col-sd-12 col-margin" >
-            <div class="card" style="width: 100%"> -->
-
-    <!-- CARDS -->
+    
 <form action="" method="post" id="productos-form">
 <?php
 
