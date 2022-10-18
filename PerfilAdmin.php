@@ -168,8 +168,7 @@ echo " </div>";
 
 
 
-  <div class="modal fade" id="ModalAgregarProducto" tabindex="-1" aria-labelledby="exampleModalLabel"
-    aria-hidden="true">
+  <div class="modal fade" id="ModalAgregarProducto" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
@@ -250,7 +249,6 @@ echo " </div>";
   $p2 -> setNombreProveedor($_POST['ProveedorN']);
   $p2 -> setGmail($_POST['ProveedorG']);
   $p2 -> setTelefonoProveedor($_POST['ProveedorT']);
-
   $p1 -> AgregarProveedor($p2);
 }
 if(isset($_POST['ModificarProveedor'])){
