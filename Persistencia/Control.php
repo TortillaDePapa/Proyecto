@@ -7,12 +7,5 @@ if(isset($_POST['Cerrar'])){
         session_destroy();
        
     }
-
-
-
-    if(isset($_POST['MostrarProducto'])){
-
-        
-    }
 }
 ?>

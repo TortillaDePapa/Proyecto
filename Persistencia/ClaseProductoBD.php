@@ -6,7 +6,7 @@ include_once 'Clases/ClaseEnvasados.php';
 
     Class ProductoBD extends Conexion{
 
-         public function CargarProducto($Producto){
+         public function CargarProducto($Producto,$Producto1){
         $this -> Conectar();
         $sql = "SELECT * FROM Productos WHERE CodigoBarra = '".$Producto -> getCodBarra()."'";
         $resultado = mysqli_query($this -> conn, $sql);
@@ -14,8 +14,10 @@ include_once 'Clases/ClaseEnvasados.php';
                 $sql2 = "INSERT INTO Productos(CodigoBarra,Imagen,Stock,Nombre,Precio,Estado,Descripcion) VALUES('".$Producto -> getCodBarra()."','".$Producto -> getImagen()."','".$Producto -> getStock()."','".$Producto -> getNombre()."','".$Producto -> getPrecio()."','1','".$Producto -> getDescripcion()."')";
                 $resultado1 = mysqli_query($this -> conn, $sql2);
                     if ($resultado1){
+                        $sqll = "UPDATE Productos set NombreCategoria = '".$Producto1 -> getCategoria()."' where CodigoBarra =  '".$Producto -> getCodBarra()."'";
+                        mysqli_query($this -> conn, $sqll);
                         echo"<script>alert('Nuevo articulo registrado correctamente')";
-                        echo"<script> window.location.reload()";
+                        echo"<script>window.location.reload()</script>";
                     }else{
                         echo"<script>alert('Error al registrar el nuevo articulo')";
                     }
@@ -31,7 +33,6 @@ include_once 'Clases/ClaseEnvasados.php';
             
             
             if($result -> num_rows > 0){
-        
                 $ListarProductos[] = new Producto();
         
                 while($row = $result -> fetch_assoc()){
@@ -54,16 +55,36 @@ include_once 'Clases/ClaseEnvasados.php';
             }
         
         }
-        public function EliminarProducto($Producto){
-            $sql = "UPDATE Productos SET Estado = '0' where IDProducto = '".$Producto -> getIDProducto()."'";
+        public function MostrarProductos(){
+            
+            $sql = "SELECT * FROM productos";
             $this -> Conectar();
-            $resultado = mysqli_query($this -> conn, $sql);
-            if($resultado){
-               echo"<script>alert('Articulo eliminado con exito')";
+           $result = mysqli_query($this -> conn, $sql);
+            
+            
+            if($result -> num_rows > 0){
+                $ListarProductos[] = new Producto();
+        
+                while($row = $result -> fetch_assoc()){
+                    $p = new Producto(); 
+                    $p1 = new Categoria();
+                    $p2 = new Envasado();
+                    $p -> setIDProducto($row['IDProducto']);
+                    $p -> setCodBarra($row['CodigoBarra']);
+                    $p -> setImagen($row['Imagen']);
+                    $p -> setDescripcion($row['Descripcion']);
+                    $p -> setStock($row['Stock']);
+                    $p -> setNombre($row['Nombre']);
+                    $p -> setPrecio($row['Precio']);
+                    $p -> setEstado($row['Estado']);
+                    $ListarProductos [] = $p;
+                }
+                return $ListarProductos;
             }else{
-               echo"<script>alert('Error al eliminar el articulo')";
+                return null;
             }
-       }
+        
+        }
 
        
        public function ModificarProducto($Producto){

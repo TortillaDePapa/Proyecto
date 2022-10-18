@@ -1,6 +1,7 @@
 <?php
 include_once 'Clases/ClasePersona.php';
 include_once 'Clases/ClaseProveedor.php';
+include_once 'Clases/ClaseCategoria.php';
 include_once 'Persistencia/ClasePersonaBD.php';
 include_once 'Persistencia/ClaseProductoBD.php';
 include_once 'Persistencia/ClaseProveedorBD.php';
@@ -126,7 +127,7 @@ session_start();
 
 
 $p = new ProductoBD();
-$ListarProductos = $p -> Listarproductos();
+$MostrarProductos = $p -> Mostrarproductos();
 
 
 echo "  <button class='btn btn-success' type='submit' data-bs-toggle='modal' data-bs-target='#ModalAgregarProducto'> Agregar producto</button>";
@@ -140,23 +141,27 @@ echo "   <th scope='col'> Nombre</th>";
 echo "   <th scope='col'> Precio</th>";
 echo "   <th scope='col'> Descripcion</th>";
 echo "   <th scope='col'> Stock </th>";
+echo "   <th scope='col'> Estado </th>";
 echo "   <th scope='col'> Modificar </th>";
 echo "    <th scope='col'> Eliminar </th>";
+echo "    <th scope='col'> Incorporar </th>";
 echo " </tr>";
 echo "  </thead>";
 echo " <tbody>";
 echo "   <tr>";
 
-for($i = 1; $i < count($ListarProductos); $i++){
+for($i = 1; $i < count($MostrarProductos); $i++){
 
-echo "    <th scope='row'> ".$ListarProductos[$i] -> getIDProducto()." </th>";
-echo "     <td> ".$ListarProductos[$i] -> getCodBarra()." </td>";
-echo "     <td> ".$ListarProductos[$i] -> getNombre()." </td>";
-echo "     <td> ".$ListarProductos[$i] -> getPrecio()." </td>";
-echo "     <td> ".$ListarProductos[$i] -> getDescripcion()."  </td>";
-echo "     <td> ".$ListarProductos[$i] -> getStock()."  </td>";
+echo "    <th scope='row'> ".$MostrarProductos[$i] -> getIDProducto()." </th>";
+echo "     <td> ".$MostrarProductos[$i] -> getCodBarra()." </td>";
+echo "     <td> ".$MostrarProductos[$i] -> getNombre()." </td>";
+echo "     <td> ".$MostrarProductos[$i] -> getPrecio()." </td>";
+echo "     <td> ".$MostrarProductos[$i] -> getDescripcion()."  </td>";
+echo "     <td> ".$MostrarProductos[$i] -> getStock()."  </td>";
+echo "     <td> ".$MostrarProductos[$i] -> getEstado()."  </td>";
 echo "     <td>  <button class='btn-sm btn-success'  type='submit' data-toggle='modal' data-target='#ModalModificar'> Modificar </button> </td>";
-echo "     <td>  <button class='btn-sm btn-danger'  type='submit' name='' > Eliminar </button> </td>";
+echo "     <td>  <button class='btn-sm btn-danger'  onclick='Eliminar(\"".$MostrarProductos[$i] -> getIDProducto()."\")' > Eliminar </button> </td>";
+echo "     <td>  <button class='btn-sm btn-danger'  onclick='AgregarDenuevo(\"".$MostrarProductos[$i] -> getIDProducto()."\")' > Incorporar </button> </td>";
 echo "    </tr>";
 
 }
@@ -202,7 +207,19 @@ echo " </div>";
               <label for="codigo" class="col-8"> Stock </label>
               <input type="number" class="form-control" value="" name="Stock" id="Stock">
             </div>
-
+     
+            <?php    
+          $p = new ProductoBD();
+          $ListarCategorias = $p -> ObtenerCategorias();
+          echo "<label for='codigo' class='col-8'> Categorias </label><br />";
+          echo "<select name='Categoria' id=''>";
+          for($i = 1; $i < count($ListarCategorias); $i++){
+          
+            echo " <option value='' >".$ListarCategorias[$i] -> getCategoria()."</option>";
+            
+          }
+          echo "</select>";
+        ?>
 
             <div class="mb-3">
               <label for="codigo" class="col-8"> Nombre del producto </label>
@@ -305,11 +322,11 @@ if ($_FILES["Imagen"]["size"] > 500000) {
   $subirOK = false;
 }
 
-// Allow certain file formats
-if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg" ) {
-  echo "Lo sentimos, solo se permiten archivos JPG, JPEG, PNG.";
-  $subirOK = false;
-}
+// // Allow certain file formats
+// if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg" ) {
+//   echo "Lo sentimos, solo se permiten archivos JPG, JPEG, PNG.";
+//   $subirOK = false;
+// }
 
 // Compruebe si $subirOK está establecido en false por algun un error
 // if (!$subirOK) {
@@ -320,14 +337,16 @@ if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg
   if (move_uploaded_file($_FILES["Imagen"]["tmp_name"], $archivoDestino)) {
     $a = new ProductoBD();
     $a1 = new Producto();
+    $a2 = new Categoria();
     $a1 -> setCodBarra($_POST['CodBarra']);
     $a1 -> setImagen(htmlspecialchars( basename( $_FILES["Imagen"]["name"])));
     $a1 -> setDescripcion($_POST['Descripcion']);
     $a1 -> setStock($_POST['Stock']);
     $a1 -> setNombre($_POST['NombreProducto']);
     $a1 -> setPrecio($_POST['PrecioProducto']);
+    $a2 -> setCategoria($_POST['Categoria']);
 
-  $a -> CargarProducto($a1);
+     $a -> CargarProducto($a1,$a2);
   } else {
     echo "Lo sentimos, hubo un error al cargar su archivo.";
   }
@@ -337,6 +356,7 @@ if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg
 if (isset($_POST['ModificarArticulo'])) {
 $a = new ProductoBD();
 $a1 = new Producto();
+
 $a1 -> setIDProducto($_POST['IDProducto']);
 $a1 -> setCodBarra($_POST['CodBarra']);
 $a1 -> setImagen(htmlspecialchars(basename( $_FILES["Imagen"]["name"])));
@@ -344,68 +364,36 @@ $a1 -> setDescripcion($_POST['Descripcion']);
 $a1 -> setStock($_POST['Stock']);
 $a1 -> setNombre($_POST['NombreProducto']);
 $a1 -> setPrecio($_POST['PrecioProducto']);
+
 $a -> ModificarProducto($a1);
 }
 
   // Elimina producto
-
-if (isset($_POST['EliminarArticulo'])) {
-  $a = new ProductoBD();
-  $a1 = new Producto();
-  $a1 -> setIDProducto($_POST['IDProducto']);
-
-  $a -> EliminarProducto($a1);
-
-  }
-
-  if(isset($_POST['MostrarArticulos'])){
-    $p = new ProductoBD();
-  $ListarProductos = $p -> Listarproductos();
-
-
-  echo "<table class='table table-dark table-striped'> ";
-  echo "<thead> ";
-  echo " <tr> ";
-  echo "    <th scope='col'> ID </th> ";
-  echo "    <th scope='col'>Codigo Barras</th> ";
-  echo "    <th scope='col'>Nombre</th> ";
-  echo "   <th scope='col'>Precio</th>";
-  echo "   <th scope='col'>Descripcion</th>";
-  echo "   <th scope='col'>Stock</th>";
-  echo "  </tr> ";
-  echo " </thead> ";
-  echo " <tbody> ";
-  echo " <tr> ";
-  for($i = 1; $i < count($ListarProductos); $i++){
-
-  echo "  <th scope='row'> ".$ListarProductos[$i] -> getIDProducto()." </th> ";
-  echo "  <td> ".$ListarProductos[$i] -> getCodBarra()."  </td> ";
-  echo "   <td> ".$ListarProductos[$i] -> getNombre()."</td> ";
-  echo "   <td> ".$ListarProductos[$i] -> getPrecio()."</td> ";
-  echo "   <td> ".$ListarProductos[$i] -> getDescripcion()."  </td> ";
-  echo "   <td> ".$ListarProductos[$i] -> getStock()."  </td> ";
-  echo "  </tr>";
-}
-  echo " </tbody> ";
-  echo "</table> ";
-}
-
-
-
-
-//   echo "<table>";
-//   echo "<tr><th>Codigo de barras</th><th>Descripcion</th><th>Stock</th><th>Nombre</th><th>Precio</th></tr>";
-//   for($i = 1; $i < count($ListarProductos); $i++){
-//   echo "<tr><td>".$ListarProductos[$i] -> getCodBarra()."</td><td>".$ListarProductos[$i] -> getDescripcion()."</td><td>".$ListarProductos[$i] -> getStock()."</td><td>".$ListarProductos[$i] -> getNombre()."</td><td>".$ListarProductos[$i] -> getPrecio()."</td></tr>";
-// }
-// echo "</table>";
-//   }
-
-
-
     ?>
 
   <script>
+    function Eliminar($IDProducto) {
+      let formData = $IDProducto;
+      var obAjax = new XMLHttpRequest();
+      obAjax.open('POST', 'Persistencia/ControlMostrar.php', true);
+      obAjax.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+      obAjax.onreadystatechange = function () {
+        console.log(this.responseText);
+        window.location.reload();
+      }
+      obAjax.send('EliminarA='+formData);
+    }
+    function AgregarDenuevo($IDProducto) {
+      let formData = $IDProducto;
+      var obAjax = new XMLHttpRequest();
+      obAjax.open('POST', 'Persistencia/ControlMostrar.php', true);
+      obAjax.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+      obAjax.onreadystatechange = function () {
+        console.log(this.responseText);
+        window.location.reload();
+      }
+      obAjax.send('AgregarA='+formData);
+    }
     function Cerrar() {
       var obAjax = new XMLHttpRequest();
       obAjax.open('POST', 'Persistencia/Control.php', true);

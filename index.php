@@ -226,7 +226,6 @@ $ListarProductos = $p -> Listarproductos();
     }
 
     function MostrarCarrito(idProducto,precioP) {
-        console.log("ingreso");
         let formData = idProducto;
         let precio = precioP
         // let cantD = document.getElementById('cantidad').value;

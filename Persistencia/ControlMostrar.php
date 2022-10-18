@@ -18,4 +18,32 @@ if(isset($_POST['MostrarProducto'])){
        }
 
 
+
+
+       if(isset($_POST['EliminarA'])){
+        $newConn = new Conexion(); 
+        $IDProducto = $_POST['EliminarA'];
+        $sql = "UPDATE Productos SET Estado = '0' where IDProducto = ".$IDProducto."";
+        $newConn -> Conectar();
+        $resultado = mysqli_query($newConn -> conn, $sql);
+        if($resultado){
+           echo"<script>alert('Articulo eliminado con exito')";
+        }else{
+           echo"<script>alert('Error al eliminar el articulo')";
+        }
+   
+}
+if(isset($_POST['AgregarA'])){
+   $newConn = new Conexion(); 
+   $IDProducto = $_POST['AgregarA'];
+   $sql = "UPDATE Productos SET Estado = '1' where IDProducto = ".$IDProducto."";
+   $newConn -> Conectar();
+   $resultado = mysqli_query($newConn -> conn, $sql);
+   if($resultado){
+      echo"<script>alert('Articulo eliminado con exito')";
+   }else{
+      echo"<script>alert('Error al eliminar el articulo')";
+   }
+
+}
       ?> 
