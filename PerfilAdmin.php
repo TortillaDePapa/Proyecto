@@ -111,22 +111,32 @@ session_start();
   </nav>
 
 
-  <!--  
 
-                      <input type="Submit" value="Agregar" name="AgregarProveedor">
-                      <input type="Submit" value="Modificar" name="ModificarProveedor">
-                      <input type="Submit" value="Eliminar" name="EliminarProveedor">
-                      <input type="Submit" value="Mostrar" name="MostrarProveedor">
-                      <br>
-                      </form>
-                      <button onclick="MostrarProveedor()" name="MostrarProveedor" id="MostrarProveedor">Buscar</button>
+  <ul class="nav nav-pills mb-3 " style="margin: 20px !important;" id="pills-tab" role="tablist">
+  <li class="nav-item" role="presentation">
+    <button class="nav-link active bg-dark" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#Productos" type="button" role="tab" aria-controls="pills-productos" aria-selected="true"> Productos </button>
+  </li>
 
-                  -->
+  
+  <li class="nav-item" role="presentation">
+ <button class="nav-link bg-light" id="" data-bs-toggle="" data-bs-target="" type="button" role="tab" aria-controls="" aria-selected="false" disabled></button>
+  </li>
+
+
+  <li class="nav-item" role="presentation">
+    <button class="nav-link  bg-dark" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#Proveedores" type="button" role="tab" aria-controls="pills-proveedores" aria-selected="false">Provoeedores</button>
+  </li>
+  
+</ul>
+<div class="tab-content" id="pills-tabContent">
+
+<!-- TABLA DE PRODUCTOS -->
+
+  <div class="tab-pane fade show active" id="Productos" role="tabpanel" aria-labelledby="pills-productos-tab" tabindex="0">
+
 
   <?php
-
-
-$p = new ProductoBD();
+  $p = new ProductoBD();
 $MostrarProductos = $p -> Mostrarproductos();
 
 
@@ -171,7 +181,63 @@ echo " </div>";
 
 
 ?>
+  </div>
 
+
+  
+  
+<!-- TABLA DE PROVEEDORES -->
+
+
+  <div class="tab-pane fade" id="Proveedores" role="tabpanel" aria-labelledby="pills-proveedores-tab" tabindex="0"> 
+
+  <?php
+//   $p = new ProveedorBD();
+// $MostrarProveedor = $p -> MostrarProveedor();
+
+
+// echo "  <button class='btn btn-success' type='submit' data-bs-toggle='modal' style='margin: 10px !important;' data-bs-target='#ModalAgregarProveedor'> Agregar proveedor </button>";
+// echo "  <div class='tabla'>";
+// echo "  <table class='table table-dark table-striped table-hover text-center'>";
+// echo "  <thead>";
+// echo "  <tr>";
+// echo "   <th scope='col'> ID </th>";
+// echo "   <th scope='col'> Nombre </th>";
+// echo "   <th scope='col'> Gmail </th>";
+// echo "   <th scope='col'> Telefono </th>";
+// echo "   <th scope='col'> Estado </th>";
+// echo "   <th scope='col'> Modificar </th>";
+// echo "    <th scope='col'> Eliminar </th>";
+// echo "    <th scope='col'> Incorporar </th>";
+// echo " </tr>";
+// echo "  </thead>";
+// echo " <tbody>";
+// echo "   <tr>";
+
+// for($i = 1; $i < count($MostrarProveedor); $i++){
+
+// echo "    <th scope='row'> ".$MostrarProveedor[$i] -> getIDProveedor()." </th>";
+// echo "     <td> ".$MostrarProveedor[$i] -> getNombre()." </td>";
+// echo "     <td> ".$MostrarProveedor[$i] -> getGmail()." </td>";
+// echo "     <td> ".$MostrarProveedor[$i] -> getTelefono()." </td>";
+// echo "     <td> ".$MostrarProveedor[$i] -> getEstado()."  </td>";
+// echo "     <td>  <button class='btn-sm btn-warning'  type='submit' data-bs-toggle='modal' data-bs-target='#ModalModificarProducto'> Modificar </button> </td>";
+// echo "     <td>  <button class='btn-sm btn-danger'  onclick='Eliminar(\"".$MostrarProveedor[$i] -> getIDProveedor()."\")' > Eliminar </button> </td>";
+// echo "     <td>  <button class='btn-sm btn-success'  onclick='AgregarDenuevo(\"".$MostrarProveedor[$i] -> getIDProveedor()."\")' > Incorporar </button> </td>";
+// echo "    </tr>";
+
+// }
+// echo " </tbody>";
+// echo " </table>";
+// echo " </div>";
+
+
+?>
+
+  </div>
+</div>
+
+ 
 
 
 <!-- Modal agregar productos -->
@@ -316,6 +382,8 @@ echo " </div>";
       </div>
     </div>
   </div>
+
+
 
 
 
