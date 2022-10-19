@@ -69,7 +69,7 @@ session_start();
             </ul>
           </li>
         </ul>
-        <input class="form-control me-3" type="search" placeholder="Buscar" aria-label="Search">
+        <input class="form-control me-3" type="search" placeholder="Buscar" id="Barradebusqueda" aria-label="Search">
         <button class="btn btn-buttom btn-custom me-1 boton" type="submit"> </button>
 
         <?php
@@ -132,7 +132,7 @@ $MostrarProductos = $p -> Mostrarproductos();
 
 echo "  <button class='btn btn-success' type='submit' data-bs-toggle='modal' data-bs-target='#ModalAgregarProducto'> Agregar producto</button>";
 echo "  <div class='tabla'>";
-echo "  <table class='table table-dark table-striped table-hover'>";
+echo "  <table class='table table-dark table-striped table-hover text-center'>";
 echo "  <thead>";
 echo "  <tr>";
 echo "   <th scope='col'> ID </th>";
@@ -159,9 +159,9 @@ echo "     <td> ".$MostrarProductos[$i] -> getPrecio()." </td>";
 echo "     <td> ".$MostrarProductos[$i] -> getDescripcion()."  </td>";
 echo "     <td> ".$MostrarProductos[$i] -> getStock()."  </td>";
 echo "     <td> ".$MostrarProductos[$i] -> getEstado()."  </td>";
-echo "     <td>  <button class='btn-sm btn-success'  type='submit' data-toggle='modal' data-target='#ModalModificar'> Modificar </button> </td>";
+echo "     <td>  <button class='btn-sm btn-warning'  type='submit' data-toggle='modal' data-target='#ModalModificar'> Modificar </button> </td>";
 echo "     <td>  <button class='btn-sm btn-danger'  onclick='Eliminar(\"".$MostrarProductos[$i] -> getIDProducto()."\")' > Eliminar </button> </td>";
-echo "     <td>  <button class='btn-sm btn-danger'  onclick='AgregarDenuevo(\"".$MostrarProductos[$i] -> getIDProducto()."\")' > Incorporar </button> </td>";
+echo "     <td>  <button class='btn-sm btn-success'  onclick='AgregarDenuevo(\"".$MostrarProductos[$i] -> getIDProducto()."\")' > Incorporar </button> </td>";
 echo "    </tr>";
 
 }
