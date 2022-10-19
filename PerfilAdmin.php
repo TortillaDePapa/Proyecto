@@ -130,7 +130,7 @@ $p = new ProductoBD();
 $MostrarProductos = $p -> Mostrarproductos();
 
 
-echo "  <button class='btn btn-success' type='submit' data-bs-toggle='modal' data-bs-target='#ModalAgregarProducto'> Agregar producto</button>";
+echo "  <button class='btn btn-success' type='submit' data-bs-toggle='modal' style='margin: 10px !important;' data-bs-target='#ModalAgregarProducto'> Agregar producto</button>";
 echo "  <div class='tabla'>";
 echo "  <table class='table table-dark table-striped table-hover text-center'>";
 echo "  <thead>";
@@ -159,7 +159,7 @@ echo "     <td> ".$MostrarProductos[$i] -> getPrecio()." </td>";
 echo "     <td> ".$MostrarProductos[$i] -> getDescripcion()."  </td>";
 echo "     <td> ".$MostrarProductos[$i] -> getStock()."  </td>";
 echo "     <td> ".$MostrarProductos[$i] -> getEstado()."  </td>";
-echo "     <td>  <button class='btn-sm btn-warning'  type='submit' data-toggle='modal' data-target='#ModalModificar'> Modificar </button> </td>";
+echo "     <td>  <button class='btn-sm btn-warning'  type='submit' data-bs-toggle='modal' data-bs-target='#ModalModificarProducto'> Modificar </button> </td>";
 echo "     <td>  <button class='btn-sm btn-danger'  onclick='Eliminar(\"".$MostrarProductos[$i] -> getIDProducto()."\")' > Eliminar </button> </td>";
 echo "     <td>  <button class='btn-sm btn-success'  onclick='AgregarDenuevo(\"".$MostrarProductos[$i] -> getIDProducto()."\")' > Incorporar </button> </td>";
 echo "    </tr>";
@@ -169,9 +169,12 @@ echo " </tbody>";
 echo " </table>";
 echo " </div>";
 
+
 ?>
 
 
+
+<!-- Modal agregar productos -->
 
   <div class="modal fade" id="ModalAgregarProducto" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
@@ -234,15 +237,92 @@ echo " </div>";
           
         </div>
 
-        <div class="modal-footer">
-        <!-- <input type="submit" name="AgregarArticulos" id="AgregarArticulo" value="Agregar"> -->
-
-          <button type="button " name="AgregarArticulos"  id="AgregarArticulos" class="btn btn-primary"> Agregar </button>
+        <div class="modal-footer d-flex justify-content-between">
+          <button type="button " name="AgregarArticulos"  id="AgregarArticulos" class="btn btn-primary "> Agregar </button>
         </div>
         </form>
       </div>
     </div>
   </div>
+
+  <!-- Modal Modificar Producto -->
+
+  <div class="modal fade" id="ModalModificarProducto" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 id="exampleModalLabel">Modificar Producto</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+
+
+        <div class="modal-body">
+
+        <form action="" method="post" enctype="multipart/form-data" id="Productos-form">
+
+            <div class="mb-3">
+              <label for="codigo" class="col-8"> Codigo de barra </label>
+              <input type="text" class="form-control" value="" name="CodBarras" id="NombreProducto">
+            </div>
+
+            <!-- <div class="mb-3">
+              <label for="codigo" class="col-8"> Imagen del producto </label>
+              <input type="file" class="form-control" value="" name="Imagen">
+            </div> -->
+
+            <div class="mb-3">
+              <label for="codigo" class="col-8"> Descripcion </label>
+              <textarea class="textarea" name="Descripcion" maxlength="200" minlength="10" cols="65" id="Descripcion"
+                rows="5"> </textarea>
+            </div>
+
+
+            <div class="mb-3">
+              <label for="codigo" class="col-8"> Stock </label>
+              <input type="number" class="form-control" value="" name="Stock" id="Stock">
+            </div>
+     
+            <?php    
+          // $p = new ProductoBD();
+          // $ListarCategorias = $p -> ObtenerCategorias();
+          // echo "<label for='codigo' class='col-8'> Categorias </label><br />";
+          // echo "<select name='Categoria' id=''>";
+          // for($i = 1; $i < count($ListarCategorias); $i++){
+          
+          //   echo " <option value='".$ListarCategorias[$i] -> getCategoria()."' >".$ListarCategorias[$i] -> getCategoria()."</option>";
+            
+          // }
+          // echo "</select>";
+        ?>
+
+            <div class="mb-3">
+              <label for="codigo" class="col-8"> Nombre del producto </label>
+              <input type="text" class="form-control" value="" name="NombreProducto" id="NombreProducto">
+            </div>
+
+            <div class="mb-3">
+              <label for="codigo" class="col-8"> Precio </label>
+              <input type="number" class="form-control" value="" name="PrecioProducto" id="PrecioProducto">
+            </div>
+
+          
+        </div>
+
+        <div class="modal-footer d-flex justify-content-between ">
+ 
+          <button type="button " name="ModificarArticulo"  id="ModificarArticulo" class="btn btn-primary "> Modificar </button>
+        </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+
+  
 
 
 
