@@ -188,7 +188,7 @@ echo " </div>";
 
             <div class="mb-3">
               <label for="codigo" class="col-8"> Codigo de barra </label>
-              <input type="text" class="form-control" value="" name="CodBarra" id="NombreProducto">
+              <input type="text" class="form-control" value="" name="CodBarras" id="NombreProducto">
             </div>
 
             <div class="mb-3">
@@ -215,7 +215,7 @@ echo " </div>";
           echo "<select name='Categoria' id=''>";
           for($i = 1; $i < count($ListarCategorias); $i++){
           
-            echo " <option value='' >".$ListarCategorias[$i] -> getCategoria()."</option>";
+            echo " <option value='".$ListarCategorias[$i] -> getCategoria()."' >".$ListarCategorias[$i] -> getCategoria()."</option>";
             
           }
           echo "</select>";
@@ -338,7 +338,7 @@ if ($_FILES["Imagen"]["size"] > 500000) {
     $a = new ProductoBD();
     $a1 = new Producto();
     $a2 = new Categoria();
-    $a1 -> setCodBarra($_POST['CodBarra']);
+    $a1 -> setCodBarra($_POST['CodBarras']);
     $a1 -> setImagen(htmlspecialchars( basename( $_FILES["Imagen"]["name"])));
     $a1 -> setDescripcion($_POST['Descripcion']);
     $a1 -> setStock($_POST['Stock']);

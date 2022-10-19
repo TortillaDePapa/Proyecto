@@ -33,26 +33,36 @@ if (isset($_POST['id'])) {
                     $_SESSION['MostrarCarrito'][$i]['Cantidad']++;
                     $existe = true;
 
-                }else{
-
-                    
                 }
                 
 
             }  
             if($existe == false){
+                $sql = "SELECT * from productos where IDProducto = ".$IDProducto."";
+                $newConn -> Conectar();
+                $resultado = mysqli_query($newConn -> conn, $sql);
+            
+                if($resultado){
+                    while($row = $resultado -> fetch_assoc()){
+                        $MostrarCarrito1= array ( 
+                    'id'        =>    $row['IDProducto'],
+                    'Imagen'    =>    $row['Imagen'],
+                    'Nombre'    =>    $row['Nombre'],
+                    'Precio'    =>    $Precio, 
+                    'Cantidad'  =>    $cantidad
+                      );
+                    }
+                array_push($_SESSION['MostrarCarrito'], $MostrarCarrito1);
+
             }           
 
+        }
+            
+            
         }else{
             $_SESSION['MostrarCarrito'] = $MostrarCarrito;
-            
-            
-        }
-    }else{
-        echo "error";
     }
-  
-    
+}
 }
 
       ?> 

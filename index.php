@@ -116,19 +116,22 @@ session_start();
                     <hr>
                     <div class="offcanvas-body">
 
-                    <div class="card mb-3" style="max-width: 540px;">
-      <div class="row g-0">
-      <?php
-      if(isset($_SESSION['MostrarCarrito'])){
+                        <?php
+      if(isset($_SESSION['MostrarCarrito'])){ 
+        
+          for($i = 0; $i <count($_SESSION['MostrarCarrito']); $i++){
+            echo    " <div class='row g-0'>";
+            echo    "<div class='card mb-3' style='max-width: 540px;'>";
             echo    " <div class='col-md-4'>";
-            for($i = 0; $i <count($_SESSION['MostrarCarrito']); $i++){
-            echo   "<img src='imagenes/".$_SESSION['MostrarCarrito'][$i]['Imagen']."' class='img-fluid rounded-start' alt='...'>";
-            echo   "</div>";
-            echo   "<div class='col-md-8'>";
-            echo   "<div class='card-body'>";
+            echo    "<img src='imagenes/".$_SESSION['MostrarCarrito'][$i]['Imagen']."' class='img-fluid rounded-start' alt='...'>";
+            echo    "</div>";
+            echo    "<div class='col-md-8'>";
+            echo    "<div class='card-body'>";
             echo    "<h5 class='card-title'>".$_SESSION['MostrarCarrito'][$i]['Nombre']."</h5>";
             echo    "<h5 class='card-title'>$".$_SESSION['MostrarCarrito'][$i]['Precio']*$_SESSION['MostrarCarrito'][$i]['Cantidad']."</h5>";
             echo    "<h6 class='card-title'>Cantidad:".$_SESSION['MostrarCarrito'][$i]['Cantidad']." </h6>";
+        
+                 
         }
         }  else{
             echo "null";
