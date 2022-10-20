@@ -45,71 +45,10 @@ session_start();
 
 <body>
 
-  <!-- Navbar -->
-
-  <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="index.php">AutoServicio</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle me-2" href="#" id="navbarDropdown" role="button"
-              data-bs-toggle="dropdown" aria-expanded="false">
-              Categorias <i class="bi bi-list"></i>
-            </a>
-            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <li><a class="dropdown-item" href="#">Limpieza</a> </li>
-              <!-- <li><hr class="dropdown-divider"></li> -->
-              <li><a class="dropdown-item" href="#">Hogar</a></li>
-              <li><a class="dropdown-item" href="#">Carniceria</a></li>
-            </ul>
-          </li>
-        </ul>
-        <input class="form-control me-3" type="search" placeholder="Buscar" id="Barradebusqueda" aria-label="Search">
-        <button class="btn btn-buttom btn-custom me-1 boton" type="submit"> </button>
-
-        <?php
-            echo"<button class='btn btn-buttom btn-custom me-1'  onclick='Cerrar()'>  <i class='bi bi-box-arrow-in-right'></i> </button>";          
-           
-            if(isset($_SESSION['CLIENTE'])){
-            echo "<div class='dropdown'>";
-            echo "<button class='btn btn-buttom btn-secondary dropdown-toggle bg-dark' type='button' data-bs-toggle='dropdown' aria-expanded='false'>";
-            echo "<i class='icon bi-person-fill'></i>";
-            echo "<span class='position-absolute top-1 start-95 translate-middle p-1 bg-success border border-light rounded-circle'>";
-            echo" <span class='visually-hidden'>New alerts</span> ";
-            echo" </span>";
-            echo " </button>";
-            echo "<ul class='dropdown-menu'>";
-            echo "<li><a class='dropdown-item NoSelect' href='Perfil.php'>".$_SESSION['CLIENTE']-> getNombre()."</a></li>";
-            echo "</ul>";
-            echo "</div>";
-            }else{
-              if(isset($_SESSION['ADMIN'])){
-              echo "<div class='dropdown'>";
-              echo "<button class='btn btn-buttom btn-secondary dropdown-toggle bg-dark' type='button' data-bs-toggle='dropdown' aria-expanded='false'>";
-              echo "<i class='icon bi-person-fill'></i>";
-              echo "<span class='position-absolute top-1 start-95 translate-middle p-1 bg-success border border-light rounded-circle'>";
-              echo" <span class='visually-hidden'>New alerts</span> ";
-              echo" </span>";
-              echo " </button>";
-              echo "<ul class='dropdown-menu'>";
-              echo "<li><a class='dropdown-item NoSelect' href='PerfilAdmin.php'>".$_SESSION['ADMIN']-> getNombre()."</a></li>";
-              echo "</ul>";
-              echo "</div>";
-            }else{
-              echo"<a href='Login.php'> <button class='btn btn-buttom btn-custom me-1'  type='submit'>  <i class='bi bi-person-fill'></i> </button></a>";
-            }
-          }
-               echo "<button class='btn btn-buttom btn-custom'  type='submit'> <i class='icon bi-cart3'></i> </button>";
-           ?>
-      </div>
-    </div>
-  </nav>
-
+<?php
+    include "navbar.php";
+    
+    ?>
 
 
   <ul class="nav nav-pills mb-3 " style="margin: 20px !important;" id="pills-tab" role="tablist">
@@ -169,7 +108,7 @@ echo "     <td> ".$MostrarProductos[$i] -> getPrecio()." </td>";
 echo "     <td> ".$MostrarProductos[$i] -> getDescripcion()."  </td>";
 echo "     <td> ".$MostrarProductos[$i] -> getStock()."  </td>";
 echo "     <td> ".$MostrarProductos[$i] -> getEstado()."  </td>";
-echo "     <td>  <button class='btn-sm btn-warning'  type='submit' data-bs-toggle='modal' data-bs-target='#ModalModificarProducto'> Modificar </button> </td>";
+echo "     <td>  <button class='btn-sm btn-warning'  data-bs-toggle='modal' data-bs-target='#ModalModificarProducto'  onclick='MostrarProducto(\"".$MostrarProductos[$i] -> getIDProducto()."\")'> Modificar </button> </td>";
 echo "     <td>  <button class='btn-sm btn-danger'  onclick='Eliminar(\"".$MostrarProductos[$i] -> getIDProducto()."\")' > Eliminar </button> </td>";
 echo "     <td>  <button class='btn-sm btn-success'  onclick='AgregarDenuevo(\"".$MostrarProductos[$i] -> getIDProducto()."\")' > Incorporar </button> </td>";
 echo "    </tr>";
@@ -328,7 +267,7 @@ echo " </div>";
 
             <div class="mb-3">
               <label for="codigo" class="col-8"> Codigo de barra </label>
-              <input type="text" class="form-control" value="" name="CodBarras" id="NombreProducto">
+              <input type="text" class="form-control" value="" name="CodBarras-mos" id="CodBarras-mos">
             </div>
 
             <!-- <div class="mb-3">
@@ -338,14 +277,14 @@ echo " </div>";
 
             <div class="mb-3">
               <label for="codigo" class="col-8"> Descripcion </label>
-              <textarea class="textarea" name="Descripcion" maxlength="200" minlength="10" cols="65" id="Descripcion"
+              <textarea class="textarea" name="Descripcion-mos" maxlength="200" minlength="10" cols="65" id="Descripcion-mos"
                 rows="5"> </textarea>
             </div>
 
 
             <div class="mb-3">
               <label for="codigo" class="col-8"> Stock </label>
-              <input type="number" class="form-control" value="" name="Stock" id="Stock">
+              <input type="number" class="form-control" value="" name="Stock-mos" id="Stock-mos">
             </div>
      
             <?php    
@@ -363,12 +302,12 @@ echo " </div>";
 
             <div class="mb-3">
               <label for="codigo" class="col-8"> Nombre del producto </label>
-              <input type="text" class="form-control" value="" name="NombreProducto" id="NombreProducto">
+              <input type="text" class="form-control" value="" name="NombreProducto-mos" id="NombreProducto-mos">
             </div>
 
             <div class="mb-3">
               <label for="codigo" class="col-8"> Precio </label>
-              <input type="number" class="form-control" value="" name="PrecioProducto" id="PrecioProducto">
+              <input type="number" class="form-control" value="" name="PrecioProducto-mos" id="PrecioProducto-mos">
             </div>
 
           
@@ -379,6 +318,9 @@ echo " </div>";
           <button type="button " name="ModificarArticulo"  id="ModificarArticulo" class="btn btn-primary "> Modificar </button>
         </div>
         </form>
+        <div id="texto">
+          
+        </div>
       </div>
     </div>
   </div>
@@ -505,7 +447,6 @@ if (isset($_POST['ModificarArticulo'])) {
 $a = new ProductoBD();
 $a1 = new Producto();
 
-$a1 -> setIDProducto($_POST['IDProducto']);
 $a1 -> setCodBarra($_POST['CodBarra']);
 $a1 -> setImagen(htmlspecialchars(basename( $_FILES["Imagen"]["name"])));
 $a1 -> setDescripcion($_POST['Descripcion']);
@@ -552,21 +493,26 @@ $a -> ModificarProducto($a1);
       obAjax.send('Cerrar');
     }
 
-    function MostrarProducto(){
-
+    function MostrarProducto(IDProducto){
       let formData = new FormData(document.getElementById('Productos-form'));
       var obAjax = new XMLHttpRequest();
       obAjax.open('POST', 'Persistencia/ControlMostrar.php', true);
       obAjax.onreadystatechange = function () {
         var Rellenar = JSON.parse(this.responseText);
-        document.getElementById('CodBarra').value = Rellenar['CodBarra'];
-        document.getElementById('Descripcion').value = Rellenar['Descripcion'];
-        document.getElementById('Stock').value = Rellenar['Stock'];
-        document.getElementById('NombreProducto').value = Rellenar['NombreProducto'];
-        document.getElementById('PrecioProducto').value = Rellenar['Precio'];
+        document.getElementById('CodBarras-mos').value = Rellenar['CodBarra'];
+        document.getElementById('Descripcion-mos').value = Rellenar['Descripcion'];
+        document.getElementById('Stock-mos').value = Rellenar['Stock'];
+        document.getElementById('NombreProducto-mos').value = Rellenar['NombreProducto'];
+        document.getElementById('PrecioProducto-mos').value = Rellenar['Precio'];
+        document.getElementById('texto').value = this.responseText;
+        console.log(this.responseText);
       }
+      variable.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+      var get = document.getElementById.bind(document);
+      cadena = "MostrarProducto"+"IDProducto="+IDProducto;
       formData.append('MostrarProducto', '');
-      obAjax.send(formData);
+      formData.append('IDProducto', IDProducto);
+      obAjax.send(cadena);
     }
 
     function MostrarProveedor(){
