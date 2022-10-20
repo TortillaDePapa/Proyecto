@@ -69,8 +69,8 @@ session_start();
             </ul>
           </li>
         </ul>
-        <input class="form-control me-3" type="search" placeholder="Buscar" id="Barradebusqueda" aria-label="Search">
-        <button class="btn btn-buttom btn-custom me-1 boton" type="submit"> </button>
+        <!-- <input class="form-control me-3" type="search" placeholder="Buscar" id="Barradebusqueda" aria-label="Search">
+        <button class="btn btn-buttom btn-custom me-1 boton" type="submit"> </button> -->
 
         <?php
             echo"<button class='btn btn-buttom btn-custom me-1'  onclick='Cerrar()'>  <i class='bi bi-box-arrow-in-right'></i> </button>";          
@@ -169,7 +169,7 @@ echo "     <td> ".$MostrarProductos[$i] -> getPrecio()." </td>";
 echo "     <td> ".$MostrarProductos[$i] -> getDescripcion()."  </td>";
 echo "     <td> ".$MostrarProductos[$i] -> getStock()."  </td>";
 echo "     <td> ".$MostrarProductos[$i] -> getEstado()."  </td>";
-echo "     <td>  <button class='btn-sm btn-warning'  type='submit' data-bs-toggle='modal' data-bs-target='#ModalModificarProducto'> Modificar </button> </td>";
+echo "     <td>  <button class='btn-sm btn-warning'  onclick='MostrarProducto()' data-bs-toggle='modal' data-bs-target='#ModalModificarProducto'  name='MostrarProducto' id='MostrarProducto' > Modificar </button> </td>";
 echo "     <td>  <button class='btn-sm btn-danger'  onclick='Eliminar(\"".$MostrarProductos[$i] -> getIDProducto()."\")' > Eliminar </button> </td>";
 echo "     <td>  <button class='btn-sm btn-success'  onclick='AgregarDenuevo(\"".$MostrarProductos[$i] -> getIDProducto()."\")' > Incorporar </button> </td>";
 echo "    </tr>";
@@ -190,6 +190,7 @@ echo " </div>";
 
 
   <div class="tab-pane fade" id="Proveedores" role="tabpanel" aria-labelledby="pills-proveedores-tab" tabindex="0"> 
+ <button class='btn btn-success' type='submit' data-bs-toggle='modal' style='margin: 10px !important;' data-bs-target='#ModalAgregarProveedor'> Agregar proveedor </button>
 
   <?php
 //   $p = new ProveedorBD();
@@ -246,14 +247,14 @@ echo " </div>";
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 id="exampleModalLabel">Agregar Productos</h5>
+          <h5 id="exampleModalLabel">Agregar Producto</h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
 
 
         <div class="modal-body">
 
-        <form action="" method="post" enctype="multipart/form-data" id="Productos-form">
+        <form action="" method="post" enctype="multipart/form-data" >
 
             <div class="mb-3">
               <label for="codigo" class="col-8"> Codigo de barra </label>
@@ -376,7 +377,54 @@ echo " </div>";
 
         <div class="modal-footer d-flex justify-content-between ">
  
-          <button type="button " name="ModificarArticulo"  id="ModificarArticulo" class="btn btn-primary "> Modificar </button>
+          <button type="button " name="ModificarArticulo"  id="ModificarArticulo" class="btn btn-primary" > Modificar </button>
+        </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+
+ <!-- Modal agregar proveedores -->
+  
+
+  <div class="modal fade" id="ModalAgregarProveedor" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 id="exampleModalLabel">Agregar Proveedor</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+
+
+        <div class="modal-body">
+
+        <form action="" method="post" enctype="multipart/form-data" >
+
+        
+
+
+            <div class="mb-3">
+              <label for="codigo" class="col-8"> Nombre </label>
+              <input type="text" class="form-control" value="" name="NombreProducto" id="NombreProducto">
+            </div>
+
+            
+            <div class="mb-3">
+              <label for="codigo" class="col-8"> Gmail </label>
+              <input type="emailw" class="form-control" value="" name="NombreProducto" id="NombreProducto">
+            </div>
+
+            <div class="mb-3">
+              <label for="codigo" class="col-8"> Telefono </label>
+              <input type="number" class="form-control" value="" name="PrecioProducto" id="PrecioProducto">
+            </div>
+
+          
+        </div>
+
+        <div class="modal-footer d-flex justify-content-between">
+          <button type="button " name="AgregarArticulos"  id="AgregarArticulos" class="btn btn-primary "> Agregar </button>
         </div>
         </form>
       </div>
