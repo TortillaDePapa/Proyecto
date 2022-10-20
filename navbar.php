@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="CSS/principal.css">
+    <link rel="stylesheet" href="CSS/navbar.css">
     <title>Document</title>
 </head>
 <body>
@@ -37,7 +38,7 @@
 
 
 
-<div class="usercarrito">
+<div class="usercarrito" >
                 <?php
              echo"<button class='btn btn-buttom btn-custom me-1'  type='submit' onclick='Cerrar()'>  <i class='bi bi-box-arrow-in-right'></i> </button>";          
            

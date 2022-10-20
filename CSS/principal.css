@@ -35,10 +35,7 @@ body{
       border-color: rgb(139, 133, 133) !important;
     }
 
-    .form-control{
-      width: 50% !important;
-      
-          }
+
   
     .d-block{
       width: 100%;
@@ -57,17 +54,6 @@ body{
     
 }
 
-.map{
-  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-  transition: 0.3s;
-  width: 40%;
-}
- 
-.local{
-
-  margin-top: 4.5px;
-
-}
 
 .bi::before{
   vertical-align: -0.24em !important;
@@ -77,17 +63,3 @@ body{
   color: whitesmoke !important;
 }
 
-.divsearch{
-  display: flex !important;
-  width: 100%;
-  padding-right: 2px;
-  justify-content: space-between;
-}
-.btn-carrito {
-margin-right: 0%;
-}
-
-.usercarrito {
-  display: flex;
-flex-direction: row;
-}
