@@ -108,7 +108,7 @@ echo "     <td> ".$MostrarProductos[$i] -> getPrecio()." </td>";
 echo "     <td> ".$MostrarProductos[$i] -> getDescripcion()."  </td>";
 echo "     <td> ".$MostrarProductos[$i] -> getStock()."  </td>";
 echo "     <td> ".$MostrarProductos[$i] -> getEstado()."  </td>";
-echo "     <td>  <button class='btn-sm btn-warning'  data-bs-toggle='modal' data-bs-target='#ModalModificarProducto'  onclick='MostrarProducto(\"".$MostrarProductos[$i] -> getIDProducto()."\")'> Modificar </button> </td>";
+echo "     <td>  <button class='btn-sm btn-warning'  data-bs-toggle='modal' data-bs-target='#ModalModificarProducto'  onclick='MostrarProducto(".$MostrarProductos[$i] -> getIDProducto().")'> Modificar </button> </td>";
 echo "     <td>  <button class='btn-sm btn-danger'  onclick='Eliminar(\"".$MostrarProductos[$i] -> getIDProducto()."\")' > Eliminar </button> </td>";
 echo "     <td>  <button class='btn-sm btn-success'  onclick='AgregarDenuevo(\"".$MostrarProductos[$i] -> getIDProducto()."\")' > Incorporar </button> </td>";
 echo "    </tr>";
@@ -494,24 +494,24 @@ $a -> ModificarProducto($a1);
     }
 
     function MostrarProducto(IDProducto){
-      let formData = new FormData(document.getElementById('Productos-form'));
+      // let formData = new FormData(document.getElementById('Productos-form'));
       var obAjax = new XMLHttpRequest();
-      obAjax.open('POST', 'Persistencia/ControlMostrar.php', true);
-      obAjax.onreadystatechange = function () {
-        var Rellenar = JSON.parse(this.responseText);
-        document.getElementById('CodBarras-mos').value = Rellenar['CodBarra'];
-        document.getElementById('Descripcion-mos').value = Rellenar['Descripcion'];
-        document.getElementById('Stock-mos').value = Rellenar['Stock'];
-        document.getElementById('NombreProducto-mos').value = Rellenar['NombreProducto'];
-        document.getElementById('PrecioProducto-mos').value = Rellenar['Precio'];
-        document.getElementById('texto').value = this.responseText;
+      obAjax.onload = function () {
+        
+        // document.getElementById('CodBarras-mos').value = JSON.parse(this.responseText)["CodBarra"];
+        // document.getElementById('Descripcion-mos').value = JSON.parse(this.responseText)["Descripcion"];
+        // document.getElementById('Stock-mos').value = JSON.parse(this.responseText)["Stock"];
+        // document.getElementById('NombreProducto-mos').value = JSON.parse(this.responseText)["NombreProducto"];
+        // document.getElementById('PrecioProducto-mos').value = JSON.parse(this.responseText)["Precio"];
+        
         console.log(this.responseText);
       }
-      variable.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+      obAjax.open('POST', 'Persistencia/ControlMostrar.php', true);
+      obAjax.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
       var get = document.getElementById.bind(document);
-      cadena = "MostrarProducto"+"IDProducto="+IDProducto;
-      formData.append('MostrarProducto', '');
-      formData.append('IDProducto', IDProducto);
+      var cadena = "MostrarProducto"+IDProducto+"IDProducto="+IDProducto;
+      // formData.append('MostrarProducto', '');
+      // formData.append('IDProducto', IDProducto);
       obAjax.send(cadena);
     }
 
