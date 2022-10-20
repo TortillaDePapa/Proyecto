@@ -10,11 +10,12 @@ if(isset($_POST['MostrarProducto'])){
            $resultado = mysqli_query($newConn -> conn, $sql);
            $fila = mysqli_fetch_assoc($resultado);
         if($resultado -> num_rows > 0)
-            echo '{"ID": "'.$IDProducto.'", "CodBarra": "'.$fila['CodigoBarra'].'","Descripcion": "'.$fila['Descripcion'].'","Stock": "'.$fila['Stock'].'", "NombreProducto":"'.$fila['Nombre'].'", "Precio": "'.$fila['Precio'].'"}';
-
+            echo '{"ID": '.$IDProducto.', "CodBarra": '.$fila['CodigoBarra'].',"Descripcion": "'.$fila['Descripcion'].'","Stock": '.$fila['Stock'].', "NombreProducto":"'.$fila['Nombre'].'", "Precio": '.$fila['Precio'].'}';
+            echo $sql;
+            echo $fila;
 
        }else{
-        echo"<script>alert('No hay ningun articulo con ese codigo de barras')";
+        echo"<script>alert('No hay ningun articulo con ese ID')</script>";
        }
 
 
@@ -27,9 +28,9 @@ if(isset($_POST['MostrarProducto'])){
         $newConn -> Conectar();
         $resultado = mysqli_query($newConn -> conn, $sql);
         if($resultado){
-           echo"<script>alert('Articulo eliminado con exito')";
+           echo"<script>alert('Articulo eliminado con exito')</script>";
         }else{
-           echo"<script>alert('Error al eliminar el articulo')";
+           echo"<script>alert('Error al eliminar el articulo')</script>";
         }
    
 }
@@ -40,9 +41,9 @@ if(isset($_POST['AgregarA'])){
    $newConn -> Conectar();
    $resultado = mysqli_query($newConn -> conn, $sql);
    if($resultado){
-      echo"<script>alert('Articulo eliminado con exito')";
+      echo"<script>alert('Articulo eliminado con exito')</script>";
    }else{
-      echo"<script>alert('Error al eliminar el articulo')";
+      echo"<script>alert('Error al eliminar el articulo')</script>";
    }
 
 }

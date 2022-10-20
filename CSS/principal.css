@@ -36,7 +36,8 @@ body{
     }
 
     .form-control{
-      width: 100% !important;
+      width: 50% !important;
+      
           }
   
     .d-block{
@@ -76,4 +77,17 @@ body{
   color: whitesmoke !important;
 }
 
+.divsearch{
+  display: flex !important;
+  width: 100%;
+  padding-right: 2px;
+  justify-content: space-between;
+}
+.btn-carrito {
+margin-right: 0%;
+}
 
+.usercarrito {
+  display: flex;
+flex-direction: row;
+}

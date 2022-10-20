@@ -37,69 +37,10 @@ session_start();
 
 <body>
 
-    <!-- Navbar -->
-
-    <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="index.php">AutoServicio</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-                aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle me-2" href="#" id="navbarDropdown" role="button"
-                            data-bs-toggle="dropdown" aria-expanded="false">
-                            Categorias  <i class="bi bi-list"></i>
-                        </a>
-                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item" href="#">Limpieza</a> </li>
-                            <!-- <li><hr class="dropdown-divider"></li> -->
-                            <li><a class="dropdown-item" href="#">Hogar</a></li>
-                            <li><a class="dropdown-item" href="#">Carniceria</a></li>
-                        </ul>
-                    </li>
-                </ul>
-                <input class="form-control me-3" type="search" placeholder="Buscar" aria-label="Search">
-                <button class="btn btn-buttom btn-custom me-1 boton" type="submit"> </button>
-
-                <?php
-            echo"<button class='btn btn-buttom btn-custom me-1'  type='submit' onclick='Cerrar()'>  <i class='bi bi-box-arrow-in-right'></i> </button>";          
-           
-            if(isset($_SESSION['CLIENTE'])){
-            echo "<div class='dropdown'>";
-            echo "<button class='btn btn-buttom btn-secondary dropdown-toggle bg-dark' type='button' data-bs-toggle='dropdown' aria-expanded='false'>";
-            echo "<i class='icon bi-person-fill'></i>";
-            echo "<span class='position-absolute top-1 start-95 translate-middle p-1 bg-success border border-light rounded-circle'>";
-            echo" <span class='visually-hidden'>New alerts</span> ";
-            echo" </span>";
-            echo " </button>";
-            echo "<ul class='dropdown-menu'>";
-            echo "<li><a class='dropdown-item NoSelect' href='Perfil.php'>".$_SESSION['CLIENTE']-> getNombre()."</a></li>";
-            echo "</ul>";
-            echo "</div>";
-            }else{
-              if(isset($_SESSION['ADMIN'])){
-              echo "<div class='dropdown'>";
-              echo "<button class='btn btn-buttom btn-secondary dropdown-toggle bg-dark' type='button' data-bs-toggle='dropdown' aria-expanded='false'>";
-              echo "<i class='icon bi-person-fill'></i>";
-              echo " </button>";
-              echo "<ul class='dropdown-menu'>";
-              echo "<li><a class='dropdown-item NoSelect' href='PerfilAdmin.php'>".$_SESSION['ADMIN']-> getNombre()."</a></li>";
-              echo "</ul>";
-              echo "</div>";
-            }else{
-              echo"<a href='Login.php'> <button class='btn btn-buttom btn-custom me-1'  type='submit'>  <i class='bi bi-person-fill'></i> </button></a>";
-            }
-          }
-            echo "<button class='btn btn-buttom btn-custom'  type='submit'> <i class='icon bi-cart3'></i> </button>";
-           ?>
-            </div>
-        </div>
-    </nav>
-
+<?php
+    include "navbar.php";
+    
+    ?>
     <?php
   if(!isset($_SESSION['CLIENTE'])){
     header("Location: index.php");

@@ -45,6 +45,7 @@ session_start();
 
 <body>
 
+<<<<<<< HEAD
   <!-- Navbar -->
 
   <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
@@ -110,6 +111,12 @@ session_start();
     </div>
   </nav>
 
+=======
+<?php
+    include "navbar.php";
+    
+    ?>
+>>>>>>> 941a3e54715138058ef477ab58e67a7a93d356a4
 
 
   <ul class="nav nav-pills mb-3 " style="margin: 20px !important;" id="pills-tab" role="tablist">
@@ -169,7 +176,11 @@ echo "     <td> ".$MostrarProductos[$i] -> getPrecio()." </td>";
 echo "     <td> ".$MostrarProductos[$i] -> getDescripcion()."  </td>";
 echo "     <td> ".$MostrarProductos[$i] -> getStock()."  </td>";
 echo "     <td> ".$MostrarProductos[$i] -> getEstado()."  </td>";
+<<<<<<< HEAD
 echo "     <td>  <button class='btn-sm btn-warning'  onclick='MostrarProducto()' data-bs-toggle='modal' data-bs-target='#ModalModificarProducto'  name='MostrarProducto' id='MostrarProducto' > Modificar </button> </td>";
+=======
+echo "     <td>  <button class='btn-sm btn-warning'  data-bs-toggle='modal' data-bs-target='#ModalModificarProducto'  onclick='MostrarProducto(\"".$MostrarProductos[$i] -> getIDProducto()."\")'> Modificar </button> </td>";
+>>>>>>> 941a3e54715138058ef477ab58e67a7a93d356a4
 echo "     <td>  <button class='btn-sm btn-danger'  onclick='Eliminar(\"".$MostrarProductos[$i] -> getIDProducto()."\")' > Eliminar </button> </td>";
 echo "     <td>  <button class='btn-sm btn-success'  onclick='AgregarDenuevo(\"".$MostrarProductos[$i] -> getIDProducto()."\")' > Incorporar </button> </td>";
 echo "    </tr>";
@@ -329,7 +340,7 @@ echo " </div>";
 
             <div class="mb-3">
               <label for="codigo" class="col-8"> Codigo de barra </label>
-              <input type="text" class="form-control" value="" name="CodBarras" id="NombreProducto">
+              <input type="text" class="form-control" value="" name="CodBarras-mos" id="CodBarras-mos">
             </div>
 
             <!-- <div class="mb-3">
@@ -339,14 +350,14 @@ echo " </div>";
 
             <div class="mb-3">
               <label for="codigo" class="col-8"> Descripcion </label>
-              <textarea class="textarea" name="Descripcion" maxlength="200" minlength="10" cols="65" id="Descripcion"
+              <textarea class="textarea" name="Descripcion-mos" maxlength="200" minlength="10" cols="65" id="Descripcion-mos"
                 rows="5"> </textarea>
             </div>
 
 
             <div class="mb-3">
               <label for="codigo" class="col-8"> Stock </label>
-              <input type="number" class="form-control" value="" name="Stock" id="Stock">
+              <input type="number" class="form-control" value="" name="Stock-mos" id="Stock-mos">
             </div>
      
             <?php    
@@ -364,12 +375,12 @@ echo " </div>";
 
             <div class="mb-3">
               <label for="codigo" class="col-8"> Nombre del producto </label>
-              <input type="text" class="form-control" value="" name="NombreProducto" id="NombreProducto">
+              <input type="text" class="form-control" value="" name="NombreProducto-mos" id="NombreProducto-mos">
             </div>
 
             <div class="mb-3">
               <label for="codigo" class="col-8"> Precio </label>
-              <input type="number" class="form-control" value="" name="PrecioProducto" id="PrecioProducto">
+              <input type="number" class="form-control" value="" name="PrecioProducto-mos" id="PrecioProducto-mos">
             </div>
 
           
@@ -427,6 +438,9 @@ echo " </div>";
           <button type="button " name="AgregarArticulos"  id="AgregarArticulos" class="btn btn-primary "> Agregar </button>
         </div>
         </form>
+        <div id="texto">
+          
+        </div>
       </div>
     </div>
   </div>
@@ -553,7 +567,6 @@ if (isset($_POST['ModificarArticulo'])) {
 $a = new ProductoBD();
 $a1 = new Producto();
 
-$a1 -> setIDProducto($_POST['IDProducto']);
 $a1 -> setCodBarra($_POST['CodBarra']);
 $a1 -> setImagen(htmlspecialchars(basename( $_FILES["Imagen"]["name"])));
 $a1 -> setDescripcion($_POST['Descripcion']);
@@ -600,21 +613,26 @@ $a -> ModificarProducto($a1);
       obAjax.send('Cerrar');
     }
 
-    function MostrarProducto(){
-
+    function MostrarProducto(IDProducto){
       let formData = new FormData(document.getElementById('Productos-form'));
       var obAjax = new XMLHttpRequest();
       obAjax.open('POST', 'Persistencia/ControlMostrar.php', true);
       obAjax.onreadystatechange = function () {
         var Rellenar = JSON.parse(this.responseText);
-        document.getElementById('CodBarra').value = Rellenar['CodBarra'];
-        document.getElementById('Descripcion').value = Rellenar['Descripcion'];
-        document.getElementById('Stock').value = Rellenar['Stock'];
-        document.getElementById('NombreProducto').value = Rellenar['NombreProducto'];
-        document.getElementById('PrecioProducto').value = Rellenar['Precio'];
+        document.getElementById('CodBarras-mos').value = Rellenar['CodBarra'];
+        document.getElementById('Descripcion-mos').value = Rellenar['Descripcion'];
+        document.getElementById('Stock-mos').value = Rellenar['Stock'];
+        document.getElementById('NombreProducto-mos').value = Rellenar['NombreProducto'];
+        document.getElementById('PrecioProducto-mos').value = Rellenar['Precio'];
+        document.getElementById('texto').value = this.responseText;
+        console.log(this.responseText);
       }
+      variable.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+      var get = document.getElementById.bind(document);
+      cadena = "MostrarProducto"+"IDProducto="+IDProducto;
       formData.append('MostrarProducto', '');
-      obAjax.send(formData);
+      formData.append('IDProducto', IDProducto);
+      obAjax.send(cadena);
     }
 
     function MostrarProveedor(){
