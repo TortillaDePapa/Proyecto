@@ -45,10 +45,78 @@ session_start();
 
 <body>
 
+<<<<<<< HEAD
+  <!-- Navbar -->
+
+  <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="index.php">AutoServicio</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle me-2" href="#" id="navbarDropdown" role="button"
+              data-bs-toggle="dropdown" aria-expanded="false">
+              Categorias <i class="bi bi-list"></i>
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <li><a class="dropdown-item" href="#">Limpieza</a> </li>
+              <!-- <li><hr class="dropdown-divider"></li> -->
+              <li><a class="dropdown-item" href="#">Hogar</a></li>
+              <li><a class="dropdown-item" href="#">Carniceria</a></li>
+            </ul>
+          </li>
+        </ul>
+        <!-- <input class="form-control me-3" type="search" placeholder="Buscar" id="Barradebusqueda" aria-label="Search">
+        <button class="btn btn-buttom btn-custom me-1 boton" type="submit"> </button> -->
+
+        <?php
+            echo"<button class='btn btn-buttom btn-custom me-1'  onclick='Cerrar()'>  <i class='bi bi-box-arrow-in-right'></i> </button>";          
+           
+            if(isset($_SESSION['CLIENTE'])){
+            echo "<div class='dropdown'>";
+            echo "<button class='btn btn-buttom btn-secondary dropdown-toggle bg-dark' type='button' data-bs-toggle='dropdown' aria-expanded='false'>";
+            echo "<i class='icon bi-person-fill'></i>";
+            echo "<span class='position-absolute top-1 start-95 translate-middle p-1 bg-success border border-light rounded-circle'>";
+            echo" <span class='visually-hidden'>New alerts</span> ";
+            echo" </span>";
+            echo " </button>";
+            echo "<ul class='dropdown-menu'>";
+            echo "<li><a class='dropdown-item NoSelect' href='Perfil.php'>".$_SESSION['CLIENTE']-> getNombre()."</a></li>";
+            echo "</ul>";
+            echo "</div>";
+            }else{
+              if(isset($_SESSION['ADMIN'])){
+              echo "<div class='dropdown'>";
+              echo "<button class='btn btn-buttom btn-secondary dropdown-toggle bg-dark' type='button' data-bs-toggle='dropdown' aria-expanded='false'>";
+              echo "<i class='icon bi-person-fill'></i>";
+              echo "<span class='position-absolute top-1 start-95 translate-middle p-1 bg-success border border-light rounded-circle'>";
+              echo" <span class='visually-hidden'>New alerts</span> ";
+              echo" </span>";
+              echo " </button>";
+              echo "<ul class='dropdown-menu'>";
+              echo "<li><a class='dropdown-item NoSelect' href='PerfilAdmin.php'>".$_SESSION['ADMIN']-> getNombre()."</a></li>";
+              echo "</ul>";
+              echo "</div>";
+            }else{
+              echo"<a href='Login.php'> <button class='btn btn-buttom btn-custom me-1'  type='submit'>  <i class='bi bi-person-fill'></i> </button></a>";
+            }
+          }
+               echo "<button class='btn btn-buttom btn-custom'  type='submit'> <i class='icon bi-cart3'></i> </button>";
+           ?>
+      </div>
+    </div>
+  </nav>
+
+=======
 <?php
     include "navbar.php";
     
     ?>
+>>>>>>> 941a3e54715138058ef477ab58e67a7a93d356a4
 
 
   <ul class="nav nav-pills mb-3 " style="margin: 20px !important;" id="pills-tab" role="tablist">
@@ -129,6 +197,7 @@ echo " </div>";
 
 
   <div class="tab-pane fade" id="Proveedores" role="tabpanel" aria-labelledby="pills-proveedores-tab" tabindex="0"> 
+ <button class='btn btn-success' type='submit' data-bs-toggle='modal' style='margin: 10px !important;' data-bs-target='#ModalAgregarProveedor'> Agregar proveedor </button>
 
   <?php
 //   $p = new ProveedorBD();
@@ -185,14 +254,14 @@ echo " </div>";
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 id="exampleModalLabel">Agregar Productos</h5>
+          <h5 id="exampleModalLabel">Agregar Producto</h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
 
 
         <div class="modal-body">
 
-        <form action="" method="post" enctype="multipart/form-data" id="Productos-form">
+        <form action="" method="post" enctype="multipart/form-data" >
 
             <div class="mb-3">
               <label for="codigo" class="col-8"> Codigo de barra </label>
@@ -315,7 +384,54 @@ echo " </div>";
 
         <div class="modal-footer d-flex justify-content-between ">
  
-          <button type="button " name="ModificarArticulo"  id="ModificarArticulo" class="btn btn-primary "> Modificar </button>
+          <button type="button " name="ModificarArticulo"  id="ModificarArticulo" class="btn btn-primary" > Modificar </button>
+        </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+
+ <!-- Modal agregar proveedores -->
+  
+
+  <div class="modal fade" id="ModalAgregarProveedor" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 id="exampleModalLabel">Agregar Proveedor</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+
+
+        <div class="modal-body">
+
+        <form action="" method="post" enctype="multipart/form-data" >
+
+        
+
+
+            <div class="mb-3">
+              <label for="codigo" class="col-8"> Nombre </label>
+              <input type="text" class="form-control" value="" name="NombreProducto" id="NombreProducto">
+            </div>
+
+            
+            <div class="mb-3">
+              <label for="codigo" class="col-8"> Gmail </label>
+              <input type="emailw" class="form-control" value="" name="NombreProducto" id="NombreProducto">
+            </div>
+
+            <div class="mb-3">
+              <label for="codigo" class="col-8"> Telefono </label>
+              <input type="number" class="form-control" value="" name="PrecioProducto" id="PrecioProducto">
+            </div>
+
+          
+        </div>
+
+        <div class="modal-footer d-flex justify-content-between">
+          <button type="button " name="AgregarArticulos"  id="AgregarArticulos" class="btn btn-primary "> Agregar </button>
         </div>
         </form>
         <div id="texto">
