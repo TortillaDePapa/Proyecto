@@ -65,7 +65,7 @@ session_start();
 
 
   <li class="nav-item" role="presentation">
-    <button class="nav-link  bg-dark" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#Proveedores" type="button" role="tab" aria-controls="pills-proveedores" aria-selected="false">Provoeedores</button>
+    <button class="nav-link  bg-dark" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#Proveedores" type="button" role="tab" aria-controls="pills-proveedores" aria-selected="false">Proveedores</button>
   </li>
   
 </ul>
@@ -79,9 +79,9 @@ session_start();
   <?php
 echo "  <div class='row'>";
 echo "  <button class='btn btn-success' type='submit' data-bs-toggle='modal' style='margin: 10px !important;' data-bs-target='#ModalAgregarProducto'> Agregar producto</button>";
-echo "  <input class='form me-3 ' type='' placeholder='Buscar' aria-label='Search' onkeyup='FiltrarDatos()' id='buscartabla' style='width: 40%;'>";
+echo "  <input class='form me-3 ' type='' placeholder='Buscar' aria-label='Search' onkeyup='FiltrarProducto()' id='buscartablaproducto' style='width: 40%;'>";
 
-include_once 'TablaAdmin.php';
+include_once 'TablaProductoAdmin.php';
 
 echo "  </div>";
 
@@ -97,49 +97,17 @@ echo "  </div>";
   <div class="tab-pane fade" id="Proveedores" role="tabpanel" aria-labelledby="pills-proveedores-tab" tabindex="0"> 
 
   <?php
-  $p = new ProveedorBD();
-$MostrarProveedor = $p -> MostrarProveedor();
-
-
+echo "  <div class='row'>";
 echo "  <button class='btn btn-success' type='submit' data-bs-toggle='modal' style='margin: 10px !important;' data-bs-target='#ModalAgregarProveedor'> Agregar proveedor </button>";
-echo "  <div class='tabla'>";
-echo "  <table class='table table-dark table-striped table-hover text-center'>";
-echo "  <thead>";
-echo "  <tr>";
-echo "  <th scope='col'> ID </th>";
-echo "  <th scope='col'> Nombre </th>";
-echo "  <th scope='col'> Gmail </th>";
-echo "  <th scope='col'> Telefono </th>";
-echo "  <th scope='col'> Estado </th>";
-echo "  <th scope='col'> Modificar </th>";
-echo "  <th scope='col'> Eliminar </th>";
-echo "  <th scope='col'> Incorporar </th>";
-echo " </tr>";
-echo "  </thead>";
-echo " <tbody>";
-echo "   <tr>";
+echo "  <input class='form me-3 ' type='' placeholder='Buscar' aria-label='Search' onkeyup='FiltrarProveedor()' id='buscartablaproveedor' style='width: 40%;'>";
 
-for($i = 1; $i < count($MostrarProveedor); $i++){
+  
+include_once 'TablaProveedorAdmin.php';
 
-echo "    <th scope='row'> ".$MostrarProveedor[$i] -> getIDProveedor()." </th>";
-echo "     <td> ".$MostrarProveedor[$i] -> getNombreProveedor()." </td>";
-echo "     <td> ".$MostrarProveedor[$i] -> getGmail()." </td>";
-echo "     <td> ".$MostrarProveedor[$i] -> getTelefonoProveedor()." </td>";
-echo "     <td> ".$MostrarProveedor[$i] -> getEstado()."  </td>";
-echo "     <td>  <button class='btn-sm btn-warning'  type='submit' data-bs-toggle='modal' data-bs-target='#ModalModificarProducto'> Modificar </button> </td>";
-echo "     <td>  <button class='btn-sm btn-danger'  onclick='Eliminar(\"".$MostrarProveedor[$i] -> getIDProveedor()."\")' > Eliminar </button> </td>";
-echo "     <td>  <button class='btn-sm btn-success'  onclick='AgregarDenuevo(\"".$MostrarProveedor[$i] -> getIDProveedor()."\")' > Incorporar </button> </td>";
-echo "    </tr>";
-
-}
-echo " </tbody>";
-echo " </table>";
-echo " </div>";
-
+echo "  </div>";
 
 ?>
 
-  </div>
 </div>
 
  
@@ -316,7 +284,7 @@ echo " </div>";
             
             <div class="mb-3">
               <label for="codigo" class="col-8"> Gmail </label>
-              <input type="emailw" class="form-control" value="" name="ProveedorG" id="NombreProducto">
+              <input type="email" class="form-control" value="" name="ProveedorG" id="NombreProducto">
             </div>
 
             <div class="mb-3">
@@ -334,6 +302,47 @@ echo " </div>";
         <div id="texto">
           
         </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Modal Modificar Proveedor -->
+
+  <div class="modal fade" id="ModalModificarProveedor" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 id="exampleModalLabel">Modificar Proveedor</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+
+
+        <div class="modal-body">
+
+        <form action="" method="post" enctype="multipart/form-data" id="Productos-form">
+
+            <div class="mb-3">
+              <label for="codigo" class="col-8"> Nombre </label>
+              <input type="text" class="form-control" value="" name="" id="">
+            </div>
+
+            <div class="mb-3">
+              <label for="codigo" class="col-8"> Gmail </label>
+              <input type="email" class="form-control" value="" name="" id="">
+            </div>
+
+            <div class="mb-3">
+              <label for="codigo" class="col-8"> Numero </label>
+              <input type="number" class="form-control" value="" name="" id="">
+
+            </div> 
+        </div>
+
+        <div class="modal-footer d-flex justify-content-between ">
+ 
+          <button type="button " name=""  id="" class="btn btn-primary" > Modificar </button>
+        </div>
+        </form>
       </div>
     </div>
   </div>
@@ -474,17 +483,31 @@ $a -> ModificarProducto($a1);
     ?>
 
   <script>
-function FiltrarDatos() {
+function FiltrarProducto() {
 
   variable = new XMLHttpRequest();
     variable.onload = function() {
       document.getElementById("tablaproductos").innerHTML = this.responseText;
     }
-    variable.open("POST", "TablaAdmin.php");
+    variable.open("POST", "TablaProductoAdmin.php");
     variable.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-    variable.send("buscar="+document.getElementById("buscartabla").value);
+    variable.send("buscar="+document.getElementById("buscartablaproducto").value);
 
 }
+
+function FiltrarProveedor() {
+
+variable = new XMLHttpRequest();
+  variable.onload = function() {
+    document.getElementById("tablaproveedor").innerHTML = this.responseText;
+  }
+  variable.open("POST", "TablaProveedorAdmin.php");
+  variable.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+  variable.send("buscar="+document.getElementById("buscartablaproveedor").value);
+
+}
+
+
 
 
 
