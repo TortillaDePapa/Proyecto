@@ -71,31 +71,31 @@ class ProveedorBD extends Conexion{
         }
    }
 
-//    public function MostrarProveedor($Proveedor){
+   public function MostrarProveedor(){
 
-//     $sql = "SELECT * FROM proveedores";
-//     $this -> Conectar();
-//     $result = mysqli_query($this -> conn, $sql);
-     
-     
-//      if($result -> num_rows > 0){
-//          $ListarProveedor[] = new Proveedor();
+    $sql = "SELECT * FROM proveedores, telefonoproveedores where proveedores.idproveedor=telefonoproveedores.idproveedor";
+    $this -> Conectar();
+    $result = mysqli_query($this -> conn, $sql);
+
+     if($result -> num_rows > 0){
+
+         $ListarProveedor[] = new Proveedor();
  
-//          while($row = $result -> fetch_assoc()){
-//              $p = new Proveedor(); 
-//              $p -> setIDProveedor($row['IDProveedor']);
-//              $p -> setNombreProveedor($row['Nombre']);
-//              $p -> setGmail($row['Gmail']);
-//              $p -> setTelefonoProveedor($row['Numero']);
-//              $p -> setEstado($row['Estado']);
-//              $ListarProveedor [] = $p;
-//          }
-//          return $ListarProveedor;
-//      }else{
-//          return null;
-//      }
+         while($row = $result -> fetch_assoc()){
+             $p = new Proveedor(); 
+             $p -> setIDProveedor($row['IDProveedor']);
+             $p -> setNombreProveedor($row['Nombre']);
+             $p -> setGmail($row['Gmail']);
+             $p -> setTelefonoProveedor($row['Numero']);
+             $p -> setEstado($row['Estado']);
+             $ListarProveedor [] = $p;
+         }
+         return $ListarProveedor;
+     }else{
+         return null;
+     }
  
-//  }
+ }
    }
 
     

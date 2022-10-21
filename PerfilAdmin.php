@@ -123,9 +123,9 @@ echo "   <tr>";
 for($i = 1; $i < count($MostrarProveedor); $i++){
 
 echo "    <th scope='row'> ".$MostrarProveedor[$i] -> getIDProveedor()." </th>";
-echo "     <td> ".$MostrarProveedor[$i] -> getNombre()." </td>";
+echo "     <td> ".$MostrarProveedor[$i] -> getNombreProveedor()." </td>";
 echo "     <td> ".$MostrarProveedor[$i] -> getGmail()." </td>";
-echo "     <td> ".$MostrarProveedor[$i] -> getTelefono()." </td>";
+echo "     <td> ".$MostrarProveedor[$i] -> getTelefonoProveedor()." </td>";
 echo "     <td> ".$MostrarProveedor[$i] -> getEstado()."  </td>";
 echo "     <td>  <button class='btn-sm btn-warning'  type='submit' data-bs-toggle='modal' data-bs-target='#ModalModificarProducto'> Modificar </button> </td>";
 echo "     <td>  <button class='btn-sm btn-danger'  onclick='Eliminar(\"".$MostrarProveedor[$i] -> getIDProveedor()."\")' > Eliminar </button> </td>";
