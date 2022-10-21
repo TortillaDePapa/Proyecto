@@ -131,6 +131,13 @@ variable = new XMLHttpRequest();
 </body>
 
 
+ 
+<?php 
+  
+include_once 'Footer.php';
+
+  ?>
+
 
 </html>
 

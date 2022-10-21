@@ -71,9 +71,18 @@ class ProveedorBD extends Conexion{
         }
    }
 
-   public function MostrarProveedor(){
+   public function MostrarProveedor($Buscar){
 
-    $sql = "SELECT * FROM proveedores, telefonoproveedores where proveedores.idproveedor=telefonoproveedores.idproveedor";
+    if($Buscar != ''){
+
+        $sql = "SELECT * FROM proveedores, telefonoproveedores where proveedores.idproveedor=telefonoproveedores.idproveedor AND Nombre like '%".$Buscar."%'";
+ 
+    }else{
+
+        $sql = "SELECT * FROM proveedores, telefonoproveedores where proveedores.idproveedor=telefonoproveedores.idproveedor";
+
+
+    }
     $this -> Conectar();
     $result = mysqli_query($this -> conn, $sql);
 
@@ -92,11 +101,14 @@ class ProveedorBD extends Conexion{
          }
          return $ListarProveedor;
      }else{
-         return null;
+         return array();
      }
  
  }
    }
+
+
+
 
     
 
