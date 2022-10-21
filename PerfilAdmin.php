@@ -237,10 +237,10 @@ echo " </div>";
               <input type="text" class="form-control" value="" name="CodBarras-mos" id="CodBarras-mos">
             </div>
 
-            <!-- <div class="mb-3">
+            <div class="mb-3">
               <label for="codigo" class="col-8"> Imagen del producto </label>
               <input type="file" class="form-control" value="" name="Imagen">
-            </div> -->
+            </div>
 
             <div class="mb-3">
               <label for="codigo" class="col-8"> Descripcion </label>
@@ -311,25 +311,25 @@ echo " </div>";
 
             <div class="mb-3">
               <label for="codigo" class="col-8"> Nombre </label>
-              <input type="text" class="form-control" value="" name="NombreProducto" id="NombreProducto">
+              <input type="text" class="form-control" value="" name="ProveedorN" id="NombreProducto">
             </div>
 
             
             <div class="mb-3">
               <label for="codigo" class="col-8"> Gmail </label>
-              <input type="emailw" class="form-control" value="" name="NombreProducto" id="NombreProducto">
+              <input type="emailw" class="form-control" value="" name="ProveedorG" id="NombreProducto">
             </div>
 
             <div class="mb-3">
               <label for="codigo" class="col-8"> Telefono </label>
-              <input type="number" class="form-control" value="" name="PrecioProducto" id="PrecioProducto">
+              <input type="number" class="form-control" value="" name="ProveedorT" id="PrecioProducto">
             </div>
 
           
         </div>
 
         <div class="modal-footer d-flex justify-content-between">
-          <button type="button " name="AgregarArticulos"  id="AgregarArticulos" class="btn btn-primary "> Agregar </button>
+          <button type="button " name="AgregarProveedor"  id="AgregarProveedor" class="btn btn-primary "> Agregar </button>
         </div>
         </form>
         <div id="texto">
@@ -396,7 +396,7 @@ if(isset($_POST['EliminarProveedor'])){
 
 // Agrega articulo
     
-    if (isset($_POST['AgregarArticulos'])) {
+if (isset($_POST['AgregarArticulos'])) {
       $Directorio = "imagenes/";
 $archivoDestino = $Directorio . basename($_FILES['Imagen']["name"]);
 $subirOK = true;
