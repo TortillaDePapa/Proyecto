@@ -46,6 +46,8 @@ session_start();
 <body>
 
 <?php
+
+
     include "navbar.php";
     
     ?>
@@ -75,51 +77,15 @@ session_start();
 
 
   <?php
-  $p = new ProductoBD();
-$MostrarProductos = $p -> Mostrarproductos();
-
-
+echo "  <div class='row'>";
 echo "  <button class='btn btn-success' type='submit' data-bs-toggle='modal' style='margin: 10px !important;' data-bs-target='#ModalAgregarProducto'> Agregar producto</button>";
-echo "  <div class='tabla'>";
-echo "  <table class='table table-dark table-striped table-hover text-center'>";
-echo "  <thead>";
-echo "  <tr>";
-echo "   <th scope='col'> ID </th>";
-echo "   <th scope='col'> Codigo Barra</th>";
-echo "   <th scope='col'> Nombre</th>";
-echo "   <th scope='col'> Precio</th>";
-echo "   <th scope='col'> Descripcion</th>";
-echo "   <th scope='col'> Stock </th>";
-echo "   <th scope='col'> Estado </th>";
-echo "   <th scope='col'> Modificar </th>";
-echo "    <th scope='col'> Eliminar </th>";
-echo "    <th scope='col'> Incorporar </th>";
-echo " </tr>";
-echo "  </thead>";
-echo " <tbody>";
-echo "   <tr>";
+echo "  <input class='form me-3 ' type='' placeholder='Buscar' aria-label='Search' onkeyup='FiltrarDatos()' id='buscartabla' style='width: 40%;'>";
 
-for($i = 1; $i < count($MostrarProductos); $i++){
+include_once 'TablaAdmin.php';
 
-echo "    <th scope='row'> ".$MostrarProductos[$i] -> getIDProducto()." </th>";
-echo "     <td> ".$MostrarProductos[$i] -> getCodBarra()." </td>";
-echo "     <td> ".$MostrarProductos[$i] -> getNombre()." </td>";
-echo "     <td> ".$MostrarProductos[$i] -> getPrecio()." </td>";
-echo "     <td> ".$MostrarProductos[$i] -> getDescripcion()."  </td>";
-echo "     <td> ".$MostrarProductos[$i] -> getStock()."  </td>";
-echo "     <td> ".$MostrarProductos[$i] -> getEstado()."  </td>";
-echo "     <td>  <button class='btn-sm btn-warning'  data-bs-toggle='modal' data-bs-target='#ModalModificarProducto'  onclick='MostrarProducto(".$MostrarProductos[$i] -> getIDProducto().")'> Modificar </button> </td>";
-echo "     <td>  <button class='btn-sm btn-danger'  onclick='Eliminar(\"".$MostrarProductos[$i] -> getIDProducto()."\")' > Eliminar </button> </td>";
-echo "     <td>  <button class='btn-sm btn-success'  onclick='AgregarDenuevo(\"".$MostrarProductos[$i] -> getIDProducto()."\")' > Incorporar </button> </td>";
-echo "    </tr>";
+echo "  </div>";
 
-}
-echo " </tbody>";
-echo " </table>";
-echo " </div>";
-
-
-?>
+  ?>
   </div>
 
 
@@ -132,44 +98,44 @@ echo " </div>";
  <button class='btn btn-success' type='submit' data-bs-toggle='modal' style='margin: 10px !important;' data-bs-target='#ModalAgregarProveedor'> Agregar proveedor </button>
 
   <?php
-//   $p = new ProveedorBD();
-// $MostrarProveedor = $p -> MostrarProveedor();
+  $p = new ProveedorBD();
+$MostrarProveedor = $p -> MostrarProveedor();
 
 
-// echo "  <button class='btn btn-success' type='submit' data-bs-toggle='modal' style='margin: 10px !important;' data-bs-target='#ModalAgregarProveedor'> Agregar proveedor </button>";
-// echo "  <div class='tabla'>";
-// echo "  <table class='table table-dark table-striped table-hover text-center'>";
-// echo "  <thead>";
-// echo "  <tr>";
-// echo "   <th scope='col'> ID </th>";
-// echo "   <th scope='col'> Nombre </th>";
-// echo "   <th scope='col'> Gmail </th>";
-// echo "   <th scope='col'> Telefono </th>";
-// echo "   <th scope='col'> Estado </th>";
-// echo "   <th scope='col'> Modificar </th>";
-// echo "    <th scope='col'> Eliminar </th>";
-// echo "    <th scope='col'> Incorporar </th>";
-// echo " </tr>";
-// echo "  </thead>";
-// echo " <tbody>";
-// echo "   <tr>";
+echo "  <button class='btn btn-success' type='submit' data-bs-toggle='modal' style='margin: 10px !important;' data-bs-target='#ModalAgregarProveedor'> Agregar proveedor </button>";
+echo "  <div class='tabla'>";
+echo "  <table class='table table-dark table-striped table-hover text-center'>";
+echo "  <thead>";
+echo "  <tr>";
+echo "  <th scope='col'> ID </th>";
+echo "  <th scope='col'> Nombre </th>";
+echo "  <th scope='col'> Gmail </th>";
+echo "  <th scope='col'> Telefono </th>";
+echo "  <th scope='col'> Estado </th>";
+echo "  <th scope='col'> Modificar </th>";
+echo "  <th scope='col'> Eliminar </th>";
+echo "  <th scope='col'> Incorporar </th>";
+echo " </tr>";
+echo "  </thead>";
+echo " <tbody>";
+echo "   <tr>";
 
-// for($i = 1; $i < count($MostrarProveedor); $i++){
+for($i = 1; $i < count($MostrarProveedor); $i++){
 
-// echo "    <th scope='row'> ".$MostrarProveedor[$i] -> getIDProveedor()." </th>";
-// echo "     <td> ".$MostrarProveedor[$i] -> getNombre()." </td>";
-// echo "     <td> ".$MostrarProveedor[$i] -> getGmail()." </td>";
-// echo "     <td> ".$MostrarProveedor[$i] -> getTelefono()." </td>";
-// echo "     <td> ".$MostrarProveedor[$i] -> getEstado()."  </td>";
-// echo "     <td>  <button class='btn-sm btn-warning'  type='submit' data-bs-toggle='modal' data-bs-target='#ModalModificarProducto'> Modificar </button> </td>";
-// echo "     <td>  <button class='btn-sm btn-danger'  onclick='Eliminar(\"".$MostrarProveedor[$i] -> getIDProveedor()."\")' > Eliminar </button> </td>";
-// echo "     <td>  <button class='btn-sm btn-success'  onclick='AgregarDenuevo(\"".$MostrarProveedor[$i] -> getIDProveedor()."\")' > Incorporar </button> </td>";
-// echo "    </tr>";
+echo "    <th scope='row'> ".$MostrarProveedor[$i] -> getIDProveedor()." </th>";
+echo "     <td> ".$MostrarProveedor[$i] -> getNombre()." </td>";
+echo "     <td> ".$MostrarProveedor[$i] -> getGmail()." </td>";
+echo "     <td> ".$MostrarProveedor[$i] -> getTelefono()." </td>";
+echo "     <td> ".$MostrarProveedor[$i] -> getEstado()."  </td>";
+echo "     <td>  <button class='btn-sm btn-warning'  type='submit' data-bs-toggle='modal' data-bs-target='#ModalModificarProducto'> Modificar </button> </td>";
+echo "     <td>  <button class='btn-sm btn-danger'  onclick='Eliminar(\"".$MostrarProveedor[$i] -> getIDProveedor()."\")' > Eliminar </button> </td>";
+echo "     <td>  <button class='btn-sm btn-success'  onclick='AgregarDenuevo(\"".$MostrarProveedor[$i] -> getIDProveedor()."\")' > Incorporar </button> </td>";
+echo "    </tr>";
 
-// }
-// echo " </tbody>";
-// echo " </table>";
-// echo " </div>";
+}
+echo " </tbody>";
+echo " </table>";
+echo " </div>";
 
 
 ?>
@@ -509,6 +475,23 @@ $a -> ModificarProducto($a1);
     ?>
 
   <script>
+function FiltrarDatos() {
+
+  variable = new XMLHttpRequest();
+    variable.onload = function() {
+      document.getElementById("tablaproductos").innerHTML = this.responseText;
+    }
+    variable.open("POST", "TablaAdmin.php");
+    variable.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    variable.send("buscar="+document.getElementById("buscartabla").value);
+
+}
+
+
+
+
+
+
     function Eliminar($IDProducto) {
       let formData = $IDProducto;
       var obAjax = new XMLHttpRequest();

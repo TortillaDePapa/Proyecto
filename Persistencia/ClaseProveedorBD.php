@@ -31,6 +31,8 @@ class ProveedorBD extends Conexion{
         }
     }
 
+    
+
     public function ModificarProveedor($Proveedor){
         $sql = "SELECT idproveedor FROM proveedores WHERE idProveedor = '".$Proveedor -> getIDProveedor()."'";
         $this -> Conectar();
@@ -69,8 +71,34 @@ class ProveedorBD extends Conexion{
         }
    }
 
+//    public function MostrarProveedor($Proveedor){
+
+//     $sql = "SELECT * FROM proveedores";
+//     $this -> Conectar();
+//     $result = mysqli_query($this -> conn, $sql);
+     
+     
+//      if($result -> num_rows > 0){
+//          $ListarProveedor[] = new Proveedor();
+ 
+//          while($row = $result -> fetch_assoc()){
+//              $p = new Proveedor(); 
+//              $p -> setIDProveedor($row['IDProveedor']);
+//              $p -> setNombreProveedor($row['Nombre']);
+//              $p -> setGmail($row['Gmail']);
+//              $p -> setTelefonoProveedor($row['Numero']);
+//              $p -> setEstado($row['Estado']);
+//              $ListarProveedor [] = $p;
+//          }
+//          return $ListarProveedor;
+//      }else{
+//          return null;
+//      }
+ 
+//  }
+   }
+
     
-}
 
 
 

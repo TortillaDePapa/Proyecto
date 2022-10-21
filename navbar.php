@@ -33,8 +33,9 @@
                     </li>
                 </ul>
 
+
                 <!-- pasar el id a todas las barras -->
-                <input class="form-control me-3" type="search" placeholder="Buscar" aria-label="Search" id="busqueda">
+                <input class="form-control me-3" type="search" placeholder="Buscar"  onkeyup="FiltrarCards()" aria-label="Search" id="buscarcards">
 
 
 

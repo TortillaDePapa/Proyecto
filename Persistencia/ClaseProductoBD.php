@@ -23,9 +23,18 @@ include_once 'Clases/ClaseEnvasados.php';
                 echo"<script>alert('Codigo de barras ya existente')</script>";
              }
             }
-       public function ListarProductos(){
+       public function ListarProductos($Buscar){
+
+        if($Buscar != ''){
             
+            $sql = "SELECT * FROM productos WHERE Estado ='1' AND Nombre like '%".$Buscar."%'";
+
+        }else {
+
             $sql = "SELECT * FROM productos WHERE Estado ='1' ";
+
+        }
+            
             $this -> Conectar();
            $result = mysqli_query($this -> conn, $sql);
             
@@ -49,13 +58,20 @@ include_once 'Clases/ClaseEnvasados.php';
                 }
                 return $ListarProductos;
             }else{
-                return null;
+                return array();
             }
         
         }
-        public function MostrarProductos(){
+        public function MostrarProductos($Buscar){
+
+            if($Buscar != ''){
+                $sql = "SELECT * FROM productos WHERE Nombre like '%".$Buscar."%'";
+            }else{
+
+                $sql = "SELECT * FROM productos";
+
+            }
             
-            $sql = "SELECT * FROM productos";
             $this -> Conectar();
            $result = mysqli_query($this -> conn, $sql);
             
@@ -79,7 +95,7 @@ include_once 'Clases/ClaseEnvasados.php';
                 }
                 return $ListarProductos;
             }else{
-                return null;
+                return array();
             }
         
         }
