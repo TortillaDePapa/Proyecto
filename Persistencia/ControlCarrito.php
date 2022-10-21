@@ -23,7 +23,7 @@ if (isset($_POST['id'])) {
         'Cantidad'  =>    $cantidad
           );
         }
-
+    if($_SESSION['MostrarCarrito'] != null){
         if(isset($_SESSION['MostrarCarrito'])){
 
             for($i = 0; $i <count($_SESSION['MostrarCarrito']); $i++){
@@ -57,7 +57,7 @@ if (isset($_POST['id'])) {
             }           
 
         }
-            
+    }  
             
         }else{
             $_SESSION['MostrarCarrito'] = $MostrarCarrito;

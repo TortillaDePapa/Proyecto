@@ -41,8 +41,8 @@
 
 <div class="usercarrito" >
                 <?php
-             echo"<button class='btn btn-buttom btn-custom me-1'  type='submit' onclick='Cerrar()'>  <i class='bi bi-box-arrow-in-right'></i> </button>";          
-           
+             echo"<button class='btn btn-buttom btn-custom me-1'  type='submit' onclick='Cerrar()'>  <i class='bi bi-box-arrow-in-right'></i> </button>";
+
              if(isset($_SESSION['CLIENTE'])){
             echo "<div class='dropdown'>";
             echo "<button class='btn btn-buttom btn-secondary dropdown-toggle bg-dark' type='button' data-bs-toggle='dropdown' aria-expanded='false'>";
@@ -73,7 +73,7 @@
             }
            }
             // echo "<button class='btn btn-buttom  btn-custom btn-xs'  type='submit'> <i class='icon bi-cart3'></i> </button>";
-  
+
            ?>
                 <button class="btn btn-buttom  btn-custom btn-xs btn-carrito" type="button" data-bs-toggle="offcanvas"
                     data-bs-target="#offcanvasRight" aria-controls="offcanvasRight"> <i class="icon bi-cart3"></i>
@@ -91,12 +91,12 @@
                     <div class="offcanvas-body">
 
                         <?php
-      if(isset($_SESSION['MostrarCarrito'])){ 
-        echo    " <div class='row g-0'>"; 
-        
-       
+      if(isset($_SESSION['MostrarCarrito'])){
+        echo    " <div class='row g-0'>";
+
+
           for($i = 0; $i <count($_SESSION['MostrarCarrito']); $i++){
-            echo    "<div class='card mb-3' style='max-width: 540px;'>"; 
+            echo    "<div class='card mb-3' style='max-width: 540px;'>";
             echo    " <div class='col-md-4'>";
             echo    "<img src='imagenes/".$_SESSION['MostrarCarrito'][$i]['Imagen']."' class='img-fluid rounded-start' alt='...'>";
             echo    "</div>";
@@ -110,12 +110,12 @@
              echo    "</div>";
         }
         }  else{
-            echo "null";
+            echo "<img src='https://editorialparalelo28.es/images/cartEmpty.png' alt='https://editorialparalelo28.es/images/cartEmpty.png' height='250px'>";
         }
-       
+
             echo    "</div>";
             ?>
-   
+
 
 
                         </div>

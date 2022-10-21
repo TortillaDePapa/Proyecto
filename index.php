@@ -12,7 +12,6 @@ session_start();
 
 <head>
 
-<script src="FuncionesJS.js"> </script>
 
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -86,7 +85,6 @@ include_once 'FiltrarCards.php'
 
 
 
-
     <script>
 function FiltrarCards() {
 
@@ -114,7 +112,8 @@ variable = new XMLHttpRequest();
 
     function MostrarCarrito(idProducto,precioP) {
         let formData = idProducto;
-        let precio = precioP
+        let precio = precioP;
+        var cant = document.getElementById('CantidadProducto');
         // let cantD = document.getElementById('cantidad').value;
         console.log(formData);
         var obAjax = new XMLHttpRequest();
@@ -123,8 +122,8 @@ variable = new XMLHttpRequest();
         obAjax.onreadystatechange = function() {
             console.log(this.responseText);
         }
-      obAjax.send('id='+formData+'&'+'Precio='+precio ); 
-    //   +'&'+'Cantidad='+cantD 
+      obAjax.send('id='+formData+'&'+'Precio='+precio+'&'+'Cantidad='+cant); 
+    //   
     }
     </script>
 
