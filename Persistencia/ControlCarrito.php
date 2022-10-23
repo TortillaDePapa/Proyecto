@@ -9,6 +9,8 @@ if (isset($_POST['id'])) {
     $IDProducto = $_POST['id'];
     $cantidad = $_POST['Cantidad'];
     $Precio = $_POST['Precio'];
+    settype($cantidad, 'int');
+    settype($Precio, 'int');
     $sql = "SELECT * from productos where IDProducto = ".$IDProducto."";
     $newConn -> Conectar();
     $resultado = mysqli_query($newConn -> conn, $sql);
@@ -25,8 +27,8 @@ if (isset($_POST['id'])) {
         }
     if($_SESSION['MostrarCarrito'] != null){
         if(isset($_SESSION['MostrarCarrito'])){
-
-            for($i = 0; $i <count($_SESSION['MostrarCarrito']); $i++){
+            if($cantidad = 1){
+                for($i = 0; $i <count($_SESSION['MostrarCarrito']); $i++){
 
                 if($_SESSION['MostrarCarrito'][$i]['id'] == $IDProducto){
 
@@ -34,9 +36,8 @@ if (isset($_POST['id'])) {
                     $existe = true;
 
                 }
-                
-
-            }  
+             }   
+            }
             if($existe == false){
                 $sql = "SELECT * from productos where IDProducto = ".$IDProducto."";
                 $newConn -> Conectar();

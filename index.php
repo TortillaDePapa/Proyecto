@@ -113,17 +113,13 @@ variable = new XMLHttpRequest();
     function MostrarCarrito(idProducto,precioP) {
         let formData = idProducto;
         let precio = precioP;
-        var cant = document.getElementById('CantidadProducto');
-        // let cantD = document.getElementById('cantidad').value;
-        console.log(formData);
         var obAjax = new XMLHttpRequest();
         obAjax.open('POST', 'Persistencia/ControlCarrito.php', true);
         obAjax.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
         obAjax.onreadystatechange = function() {
             console.log(this.responseText);
         }
-      obAjax.send('id='+formData+'&'+'Precio='+precio+'&'+'Cantidad='+cant); 
-    //   
+      obAjax.send('id='+formData+'&'+'Precio='+precio+'&'+'Cantidad='+document.getElementById('cantidad').value); 
     }
     </script>
 

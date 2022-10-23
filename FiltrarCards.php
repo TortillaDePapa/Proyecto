@@ -24,7 +24,7 @@ if(isset($_POST['buscar'])){
      echo "<input type='hidden' value='".$ListarProductos[$i] -> getIDProducto()."' name='idproducto' id='idproducto'>";
      echo "    <div class='col-lg-3 col-sd-12 col-margin' >";
      echo "     <div class='card' style='width: 100%'>";
-    //  echo "         <input type='number' id='cantidad' value='0'>";
+     echo "         <input type='number' id='cantidad' value='10'   >";
      echo "       <img src='imagenes/".$ListarProductos[$i] -> getImagen()."'>";
      echo "        <div class='card-body'>";
      echo "          <h5 class='card-title'>".$ListarProductos[$i] -> getNombre()."</h5>";
@@ -41,7 +41,7 @@ if(isset($_POST['buscar'])){
     //  echo "           </div>"; 
 
     //  echo "          <input type='number' value='1' class='CantidadProducto' name='Cantidad' id='CantidadProducto' disabled> ";
-     echo "          <button class='btn btn-primary btn-dark bg-dark' onclick='MostrarCarrito(\"".$ListarProductos[$i] -> getIDProducto()."\",\"".$ListarProductos[$i] -> getPrecio()."\",\"Cantidad\")'><i class='icon bi-cart3'></i> </button>";
+     echo "          <button class='btn btn-primary btn-dark bg-dark' onclick='MostrarCarrito(\"".$ListarProductos[$i] -> getIDProducto()."\",\"".$ListarProductos[$i] -> getPrecio()."\")'><i class='icon bi-cart3'></i> </button>";
      echo "       </div>";
      echo "      </div>";
      echo "   </div>";
