@@ -27,12 +27,12 @@ if (isset($_POST['id'])) {
         }
     if($_SESSION['MostrarCarrito'] != null){
         if(isset($_SESSION['MostrarCarrito'])){
-            if($cantidad = 1){
+            if($cantidad > 0){
                 for($i = 0; $i <count($_SESSION['MostrarCarrito']); $i++){
 
                 if($_SESSION['MostrarCarrito'][$i]['id'] == $IDProducto){
 
-                    $_SESSION['MostrarCarrito'][$i]['Cantidad']++;
+                    $_SESSION['MostrarCarrito'][$i]['Cantidad']= $_SESSION['MostrarCarrito'][$i]['Cantidad']+$cantidad;
                     $existe = true;
 
                 }
