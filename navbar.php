@@ -14,7 +14,7 @@
             <a class="navbar-brand" href="index.php"> AutoServicio </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-                aria-label="Toggle navigation">
+                aria-label="Toggle navigation" >
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse divsearch" id="navbarSupportedContent">
@@ -106,7 +106,7 @@
             echo    "<div class='col-md-8'>";
             echo    "<div class='card-body'>";
             echo    "<h5 class='card-title'>".$_SESSION['MostrarCarrito'][$i]['Nombre']."</h5>";
-            echo    "<h5 class='card-title'>$".$_SESSION['MostrarCarrito'][$i]['Precio']*$_SESSION['MostrarCarrito'][$i]['Cantidad']."</h5>";
+            echo    "<h5 class='card-title' name='preciocard'>$".$_SESSION['MostrarCarrito'][$i]['Precio']*$_SESSION['MostrarCarrito'][$i]['Cantidad']."</h5>";
             echo    "<h6 class='card-title'>Cantidad:".$_SESSION['MostrarCarrito'][$i]['Cantidad']." </h6>";
             echo    "</div>";
             echo    "</div>";
@@ -118,9 +118,22 @@
 
             echo    "</div>";
             ?>
+            <?php
+            if (isset($_SESSION['MostrarCarrito'])) {
+            
+            
 
+                
+            }
 
+            
+            
+            ?>
 
+<script>
+    var precio = document.getElementsByName('preciocard');
+           console.log(precio);
+</script>
                         </div>
                     </div>
                 </div>
