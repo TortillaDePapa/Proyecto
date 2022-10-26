@@ -78,7 +78,7 @@ session_start();
 
   <?php
 echo "  <div class='row'>";
-echo "  <button class='btn btn-success' type='submit' data-bs-toggle='modal' style='margin: 10px !important;' data-bs-target='#ModalAgregarProducto'> Agregar producto</button>";
+echo "  <button class='btn btn-success' type='submit' data-bs-toggle='modal' style='margin: 20px !important;' data-bs-target='#ModalAgregarProducto'> Agregar producto</button>";
 echo "  <input class='form me-3 ' type='' placeholder='Buscar' aria-label='Search' onkeyup='FiltrarProducto()' id='buscartablaproducto' style='width: 40%;'>";
 
 include_once 'TablaProductoAdmin.php';
@@ -98,7 +98,7 @@ echo "  </div>";
 
   <?php
 echo "  <div class='row'>";
-echo "  <button class='btn btn-success' type='submit' data-bs-toggle='modal' style='margin: 10px !important;' data-bs-target='#ModalAgregarProveedor'> Agregar proveedor </button>";
+echo "  <button class='btn btn-success' type='submit' data-bs-toggle='modal' style='margin: 20px !important;' data-bs-target='#ModalAgregarProveedor'> Agregar proveedor </button>";
 echo "  <input class='form me-3 ' type='' placeholder='Buscar' aria-label='Search' onkeyup='FiltrarProveedor()' id='buscartablaproveedor' style='width: 40%;'>";
 
   
