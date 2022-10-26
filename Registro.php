@@ -57,14 +57,14 @@ include_once 'Clases/ClasePersona.php';
                                   Ingrese su gmail
                         </label>
                 </div>
-                <div class="texto"> <input type="text" required name="Telefono"> 
+                <div class="texto"> <input type="text" required name="Telefono" minlength="9" maxlength="9"> 
                     <span>
 
                     </span> <label>
                                   Ingrese su telefono   
                         </label>
                 </div>
-                <div class="texto"> <input type="text" required name="Calle" minlength="9" maxlength="9"> 
+                <div class="texto"> <input type="text" required name="Calle" > 
                     <span>
 
                     </span> <label>

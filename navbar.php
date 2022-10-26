@@ -94,7 +94,9 @@
                     <div class="offcanvas-body">
 
                         <?php
+                        
       if(isset($_SESSION['MostrarCarrito'])){
+        echo "<button type='button' class='btn btn-danger' onclick='EliminarCarro()'>Eliminar carrito</button>";
         echo    " <div class='row g-0'>";
 
 
@@ -108,24 +110,30 @@
             echo    "<h5 class='card-title'>".$_SESSION['MostrarCarrito'][$i]['Nombre']."</h5>";
             echo    "<h5 class='card-title' name='preciocard'>$".$_SESSION['MostrarCarrito'][$i]['Precio']*$_SESSION['MostrarCarrito'][$i]['Cantidad']."</h5>";
             echo    "<h6 class='card-title'>Cantidad:".$_SESSION['MostrarCarrito'][$i]['Cantidad']." </h6>";
+           
             echo    "</div>";
             echo    "</div>";
              echo    "</div>";
+
         }
+        echo "<button type='button' class='btn btn-danger' onclick='ConfirmarCompra()'>Comprar</button>";
         }  else{
             echo "<img src='https://editorialparalelo28.es/images/cartEmpty.png' alt='https://editorialparalelo28.es/images/cartEmpty.png' height='250px'>";
         }
 
             echo    "</div>";
             ?>
+            
             <?php
-            if (isset($_SESSION['MostrarCarrito'])) {
-            echo "<div id='mostrarprecio-div'>
+            if(!isset($_SESSION['MostrarCarrito'])){
+            echo "<div id='mostrarprecio-div' style='display: none;'><input type='text' value='0' id='preciof-input'></div>";
             
-            
-            
-            </div>";
-
+            }elseif(isset($_SESSION['MostrarCarrito'])) {
+                echo "<div id='mostrarprecio-div'>";
+                
+                echo "<input type='text' value='1' id='preciof-input'>";
+                echo "</div>";
+                
             }
 
             
@@ -133,16 +141,33 @@
             ?>
 
 <script>
-    var precio = document.getElementsByName('preciocard');
-    var preciof = 0;
-    for(var i = 0; i < precio.length; i++){
+   
+        var precio = document.getElementsByName('preciocard');
+        var preciof = 0;
+        for(var i = 0; i < precio.length; i++){
             var matches = precio[i]['innerHTML'].match(/(\d+)/);
-            console.log(matches['0']);
-           preciof = preciof + parseInt(matches['0']);
-            
+            preciof = preciof + parseInt(matches['0']);      
          }  
-         console.log(preciof);
-         document.getElementById('mostrarprecio-div').innerHTML=preciof;
+          if(document.getElementById('preciof-input').value = 1){
+          document.getElementById('mostrarprecio-div').innerHTML = preciof;
+          }else if(document.getElementById('preciof-input').value = 0){
+            document.getElementById('mostrarprecio-div').style.visibility = collapse;
+            document.getElementById('preciof-input').style.visibility = collapse;
+          }
+          
+          function EliminarCarro(){
+            var obAjax = new XMLHttpRequest();
+        obAjax.open('POST', 'Persistencia/Control.php', true);
+        obAjax.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+        obAjax.onreadystatechange = function() {
+            window.location.reload();
+        }
+        obAjax.send('EliminarCarro');
+    }
+        function ConfirmarCompra(){
+            window.location.assign('Tarjeta.php');
+        }
+          
         
 </script>
                         </div>

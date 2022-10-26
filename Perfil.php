@@ -9,6 +9,11 @@ include_once 'Persistencia/ClaseProductoBD.php';
 session_start();
 
 
+if(!isset($_SESSION['CLIENTE'])){
+  header("Location: index.php");
+}
+
+
 ?>
 <!doctype html>
 <html lang="es">
@@ -41,12 +46,7 @@ session_start();
     include "navbar.php";
     
     ?>
-    <?php
-  if(!isset($_SESSION['CLIENTE'])){
-    header("Location: index.php");
-  }
-  
-  ?>
+ 
 
 
 
