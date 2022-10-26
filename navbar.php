@@ -132,7 +132,15 @@
 
 <script>
     var precio = document.getElementsByName('preciocard');
-           console.log(precio);
+    var preciof = 0;
+    for(var i = 0; i < precio.length; i++){
+            var matches = precio[i]['innerHTML'].match(/(\d+)/);
+            console.log(matches['0']);
+           preciof = preciof + parseInt(matches['0']);
+            
+         }  
+         console.log(preciof);
+        
 </script>
                         </div>
                     </div>
