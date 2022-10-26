@@ -120,10 +120,12 @@
             ?>
             <?php
             if (isset($_SESSION['MostrarCarrito'])) {
+            echo "<div id='mostrarprecio-div'>
             
             
+            
+            </div>";
 
-                
             }
 
             
@@ -140,6 +142,7 @@
             
          }  
          console.log(preciof);
+         document.getElementById('mostrarprecio-div').innerHTML=preciof;
         
 </script>
                         </div>
