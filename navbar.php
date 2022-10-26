@@ -108,9 +108,9 @@
             echo    "<div class='col-md-8'>";
             echo    "<div class='card-body'>";
             echo    "<h5 class='card-title'>".$_SESSION['MostrarCarrito'][$i]['Nombre']."</h5>";
-            echo    "<h5 class='card-title' name='preciocard'>$".$_SESSION['MostrarCarrito'][$i]['Precio']*$_SESSION['MostrarCarrito'][$i]['Cantidad']."</h5>";
             echo    "<h6 class='card-title'>Cantidad:".$_SESSION['MostrarCarrito'][$i]['Cantidad']." </h6>";
-           
+            echo    "<h5 class='card-title' name=''>Precio $".$_SESSION['MostrarCarrito'][$i]['Precio']."</h5>";
+            echo    "<h5 class='card-title' name='preciocard'>Total $".$_SESSION['MostrarCarrito'][$i]['Precio']*$_SESSION['MostrarCarrito'][$i]['Cantidad']."</h5>";
             echo    "</div>";
             echo    "</div>";
              echo    "</div>";
