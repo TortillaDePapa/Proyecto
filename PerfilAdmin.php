@@ -67,6 +67,16 @@ session_start();
   <li class="nav-item" role="presentation">
     <button class="nav-link  bg-dark" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#Proveedores" type="button" role="tab" aria-controls="pills-proveedores" aria-selected="false">Proveedores</button>
   </li>
+
+
+  <li class="nav-item" role="presentation">
+ <button class="nav-link bg-light" id="" data-bs-toggle="" data-bs-target="" type="button" role="tab" aria-controls="" aria-selected="false" disabled></button>
+  </li>
+
+
+  <li class="nav-item" role="presentation">
+  <button class="nav-link  bg-dark" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#Pedidos" type="button" role="tab" aria-controls="pills-pedidos" aria-selected="false">Pedidos</button>
+  </li>
   
 </ul>
 <div class="tab-content" id="pills-tabContent">
@@ -111,6 +121,29 @@ echo "  </div>";
 </div>
 
  
+</div>
+
+
+  
+<!-- TABLA DE Pedidos -->
+
+
+  <div class="tab-pane fade" id="Pedidos" role="tabpanel" aria-labelledby="pills-proveedores-tab" tabindex="0"> 
+
+  <?php
+echo "  <div class='row'>";
+echo "  <button class='btn btn-success' type='submit' data-bs-toggle='modal' style='margin: 20px !important;' data-bs-target='#ModalAgregarProveedor'> Agregar proveedor </button>";
+echo "  <input class='form me-3 ' type='' placeholder='Buscar' aria-label='Search' onkeyup='FiltrarProveedor()' id='buscartablaproveedor' style='width: 40%;'>";
+
+  
+include_once 'TablaProveedorAdmin.php';
+
+echo "  </div>";
+
+?>
+
+</div>
+
 
 
 <!-- Modal agregar productos -->
