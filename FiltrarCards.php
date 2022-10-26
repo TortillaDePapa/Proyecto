@@ -18,7 +18,7 @@ if(isset($_POST['buscar'])){
 
 
 
-     echo " <div class='container text-center' id='idcard'>";
+     echo " <div class='container' id='idcard'>";
      echo"   <div class='row'> ";
      for($i = 1; $i < count($ListarProductos); $i++){
      echo "<input type='hidden' value='".$ListarProductos[$i] -> getIDProducto()."' name='idproducto' id='idproducto'>";
@@ -33,7 +33,7 @@ if(isset($_POST['buscar'])){
      echo "          <h4 class='card-title'>"."$".$ListarProductos[$i] -> getPrecio(). "</h4>";
      echo "          <p class='card-text'>  ".$ListarProductos[$i] -> getDescripcion()." </p>";
      echo "       </div>";
-     echo "          <button class='btn btn-primary btn-dark bg-dark text-center' onclick='MostrarCarrito(\"".$ListarProductos[$i] -> getIDProducto()."\",\"".$ListarProductos[$i] -> getPrecio()."\")'><i class='icon bi-cart3'></i> </button>";
+     echo "          <button class='btn btn-primary btn-dark bg-dark' onclick='MostrarCarrito(\"".$ListarProductos[$i] -> getIDProducto()."\",\"".$ListarProductos[$i] -> getPrecio()."\")'><i class='icon bi-cart3'></i> </button>";
      echo "       </div>";
      echo "       </div>";
 
