@@ -75,11 +75,17 @@ session_start();
 <form action="" method="post" id="productos-form">
 <?php
 
-include_once 'FiltrarCards.php'
+include_once 'FiltrarCards.php';
+
 
 
         ?>
+
+        
 </form>
+
+<?php
+?>
 
 
 
@@ -132,6 +138,10 @@ variable = new XMLHttpRequest();
         obAjax.send('Cerrar');
     }
     </script>
+
+
+
+
 
 </body>
 
