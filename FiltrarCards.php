@@ -34,10 +34,6 @@ if(isset($_POST['buscar'])){
      echo "          <p class='card-text'>  ".$ListarProductos[$i] -> getDescripcion()." </p>";
      echo "       </div>";
      echo "       </div>";
-
-    
-
-     echo "          <input type='number' value='1' class='CantidadProducto' name='Cantidad' id='CantidadProducto' disabled> ";
      echo "          <button class='btn btn-primary btn-dark bg-dark' onclick='MostrarCarrito(\"".$ListarProductos[$i] -> getIDProducto()."\",\"".$ListarProductos[$i] -> getPrecio()."\")'><i class='icon bi-cart3'></i> </button>";
      echo "       </div>";
     }
