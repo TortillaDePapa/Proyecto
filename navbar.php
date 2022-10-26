@@ -118,14 +118,16 @@
 
             echo    "</div>";
             ?>
+            
             <?php
-            if (isset($_SESSION['MostrarCarrito'])) {
-            echo "<div id='mostrarprecio-div'>
+            if(!isset($_SESSION['MostrarCarrito'])){
+            echo "<div id='mostrarprecio-div' style='display: none;'><input type='text' value='0' id='preciof-input'></div>";
             
-            
-            
-            </div>";
-
+            }elseif(isset($_SESSION['MostrarCarrito'])) {
+                echo "<div id='mostrarprecio-div'>";
+                echo "<input type='text' value='1' id='preciof-input'>";
+                echo "</div>";
+                
             }
 
             
@@ -133,16 +135,20 @@
             ?>
 
 <script>
-    var precio = document.getElementsByName('preciocard');
-    var preciof = 0;
-    for(var i = 0; i < precio.length; i++){
+   
+        var precio = document.getElementsByName('preciocard');
+        var preciof = 0;
+        for(var i = 0; i < precio.length; i++){
             var matches = precio[i]['innerHTML'].match(/(\d+)/);
-            console.log(matches['0']);
-           preciof = preciof + parseInt(matches['0']);
-            
+            preciof = preciof + parseInt(matches['0']);      
          }  
-         console.log(preciof);
-         document.getElementById('mostrarprecio-div').innerHTML=preciof;
+          if(document.getElementById('preciof-input').value = 1){
+          document.getElementById('mostrarprecio-div').innerHTML = preciof;
+          }else if(document.getElementById('preciof-input').value = 0){
+            document.getElementById('mostrarprecio-div').style.visibility = collapse;
+            document.getElementById('preciof-input').style.visibility = collapse;
+          }
+          
         
 </script>
                         </div>
