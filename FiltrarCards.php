@@ -50,7 +50,7 @@ if(isset($_POST['buscar'])){
     <script>
     var contador = 0;
     
-    function myFunction(tipo) {
+    function myFunction() {
         var x = parseInt(document.getElementsByName("cantidad").value);
         x = x + contador;
         document.getElementsByName("cantidad").value = x;
