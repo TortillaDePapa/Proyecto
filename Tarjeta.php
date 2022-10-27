@@ -1,3 +1,11 @@
+<?php
+include_once 'Clases/ClasePersona.php';
+include_once 'Persistencia/ClasePersonaBD.php';
+include_once 'Persistencia/ClaseProductoBD.php';
+session_start();
+
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
