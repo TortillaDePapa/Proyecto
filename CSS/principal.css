@@ -68,3 +68,14 @@ body{
 
 }
 
+.inputcant{
+ text-align: center;
+ background-color: white;
+ border: 0px;
+}
+
+
+.btnmenos{
+  width: 50px !important;
+  display: inline-block !important;
+}
