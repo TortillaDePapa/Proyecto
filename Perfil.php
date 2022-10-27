@@ -201,7 +201,7 @@ if(!isset($_SESSION['CLIENTE'])){
 
               echo"    <label for='codigo' class='col-4'>Actual contraseña:  </label>";
               echo"    <div class='col-8'>";
-              echo"      <input type='text' class='form-control' value='' name='contraseña'>";
+              echo"      <input type='password' class='form-control' value='' name='contraseña'>";
               echo"    </div>";
 
 
@@ -288,7 +288,7 @@ if(!isset($_SESSION['CLIENTE'])){
 
  echo"    <label for='codigo' class='col-4'>Contraseña:  </label>";
  echo"    <div class='col-8'>";
- echo"      <input type='text' class='form-control' value='' name='Contraseña'>";
+ echo"      <input type='password' class='form-control' value='' name='Contraseña'>";
  echo"    </div>";
  
  
