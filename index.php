@@ -129,15 +129,15 @@ variable = new XMLHttpRequest();
       obAjax.send('id='+formData+'&'+'Precio='+precio+'&'+'Cantidad='+cant); 
     }
 
-    function preciocarro() {
-        var obAjax = new XMLHttpRequest();
-        obAjax.open('POST', 'Persistencia/Control.php', true);
-        obAjax.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-        obAjax.onreadystatechange = function() {
-            window.location.reload();
-        }
-        obAjax.send('Cerrar');
-    }
+    // function preciocarro() {
+    //     var obAjax = new XMLHttpRequest();
+    //     obAjax.open('POST', 'Persistencia/Control.php', true);
+    //     obAjax.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+    //     obAjax.onreadystatechange = function() {
+    //         window.location.reload();
+    //     }
+    //     obAjax.send('Cerrar');
+    // }
     </script>
 
 
