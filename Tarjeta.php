@@ -32,7 +32,7 @@
   <!-- Example Code -->
 
   <br>
-  <div class="container text-center">
+  <div class="container ">
     <h1>
       <svg xmlns="http://www.w3.org/2000/svg" style="margin: 10px !important" width="30" height="30" fill="currentColor"
         class="bi bi-bag" viewBox="0 0 16 16">
@@ -63,35 +63,62 @@
               <div class="accordion-body">
                 <ul class="nav nav-pills mb-3" style="" id="pills-tab" role="tablist">
                   <li class="nav-item" role="presentation">
-                    <button class="nav-link active" id="pills-envio-tab" data-bs-toggle="pill"
+                    <button class="nav-link active bg-dark" style="margin: 5px;" id="pills-envio-tab" data-bs-toggle="pill"
                       data-bs-target="#pills-envio" type="button" role="tab" aria-controls="pills-envio"
                       aria-selected="true">
                       Envio
                     </button>
                   </li>
                   <li class="nav-item" role="presentation">
-                    <button class="nav-link" id="pills-retiro-tab" data-bs-toggle="pill" data-bs-target="#pills-retiro"
+                    <button class="nav-link bg-dark" style="margin: 5px;" id="pills-retiro-tab" data-bs-toggle="pill" data-bs-target="#pills-retiro"
                       type="button" role="tab" aria-controls="pills-retiro" aria-selected="true">
                       Retiro
                     </button>
                   </li>
                 </ul>
 
-                <div class="tab-content" id="pills-tabContent">
+                <div class="tab-content " id="pills-tabContent">
                   <div class="tab-pane fade show active" id="pills-envio" role="tabpanel"
                     aria-labelledby="pills-envio-tab" tabindex="0">
-                    DOMICILIO
+
+                    <h5> 1. Dirección de entrega </h5>
+
+                    <hr>
+
+                    <form method="post">
+
+                    <label> Calle o direccion </label>
+
+                    <input type="text" class="form-control" placeholder="Direccion que existente del cliente">   
+
+                    <div class="text-center">
+                    <button type="submit" class="btn btn-dark"> Continuar con el envio </button>
+                    </div>
+                 
                   </div>
 
-                  <div class="tab-pane fade" id="pills-retiro" role="tabpanel" aria-labelledby="pills-retiro-tab"
+                  <div class="tab-pane fade " id="pills-retiro" role="tabpanel" aria-labelledby="pills-retiro-tab"
                     tabindex="0">
-                    AGENDAR FECHA
+                    
+                    <h5> Horarios: 08:00 - 22:00 Lunes a Sabados </h5>
+                
+                      <div class="text-center"> 
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3331.19133595375!2d-56.50789268480211!3d-33.39217208079059!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95a6c1ada36e59bf%3A0x9695eb4025ba7978!2sSupermercado%20Largacha!5e0!3m2!1ses!2suy!4v1666899217872!5m2!1ses!2suy" width="450" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+                    <br>
+
+                    <p> Persona que retira:  </p>
                   </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
+
+        <br>
+
+
+        <!--  TARJETA -->
 
         <div class="accordion" id="accordionPanelsStayOpenExample">
           <div class="accordion-item w-100">
