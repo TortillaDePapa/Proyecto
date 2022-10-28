@@ -100,7 +100,7 @@
                         <?php
                         
       if(isset($_SESSION['MostrarCarrito'])){
-        // echo "<button type='button' class='btn btn-danger' onclick='EliminarCarro()'>  </button>";
+        
         echo    " <div class='row g-0 ' >";
 
 
@@ -120,7 +120,7 @@
              echo    "</div>";
 
         }
-        // echo "<button type='button' class='btn btn-danger' onclick='ConfirmarCompra()'>Comprar</button>";
+       
         }  else{
             echo "<img src='https://editorialparalelo28.es/images/cartEmpty.png' alt='https://editorialparalelo28.es/images/cartEmpty.png' height='250px'>";
         }
@@ -177,6 +177,7 @@ echo "<br>";
    
         var precio = document.getElementsByName('preciocard');
         var preciof = 0;
+        
         for(var i = 0; i < precio.length; i++){
             var matches = precio[i]['innerHTML'].match(/(\d+)/);
             preciof = preciof + parseInt(matches['0']);      

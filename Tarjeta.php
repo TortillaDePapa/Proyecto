@@ -113,9 +113,9 @@ Resumen de la compra
                     <form method="post">
 
                     <label> Calle o direccion </label>
-
-                    <input type="text" class="form-control" placeholder="Direccion que existente del cliente">   
-
+                  <?php
+                   echo "<input type='text' class='form-control' placeholder='".$_SESSION['CLIENTE'] -> getNombreCalle()."".$_SESSION['CLIENTE'] -> getNumeroCasa()."'>"   
+                  ?>
                     <div class="text-center">
                     <button type="submit" class="btn btn-dark"> Continuar con el envio </button>
                     </div>
@@ -241,21 +241,30 @@ Resumen de la compra
 
  <div class='row g-0 ' >
 
+<?php
+ if(isset($_SESSION['MostrarCarrito'])){
+        
+  echo    " <div class='row g-0 ' >";
 
-<div class='card mb-3 d-flex flex-row' style='max-width: 420px;'>
- <div class='col-md-4' style='margin: auto !important;'>
-<img src='https://images.pexels.com/photos/2272853/pexels-photo-2272853.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500' class='img-fluid rounded-start' alt='...'>
-</div>
-<div class='col-md-8' style=' padding: auto !important;'>
-<div class='card-body'>
-<h5 class='card-title'> 123</h5>
-<h6 class='card-title'>  4556</h6>
-<h6 class='card-title' name=''>  232323</h6>
-<h6 class='card-title' name='preciocard'> 1212</h6>
-</div>
-</div>
-</div>
 
+    for($i = 0; $i <count($_SESSION['MostrarCarrito']); $i++){
+      echo    "<div class='card mb-3 d-flex flex-row' style='max-width: 450px;'>";
+      echo    " <div class='col-md-4' style='margin: auto !important;'>";
+      echo    "<img src='imagenes/".$_SESSION['MostrarCarrito'][$i]['Imagen']."' class='img-fluid rounded-start' alt='...'>";
+      echo    "</div>";
+      echo    "<div class='col-md-8' style=' padding: auto !important;'>";
+      echo    "<div class='card-body'>";
+      echo    "<h5 class='card-title'>".$_SESSION['MostrarCarrito'][$i]['Nombre']."</h5>";
+      echo    "<h6 class='card-title'>Cantidad:".$_SESSION['MostrarCarrito'][$i]['Cantidad']." </h6>";
+      echo    "<h6 class='card-title' name=''>Precio $".$_SESSION['MostrarCarrito'][$i]['Precio']."</h6>";
+      echo    "<h6 class='card-title' name='preciocard'>Total $".$_SESSION['MostrarCarrito'][$i]['Precio']*$_SESSION['MostrarCarrito'][$i]['Cantidad']."</h6>";
+      echo    "</div>";
+      echo    "</div>";
+       echo    "</div>";
+
+  }
+}
+?>
       
 <!-- 
         <div class="d-flex flex-column">

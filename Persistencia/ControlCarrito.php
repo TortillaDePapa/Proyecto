@@ -58,10 +58,10 @@ if (isset($_POST['id'])) {
             }           
 
         }
-    }  
+    }else{
+            $_SESSION['MostrarCarrito'] = $MostrarCarrito;  
             
-        }else{
-            $_SESSION['MostrarCarrito'] = $MostrarCarrito;
+        }
     }
 }
 }
