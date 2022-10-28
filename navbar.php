@@ -101,20 +101,20 @@
                         
       if(isset($_SESSION['MostrarCarrito'])){
         // echo "<button type='button' class='btn btn-danger' onclick='EliminarCarro()'>  </button>";
-        echo    " <div class='row g-0'>";
+        echo    " <div class='row g-0 ' >";
 
 
           for($i = 0; $i <count($_SESSION['MostrarCarrito']); $i++){
-            echo    "<div class='card mb-3' style='max-width: 540px;'>";
-            echo    " <div class='col-md-4'>";
+            echo    "<div class='card mb-3 d-flex flex-row' style='max-width: 540px;'>";
+            echo    " <div class='col-md-4' style='margin: auto !important;'>";
             echo    "<img src='imagenes/".$_SESSION['MostrarCarrito'][$i]['Imagen']."' class='img-fluid rounded-start' alt='...'>";
             echo    "</div>";
-            echo    "<div class='col-md-8'>";
+            echo    "<div class='col-md-8' style=' padding: auto !important;'>";
             echo    "<div class='card-body'>";
             echo    "<h5 class='card-title'>".$_SESSION['MostrarCarrito'][$i]['Nombre']."</h5>";
             echo    "<h6 class='card-title'>Cantidad:".$_SESSION['MostrarCarrito'][$i]['Cantidad']." </h6>";
-            echo    "<h5 class='card-title' name=''>Precio $".$_SESSION['MostrarCarrito'][$i]['Precio']."</h5>";
-            echo    "<h5 class='card-title' name='preciocard'>Total $".$_SESSION['MostrarCarrito'][$i]['Precio']*$_SESSION['MostrarCarrito'][$i]['Cantidad']."</h5>";
+            echo    "<h6 class='card-title' name=''>Precio $".$_SESSION['MostrarCarrito'][$i]['Precio']."</h6>";
+            echo    "<h6 class='card-title' name='preciocard'>Total $".$_SESSION['MostrarCarrito'][$i]['Precio']*$_SESSION['MostrarCarrito'][$i]['Cantidad']."</h6>";
             echo    "</div>";
             echo    "</div>";
              echo    "</div>";
@@ -128,23 +128,29 @@
 
             echo    "</div>";
             ?>
-            
+
+        </div>
+
+        <!-- <div class="offcanvas-footer"> -->
             <?php
             if(!isset($_SESSION['MostrarCarrito'])){
-            echo "<div id='mostrarprecio-div' style='display: none;'><input type='text' value='0' id='preciof-input'></div>";
+            echo "<div id='mostrarprecio-div' style='display: none;'><input type='text' value='0' id='preciof-input'>";
+
+            
+           echo " </div>";
             
             }elseif(isset($_SESSION['MostrarCarrito'])) {
                 echo "<div id='mostrarprecio-div'>";
-                
+
+              
+  
                 echo "<input type='text' value='1' id='preciof-input'>";
                 echo "</div>";
-                
+             
+
             }
-
-            
-            
             ?>
-
+        <!-- </div> -->
 <script>
    
         var precio = document.getElementsByName('preciocard');
