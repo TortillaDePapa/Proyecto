@@ -133,11 +133,6 @@ Resumen de la compra
                     <br>
 
                     <p> Persona que retira:  </p>
-
-                    <div class="text-center">
-                    <button type="submit" class="btn btn-dark" name="Continuar"> Continuar con el envio </button>
-                    </div>
-
                   </div>
                 </div>
               </div>
@@ -147,33 +142,6 @@ Resumen de la compra
 
         <br>
 
-
-
-<?php
- if(isset($_POST['Continuar'])){
-
-
-       
- 
-}
-?>
-
-<div class="accordion" id="accordionPanelsStayOpenExample">
-<div class="accordion-item w-100">
-  <h2 class="accordion-header" id="panelsStayOpen-headingOne">
-    <button class="accordion-button" type="button" data-bs-toggle="collapse"
-      data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true"
-      aria-controls="panelsStayOpen-collapseOne">
-      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-        class="bi bi-2-circle-fill" viewBox="0 0 16 16">
-        <path
-          d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0ZM6.646 6.24c0-.691.493-1.306 1.336-1.306.756 0 1.313.492 1.313 1.236 0 .697-.469 1.23-.902 1.705l-2.971 3.293V12h5.344v-1.107H7.268v-.077l1.974-2.22.096-.107c.688-.763 1.287-1.428 1.287-2.43 0-1.266-1.031-2.215-2.613-2.215-1.758 0-2.637 1.19-2.637 2.402v.065h1.271v-.07Z" />
-      </svg>
-      Pago
-    </button>
-  </h2>
-</div>
-</div>
 
         <!--  TARJETA -->
 
@@ -266,7 +234,7 @@ Resumen de la compra
             </div>
           </div>
         </div>
-   
+      </div>
       
 
       <div class="col-6">
@@ -304,11 +272,9 @@ Resumen de la compra
             <img src="https://images.pexels.com/photos/2272853/pexels-photo-2272853.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" class="card-img-top" alt="...">
             <div class="card-body">
               <p class="card-text"> benja gay, despues se hace otra wea con la card pq estan re peruanas
-
               </p>
             </div>
           </div>
-
         </div> -->
       </div>
     </div>
