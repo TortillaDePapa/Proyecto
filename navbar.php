@@ -120,7 +120,6 @@
              echo    "</div>";
 
         }
-        echo "<a class='btn btn-primary' href='Tarjeta.php' role'button' onclick='ConfirmarCompra()'> Comprar </a>";
         // echo "<button type='button' class='btn btn-danger' onclick='ConfirmarCompra()'>Comprar</button>";
         }  else{
             echo "<img src='https://editorialparalelo28.es/images/cartEmpty.png' alt='https://editorialparalelo28.es/images/cartEmpty.png' height='250px'>";
@@ -140,12 +139,35 @@
            echo " </div>";
             
             }elseif(isset($_SESSION['MostrarCarrito'])) {
-                echo "<div id='mostrarprecio-div'>";
+                
 
-              
-  
-                echo "<input type='text' value='1' id='preciof-input'>";
-                echo "</div>";
+                echo "<div class='container '>";
+ 
+                echo "<hr>";
+
+      echo " <div class='row'>";
+       echo " <div class='col-sm'> ";
+       echo "<p> </p>";
+      echo " <h5>  Total:   </h5>";  
+       echo "</div>";
+
+
+      echo "  <div class='col-sm'>  ";
+      echo "<p> </p>";
+      echo "<div id='mostrarprecio-div'>"; 
+
+      echo "<input type='text' value='1' id='preciof-input'>";
+     echo " </div>";
+
+     
+     
+      echo "</div>";
+      echo "</div>";
+      echo "<hr>";
+     echo "<a class='btn btn-primary bg-dark w-100' style='border-color: #212529 !important;' href='Tarjeta.php' role'button' onclick='ConfirmarCompra()'> Comprar </a>";
+
+echo "</div>";
+echo "<br>";
              
 
             }
