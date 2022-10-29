@@ -20,7 +20,7 @@
             <div class="collapse navbar-collapse divsearch" id="navbarSupportedContent">
                 <ul class="navbar-nav mb-2 mb-lg-0">
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle me-2" href="#" id="navbarDropdown" role="button"
+                        <a class="nav-link dropdown-toggle me-2" style=" color: whitesmoke !important;" href="#" id="navbarDropdown" role="button"
                             data-bs-toggle="dropdown" aria-expanded="false">
                             Categorias <i class="bi bi-list"></i>
                         </a>
@@ -183,7 +183,7 @@ echo "<br>";
             preciof = preciof + parseInt(matches['0']);      
          }  
           if(document.getElementById('preciof-input').value = 1){
-          document.getElementById('mostrarprecio-div').innerHTML = preciof;
+          document.getElementById('mostrarprecio-div').innerHTML = '$'+preciof;
           }else if(document.getElementById('preciof-input').value = 0){
             document.getElementById('mostrarprecio-div').style.visibility = collapse;
             document.getElementById('preciof-input').style.visibility = collapse;
