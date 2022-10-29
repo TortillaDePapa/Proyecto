@@ -76,7 +76,8 @@
 
            ?>
                 <button class="btn btn-buttom  btn-custom btn-xs btn-carrito "  type="button" data-bs-toggle="offcanvas"
-                    data-bs-target="#offcanvasRight" aria-controls="offcanvasRight"> <i class="icon bi-cart3"></i> <span class="position-absolute top-45 start-80 translate-middle badge rounded-pill bg-danger " style="top: auto !important;"> +99 <span class="visually-hidden">unread messages</span></span>
+                    data-bs-target="#offcanvasRight" aria-controls="offcanvasRight"> <i class="icon bi-cart3"></i> 
+                    <span class="position-absolute top-45 start-80 translate-middle badge rounded-pill bg-danger " id="spancantidad" style="top: auto !important;"> 0 </span>
                 </button>
 
 
@@ -115,7 +116,7 @@
             echo    "<div class='col-md-8' style=' padding: auto !important;'>";
             echo    "<div class='card-body'>";
             echo    "<h5 class='card-title'>".$_SESSION['MostrarCarrito'][$i]['Nombre']."</h5>";
-            echo    "<h6 class='card-title'>Cantidad:".$_SESSION['MostrarCarrito'][$i]['Cantidad']." </h6>";
+            echo    "<h6 class='card-title' name='cantidadspanh6'>Cantidad:".$_SESSION['MostrarCarrito'][$i]['Cantidad']." </h6>";
             echo    "<h6 class='card-title' name=''>Precio $".$_SESSION['MostrarCarrito'][$i]['Precio']."</h6>";
             echo    "<h6 class='card-title' name='preciocard'>Total $".$_SESSION['MostrarCarrito'][$i]['Precio']*$_SESSION['MostrarCarrito'][$i]['Cantidad']."</h6>";
             echo    "</div>";
@@ -136,7 +137,7 @@
         <!-- <div class="offcanvas-footer"> -->
             <?php
             if(!isset($_SESSION['MostrarCarrito'])){
-            echo "<div id='mostrarprecio-div' style='display: none;'><input type='text' value='0' id='preciof-input'>";
+            echo "<div id='mostrarprecio-div' style='display: none;'> <input type='text' value='0' id='preciof-input'>";
 
             
            echo " </div>";
@@ -191,6 +192,20 @@ echo "<br>";
             document.getElementById('mostrarprecio-div').style.visibility = collapse;
             document.getElementById('preciof-input').style.visibility = collapse;
           }
+
+
+
+          var cantidad = document.getElementsByName('cantidadspanh6');
+          var cantidadspan = 0;
+
+          for(var i = 0; i < cantidad.length; i++){
+            var span = cantidad[i]['innerHTML'].match(/(\d+)/);
+            cantidadspan = cantidadspan + parseInt(span['0']);      
+         }  
+          document.getElementById('spancantidad').innerHTML = cantidadspan;
+          
+
+          
           
           function EliminarCarro(){
             var obAjax = new XMLHttpRequest();

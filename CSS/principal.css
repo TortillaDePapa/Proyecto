@@ -55,9 +55,9 @@ body{
 }
 
 
-.bi::before{
+/* .bi::before{
   vertical-align: -0.24em !important;
-}
+} */
 
 /* .nav-link {
   color: whitesmoke !important;

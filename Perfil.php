@@ -58,15 +58,15 @@ if(!isset($_SESSION['CLIENTE'])){
           <div class="nav nav-tabs" id="nav-tab" role="tablist">
             <button class="nav-link active bg-dark" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-home"
               type="button" role="tab" aria-controls="nav-home" aria-selected="true">
-              Perfil
+              <i class="bi bi-person-fill"></i> Perfil
             </button>
             <button class="nav-link bg-dark" id="nav-profile-tab" data-bs-toggle="tab" data-bs-target="#nav-profile"
               type="button" role="tab" aria-controls="nav-profile" aria-selected="true">
-              Modificar
+              <i class="bi bi-pencil-square"></i> Modificar
             </button>
             <button class="nav-link bg-dark" id="nav-contact-tab" data-bs-toggle="tab" data-bs-target="#nav-contact"
               type="button" role="tab" aria-controls="nav-contact" aria-selected="true">
-              Eliminar
+              <i class="bi bi-x-circle-fill"></i> Eliminar
             </button>
           </div>
         </nav>
