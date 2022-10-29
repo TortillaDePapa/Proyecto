@@ -75,9 +75,12 @@
             // echo "<button class='btn btn-buttom  btn-custom btn-xs'  type='submit'> <i class='icon bi-cart3'></i> </button>";
 
            ?>
-                <button class="btn btn-buttom  btn-custom btn-xs btn-carrito" type="button" data-bs-toggle="offcanvas"
-                    data-bs-target="#offcanvasRight" aria-controls="offcanvasRight"> <i class="icon bi-cart3"></i>
+                <button class="btn btn-buttom  btn-custom btn-xs btn-carrito "  type="button" data-bs-toggle="offcanvas"
+                    data-bs-target="#offcanvasRight" aria-controls="offcanvasRight"> <i class="icon bi-cart3"></i> <span class="position-absolute top-45 start-80 translate-middle badge rounded-pill bg-danger " style="top: auto !important;"> +99 <span class="visually-hidden">unread messages</span></span>
                 </button>
+
+
+
                 </div>
                 <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight"
                     aria-labelledby="offcanvasRightLabel">
