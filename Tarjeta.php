@@ -64,11 +64,15 @@ session_start();
 Resumen de la compra
 </h1>
         </div>
-    </div>
-
+    <!-- <div class="col-sm">
+     <h1> - </h1> 
+    </div> -->
+  </div>
 
     <div class="row">
       <div class="col-6">
+
+
         <div class="accordion" id="accordionPanelsStayOpenExample">
           <div class="accordion-item w-100">
             <h2 class="accordion-header" id="panelsStayOpen-headingOne">
@@ -113,9 +117,9 @@ Resumen de la compra
                     <form method="post">
 
                     <label> Calle o direccion </label>
-                   <?php
-                  // //  echo "<input type='text' class='form-control' placeholder='".$_SESSION['CLIENTE'] -> getNombreCalle()."".$_SESSION['CLIENTE'] -> getNumeroCasa()."'>"   
-                  // ?> 
+                  <?php
+                  //  echo "<input type='text' class='form-control' placeholder='".$_SESSION['CLIENTE'] -> getNombreCalle()."".$_SESSION['CLIENTE'] -> getNumeroCasa()."'>"   
+                  ?>
                     <div class="text-center">
                     <button type="submit" class="btn btn-dark"> Continuar con el envio </button>
                     </div>
@@ -216,7 +220,7 @@ Resumen de la compra
                           </div>
                         </div>
                       </div>
-                      <br />
+                      <br/>
                       <div class="row">
                         <div class="col-md-6 col-sm-6 col-xs-6 pad-adjust">
                           <input type="submit" class="btn btn-danger" value="CANCEL" />
@@ -234,10 +238,11 @@ Resumen de la compra
             </div>
           </div>
         </div>
-      </div>
-      
 
-      <div class="col-6">
+      </div>
+
+
+      <div class="col-3">
 
  <div class='row g-0 ' >
 
@@ -266,22 +271,23 @@ Resumen de la compra
 }
 ?>
       
-<!-- 
-        <div class="d-flex flex-column">
-          <div class="card" style="width: 18rem;">
-            <img src="https://images.pexels.com/photos/2272853/pexels-photo-2272853.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" class="card-img-top" alt="...">
-            <div class="card-body">
-              <p class="card-text"> benja gay, despues se hace otra wea con la card pq estan re peruanas
-              </p>
-            </div>
-          </div>
-        </div> -->
+
       </div>
     </div>
+  </div>
+  <div class="col">
+    <div class="row " style="border: 1px solid rgba(0,0,0,.125);">
+      <div class="col">
+        <h5>Precio total: </h5>
+ </div>
+   <div class="col">
+$ 1250
+</div>
 
+</div>
+    </div>
 
-
-
+  </div>
 <script>
  function Cerrar() {
         var obAjax = new XMLHttpRequest();
@@ -294,6 +300,9 @@ Resumen de la compra
     }
 
 </script>
+
+
+
 </body>
 
 </html>
