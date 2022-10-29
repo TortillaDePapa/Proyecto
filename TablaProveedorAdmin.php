@@ -41,7 +41,7 @@ echo "     <td> ".$MostrarProveedor[$i] -> getTelefonoProveedor()." </td>";
 echo "     <td> ".$MostrarProveedor[$i] -> getEstado()."  </td>";
 echo "     <td>  <button class='btn-sm btn-warning'  type='submit' data-bs-toggle='modal' data-bs-target='#ModalModificarProveedor'> Modificar </button> </td>";
 echo "     <td>  <button class='btn-sm btn-danger'  onclick='Eliminar(\"".$MostrarProveedor[$i] -> getIDProveedor()."\")' > Eliminar </button> </td>";
-echo "     <td>  <button class='btn-sm btn-success'  onclick='AgregarDenuevo(\"".$MostrarProveedor[$i] -> getIDProveedor()."\")' > Incorporar </button> </td>";
+echo "     <td>  <button class='btn-sm btn-success'  onclick='AgregarDenuevo(\"".$MostrarProveedor[$i] -> getIDProveedor()."\")' > Reincorporar </button> </td>";
 echo "    </tr>";
 
 }

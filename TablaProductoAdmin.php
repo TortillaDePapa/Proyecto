@@ -47,7 +47,7 @@ echo "     <td> ".$MostrarProductos[$i] -> getStock()."  </td>";
 echo "     <td> ".$MostrarProductos[$i] -> getEstado()."  </td>";
 echo "     <td>  <button class='btn-sm btn-warning'  data-bs-toggle='modal' data-bs-target='#ModalModificarProducto'  onclick='MostrarProducto(".$MostrarProductos[$i] -> getIDProducto().")'> Modificar </button> </td>";
 echo "     <td>  <button class='btn-sm btn-danger'  onclick='Eliminar(\"".$MostrarProductos[$i] -> getIDProducto()."\")' > Eliminar </button> </td>";
-echo "     <td>  <button class='btn-sm btn-success'  onclick='AgregarDenuevo(\"".$MostrarProductos[$i] -> getIDProducto()."\")' > Incorporar </button> </td>";
+echo "     <td>  <button class='btn-sm btn-success'  onclick='AgregarDenuevo(\"".$MostrarProductos[$i] -> getIDProducto()."\")' > Reincorporar </button> </td>";
 echo "    </tr>";
 
 }

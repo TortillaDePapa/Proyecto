@@ -113,9 +113,9 @@ Resumen de la compra
                     <form method="post">
 
                     <label> Calle o direccion </label>
-                  <?php
-                   echo "<input type='text' class='form-control' placeholder='".$_SESSION['CLIENTE'] -> getNombreCalle()."".$_SESSION['CLIENTE'] -> getNumeroCasa()."'>"   
-                  ?>
+                   <?php
+                  //  echo "<input type='text' class='form-control' placeholder='".$_SESSION['CLIENTE'] -> getNombreCalle()."".$_SESSION['CLIENTE'] -> getNumeroCasa()."'>"   
+                  // ?> 
                     <div class="text-center">
                     <button type="submit" class="btn btn-dark"> Continuar con el envio </button>
                     </div>
@@ -284,7 +284,18 @@ Resumen de la compra
 
 
 
+<script>
+ function Cerrar() {
+        var obAjax = new XMLHttpRequest();
+        obAjax.open('POST', 'Persistencia/Control.php', true);
+        obAjax.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+        obAjax.onreadystatechange = function() {
+            window.location.reload();
+        }
+        obAjax.send('Cerrar');
+    }
 
+</script>
 </body>
 
 </html>
