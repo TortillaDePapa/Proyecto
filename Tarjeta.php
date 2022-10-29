@@ -114,7 +114,7 @@ Resumen de la compra
 
                     <label> Calle o direccion </label>
                    <?php
-                  //  echo "<input type='text' class='form-control' placeholder='".$_SESSION['CLIENTE'] -> getNombreCalle()."".$_SESSION['CLIENTE'] -> getNumeroCasa()."'>"   
+                  // //  echo "<input type='text' class='form-control' placeholder='".$_SESSION['CLIENTE'] -> getNombreCalle()."".$_SESSION['CLIENTE'] -> getNumeroCasa()."'>"   
                   // ?> 
                     <div class="text-center">
                     <button type="submit" class="btn btn-dark"> Continuar con el envio </button>
@@ -272,11 +272,9 @@ Resumen de la compra
             <img src="https://images.pexels.com/photos/2272853/pexels-photo-2272853.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" class="card-img-top" alt="...">
             <div class="card-body">
               <p class="card-text"> benja gay, despues se hace otra wea con la card pq estan re peruanas
-
               </p>
             </div>
           </div>
-
         </div> -->
       </div>
     </div>
