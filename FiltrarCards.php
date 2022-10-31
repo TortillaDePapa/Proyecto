@@ -29,9 +29,9 @@ if(isset($_POST['buscar'])){
      echo "          <hr>";
      echo "          <h4 class='card-title'>"."$".$ListarProductos[$i] -> getPrecio(). "</h4>";
      echo "           <div class='contador'>";
-     echo "           <button class='btn-danger' style='width: 60px !important; border-radius: 20px !important;' id='myBtn' name='myBtn'  onclick=\"spanCantidad('menos',".$ListarProductos[$i] -> getIDProducto().")\">-</button> ";
+     echo "           <button class='btn' style='width: 60px !important; border-radius: 20px !important;  background: rgb(191, 190, 191);' id='myBtn' name='myBtn'  onclick=\"spanCantidad('menos',".$ListarProductos[$i] -> getIDProducto().")\">-</button> ";
      echo "           <span id='cantidad".$ListarProductos[$i] -> getIDProducto()."' class='inputcant' style='  font-size: 20px; pointer-events: none;'>  1 </span> ";
-     echo "         <button class='btn-danger' style='width: 60px !important; border-radius: 20px !important;' id='myBtn2' name='myBtn2' onclick=\"spanCantidad('mas',".$ListarProductos[$i] -> getIDProducto().")\">+</button>";
+     echo "         <button class='btn' style='width: 60px !important; border-radius: 20px !important; background: rgb(158, 158, 158);' id='myBtn2' name='myBtn2' onclick=\"spanCantidad('mas',".$ListarProductos[$i] -> getIDProducto().")\">+</button>";
      echo "       </div>";
      //  echo "        <p class='card-text'>  ".$ListarProductos[$i] -> getDescripcion()." </p>";
      echo "          <button class='btn btn-primary btn-dark bg-dark' onclick='MostrarCarrito(\"".$ListarProductos[$i] -> getIDProducto()."\",\"".$ListarProductos[$i] -> getPrecio()."\")'><i class='icon bi-cart3'></i> </button>";
