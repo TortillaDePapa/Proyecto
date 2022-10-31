@@ -70,7 +70,8 @@ Resumen de la compra
   </div>
 
     <div class="row">
-      <div class="col-6">
+      <div class="col-6" style="background-color: grey;">
+      <br>
 
 
         <div class="accordion" id="accordionPanelsStayOpenExample">
@@ -173,6 +174,7 @@ Resumen de la compra
               aria-labelledby="panelsStayOpen-headingOne" style="">
               <div class="accordion-body">
                 <form action="#" class="credit-card-div" method="post">
+                  
                   <div class="panel panel-default">
                     <div class="panel-heading">
                       <div class="row">
@@ -244,6 +246,7 @@ Resumen de la compra
             </div>
           </div>
         </div>
+        <br>
 
       </div>
 
