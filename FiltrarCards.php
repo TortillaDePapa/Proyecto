@@ -1,5 +1,4 @@
 
-<form action="" method="post" id="productos-form">
 <?php
 include_once 'Persistencia/ClaseProductoBD.php';
 
@@ -18,10 +17,9 @@ if(isset($_POST['buscar'])){
 
 
      echo " <div class='container text-center' id='idcard'>";
-     echo "<a href='PerfilProducto.php' style='text-decoration: none; color:black;'>";
      echo"   <div class='row text-center'> ";
      for($i = 1; $i < count($ListarProductos); $i++){
-     echo "<input type='hidden' value='".$ListarProductos[$i] -> getIDProducto()."' name='idproducto' id='idproducto'>";
+     echo "<input type='hidden' value='".$ListarProductos[$i] -> getIDProducto()."' name='idproducto' id='idproducto '>";
      echo "    <div class='col-lg-3 col-sd-12 col-margin text-center' >";
      echo "     <div class='card' style='width: 100%'>";
      echo "       <img src='imagenes/".$ListarProductos[$i] -> getImagen()."'>";
@@ -30,10 +28,9 @@ if(isset($_POST['buscar'])){
      echo "          <small class='text-muted d-grid gap-2 d-md-flex justify-content-md-end'>" . $ListarProductos[$i]->getstock()."</small>";
      echo "          <hr>";
      echo "          <h4 class='card-title'>"."$".$ListarProductos[$i] -> getPrecio(). "</h4>";
-     echo "         <input type='number' id='cantidad' value='1'  class='inputcant'  >";
-     echo "<button id='myBtn'  onclick='contador++;myFunction()'>+</button> <button id='myBtn2' onclick='contador--;myFunction()'>-</button>";
-    //  echo "          <p class='card-text'>  ".$ListarProductos[$i] -> getDescripcion()." </p>";
-      echo "          <button class='btn btn-primary btn-dark bg-dark' onclick='MostrarCarrito(\"".$ListarProductos[$i] -> getIDProducto()."\",\"".$ListarProductos[$i] -> getPrecio()."\")'><i class='icon bi-cart3'></i> </button>";
+     echo "           <button id='myBtn' name='myBtn'  onclick=\"spanCantidad('menos',".$ListarProductos[$i] -> getIDProducto().")\">-</button> <span id='cantidad".$ListarProductos[$i] -> getIDProducto()."' class='inputcant' style='width: 50px;'>  1 </span> <button id='myBtn2' name='myBtn2' onclick=\"spanCantidad('mas',".$ListarProductos[$i] -> getIDProducto().")\">+</button>";
+     //  echo "          <p class='card-text'>  ".$ListarProductos[$i] -> getDescripcion()." </p>";
+     echo "          <button class='btn btn-primary btn-dark bg-dark' onclick='MostrarCarrito(\"".$ListarProductos[$i] -> getIDProducto()."\",\"".$ListarProductos[$i] -> getPrecio()."\")'><i class='icon bi-cart3'></i> </button>";
      echo "       </div >";
     
      echo "       </div>";
@@ -42,7 +39,6 @@ if(isset($_POST['buscar'])){
     }
      echo "      </div>";
      echo "   </div>";
-     echo "   </a>";
 
 
       
@@ -50,14 +46,31 @@ if(isset($_POST['buscar'])){
         ?>
     
     <script>
-    var contador = 0;
-    
-    function myFunction() {
-        var x = parseInt(document.getElementsByName("cantidad").value);
-        x = x + contador;
-        document.getElementsByName("cantidad").value = x;
-    }
+
+
+
+function spanCantidad(param, id) {
+        span = document.querySelector('span[id=cantidad'+id+']');
+        if (param == "menos") {
+          if(span.innerHTML > 1){
+          span.innerHTML = parseInt(span.innerHTML)-1
+          }
+        }
+        else if(param == "mas"){
+          if(span.innerHTML < 20){
+          span.innerHTML = parseInt(span.innerHTML)+1
+          }
+        }
+        
+      }
+ 
+
+
+
+
+
     </script>
-</form>
+
+
 
 
