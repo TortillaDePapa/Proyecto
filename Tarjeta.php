@@ -118,7 +118,13 @@ Resumen de la compra
 
                     <label> Calle o direccion </label>
                   <?php
-                  //  echo "<input type='text' class='form-control' placeholder='".$_SESSION['CLIENTE'] -> getNombreCalle()."".$_SESSION['CLIENTE'] -> getNumeroCasa()."'>"   
+                  if(isset($_SESSION['CLIENTE'])){
+                    echo "<input type='text' class='form-control' placeholder='".$_SESSION['CLIENTE'] -> getNombreCalle()."".$_SESSION['CLIENTE'] -> getNumeroCasa()."'>";   
+                  }else{
+                    echo "<input type='text' class='form-control' placeholder='Direccion'>";   
+                  }
+                    
+                  
                   ?>
                     <div class="text-center">
                     <button type="submit" class="btn btn-dark"> Continuar con el envio </button>
