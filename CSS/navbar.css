@@ -1,5 +1,5 @@
 .divsearch{
-    display: flex !important;
+    /* display: flex !important; */
     width: 100% !important;
     padding-right: 2px !important;
     justify-content: space-between !important;

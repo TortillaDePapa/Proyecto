@@ -54,14 +54,15 @@ body{
     
 }
 
+.fotoperfil{
 
-/* .bi::before{
-  vertical-align: -0.24em !important;
-} */
-
-/* .nav-link {
-  color: whitesmoke !important;
-} */
+  padding-left: 20px;
+  padding-top: 40px;
+  display: block;
+  margin: 0 auto;
+  max-width: 100%;
+  width: 60%;
+}
 
 .btn-dark{
   margin: 7px !important;

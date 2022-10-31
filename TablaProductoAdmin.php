@@ -17,8 +17,8 @@ if(isset($_POST['buscar'])){
 
 
 
-echo "  <div class='tabla' id='tablaproductos'>";
-echo "  <table class='table table-dark table-striped table-hover text-center'>";
+echo "  <div class='tabla ' id='tablaproductos'>";
+echo "  <table class='table table-dark table-striped table-hover text-center w-90' style='max-width: 100%; min-width: 90%;'>";
 echo "  <thead>";
 echo "  <tr>";
 echo "   <th scope='col'> ID </th>";

@@ -47,6 +47,8 @@ if(!isset($_SESSION['CLIENTE'])){
     
     ?>
 
+    <br>
+
 
   <!-- Formato Perfil -->
 
@@ -78,19 +80,23 @@ if(!isset($_SESSION['CLIENTE'])){
           <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab"
             tabindex="0">
 
+            <div class="row">
+              <div class="col-5">
+                <img class="fotoperfil" src="https://cdn-icons-png.flaticon.com/512/16/16480.png" align="center" style="">
+              </div>
+              <div class="col-7">
 
-            1
+                
+           
+
+
+            
 
             <?php
            echo"       <label for='usuario' class='col-4'></label>";
            echo"       <div class='col-8'>";
            echo"         <input type='hidden' class='form-control' value='".$_SESSION['CLIENTE'] -> getIDPersona()."' >";
            echo"      </div>";
-           echo"       <label for='usuario' class='col-4'>usuario: </label>";
-           echo"       <div class='col-8'>";
-           echo"         <input type='text' class='form-control' value='".$_SESSION['CLIENTE'] -> getUsuario()."' placeholder='' disabled >";
-           echo"      </div>";
-           echo"      <br>";
            echo"      <label for='usuario' class='col-4'>Nombre: </label> ";
            echo"      <div class='col-8'>";
            echo"         <input type='text' class='form-control' value='".$_SESSION['CLIENTE'] -> getNombre()."' placeholder='' disabled  >";
@@ -120,11 +126,11 @@ if(!isset($_SESSION['CLIENTE'])){
 
                 
                   ?>
-
+                </div>
 
           
           </div>
-
+        </div>
                   <!-- End Perfil -->
 
 

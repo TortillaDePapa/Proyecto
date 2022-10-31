@@ -10,14 +10,22 @@
     <title>Document</title>
 </head>
 <body>
+
+
 <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
         <div class="container-fluid">
-            <a class="navbar-brand" href="index.php"> AutoServicio </a>
+            <a class="navbar-brand" href="index.php"> Auto
+<img src="https://svgsilh.com/svg/305728.svg" width="40" height="40">Servicio
+
+            </a>
+
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
                 aria-label="Toggle navigation" >
                 <span class="navbar-toggler-icon"></span>
             </button>
+
+          
             <div class="collapse navbar-collapse divsearch" id="navbarSupportedContent">
                 <ul class="navbar-nav mb-2 mb-lg-0">
                     <li class="nav-item dropdown">
@@ -40,7 +48,7 @@
 
 
 
-<div class="usercarrito" >
+<div class="usercarrito" style="padding-top: 12px;">
                 <?php
              echo"<button class='btn btn-buttom btn-custom me-1'  type='submit' onclick='Cerrar()'>  <i class='bi bi-box-arrow-in-right'></i> </button>";
 
@@ -83,7 +91,7 @@
 
                 </div>
 
-
+            </div>
 
                 <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight"
                     aria-labelledby="offcanvasRightLabel">
@@ -95,12 +103,10 @@
        
        ?>
 
-                        </div>
-                    </div>
+                  
                 </div>
+         
             </div>
-        </div>
-        </div>
     </nav>
 
     <script>
