@@ -62,6 +62,10 @@ if(!isset($_SESSION['CLIENTE'])){
               type="button" role="tab" aria-controls="nav-home" aria-selected="true">
               <i class="bi bi-person-fill"></i> Perfil
             </button>
+            <button class="nav-link bg-dark" id="nav-compras-tab" data-bs-toggle="tab" data-bs-target="#nav-compras"
+              type="button" role="tab" aria-controls="nav-compras" aria-selected="true">
+              <i class="bi bi-bag-check"></i> Compras
+            </button>
             <button class="nav-link bg-dark" id="nav-profile-tab" data-bs-toggle="tab" data-bs-target="#nav-profile"
               type="button" role="tab" aria-controls="nav-profile" aria-selected="true">
               <i class="bi bi-pencil-square"></i> Modificar
