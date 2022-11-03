@@ -253,7 +253,7 @@ Resumen de la compra
 
       <div class="col-3">
 
- <div class='row g-0 ' >
+        <div class="d-flex" style="overflow: auto; width: 400px; height: 450px ;">
 
 <?php
  if(isset($_SESSION['MostrarCarrito'])){
@@ -279,22 +279,12 @@ Resumen de la compra
   }
 }
 ?>
+<!-- style="border: 1px solid rgba(0,0,0,.125);" -->
       
-
-      </div>
-    </div>
+</div>
   </div>
-  <div class="col">
-    <div class="row " style="border: 1px solid rgba(0,0,0,.125);">
-      <div class="col">
-        <h5>Precio total: </h5>
- </div>
-   <div class="col">
-$ 1250
-</div>
-
-</div>
-    </div>
+  </div>
+ 
 
   </div>
 <script>
