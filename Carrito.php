@@ -40,12 +40,13 @@ if (session_status() == PHP_SESSION_NONE){
             echo    "<h6 class='card-title' name='cantidadspanh6'>Cantidad:".$_SESSION['MostrarCarrito'][$i]['Cantidad']." </h6>";
             echo    "<h6 class='card-title' name=''>Precio $".$_SESSION['MostrarCarrito'][$i]['Precio']."</h6>";
             echo    "<h6 class='card-title' name='preciocard'>Total $".$_SESSION['MostrarCarrito'][$i]['Precio']*$_SESSION['MostrarCarrito'][$i]['Cantidad']."</h6>";
+            echo "    <button type='button' class='btn boton-basura ' onclick='EliminarCarro()'>     <i class='bi bi-trash'></i> ";
+
             echo    "</div>";
             echo    "</div>";
              echo    "</div>";
 
         }
-       
         }  else{
             echo "<img src='https://editorialparalelo28.es/images/cartEmpty.png' alt='https://editorialparalelo28.es/images/cartEmpty.png' height='250px'>";
         }
