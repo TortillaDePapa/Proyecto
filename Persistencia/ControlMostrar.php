@@ -9,11 +9,8 @@ if(isset($_POST['MostrarProducto'])){
          $sql = "SELECT * from productos where IDProducto = ".$IDProducto."";
            
          $resultado = mysqli_query($newConn -> conn, $sql);
-         echo $fila = mysqli_fetch_assoc($resultado);
         if($fila = mysqli_fetch_assoc($resultado)){
             echo '{"ID": "'.$IDProducto.'", "CodBarra": "'.$fila['CodigoBarra'].'", "Descripcion": "'.$fila['Descripcion'].'", "Stock": "'.$fila['Stock'].'", "NombreProducto": "'.$fila['Nombre'].'", "Precio": "'.$fila['Precio'].'"}';
-            
-
        }else{
         
        }
