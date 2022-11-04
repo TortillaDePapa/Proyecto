@@ -27,6 +27,8 @@ session_start();
     </script>
   <link rel="stylesheet" href="CSS/Tarjeta.css">
 
+ 
+
 </head>
 
 <body>
@@ -36,6 +38,9 @@ session_start();
     include "navbar.php";
     
     ?>
+
+    <br>
+
 
   <!-- Example Code -->
 
@@ -206,12 +211,25 @@ Resumen de la compra
 <div class="row">
 
 
+
   <div class="col"> 
   <p> Nombre: </p>
-  <p> Articulo 1 </p>
-  <p> Articulo 2</p>
+  <?php
+ if(isset($_SESSION['MostrarCarrito'])){
 
+  for($i = 0; $i <count($_SESSION['MostrarCarrito']); $i++){
+  
+  echo "<p> <b>".$_SESSION['MostrarCarrito'][$i]['Nombre']."</b></p>";
+
+
+  }
+
+}
+
+
+?>
   <p> Total: </p>
+  
  
 
   </div>
@@ -219,12 +237,25 @@ Resumen de la compra
 
 
 
+
   <div class="col"> 
   <p> Precio: </p>
-  <p> $820 </p>
-  <p> $1000 </p>
-  
-  <p> $1820 </p>
+  <?php
+
+  if(isset($_SESSION['MostrarCarrito'])){
+
+for($i = 0; $i <count($_SESSION['MostrarCarrito']); $i++){
+
+echo "<p> <b>".$_SESSION['MostrarCarrito'][$i]['Precio']."</b></p>";
+
+
+}
+
+}
+
+?>
+
+<p>  </p>
 
 
 
@@ -238,7 +269,7 @@ Resumen de la compra
    
     <div class="btns-group">
       <a href="#" class="btn btn-prev">Volver</a>
-      <input type="submit" value="Confirmar compra" class="btn" />
+      <input type="submit" value="Confirmar compra" class="btn btn-submit" />
     </div>
 
     
@@ -251,7 +282,7 @@ Resumen de la compra
 
       <div class="col-4">
 
-        <div class="d-flex" style="overflow: auto; width: 400px; max-width: 400px; height: 450px ;  max-height: 450px;">
+        <div class="d-flex r-compra">
 
 <?php
  if(isset($_SESSION['MostrarCarrito'])){
@@ -261,7 +292,7 @@ Resumen de la compra
 
 
     for($i = 0; $i <count($_SESSION['MostrarCarrito']); $i++){
-      echo    "<div class='card mb-3 d-flex flex-row' style='max-width: 450px;'>";
+      echo    "<div class='card mb-3 d-flex flex-row' style='max-width: 370px; margin: 5px;'>";
       echo    " <div class='col-md-4' style='margin: auto !important;'>";
       echo    "<img src='imagenes/".$_SESSION['MostrarCarrito'][$i]['Imagen']."' class='img-fluid rounded-start' alt='...'>";
       echo    "</div>";
@@ -280,10 +311,28 @@ Resumen de la compra
 }
 ?>
 <!-- style="border: 1px solid rgba(0,0,0,.125);" -->
-      
+
 </div>
+
+<!-- div r compra -->
+
+
   </div>
+
+  <div class="row " style="border: 1px solid rgba(0,0,0,.125);">
+      <div class="col">
+        <h5>Precio total: </h5>
+ </div>
+   <div class="col">
+$ 1250
+</div>
+
+</div>
+
   </div>
+
+  
+
 
   </div>
 
