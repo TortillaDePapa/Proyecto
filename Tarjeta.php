@@ -319,7 +319,7 @@ echo "<p> <b>".$_SESSION['MostrarCarrito'][$i]['Precio']."</b></p>";
 
   </div>
 
-  <div class="row " style="border: 1px solid rgba(0,0,0,.125);">
+  <div class="row">
       <div class="col">
         <h5>Precio total: </h5>
  </div>

@@ -109,10 +109,28 @@ include_once 'Clases/ClaseEnvasados.php';
             $sql1 = "SELECT codigoBarra from productos where IDProducto =  '".$Producto -> getIDProducto()."'";
             $resultado1 = mysqli_query($this -> conn, $sql1);
             if($resultado1 -> num_rows > 0){
-                $sql2 = "UPDATE productos SET CodigoBarra = '".$Producto -> getCodBarra()."', nombre ='".$Producto -> getNombre()."', imagen = '".$Producto -> getImagen()."', Stock = '".$Producto -> getStock()."', Precio = '".$Producto -> getPrecio()."', Descripcion = '".$Producto -> getDescripcion()."' where IDProducto =  '".$Producto -> getIDProducto()."' " ;
+                $sql2 = "UPDATE productos SET CodigoBarra = '".$Producto -> getCodBarra()."', nombre ='".$Producto -> getNombre()."', Stock = '".$Producto -> getStock()."', Precio = '".$Producto -> getPrecio()."', Descripcion = '".$Producto -> getDescripcion()."' where IDProducto =  '".$Producto -> getIDProducto()."' " ;
                 $resultado2 = mysqli_query($this -> conn, $sql2);
                 if ($resultado2) {
-                    echo"<script>alert('Producto modificado correctamente')</script>";
+                    echo"<script type='text/javascript'>
+                    (() => {
+                        if (window.localStorage) {
+              
+                            // If there is no item as 'reload'
+                            // in localstorage then create one &
+                            // reload the page
+                            if (!localStorage.getItem('reload')) {
+                                localStorage['reload'] = true;
+                                window.location.reload();
+                            } else {
+              
+                                // If there exists a 'reload' item
+                                // then clear the 'reload' item in
+                                // local storage
+                                localStorage.removeItem('reload');
+                            }
+                        }
+                    })();</script>";
                 }
             }
         }else {

@@ -227,14 +227,14 @@ echo "  </div>";
 
         <form action="" method="post" enctype="multipart/form-data" id="Productos-form">
 
-            <div class="mb-3">
-              <label for="codigo" class="col-8"> Codigo de barra </label>
-              <input type="text" class="form-control" value="" name="CodBarras-mos" id="CodBarras-mos">
+        <div class="mb-3">
+              <label for="codigo" class="col-8"> ID Producto </label>
+              <input type="text" class="form-control" value="" name="IDProductos-mos" id="IDProductos-mos" >
             </div>
 
             <div class="mb-3">
-              <label for="codigo" class="col-8"> Imagen del producto </label>
-              <input type="file" class="form-control" value="" name="Imagen">
+              <label for="codigo" class="col-8"> Codigo de barra </label>
+              <input type="text" class="form-control" value="" name="CodBarras-mos" id="CodBarras-mos">
             </div>
 
             <div class="mb-3">
@@ -277,7 +277,7 @@ echo "  </div>";
 
         <div class="modal-footer d-flex justify-content-between ">
  
-          <button type="button " name="ModificarArticulo"  id="ModificarArticulo" class="btn btn-primary" > Modificar </button>
+          <button type="button " name="ModificarArticulo-mos"  id="ModificarArticulo" class="btn btn-primary" > Modificar </button>
         </div>
         </form>
       </div>
@@ -347,7 +347,12 @@ echo "  </div>";
 
         <div class="modal-body">
 
-        <form action="" method="post" enctype="multipart/form-data" id="Productos-form">
+        <form action="" method="post" enctype="multipart/form-data" id="Proveedores-form">
+
+        <div class="mb-3">
+              <label for="codigo" class="col-8"> ID Proveedor </label>
+              <input type="text" class="form-control" value="" name="ProveedorID" id="ProveedorID">
+            </div>
 
             <div class="mb-3">
               <label for="codigo" class="col-8"> Nombre </label>
@@ -368,7 +373,7 @@ echo "  </div>";
 
         <div class="modal-footer d-flex justify-content-between ">
  
-          <button type="button " name=""  id="" class="btn btn-primary" > Modificar </button>
+          <button type="button " name="ModificarProveedor"  id="ModificarProveedor" class="btn btn-primary" > Modificar </button>
         </div>
         </form>
       </div>
@@ -422,16 +427,15 @@ if(isset($_POST['EliminarProveedor'])){
 
   }
 
-if (isset($_POST['ModificarArticulo'])) {
+if (isset($_POST['ModificarArticulo-mos'])) {
 $a = new ProductoBD();
 $a1 = new Producto();
-
-$a1 -> setCodBarra($_POST['CodBarra']);
-$a1 -> setImagen(htmlspecialchars(basename( $_FILES["Imagen"]["name"])));
-$a1 -> setDescripcion($_POST['Descripcion']);
-$a1 -> setStock($_POST['Stock']);
-$a1 -> setNombre($_POST['NombreProducto']);
-$a1 -> setPrecio($_POST['PrecioProducto']);
+$a1 -> setIDProducto($_POST['IDProductos-mos']);
+$a1 -> setCodBarra($_POST['CodBarras-mos']);
+$a1 -> setDescripcion($_POST['Descripcion-mos']);
+$a1 -> setStock($_POST['Stock-mos']);
+$a1 -> setNombre($_POST['NombreProducto-mos']);
+$a1 -> setPrecio($_POST['PrecioProducto-mos']);
 
 $a -> ModificarProducto($a1);
 }
@@ -508,6 +512,7 @@ variable = new XMLHttpRequest();
       var obAjax = new XMLHttpRequest();
       obAjax.onload = function () {
        var val = JSON.parse(this.responseText);
+        document.getElementById('IDProductos-mos').value = val['ID'];
         document.getElementById('CodBarras-mos').value = val["CodBarra"];
         document.getElementById('Descripcion-mos').value = val["Descripcion"];
         document.getElementById('Stock-mos').value = val["Stock"];
@@ -531,6 +536,7 @@ var obAjax = new XMLHttpRequest();
 
 obAjax.onload = function () {
   var rellenar = JSON.parse(this.responseText);
+  document.getElementById('ProveedorID').value = rellenar['ID'];
   document.getElementById('ProveedorN').value = rellenar['ProveedorN'];
   document.getElementById('ProveedorG').value = rellenar['ProveedorG'];
   document.getElementById('ProveedorT').value = rellenar['ProveedorT'];

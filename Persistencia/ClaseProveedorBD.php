@@ -45,14 +45,50 @@ class ProveedorBD extends Conexion{
                 $sql3 = "UPDATE proveedores, telefonoProveedores SET proveedores.Nombre = '".$Proveedor -> getNombreProveedor()."', proveedores.Gmail='".$Proveedor -> getGmail()."',telefonoProveedores.numero='".$Proveedor -> getTelefonoProveedor()."' WHERE proveedores.IDProveedor = TelefonoProveedores.IDProveedor AND proveedores.idProveedor = '".$Proveedor -> getIDProveedor()."'";
                 $resultado2 = mysqli_query($this -> conn, $sql3);
                 if($resultado2){
-                    echo "<script> alert('Proveedor modificado Correctamente')</script>";
+                    echo"<script type='text/javascript'>
+                    (() => {
+                        if (window.localStorage) {
+              
+                            // If there is no item as 'reload'
+                            // in localstorage then create one &
+                            // reload the page
+                            if (!localStorage.getItem('reload')) {
+                                localStorage['reload'] = true;
+                                window.location.reload();
+                            } else {
+              
+                                // If there exists a 'reload' item
+                                // then clear the 'reload' item in
+                                // local storage
+                                localStorage.removeItem('reload');
+                            }
+                        }
+                    })();</script>";
                 }
             }
             }elseif(!$resultado -> num_rows > 0){
                 $sql2 = "UPDATE proveedores, telefonoProveedores SET proveedores.Nombre = '".$Proveedor -> getNombreProveedor()."', proveedores.Gmail='".$Proveedor -> getGmail()."',telefonoProveedores.numero='".$Proveedor -> getTelefonoProveedor()."' WHERE proveedores.IDProveedor = TelefonoProvedores.IDProveedor AND proveedores.idProveedor = '".$Proveedor -> getIDProveedor()."'";
                 $resultado2 = mysqli_query($this -> conn, $sql2);
                 if($resultado2){
-                    echo "<script> alert('Proveedor modificado Correctamente')</script>";
+                    echo"<script type='text/javascript'>
+                    (() => {
+                        if (window.localStorage) {
+              
+                            // If there is no item as 'reload'
+                            // in localstorage then create one &
+                            // reload the page
+                            if (!localStorage.getItem('reload')) {
+                                localStorage['reload'] = true;
+                                window.location.reload();
+                            } else {
+              
+                                // If there exists a 'reload' item
+                                // then clear the 'reload' item in
+                                // local storage
+                                localStorage.removeItem('reload');
+                            }
+                        }
+                    })();</script>";
                 }
             
         }else{
