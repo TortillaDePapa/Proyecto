@@ -90,9 +90,9 @@ session_start();
 echo "  <div class='row'>";
 echo "  <button class='btn btn-success' type='submit' data-bs-toggle='modal' style='margin: 20px !important;' data-bs-target='#ModalAgregarProducto'> Agregar producto</button>";
 echo "  <input class='form me-3 ' type='' placeholder='Buscar' aria-label='Search' onkeyup='FiltrarProducto()' id='buscartablaproducto' style='width: 40%;'>";
-
+echo "  <div class='tabla ' id='tablaproductos'>";
 include_once 'TablaProductoAdmin.php';
-
+echo " </div>";
 echo "  </div>";
 
   ?>
@@ -154,16 +154,16 @@ echo "  </div>";
 
         <div class="modal-body">
 
-        <form action="" method="post" enctype="multipart/form-data" >
+        <form action="" method="post" enctype="multipart/form-data" id="AgregarP-form">
 
             <div class="mb-3">
               <label for="codigo" class="col-8"> Codigo de barra </label>
-              <input type="text" class="form-control" value="" name="CodBarras" id="NombreProducto">
+              <input type="text" class="form-control" value="" name="CodBarras" id="CodBarras">
             </div>
 
             <div class="mb-3">
               <label for="codigo" class="col-8"> Imagen del producto </label>
-              <input type="file" class="form-control" value="" name="Imagen">
+              <input type="file" class="form-control" value="" name="Imagen" id='Imagen'>
             </div>
 
             <div class="mb-3">
@@ -182,7 +182,7 @@ echo "  </div>";
           $p = new ProductoBD();
           $ListarCategorias = $p -> ObtenerCategorias();
           echo "<label for='codigo' class='col-8'> Categorias </label><br />";
-          echo "<select name='Categoria' id=''>";
+          echo "<select name='Categoria' id='Categoria'>";
           for($i = 1; $i < count($ListarCategorias); $i++){
           
             echo " <option value='".$ListarCategorias[$i] -> getCategoria()."' >".$ListarCategorias[$i] -> getCategoria()."</option>";
@@ -205,7 +205,7 @@ echo "  </div>";
         </div>
 
         <div class="modal-footer d-flex justify-content-between">
-          <button type="button " name="AgregarArticulos"  id="AgregarArticulos" class="btn btn-primary "> Agregar </button>
+          <button  onclick="ActualizarTablaProducto()" name="AgregarArticulos"  id="AgregarArticulos" class="btn btn-primary "> Agregar </button>
         </div>
         </form>
       </div>
@@ -422,69 +422,6 @@ if(isset($_POST['EliminarProveedor'])){
 
   }
 
-// Agrega articulo
-    
-if (isset($_POST['AgregarArticulos'])) {
-      $Directorio = "imagenes/";
-$archivoDestino = $Directorio . basename($_FILES['Imagen']["name"]);
-$subirOK = true;
-$imageFileType = strtolower(pathinfo($archivoDestino,PATHINFO_EXTENSION));
-
-// Compruebe si el archivo de imagen es una imagen real o una imagen falsa
-if(isset($_POST["submit"])) {
-  $check = getimagesize($_FILES["Imagen"]["tmp_name"]);
-  if($check) {
-    echo "El archivo es una imagen - " . $check["mime"] . ".";
-    $subirOK = true;
-  } else {
-    echo "el archivo no es una imagen.";
-    $subirOK = false;
-  }
-}
-
-// //chequeamos si el archivo existe
-// if (file_exists($archivoDestino)) {
-//   echo "Lo sentimos, el archivo ya existe.";
-//   $subirOK = false;
-// }
-
-//Comprobar el tamaño del archivo
-if ($_FILES["Imagen"]["size"] > 500000) {
-  echo "Lo sentimos, su archivo es demasiado grande.";
-  $subirOK = false;
-}
-
-// // Allow certain file formats
-// if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg" ) {
-//   echo "Lo sentimos, solo se permiten archivos JPG, JPEG, PNG.";
-//   $subirOK = false;
-// }
-
-// Compruebe si $subirOK está establecido en false por algun un error
-// if (!$subirOK) {
-//   echo "Lo sentimos, su archivo no fue subido.";
-// // si todo está bien, intente cargar el archivo
-// } else {
-
-  if (move_uploaded_file($_FILES["Imagen"]["tmp_name"], $archivoDestino)) {
-    $a = new ProductoBD();
-    $a1 = new Producto();
-    $a2 = new Categoria();
-    $a1 -> setCodBarra($_POST['CodBarras']);
-    $a1 -> setImagen(htmlspecialchars( basename( $_FILES["Imagen"]["name"])));
-    $a1 -> setDescripcion($_POST['Descripcion']);
-    $a1 -> setStock($_POST['Stock']);
-    $a1 -> setNombre($_POST['NombreProducto']);
-    $a1 -> setPrecio($_POST['PrecioProducto']);
-    $a2 -> setCategoria($_POST['Categoria']);
-
-     $a -> CargarProducto($a1,$a2);
-  } else {
-    echo "Lo sentimos, hubo un error al cargar su archivo.";
-  }
-}
-
-
 if (isset($_POST['ModificarArticulo'])) {
 $a = new ProductoBD();
 $a1 = new Producto();
@@ -601,6 +538,22 @@ obAjax.onload = function () {
 obAjax.open('POST', 'Persistencia/ControlMostrarProveedor.php', true);
 obAjax.setRequestHeader("Content-type", "application/x-www-form-urlencoded")
 obAjax.send("MostrarProveedor="+IDProveedor+"&IDProveedor="+IDProveedor);
+}
+
+function ActualizarTablaProducto(){
+  
+  variable = new XMLHttpRequest();
+  let formData = new formData(document.getElementById('AgregarP-form'));
+    variable.onload = function() {
+      document.getElementById("tablaproductos").innerHTML = this.responseText;
+      console.log(this.responseText);
+    }
+    variable.open("POST", "TablaProductosAdmin.php");
+    variable.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+     formData.append('AgregarArticulos', '');
+     formData.append('Imagen', document.getElementById('Imagen'));
+    variable.send(formData);
+
 }
   </script>
 </body>

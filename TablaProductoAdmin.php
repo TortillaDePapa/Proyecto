@@ -17,7 +17,7 @@ if(isset($_POST['buscar'])){
 
 
 
-echo "  <div class='tabla ' id='tablaproductos'>";
+
 echo "  <table class='table table-dark table-striped table-hover text-center w-90' style='max-width: 100%; min-width: 90%;'>";
 echo "  <thead>";
 echo "  <tr>";
@@ -53,7 +53,62 @@ echo "    </tr>";
 }
 echo " </tbody>";
 echo " </table>";
-echo " </div>";
 
+// Agrega articulo
+    
+if (isset($_POST['AgregarArticulos'])) {
+    $Directorio = "imagenes/";
+$archivoDestino = $Directorio . basename($_FILES['Imagen']["name"]);
+$subirOK = true;
+$imageFileType = strtolower(pathinfo($archivoDestino,PATHINFO_EXTENSION));
+// Compruebe si el archivo de imagen es una imagen real o una imagen falsa
+$check = getimagesize($_FILES["Imagen"]["tmp_name"]);
+if($check) {
+  
+  $subirOK = true;
+} else {
+  
+  $subirOK = false;
+}
+//chequeamos si el archivo existe
+// if (file_exists($archivoDestino)) {
+//   echo "Lo sentimos, el archivo ya existe.";
+//   $subirOK = false;
+// }
+//Comprobar el tamaño del archivo
+if ($_FILES["Imagen"]["size"] > 500000) {
+
+$subirOK = false;
+}
+
+// // Allow certain file formats
+// if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg" ) {
+//   echo "Lo sentimos, solo se permiten archivos JPG, JPEG, PNG.";
+//   $subirOK = false;
+// }
+
+// Compruebe si $subirOK está establecido en false por algun un error
+// if (!$subirOK) {
+//   echo "Lo sentimos, su archivo no fue subido.";
+// // si todo está bien, intente cargar el archivo
+// } else {
+
+if (move_uploaded_file($_FILES["Imagen"]["tmp_name"], $archivoDestino)) {
+  $a = new ProductoBD();
+  $a1 = new Producto();
+  $a2 = new Categoria();
+  $a1 -> setCodBarra($_POST['CodBarras']);
+  $a1 -> setImagen(htmlspecialchars( basename( $_FILES["Imagen"]["name"])));
+  $a1 -> setDescripcion($_POST['Descripcion']);
+  $a1 -> setStock($_POST['Stock']);
+  $a1 -> setNombre($_POST['NombreProducto']);
+  $a1 -> setPrecio($_POST['PrecioProducto']);
+  $a2 -> setCategoria($_POST['Categoria']);
+
+   $a -> CargarProducto($a1,$a2);
+} else {
+
+}
+}
 
 ?>

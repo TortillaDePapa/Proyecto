@@ -15,12 +15,12 @@ include_once 'Clases/ClaseEnvasados.php';
                 $sql2 = "INSERT INTO Productos(CodigoBarra,Imagen,Stock,Nombre,Precio,Estado,Descripcion,NombreCategoria) VALUES('".$Producto -> getCodBarra()."','".$Producto -> getImagen()."','".$Producto -> getStock()."','".$Producto -> getNombre()."','".$Producto -> getPrecio()."','1','".$Producto -> getDescripcion()."','".$Producto1 ->getCategoria()."')";
                 $resultado1 = mysqli_query($this -> conn, $sql2);     
                 if ($resultado1){
-                        echo"<script>alert('Nuevo articulo registrado correctamente')</script>";
+                      
                     }else{
-                        echo"<script>alert('Error al registrar el nuevo articulo')</script>";
+                        
                     }
              }else {
-                echo"<script>alert('Codigo de barras ya existente')</script>";
+               
              }
             }
        public function ListarProductos($Buscar){
