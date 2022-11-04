@@ -1,8 +1,16 @@
+
+
 <?php
 include_once 'Clases/ClasePersona.php';
 include_once 'Persistencia/ClasePersonaBD.php';
 include_once 'Persistencia/ClaseProductoBD.php';
-session_start();
+
+
+if (session_status() == PHP_SESSION_NONE){
+    session_start();
+}
+
+
 
 
 ?>
@@ -97,7 +105,7 @@ Resumen de la compra
   <!-- paso Envio -->
   <div class="form-step form-step-active">
 
-    <ul class="nav nav-pills mb-3" style="" id="pills-tab" role="tablist">
+    <ul class="nav nav-pills mb-3"  id="pills-tab" role="tablist">
     <li class="nav-item" role="presentation">
       <button class="nav-link active bg-dark" style="margin: 5px;" id="pills-envio-tab" data-bs-toggle="pill"
         data-bs-target="#pills-envio" type="button" role="tab" aria-controls="pills-envio"
@@ -255,7 +263,7 @@ echo "<p> <b>".$_SESSION['MostrarCarrito'][$i]['Precio']."</b></p>";
 
 ?>
 
-<p>  </p>
+<div id="mostrarprecio-div1"></div>
 
 
 
@@ -322,9 +330,29 @@ echo "<p> <b>".$_SESSION['MostrarCarrito'][$i]['Precio']."</b></p>";
   <div class="row">
       <div class="col">
         <h5>Precio total: </h5>
+
  </div>
    <div class="col">
-$ 1250
+   <?php
+            if(count($_SESSION['MostrarCarrito'])==0){
+            echo "<div id='mostrarprecio-div' style='display: none;'>";
+
+            
+           echo " </div>";
+            
+            }elseif(count($_SESSION['MostrarCarrito'])>0) {
+                
+
+              
+      echo "<div id='mostrarprecio-div2'>"; 
+      echo "</div>";
+
+             
+
+            }
+            ?>
+
+
 </div>
 
 </div>
@@ -395,7 +423,9 @@ function updateProgressbar() {
   progress.style.width =
     ((progressActive.length - 1) / (progressSteps.length - 1)) * 100 + "%";
 }
-
+document.getElementById('mostrarprecio-div1').innerHTML = '$'+preciof;
+document.getElementById('mostrarprecio-div').innerHTML = '$'+preciof;
+document.getElementById('mostrarprecio-div2').innerHTML = '$'+preciof;
 </script>
 
 

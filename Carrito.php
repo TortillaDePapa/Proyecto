@@ -59,7 +59,7 @@ if (session_status() == PHP_SESSION_NONE){
         <!-- <div class="offcanvas-footer"> -->
             <?php
             if(!isset($_SESSION['MostrarCarrito'])){
-            echo "<div id='mostrarprecio-div' style='display: none;'> <input type='text' value='0' id='preciof-input'>";
+            echo "<div id='mostrarprecio-div' style='display: none;'> 0";
 
             
            echo " </div>";
@@ -80,9 +80,8 @@ if (session_status() == PHP_SESSION_NONE){
 
       echo "  <div class='col-sm'>  ";
       echo "<p> </p>";
-      echo "<div id='mostrarprecio-div'>"; 
+      echo "<div  id='mostrarprecio-div' style=''>"; 
 
-    //   echo "<input type='text' value='1' id='preciof-input'>";
      echo " </div>";
 
      

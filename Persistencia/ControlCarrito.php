@@ -1,7 +1,9 @@
 <?php
 
 include_once 'conexion.php';
-session_start();
+if (session_status() == PHP_SESSION_NONE){
+    session_start();
+}
 
 if (isset($_POST['id'])) {
     $existe = false;
@@ -53,6 +55,7 @@ if (isset($_POST['id'])) {
                     'Cantidad'  =>    $cantidad
                       );
                     }
+                    
                 array_push($_SESSION['MostrarCarrito'], $MostrarCarrito1);
 
             }           

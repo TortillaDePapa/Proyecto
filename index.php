@@ -2,7 +2,9 @@
 include_once 'Clases/ClasePersona.php';
 include_once 'Persistencia/ClasePersonaBD.php';
 include_once 'Persistencia/ClaseProductoBD.php';
-session_start();
+if (session_status() == PHP_SESSION_NONE){
+    session_start();
+}
 
 
 ?>
@@ -116,34 +118,7 @@ variable = new XMLHttpRequest();
         obAjax.send('Cerrar');
     }
 
-    function MostrarCarrito(idProducto,precioP) {
-        let formData = idProducto;
-        let precio = precioP;
-        let cant = document.getElementById('cantidad'+idProducto).innerHTML;
-        var obAjax = new XMLHttpRequest();
-        obAjax.open('POST', 'Persistencia/ControlCarrito.php', true);
-        obAjax.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-        obAjax.onload = function() {
-            // console.log(this.responseText);
-            ResfrescarCarrito();
-        }
-      obAjax.send('id='+formData+'&'+'Precio='+precio+'&'+'Cantidad='+cant); 
-
-
-    }
-
-    function ResfrescarCarrito(){
-        var obAjax = new XMLHttpRequest();
-        obAjax.open('POST', 'Carrito.php', true);
-        obAjax.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-        obAjax.onload = function() {
-            console.log(this.responseText);
-            document.getElementById('offcanvasRight').innerHTML = this.responseText;
-            refrescar();
-        }
-      obAjax.send(); 
-
-    }
+    
 
 
 

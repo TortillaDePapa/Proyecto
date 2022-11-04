@@ -111,7 +111,24 @@
 
     <script>
 
+var precio = document.getElementsByName('preciocard');
+   var preciof = 0;
+   
+   for(var i = 0; i < precio.length; i++){
+       var matches = precio[i]['innerHTML'].match(/(\d+)/);
+       preciof = preciof + parseInt(matches['0']);      
+    }  
 
+     
+     
+     var cantidad = document.getElementsByName('cantidadspanh6');
+     var cantidadspan = 0;
+
+     for(var i = 0; i < cantidad.length; i++){
+       var span = cantidad[i]['innerHTML'].match(/(\d+)/);
+       cantidadspan = cantidadspan + parseInt(span['0']);      
+    }  
+     document.getElementById('spancantidad').innerHTML = cantidadspan;
 
 function refrescar(){
    
@@ -123,7 +140,8 @@ function refrescar(){
        preciof = preciof + parseInt(matches['0']);      
     }  
 
-     document.getElementById('mostrarprecio-div').innerHTML = '$'+preciof;
+        document.getElementById('mostrarprecio-div').innerHTML = '$'+preciof;
+        
      
      
      var cantidad = document.getElementsByName('cantidadspanh6');
@@ -137,7 +155,6 @@ function refrescar(){
      
     }
      
-     
      function EliminarCarro(){
        var obAjax = new XMLHttpRequest();
    obAjax.open('POST', 'Persistencia/Control.php', true);
@@ -150,6 +167,37 @@ function refrescar(){
    function ConfirmarCompra(){
        window.location.assign('Tarjeta.php');
    }
+
+   
+   
+    function MostrarCarrito(idProducto,precioP) {
+        let formData = idProducto;
+        let precio = precioP;
+        let cant = document.getElementById('cantidad'+idProducto).innerHTML;
+        var obAjax = new XMLHttpRequest();
+        obAjax.open('POST', 'Persistencia/ControlCarrito.php', true);
+        obAjax.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+        obAjax.onload = function() {
+            // console.log(this.responseText);
+            ResfrescarCarrito();
+        }
+      obAjax.send('id='+formData+'&'+'Precio='+precio+'&'+'Cantidad='+cant); 
+
+
+    }
+
+    function ResfrescarCarrito(){
+        var obAjax = new XMLHttpRequest();
+        obAjax.open('POST', 'Carrito.php', true);
+        obAjax.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+        obAjax.onload = function() {
+            console.log(this.responseText);
+            document.getElementById('offcanvasRight').innerHTML = this.responseText;
+            refrescar();
+        }
+      obAjax.send(); 
+
+    }
      
    
 </script>
