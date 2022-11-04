@@ -351,17 +351,17 @@ echo "  </div>";
 
             <div class="mb-3">
               <label for="codigo" class="col-8"> Nombre </label>
-              <input type="text" class="form-control" value="" name="" id="">
+              <input type="text" class="form-control" value="" name="ProveedorN" id="ProveedorN">
             </div>
 
             <div class="mb-3">
               <label for="codigo" class="col-8"> Gmail </label>
-              <input type="email" class="form-control" value="" name="" id="">
+              <input type="email" class="form-control" value="" name="ProveedorG" id="ProveedorG">
             </div>
 
             <div class="mb-3">
               <label for="codigo" class="col-8"> Numero </label>
-              <input type="number" class="form-control" value="" name="" id="">
+              <input type="number" class="form-control" value="" name="ProveedorT" id="ProveedorT">
 
             </div> 
         </div>
@@ -567,40 +567,40 @@ variable = new XMLHttpRequest();
     }
 
     function MostrarProducto(IDProducto){
-      // let formData = new FormData(document.getElementById('Productos-form'));
+     
       var obAjax = new XMLHttpRequest();
       obAjax.onload = function () {
-        
-        // document.getElementById('CodBarras-mos').value = JSON.parse(this.responseText)["CodBarra"];
-        // document.getElementById('Descripcion-mos').value = JSON.parse(this.responseText)["Descripcion"];
-        // document.getElementById('Stock-mos').value = JSON.parse(this.responseText)["Stock"];
-        // document.getElementById('NombreProducto-mos').value = JSON.parse(this.responseText)["NombreProducto"];
-        // document.getElementById('PrecioProducto-mos').value = JSON.parse(this.responseText)["Precio"];
-        
-        console.log(this.responseText);
+       var val = JSON.parse(this.responseText);
+        document.getElementById('CodBarras-mos').value = val["CodBarra"];
+        document.getElementById('Descripcion-mos').value = val["Descripcion"];
+        document.getElementById('Stock-mos').value = val["Stock"];
+        document.getElementById('NombreProducto-mos').value = val["NombreProducto"];
+        document.getElementById('PrecioProducto-mos').value = val["Precio"];
+      
       }
       obAjax.open('POST', 'Persistencia/ControlMostrar.php', true);
       obAjax.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
       var get = document.getElementById.bind(document);
-      var cadena = "MostrarProducto"+IDProducto+"IDProducto="+IDProducto;
+      var cadena = "MostrarProducto="+IDProducto+"&IDProducto="+IDProducto;
       // formData.append('MostrarProducto', '');
       // formData.append('IDProducto', IDProducto);
       obAjax.send(cadena);
     }
 
-    function MostrarProveedor(){
+    function MostrarProveedor(IDProveedor){
      
-let formData = new FormData(document.getElementById('Proveedor-form'));
 var obAjax = new XMLHttpRequest();
-obAjax.open('POST', 'Persistencia/ControlMostrarProveedor.php', true);
-obAjax.onreadystatechange = function () {
-  var Rellenar = JSON.parse(this.responseText);
-  document.getElementById('ProveedorN').value = Rellenar['ProveedorN'];
-  document.getElementById('ProveedorG').value = Rellenar['ProveedorG'];
-  document.getElementById('ProveedorT').value = Rellenar['ProveedorT'];
+
+
+obAjax.onload = function () {
+  var rellenar = JSON.parse(this.responseText);
+  document.getElementById('ProveedorN').value = rellenar['ProveedorN'];
+  document.getElementById('ProveedorG').value = rellenar['ProveedorG'];
+  document.getElementById('ProveedorT').value = rellenar['ProveedorT'];
 }
-formData.append('ControlMostrarProveedor.php', '');
-obAjax.send(formData);
+obAjax.open('POST', 'Persistencia/ControlMostrarProveedor.php', true);
+obAjax.setRequestHeader("Content-type", "application/x-www-form-urlencoded")
+obAjax.send("MostrarProveedor="+IDProveedor+"&IDProveedor="+IDProveedor);
 }
   </script>
 </body>
