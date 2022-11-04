@@ -118,7 +118,7 @@ var precio = document.getElementsByName('preciocard');
        var matches = precio[i]['innerHTML'].match(/(\d+)/);
        preciof = preciof + parseInt(matches['0']);      
     }  
-
+    document.getElementById('mostrarprecio-div').innerHTML = '$'+preciof;
      
      
      var cantidad = document.getElementsByName('cantidadspanh6');
