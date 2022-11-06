@@ -36,7 +36,7 @@ if (session_status() == PHP_SESSION_NONE){
 
 </head>
 
-<body>
+<body class="body">
     <?php
     include "navbar.php";
     

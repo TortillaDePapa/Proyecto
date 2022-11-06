@@ -39,7 +39,7 @@ if (session_status() == PHP_SESSION_NONE){
 
 </head>
 
-<body>
+<body class="body">
 
 
   <?php
@@ -84,22 +84,28 @@ Resumen de la compra
 
 
     <div class="row">
-      <div class="col-6" >
+      <div class="col-6 ">
 
 
-      <form action="#" class="form">
+      <form action="#" class="form pasos">
  
 
 
   <!-- Progress bar -->
 
 
-  <div class="progressbar">
+  <div class="progressbar ">
     <div class="progress" id="progress"></div>
     
-    <div class="progress-step progress-step-active" data-title="Envio"></div>
-    <div class="progress-step" data-title="Pago"></div>
-    <div class="progress-step" data-title="Compra"></div>
+    <div class="progress-step progress-step-active" data-title="Envio"> <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-geo-alt-fill" viewBox="0 0 16 16">
+      <path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6z"/>
+    </svg></div>
+    <div class="progress-step" data-title="Pago"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-credit-card-2-back-fill" viewBox="0 0 16 16">
+      <path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v5H0V4zm11.5 1a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h2a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-2zM0 11v1a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-1H0z"/>
+    </svg></div>
+    <div class="progress-step" data-title="Compra"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-bag" viewBox="0 0 16 16">
+      <path d="M8 1a2.5 2.5 0 0 1 2.5 2.5V4h-5v-.5A2.5 2.5 0 0 1 8 1zm3.5 3v-.5a3.5 3.5 0 1 0-7 0V4H1v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4h-3.5zM2 5h12v9a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V5z"/>
+    </svg></div>
   </div>
 
   <!-- paso Envio -->
@@ -180,20 +186,14 @@ Resumen de la compra
   <div class="form-step">
     <div class="input-group">
 
-   <input type="number" name="NROtarjeta" id=""  placeholder="Enter card number">
-   <br>
-    Expiry Month <input type="number" name="expiracionM" id=""  min="1" max="12" placeholder="MM"> 
-    Expiry Year<input type="number" name="expiracionA" id="" min="2022" max="2030" placeholder="YY"> 
-    CCV<input type="number" name="CCV" id=""  min="100" max="999" placeholder="CCV">
-<br>
+   
 
-<input type="text" name="nomtarjeta" id="" placeholder="Name On The Card">
-<br>
-<input type="checkbox" name="detalles" id=""> Save details for fast payments
-<br>
-<input type="reset" name="cancel" id="cancel" value="CANCEL" class="cancelar"> </input>
 
-<input type="submit" name="pagar" id=""  value="PAY NOW" class="cancelar"> </input>
+<?php
+
+include_once 'TarjetaForm.php';
+
+?>
 
       
 
@@ -202,7 +202,8 @@ Resumen de la compra
       
     </div>
     
-    <div class="btns-group">
+    <div class="btns-group" style=" position: relative !important;
+        left: 40px;">
       <a href="#" class="btn btn-prev">Volver</a>
       <a href="#" class="btn btn-next">Siguiente</a>
     </div>
@@ -221,13 +222,13 @@ Resumen de la compra
 
 
   <div class="col"> 
-  <p> Nombre: </p>
+  <h5> Producto: </h5>
   <?php
  if(isset($_SESSION['MostrarCarrito'])){
 
   for($i = 0; $i <count($_SESSION['MostrarCarrito']); $i++){
   
-  echo "<p> <b>".$_SESSION['MostrarCarrito'][$i]['Nombre']."</b></p>";
+  echo "<p>".$_SESSION['MostrarCarrito'][$i]['Nombre']." x ".$_SESSION['MostrarCarrito'][$i]['Cantidad']." </p>";
 
 
   }
@@ -236,7 +237,7 @@ Resumen de la compra
 
 
 ?>
-  <p> Total: </p>
+  <h5> Total: </h5>
   
  
 
@@ -247,14 +248,14 @@ Resumen de la compra
 
 
   <div class="col"> 
-  <p> Precio: </p>
+  <h5> Precio: </h5>
   <?php
 
   if(isset($_SESSION['MostrarCarrito'])){
 
 for($i = 0; $i <count($_SESSION['MostrarCarrito']); $i++){
 
-echo "<p> <b>".$_SESSION['MostrarCarrito'][$i]['Precio']."</b></p>";
+echo "<p> ".$_SESSION['MostrarCarrito'][$i]['Precio']."</p>";
 
 
 }
@@ -263,7 +264,7 @@ echo "<p> <b>".$_SESSION['MostrarCarrito'][$i]['Precio']."</b></p>";
 
 ?>
 
-<div id="mostrarprecio-div1"></div>
+<h5> <div id="mostrarprecio-div1"></div> </h5>
 
 
 
@@ -275,7 +276,8 @@ echo "<p> <b>".$_SESSION['MostrarCarrito'][$i]['Precio']."</b></p>";
   </div>
 
    
-    <div class="btns-group">
+    <div class="btns-group" style=" position: relative !important;
+        left: 40px;">
       <a href="#" class="btn btn-prev">Volver</a>
       <input type="submit" value="Confirmar compra" class="btn btn-submit" />
     </div>
@@ -427,8 +429,6 @@ document.getElementById('mostrarprecio-div1').innerHTML = '$'+preciof;
 document.getElementById('mostrarprecio-div').innerHTML = '$'+preciof;
 document.getElementById('mostrarprecio-div2').innerHTML = '$'+preciof;
 </script>
-
-
 
 </body>
 

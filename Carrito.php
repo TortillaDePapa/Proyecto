@@ -20,7 +20,7 @@ if (session_status() == PHP_SESSION_NONE){
                         <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
                     </div>
                     <hr>
-                    <div class="offcanvas-body">
+                    <div class="offcanvas-body body">
 
                         <?php
                         
@@ -40,7 +40,7 @@ if (session_status() == PHP_SESSION_NONE){
             echo    "<h6 class='card-title' name='cantidadspanh6'>Cantidad:".$_SESSION['MostrarCarrito'][$i]['Cantidad']." </h6>";
             echo    "<h6 class='card-title' name=''>Precio $".$_SESSION['MostrarCarrito'][$i]['Precio']."</h6>";
             echo    "<h6 class='card-title' name='preciocard'>Total $".$_SESSION['MostrarCarrito'][$i]['Precio']*$_SESSION['MostrarCarrito'][$i]['Cantidad']."</h6>";
-            echo "    <button type='button' class='btn boton-basura ' onclick='EliminarCarro()'>     <i class='bi bi-trash'></i> ";
+            // echo "    <button type='button' class='btn boton-basura ' onclick='EliminarCarro()'>     <i class='bi bi-trash'></i> ";
 
             echo    "</div>";
             echo    "</div>";
