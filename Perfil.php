@@ -135,7 +135,72 @@ if(!isset($_SESSION['CLIENTE'])){
           
           </div>
         </div>
+
+  
+
                   <!-- End Perfil -->
+
+        <div class="tab-pane fade" id="nav-compras" role="tabpanel" aria-labelledby="nav-compras-tab" tabindex="0">
+        <br>
+
+          <?php
+
+            echo "  <table class='table table-dark table-striped table-hover text-center w-90' style='max-width: 100%; min-width: 90%;'>";
+            echo "  <thead>";
+            echo "  <tr>";
+            echo "  <th scope='col'> IDCompra </th>";
+            echo "  <th scope='col'> Fecha </th>";
+            echo "  <th scope='col'> Total </th>";
+            echo "  <th scope='col'> Visualizar </th>";
+            echo " </tr>";
+            echo "  </thead>";
+            echo " <tbody>";
+            echo "   <tr>";
+            
+
+            
+            echo "  <a  href='#recibo' data-toggle='modal' data-target='#recibo'>  <td> 1 </td> </a>";
+            echo "     <td> 20/25/22 </td>";
+            echo "     <td>$1250 </td>";
+            echo "     <td> <button type='button' class='btn btn-danger' style='width: 10%px; width: 20%; border-radius: 5px !important;' data-bs-toggle='modal' data-bs-target='#recibo'>
+            <i class='bi bi-eye-fill'></i>   </button>";
+            echo "</td>";
+
+            echo "    </tr>";
+            
+
+            echo " </tbody>";
+            echo " </table>";
+            
+            
+            ?>
+
+</div>
+
+<!-- Modal Recibo -->
+<div class="modal fade" id="recibo" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h5 class="modal-title text-center" id="exampleModalLabel" > Factura </h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        
+
+Info
+
+
+      </div>
+      <div class="modal-footer">
+        <button type="button"  class="btn btn-danger">Descargar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
 
 
         <!-- Modificar Datos -->
@@ -208,7 +273,7 @@ if(!isset($_SESSION['CLIENTE'])){
             <br>
 
             <div class="form-group text-center">
-              <input type="submit" value="Actualizar datos de la cuenta" name="ActualizarDatos">
+              <input type="submit" value="Modificar" name="ActualizarDatos"> </button>
 
             </div>
           </form>
