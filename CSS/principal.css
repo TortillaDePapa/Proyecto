@@ -106,3 +106,9 @@ body{
   border: 2px solid #f1f2f3;
 }
 
+.bi-eye-fill{
+
+  position: relative !important;
+  right: 5px !important;
+
+}
