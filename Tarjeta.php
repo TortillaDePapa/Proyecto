@@ -18,6 +18,7 @@ if (session_status() == PHP_SESSION_NONE){
 <html lang="en">
 
 <head>
+  
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -265,10 +266,13 @@ echo "<p> ".$_SESSION['MostrarCarrito'][$i]['Precio']."</p>";
     <div class="btns-group" style=" position: relative !important;
         left: 40px;">
       <a href="#" class="btn btn-prev">Volver</a>
-      <input type="submit" value="Confirmar compra" class="btn btn-submit" />
+      <button class="btn btn-submit"  onclick="FinalizarCompra()" name="confirmarCompra"> FinalizarCompra</button>
+     <div style="display:none;" id="sessiongetusuario">
+     <?php
+    echo $_SESSION['CLIENTE']->getUsuario();
+    ?>
     </div>
-
-    
+  </div>
   </div>
 </form>
         <br>
@@ -281,6 +285,7 @@ echo "<p> ".$_SESSION['MostrarCarrito'][$i]['Precio']."</p>";
         <div class="d-flex r-compra">
 
 <?php
+
  if(isset($_SESSION['MostrarCarrito'])){
         
   echo    " <div class='row g-0 ' >";
@@ -366,6 +371,18 @@ echo "<p> ".$_SESSION['MostrarCarrito'][$i]['Precio']."</p>";
         obAjax.send('Cerrar');
     }
 
+    function FinalizarCompra() {
+        var obAjax = new XMLHttpRequest();
+        obAjax.open('POST', 'Persistencia/ControlCompra.php', true);
+        obAjax.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+        obAjax.onreadystatechange = function() {
+        //  window.location.reload();
+         console.log(this.responseText);
+        }
+        obAjax.send('FinalizarCompra='+''+'&usuarioo='+document.getElementById('sessiongetusuario'));
+
+}
+
     const prevBtns = document.querySelectorAll(".btn-prev");
 const nextBtns = document.querySelectorAll(".btn-next");
 const progress = document.getElementById("progress");
@@ -416,6 +433,10 @@ function updateProgressbar() {
 document.getElementById('mostrarprecio-div1').innerHTML = '$'+preciof;
 document.getElementById('mostrarprecio-div').innerHTML = '$'+preciof;
 document.getElementById('mostrarprecio-div2').innerHTML = '$'+preciof;
+
+
+
+
 </script>
 
 <br>

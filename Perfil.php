@@ -86,7 +86,7 @@ if(!isset($_SESSION['CLIENTE'])){
 
             <div class="row">
               <div class="col-5">
-                <img class="fotoperfil" src="https://cdn-icons-png.flaticon.com/512/16/16480.png" align="center" style="">
+                <img class="fotoperfil" src="https://cdn-icons-png.flaticon.com/512/16/16480.png" align="center" >
               </div>
               <div class="col-7">
 
@@ -145,10 +145,10 @@ if(!isset($_SESSION['CLIENTE'])){
 
           <?php
 
-            echo "  <table class='table table-dark table-striped table-hover text-center w-90' style='max-width: 100%; min-width: 90%;'>";
+            echo "  <table class='table table-dark table-striped table-hover text-center' style='max-width: 100%; min-width: 90%;'>";
             echo "  <thead>";
             echo "  <tr>";
-            echo "  <th scope='col'> IDCompra </th>";
+            echo "  <th scope='col'> Orden de compra </th>";
             echo "  <th scope='col'> Fecha </th>";
             echo "  <th scope='col'> Total </th>";
             echo "  <th scope='col'> Visualizar </th>";
