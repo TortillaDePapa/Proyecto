@@ -11,7 +11,11 @@ if (session_status() == PHP_SESSION_NONE){
 }
 
 
+if(isset($_SESSION['CLIENTE']) or isset($_SESSION['ADMIN'])){
 
+}else{
+  header('Location: index.php');
+}
 
 ?>
 <!DOCTYPE html>
@@ -71,134 +75,132 @@ Resumen de la compra
 
 
     <div class="row">
-      <div class="col-6 ">
-
-
-      <form action="#" class="form pasos">
+    <div class="col-7">
+    <form action="#" class="form pasos">
 
 
 
-  <!-- Progress bar -->
+<!-- Progress bar -->
 
 
-  <div class="progressbar ">
-    <div class="progress" id="progress"></div>
+<div class="progressbar ">
+  <div class="progress" id="progress"></div>
 
-    <div class="progress-step progress-step-active" data-title="Envio"> <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-geo-alt-fill" viewBox="0 0 16 16">
-      <path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6z"/>
-    </svg></div>
-    <div class="progress-step" data-title="Pago"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-credit-card-2-back-fill" viewBox="0 0 16 16">
-      <path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v5H0V4zm11.5 1a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h2a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-2zM0 11v1a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-1H0z"/>
-    </svg></div>
-    <div class="progress-step" data-title="Compra"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-bag" viewBox="0 0 16 16">
-      <path d="M8 1a2.5 2.5 0 0 1 2.5 2.5V4h-5v-.5A2.5 2.5 0 0 1 8 1zm3.5 3v-.5a3.5 3.5 0 1 0-7 0V4H1v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4h-3.5zM2 5h12v9a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V5z"/>
-    </svg></div>
-  </div>
+  <div class="progress-step progress-step-active" data-title="Envio"> <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-geo-alt-fill" viewBox="0 0 16 16">
+    <path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6z"/>
+  </svg></div>
+  <div class="progress-step" data-title="Pago"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-credit-card-2-back-fill" viewBox="0 0 16 16">
+    <path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v5H0V4zm11.5 1a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h2a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-2zM0 11v1a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-1H0z"/>
+  </svg></div>
+  <div class="progress-step" data-title="Compra"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-bag" viewBox="0 0 16 16">
+    <path d="M8 1a2.5 2.5 0 0 1 2.5 2.5V4h-5v-.5A2.5 2.5 0 0 1 8 1zm3.5 3v-.5a3.5 3.5 0 1 0-7 0V4H1v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4h-3.5zM2 5h12v9a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V5z"/>
+  </svg></div>
+</div>
 
-  <!-- paso Envio -->
-  <div class="form-step form-step-active">
+<!-- paso Envio -->
+<div class="form-step form-step-active">
 
-    <ul class="nav nav-pills mb-3"  id="pills-tab" role="tablist">
-    <li class="nav-item" role="presentation">
-      <button class="nav-link active bg-dark" style="margin: 5px;" id="pills-envio-tab" data-bs-toggle="pill"
-        data-bs-target="#pills-envio" type="button" role="tab" aria-controls="pills-envio"
-        aria-selected="true">
-        Envio
-      </button>
-    </li>
-    <li class="nav-item" role="presentation">
-      <button class="nav-link bg-dark" style="margin: 5px;" id="pills-retiro-tab" data-bs-toggle="pill" data-bs-target="#pills-retiro"
-        type="button" role="tab" aria-controls="pills-retiro" aria-selected="true">
-        Retiro
-      </button>
-    </li>
-  </ul>
+  <ul class="nav nav-pills mb-3"  id="pills-tab" role="tablist">
+  <li class="nav-item" role="presentation">
+    <button class="nav-link active bg-dark" style="margin: 5px;" id="pills-envio-tab" data-bs-toggle="pill"
+      data-bs-target="#pills-envio" type="button" role="tab" aria-controls="pills-envio"
+      aria-selected="true">
+      Envio
+    </button>
+  </li>
+  <li class="nav-item" role="presentation">
+    <button class="nav-link bg-dark" style="margin: 5px;" id="pills-retiro-tab" data-bs-toggle="pill" data-bs-target="#pills-retiro"
+      type="button" role="tab" aria-controls="pills-retiro" aria-selected="true">
+      Retiro
+    </button>
+  </li>
+</ul>
 
-    <!-- Fin de paso Envio -->
+  <!-- Fin de paso Envio -->
 
 <!-- Envio y Retiro -->
-  <div class="tab-content " id="pills-tabContent">
+<div class="tab-content " id="pills-tabContent">
 
 <!-- Envio -->
 
-  <div class="tab-pane fade show active" id="pills-envio" role="tabpanel"
-    aria-labelledby="pills-envio-tab" tabindex="0">
+<div class="tab-pane fade show active" id="pills-envio" role="tabpanel"
+  aria-labelledby="pills-envio-tab" tabindex="0">
 
-    <h5> 1. Dirección de entrega </h5>
+  <h5> 1. Dirección de entrega </h5>
 
-    <hr>
+  <hr>
 
-    <form method="post">
+  <form method="post">
 
-    <label> Calle o direccion </label>
+  <label> Calle o direccion </label>
 
-    <br>
+  <br>
 
-    <div class="">
-    <a href="#" class="btn btn-next width-50 ml-auto">Siguiente</a>
+  <div class="">
+  <a href="#" class="btn btn-next width-50 ml-auto">Siguiente</a>
+</div>
+</div>
+
+
+<!-- Retiro  -->
+
+<div class="tab-pane fade " id="pills-retiro" role="tabpanel" aria-labelledby="pills-retiro-tab"
+  tabindex="0">
+
+  <h5> Horarios: 08:00 - 22:00 Lunes a Sabados </h5>
+
+
+  <div class="text-center">
+  <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3331.19133595375!2d-56.50789268480211!3d-33.39217208079059!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95a6c1ada36e59bf%3A0x9695eb4025ba7978!2sSupermercado%20Largacha!5e0!3m2!1ses!2suy!4v1666899217872!5m2!1ses!2suy" width="450" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
   </div>
-  </div>
-
-
-  <!-- Retiro  -->
-
-  <div class="tab-pane fade " id="pills-retiro" role="tabpanel" aria-labelledby="pills-retiro-tab"
-    tabindex="0">
-
-    <h5> Horarios: 08:00 - 22:00 Lunes a Sabados </h5>
-
-
-    <div class="text-center">
-    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3331.19133595375!2d-56.50789268480211!3d-33.39217208079059!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95a6c1ada36e59bf%3A0x9695eb4025ba7978!2sSupermercado%20Largacha!5e0!3m2!1ses!2suy!4v1666899217872!5m2!1ses!2suy" width="450" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-    </div>
-    <br>
+  <br>
 
 
 
 
-    <p> Persona que retira:  </p>
+  <p> Persona que retira:  </p>
 
-    <div class="">
-    <a href="#" class="btn btn-next width-50 ml-auto">Siguiente</a>
-  </div>
+  <div class="">
+  <a href="#" class="btn btn-next width-50 ml-auto">Siguiente</a>
+</div>
 
-  </div>
+</div>
 </div>
 
 <!-- fin Envio y Retiro-->
 
 
 
+</div>
+
+
+<div class="form-step">
+  <div class="input-group">
+
+
+
+  <?php
+  
+  include_once('TarjetaForm.php');    
+  ?>
+
+
+
+
+
   </div>
 
-
-  <div class="form-step">
-    <div class="input-group">
-
-
-
-    <?php
-    
-    include_once('TarjetaForm.php');    
-    ?>
-
-
-
-
-
-    </div>
-
-    <div class="btns-group" >
-      <a href="#" class="btn btn-prev">Volver</a>
-      <a href="#" class="btn btn-next">Siguiente</a>
-    </div>
+  <div class="btns-group" >
+    <a href="#" class="btn btn-prev">Volver</a>
+    <a href="#" class="btn btn-next">Siguiente</a>
   </div>
+</div>
 
 
 
-  <div class="form-step">
+<div class="form-step">
 
-    <div class="text-center">
+  <div class="text-center">
 <h5> Datos de compra: </h5>
 <hr>
 
@@ -206,37 +208,37 @@ Resumen de la compra
 
 
 
-  <div class="col">
-  <h5> Producto: </h5>
-  <?php
- if(isset($_SESSION['MostrarCarrito'])){
+<div class="col">
+<h5> Producto: </h5>
+<?php
+if(isset($_SESSION['MostrarCarrito'])){
 
-  for($i = 0; $i <count($_SESSION['MostrarCarrito']); $i++){
+for($i = 0; $i <count($_SESSION['MostrarCarrito']); $i++){
 
-  echo "<p>".$_SESSION['MostrarCarrito'][$i]['Nombre']." x ".$_SESSION['MostrarCarrito'][$i]['Cantidad']." </p>";
+echo "<p>".$_SESSION['MostrarCarrito'][$i]['Nombre']." x ".$_SESSION['MostrarCarrito'][$i]['Cantidad']." </p>";
 
 
-  }
+}
 
 }
 
 
 ?>
-  <h5> Total: </h5>
+<h5> Total: </h5>
 
 
 
-  </div>
+</div>
 
 
 
 
 
-  <div class="col">
-  <h5> Precio: </h5>
-  <?php
+<div class="col">
+<h5> Precio: </h5>
+<?php
 
-  if(isset($_SESSION['MostrarCarrito'])){
+if(isset($_SESSION['MostrarCarrito'])){
 
 for($i = 0; $i <count($_SESSION['MostrarCarrito']); $i++){
 
@@ -256,33 +258,37 @@ echo "<p> ".$_SESSION['MostrarCarrito'][$i]['Precio']."</p>";
 </div>
 
 
-    </div>
+  </div>
 
+</div>
+
+
+  <div class="btns-group" >
+    <a href="#" class="btn btn-prev">Volver</a>
+    <button class="btn btn-submit"  onclick="FinalizarCompra()" name="confirmarCompra"> FinalizarCompra</button>
+   <div style="display:none;" id="sessiongetusuario">
+   <?php
+  echo $_SESSION['CLIENTE']->getUsuario();
+  ?>
   </div>
 
 
-    <div class="btns-group" >
-      <a href="#" class="btn btn-prev">Volver</a>
-      <button class="btn btn-submit"  onclick="FinalizarCompra()" name="confirmarCompra"> FinalizarCompra</button>
-     <div style="display:none;" id="sessiongetusuario">
-     <?php
-    echo $_SESSION['CLIENTE']->getUsuario();
-    ?>
-    </div>
-
-
-  </div>
+</div>
 </form>
-        <br>
+      <br>
 
-      </div>
+</div>
+
+      
 
 
-      <div class="col-4">
+  </div>
 
-        <div class="d-flex r-compra">
+  
+  <div class="col-5 ">
+      <div class="d-flex r-compra">
 
-<?php
+      <?php
 
  if(isset($_SESSION['MostrarCarrito'])){
 
@@ -305,62 +311,33 @@ echo "<p> ".$_SESSION['MostrarCarrito'][$i]['Precio']."</p>";
       echo    "</div>";
       echo    "</div>";
        echo    "</div>";
+       
 
   }
 }else{
       echo "<img src='https://enigma.uy/img/mini-empty-cart.png' height='150px'>";
   }
 
-      echo    "</div>";
+    
       ?>
+   
 
-<!-- style="border: 1px solid rgba(0,0,0,.125);" -->
+      </div>
+
+   
+
+
+
+
+    
 
 </div>
-
-<!-- div r compra -->
-
-
-  </div>
 
   <br>
 
-  <!-- <div class="row row-precio">
-      <div class="col">
-        <h5>Precio total: </h5>
-
- </div>
-   <div class="col">
-   <?php
-            if(count($_SESSION['MostrarCarrito'])==0){
-            echo "<div id='mostrarprecio-div' style='display: none;'>";
-
-
-           echo " </div>";
-
-            }elseif(count($_SESSION['MostrarCarrito'])>0) {
-
-
-
-      echo "<div id='mostrarprecio-div2'>";
-      echo "</div>";
-
-
-
-            }
-            ?>
-
-
-</div> -->
-
 </div>
 
-  </div>
 
-
-
-
-  </div>
 
 
 <script>

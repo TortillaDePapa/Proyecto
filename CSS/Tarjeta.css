@@ -166,8 +166,8 @@
 
 .r-compra{
 border: 1px solid #ccc;
-  overflow: auto; width: 400px; 
-  max-width: 400px; height: 450px ;  
+  overflow: auto; 
+  max-width: 400px;   
   max-height: 450px;
   color:#212529;
   text-align:center; 

@@ -16,9 +16,9 @@ include_once 'Clases/ClaseUsuario.php';
 <body class="body-dark bg-dark">
     <div class="Centrar" >
         <h1>
-            Login
+            Reactivar cuenta 
         </h1>
-            <form action="Login.php" method="post" autocomplete="off">
+            <form action="" method="post" autocomplete="off">
                 <div class="texto"> <input type="text" name="usuario" required> 
                     <span>
 
@@ -34,9 +34,9 @@ include_once 'Clases/ClaseUsuario.php';
                             </label> 
                 </div>
                 <div class="contraseña" ><a href="Reactivar.php">¿Quieres reactivar tu cuenta?</a> </div>
-                <input type="Submit" value="Iniciar" name="Login">
+                <input type="Submit" value="Reactivar" name="Reactivar">
                 <div class="Registro"> 
-                <a href="Registro.php">  ¿No tienes cuenta?  </a>
+                <a href="Login.php">   ¿Ya reactivaste la cuenta? </a>
                 </div>
                 
             </form>
@@ -45,15 +45,13 @@ include_once 'Clases/ClaseUsuario.php';
 
 <?php
 
- if(isset($_POST['Login'])){
-       
+if(isset($_POST['Reactivar'])){
     $p = new Persona();
-    $p1 = new Usuario();
-    $p2 = new PersonaBD();
+    $p1 = new PersonaBD();
     $p -> setUsuario($_POST['usuario']);
     $p -> setContraseña(md5($_POST['contraseña']));
-    $p2 -> LoginPersona($p,$p1);
-}
-?>
+    $p1 -> ReactivarCuenta($p);
+  }
+  ?>
 </body>
 </html>

@@ -89,8 +89,11 @@ if (session_status() == PHP_SESSION_NONE){
       echo "</div>";
       echo "</div>";
       echo "<hr>";
+      if(isset($_SESSION['CLIENTE']) or isset($_SESSION['ADMIN'])){
      echo "<a class='btn btn-primary bg-dark w-100' style='border-color: #212529 !important;' href='Tarjeta.php' role'button' onclick='ConfirmarCompra()'> Comprar </a>";
-
+}else{
+    echo "<a class='btn btn-primary bg-dark w-100' style='border-color: #212529 !important;' href='Login.php' role'button' > Comprar </a>";
+}
 echo "</div>";
 echo "<br>";
              

@@ -74,7 +74,6 @@ if (session_status() == PHP_SESSION_NONE){
     <p></p>
 
     
-<!-- <form action="" method="post" id="productos-form"> -->
 <?php
 
 include_once 'FiltrarCards.php';
@@ -84,7 +83,6 @@ include_once 'FiltrarCards.php';
         ?>
 
         
-<!-- </form> -->
 
 <?php
 ?>

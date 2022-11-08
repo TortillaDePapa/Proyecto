@@ -171,6 +171,28 @@ Class PersonaBD extends Conexion{
             echo "<script> alert('usuario o contraseña incorecta')</script>";
         }
     }
+    
+    public function ReactivarCuenta($Persona){
+        $sql = "SELECT * from personas where Usuario = '".$Persona -> getUsuario()."' AND Contraseña = '".$Persona -> getContraseña()."'";
+        $this -> Conectar();
+        $resultado = mysqli_query($this -> conn, $sql);
+        if ($resultado -> num_rows > 0 ) {
+            $sql1 = "UPDATE Personas SET Estado = '1' where Usuario = '".$Persona -> getUsuario()."' AND Contraseña = '".$Persona -> getContraseña()."'";
+            $resultado1 = mysqli_query($this -> conn, $sql1);
+            if ($resultado1) {
+               
+                echo "<script> alert('Cuenta reactivada con exito ')</script>";
+                header('Location: Login.php');
+                
+            }else{
+                echo "<script> alert('Error al reactivar la cuenta ')</script>";
+            }
+        }else{
+            echo "<script> alert('usuario o contraseña incorecta')</script>";
+        }
+
+
+    }
 
 }
 
