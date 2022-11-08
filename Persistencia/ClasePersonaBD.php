@@ -173,7 +173,7 @@ Class PersonaBD extends Conexion{
     }
     
     public function ReactivarCuenta($Persona){
-        $sql = "SELECT * from personas where Usuario = '".$Persona -> getUsuario()."' AND Contraseña = '".$Persona -> getContraseña()."'";
+        $sql = "SELECT * from personas where Usuario = '".$Persona -> getUsuario()."' AND Contraseña = '".$Persona -> getContraseña()."' AND Estado = '0'";
         $this -> Conectar();
         $resultado = mysqli_query($this -> conn, $sql);
         if ($resultado -> num_rows > 0 ) {
