@@ -9,24 +9,28 @@
 
 <body>
     <style>
-        /* .demo-container {
+        .demo-container {
             width: 100%;
-            max-width: 350px;
-            margin: 50px auto;
+            max-width: 100%;
+            margin:  auto;
+        }
+        .card-wrapper{
+
+            position: relative;
+            /* right: 12px; */
+            right: 4%;
+        }
+        form-container{
+
+          
+
         }
 
-        form {
-            margin: 30px;
-        }
-
-        input {
-            width: 200px;
-            margin: 10px auto;
-            display: block;
-        } */
     </style>
     <div class="demo-container">
-        <div class="card-wrapper"></div>
+        <div class="card-wrapper" ></div>
+
+        <br>
 
         <div class="form-container active">
                 <input placeholder="Card number" type="tel" name="number">

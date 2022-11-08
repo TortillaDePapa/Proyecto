@@ -148,14 +148,17 @@
   .btn-next{
     background-color: #212529;
         color: #f3f3f3; 
+        width: 100% !important;
   }
   .btn-prev{
     background-color: #212529;
     color: #f3f3f3; 
+    width: 100% !important;
   }
   .btn-submit{
     background-color: #212529;
     color: #f3f3f3; 
+    width: 100% !important;
 
   }
 
