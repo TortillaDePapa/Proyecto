@@ -162,7 +162,7 @@ if(!isset($_SESSION['CLIENTE'])){
             echo "  <a  href='#recibo' data-toggle='modal' data-target='#recibo'>  <td> 1 </td> </a>";
             echo "     <td> 20/25/22 </td>";
             echo "     <td>$1250 </td>";
-            echo "     <td> <button type='button' class='btn btn-danger' style='width: 10%px; width: 20%; border-radius: 5px !important;' data-bs-toggle='modal' data-bs-target='#recibo'>
+            echo "     <td> <button type='button' class='btn btn-danger' style='width: 20%; border-radius: 5px !important;' data-bs-toggle='modal' data-bs-target='#recibo'>
             <i class='bi bi-eye-fill'></i>   </button>";
             echo "</td>";
 
@@ -181,14 +181,52 @@ if(!isset($_SESSION['CLIENTE'])){
 <div class="modal fade" id="recibo" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
-      <div class="modal-header text-center">
+      <div class="modal-header text-center" >
         <h5 class="modal-title text-center" id="exampleModalLabel" > Factura </h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
         
 
-Info
+<div class="row ">
+
+<p>  Titular: Pepe</p>
+<p>  Direccion: 4 de octubre</p>
+<p>  Metodo de pago: Tarjeta de credito</p>
+
+<hr>
+
+<div class="col text-center">
+  <p> Descripcion: </p>
+  <p> coca x 1 </p>
+
+</div>
+
+
+<div class="col text-center">
+<p> Precio </p>
+<p> $129 </p>
+
+</div>
+
+</div>
+
+<div class="row text-center">
+
+<hr>
+
+<div class="col">
+Total
+</div>
+
+
+<div class="col">
+$1249
+</div>
+
+</div>
+
+
 
 
       </div>
@@ -208,8 +246,11 @@ Info
 
           <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab" tabindex="0">
           
-          2
+          <div class="row">
 
+          <div class="col-2">
+</div>
+<div class="col">
           <form action="" method="post">
 
             <?php
@@ -273,12 +314,15 @@ Info
             <br>
 
             <div class="form-group text-center">
-              <input type="submit" value="Modificar" name="ActualizarDatos"> </button>
+              <button class="btn-danger" style=" border-radius: 50px !important; width: 200px;" type="submit" name="ActualizarDatos"> Modificar </button>
 
             </div>
           </form>
-
           </div>
+          </div>
+          </div>
+
+          <br>
 
             <!-- End Modificar Datos -->
             
@@ -290,7 +334,13 @@ Info
           <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab" tabindex="0">
            
 
-          3
+          <div class="row">
+
+          <div class="col">
+
+</div>
+
+<div class="col-8">
 
           <form action="" method="post">
             <?php
@@ -316,9 +366,17 @@ echo"    </div>";
             <br>
 
             <div class="form-group text-center" id="Alert">
-              <input type="submit" value="Eliminar" name="Eliminar" id="LiveAlert">
+              <button class="btn-danger" type="submit" style=" border-radius: 50px !important; width: 200px;"  name="Eliminar" id="LiveAlert"> Eliminar </button>
         </div>
       </form>
+      </div>
+
+      <div class="col">
+
+</div>
+
+
+</div>
 
 
           </div>

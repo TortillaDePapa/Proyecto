@@ -1,88 +1,52 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-
-
-    <!-- <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet"> -->
-    <link href="https://bootstraptema.ru/snippets/form/2017/styles.css" rel="stylesheet">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <script src="https://bootstraptema.ru/snippets/form/2017/jquery.payform.min.js"></script>
-    <script src="https://bootstraptema.ru/snippets/form/2017/script.js"></script>
-
-
+    <title>Card &ndash; the better way to collect credit cards</title>
+    <meta name="viewport" content="initial-scale=1">
+    <!-- CSS is included through the card.js script -->
 </head>
 
 <body>
+    <style>
+        .demo-container {
+            width: 100%;
+            max-width: 100%;
+            margin:  auto;
+        }
+        .card-wrapper{
 
+            position: relative;
+            /* right: 12px; */
+            right: 4%;
+        }
+        form-container{
 
-    <div class="row">
-        <div class="payment">
-                <div class="col">
-                <div class="form-group" id="card-number-field">
-                    <label for="cardNumber">Numero de tarjeta</label>
-                    <input type="text" class="form-control w-15s0" id="cardNumber" placeholder="9999 - 9999 - 9999 - 9999">
-                </div>
+          
 
-            </div>
+        }
 
-                <div class="col">
+    </style>
+    <div class="demo-container">
+        <div class="card-wrapper" ></div>
 
-                <div class="form-group owner">
-                    <label for="owner">Nombre del titular</label>
-                    <input type="text" class="form-control" id="owner">
-                </div>
+        <br>
 
-
-<div class="row">
-                <div class="col">
-                    <label for="cvv">CVV</label>
-                    <input type="text" class="form-control w-25 " id="cvv">
-                  
-                    
-                </div>
-            </div>         
-
-            </div>
-            <div class="row">
-
-            <div class="col">
-        
-                    <label>Fecha de expiración</label>
-                    <select>
-                        <option value="01">Enero</option>
-                        <option value="02">Febrero </option>
-                        <option value="03">Marzo</option>
-                        <option value="04">Abril</option>
-                        <option value="05">Mayo</option>
-                        <option value="06">Junio</option>
-                        <option value="07">Julio</option>
-                        <option value="08">Agosto</option>
-                        <option value="09">Septiembre</option>
-                        <option value="10">Octubre</option>
-                        <option value="11">Noviembre</option>
-                        <option value="12">Diciembre</option>
-                    </select>
-                    <select>
-                        <option value="22"> 2022</option>
-                        <option value="23"> 2023</option>
-                        <option value="24"> 2024</option>
-                        <option value="25"> 2025</option>
-                        <option value="26"> 2026</option>
-                        <option value="27"> 2027</option>
-                    </select>
-                    <img src="https://bootstraptema.ru/snippets/form/2017/visa.jpg" id="visa">
-                    <img src="https://bootstraptema.ru/snippets/form/2017/mastercard.jpg" id="mastercard">
-                </div>
-                </div>
-           
+        <div class="form-container active">
+                <input placeholder="Card number" type="tel" name="number">
+                <input placeholder="Full name" type="text" name="name">
+                <input placeholder="MM/YY" type="tel" name="expiry">
+                <input placeholder="CVC" type="number" name="cvc">
         </div>
     </div>
 
+    <script src="http://localhost/xampp/proyecto/proyecto/Tarjeta.js/card.js"></script>
+    <script>
+        var c = new Card({
+            form: document.querySelector('form'),
+            container: '.card-wrapper'
+        });
+    </script>
 </body>
 
 </html>

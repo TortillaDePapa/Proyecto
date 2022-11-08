@@ -36,7 +36,7 @@ if (session_status() == PHP_SESSION_NONE){
     </script>
   <link rel="stylesheet" href="CSS/Tarjeta.css">
 
- 
+
 
 </head>
 
@@ -45,7 +45,7 @@ if (session_status() == PHP_SESSION_NONE){
 
   <?php
     include "navbar.php";
-    
+
     ?>
 
     <br>
@@ -56,7 +56,7 @@ if (session_status() == PHP_SESSION_NONE){
   <div class="container ">
 
      <div class="text-center">
- 
+
           <h1>
 
           <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor" class="bi bi-cart3" viewBox="0 0 16 16">
@@ -66,7 +66,7 @@ Resumen de la compra
 </h1>
 
 </div>
-      
+
 
 
 
@@ -75,7 +75,7 @@ Resumen de la compra
 
 
       <form action="#" class="form pasos">
- 
+
 
 
   <!-- Progress bar -->
@@ -83,7 +83,7 @@ Resumen de la compra
 
   <div class="progressbar ">
     <div class="progress" id="progress"></div>
-    
+
     <div class="progress-step progress-step-active" data-title="Envio"> <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-geo-alt-fill" viewBox="0 0 16 16">
       <path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6z"/>
     </svg></div>
@@ -131,7 +131,9 @@ Resumen de la compra
     <form method="post">
 
     <label> Calle o direccion </label>
-  
+
+    <br>
+
     <div class="">
     <a href="#" class="btn btn-next width-50 ml-auto">Siguiente</a>
   </div>
@@ -142,17 +144,17 @@ Resumen de la compra
 
   <div class="tab-pane fade " id="pills-retiro" role="tabpanel" aria-labelledby="pills-retiro-tab"
     tabindex="0">
-    
+
     <h5> Horarios: 08:00 - 22:00 Lunes a Sabados </h5>
 
 
-    <div class="text-center"> 
+    <div class="text-center">
     <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3331.19133595375!2d-56.50789268480211!3d-33.39217208079059!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95a6c1ada36e59bf%3A0x9695eb4025ba7978!2sSupermercado%20Largacha!5e0!3m2!1ses!2suy!4v1666899217872!5m2!1ses!2suy" width="450" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
     </div>
     <br>
 
 
-      
+
 
     <p> Persona que retira:  </p>
 
@@ -166,31 +168,27 @@ Resumen de la compra
 <!-- fin Envio y Retiro-->
 
 
-   
+
   </div>
- 
- 
+
+
   <div class="form-step">
     <div class="input-group">
 
-   
 
 
-<?php
-
-include_once 'TarjetaForm.php';
-
-?>
-
-      
-
-
-
-      
-    </div>
+    <?php
     
-    <div class="btns-group" style=" position: relative !important;
-        left: 40px;">
+    include_once('TarjetaForm.php');    
+    ?>
+
+
+
+
+
+    </div>
+
+    <div class="btns-group" >
       <a href="#" class="btn btn-prev">Volver</a>
       <a href="#" class="btn btn-next">Siguiente</a>
     </div>
@@ -208,13 +206,13 @@ include_once 'TarjetaForm.php';
 
 
 
-  <div class="col"> 
+  <div class="col">
   <h5> Producto: </h5>
   <?php
  if(isset($_SESSION['MostrarCarrito'])){
 
   for($i = 0; $i <count($_SESSION['MostrarCarrito']); $i++){
-  
+
   echo "<p>".$_SESSION['MostrarCarrito'][$i]['Nombre']." x ".$_SESSION['MostrarCarrito'][$i]['Cantidad']." </p>";
 
 
@@ -225,8 +223,8 @@ include_once 'TarjetaForm.php';
 
 ?>
   <h5> Total: </h5>
-  
- 
+
+
 
   </div>
 
@@ -234,7 +232,7 @@ include_once 'TarjetaForm.php';
 
 
 
-  <div class="col"> 
+  <div class="col">
   <h5> Precio: </h5>
   <?php
 
@@ -259,12 +257,11 @@ echo "<p> ".$_SESSION['MostrarCarrito'][$i]['Precio']."</p>";
 
 
     </div>
-    
+
   </div>
 
-   
-    <div class="btns-group" style=" position: relative !important;
-        left: 40px;">
+
+    <div class="btns-group" >
       <a href="#" class="btn btn-prev">Volver</a>
       <button class="btn btn-submit"  onclick="FinalizarCompra()" name="confirmarCompra"> FinalizarCompra</button>
      <div style="display:none;" id="sessiongetusuario">
@@ -272,7 +269,8 @@ echo "<p> ".$_SESSION['MostrarCarrito'][$i]['Precio']."</p>";
     echo $_SESSION['CLIENTE']->getUsuario();
     ?>
     </div>
-  </div>
+
+
   </div>
 </form>
         <br>
@@ -287,7 +285,7 @@ echo "<p> ".$_SESSION['MostrarCarrito'][$i]['Precio']."</p>";
 <?php
 
  if(isset($_SESSION['MostrarCarrito'])){
-        
+
   echo    " <div class='row g-0 ' >";
 
 
@@ -303,14 +301,19 @@ echo "<p> ".$_SESSION['MostrarCarrito'][$i]['Precio']."</p>";
       echo    "<h6 class='card-title'>Cantidad:".$_SESSION['MostrarCarrito'][$i]['Cantidad']." </h6>";
       echo    "<h6 class='card-title' name=''>Precio $".$_SESSION['MostrarCarrito'][$i]['Precio']."</h6>";
       echo    "<h6 class='card-title' name='preciocard'>Total $".$_SESSION['MostrarCarrito'][$i]['Precio']*$_SESSION['MostrarCarrito'][$i]['Cantidad']."</h6>";
-      
+
       echo    "</div>";
       echo    "</div>";
        echo    "</div>";
 
   }
-}
-?>
+}else{
+      echo "<img src='https://enigma.uy/img/mini-empty-cart.png' height='150px'>";
+  }
+
+      echo    "</div>";
+      ?>
+
 <!-- style="border: 1px solid rgba(0,0,0,.125);" -->
 
 </div>
@@ -322,7 +325,7 @@ echo "<p> ".$_SESSION['MostrarCarrito'][$i]['Precio']."</p>";
 
   <br>
 
-  <div class="row row-precio">
+  <!-- <div class="row row-precio">
       <div class="col">
         <h5>Precio total: </h5>
 
@@ -332,29 +335,29 @@ echo "<p> ".$_SESSION['MostrarCarrito'][$i]['Precio']."</p>";
             if(count($_SESSION['MostrarCarrito'])==0){
             echo "<div id='mostrarprecio-div' style='display: none;'>";
 
-            
-           echo " </div>";
-            
-            }elseif(count($_SESSION['MostrarCarrito'])>0) {
-                
 
-              
-      echo "<div id='mostrarprecio-div2'>"; 
+           echo " </div>";
+
+            }elseif(count($_SESSION['MostrarCarrito'])>0) {
+
+
+
+      echo "<div id='mostrarprecio-div2'>";
       echo "</div>";
 
-             
+
 
             }
             ?>
 
 
-</div>
+</div> -->
 
 </div>
 
   </div>
 
-  
+
 
 
   </div>
