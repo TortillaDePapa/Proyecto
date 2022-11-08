@@ -301,8 +301,13 @@ echo "<p> ".$_SESSION['MostrarCarrito'][$i]['Precio']."</p>";
        echo    "</div>";
 
   }
-}
-?>
+}else{
+      echo "<img src='https://enigma.uy/img/mini-empty-cart.png' height='150px'>";
+  }
+
+      echo    "</div>";
+      ?>
+
 <!-- style="border: 1px solid rgba(0,0,0,.125);" -->
 
 </div>
