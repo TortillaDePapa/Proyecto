@@ -9,7 +9,7 @@
 
 <body>
     <style>
-        .demo-container {
+        /* .demo-container {
             width: 100%;
             max-width: 350px;
             margin: 50px auto;
@@ -23,18 +23,16 @@
             width: 200px;
             margin: 10px auto;
             display: block;
-        }
+        } */
     </style>
     <div class="demo-container">
         <div class="card-wrapper"></div>
 
         <div class="form-container active">
-            <form action="">
                 <input placeholder="Card number" type="tel" name="number">
                 <input placeholder="Full name" type="text" name="name">
                 <input placeholder="MM/YY" type="tel" name="expiry">
                 <input placeholder="CVC" type="number" name="cvc">
-            </form>
         </div>
     </div>
 
