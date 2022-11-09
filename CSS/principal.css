@@ -15,11 +15,16 @@ body{
       padding-bottom: 50px;
   
   }
+
+  .btn-footer{
+    width: 200px !important;
+
+  }
   
   .btn{
            
       border-radius: 50px !important;
-      width: 200px;
+      width: 80%;
   }
   
   
