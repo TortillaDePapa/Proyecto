@@ -341,15 +341,7 @@ echo "<p> ".$_SESSION['MostrarCarrito'][$i]['Precio']."</p>";
 
 
 <script>
- function Cerrar() {
-        var obAjax = new XMLHttpRequest();
-        obAjax.open('POST', 'Persistencia/Control.php', true);
-        obAjax.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-        obAjax.onreadystatechange = function() {
-            window.location.reload();
-        }
-        obAjax.send('Cerrar');
-    }
+
 
     function FinalizarCompra() {
         var obAjax = new XMLHttpRequest();

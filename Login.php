@@ -33,7 +33,6 @@ include_once 'Clases/ClaseUsuario.php';
                                 Contraseña
                             </label> 
                 </div>
-                <div class="contraseña" ><a href="Reactivar.php">¿Quieres reactivar tu cuenta?</a> </div>
                 <input type="Submit" value="Iniciar" name="Login">
                 <div class="Registro"> 
                 <a href="Registro.php">  ¿No tienes cuenta?  </a>
