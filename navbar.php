@@ -110,7 +110,15 @@
     </nav>
 
     <script>
-
+ function Cerrar() {
+        var obAjax = new XMLHttpRequest();
+        obAjax.open('POST', 'Persistencia/Control.php', true);
+        obAjax.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+        obAjax.onreadystatechange = function() {
+            window.location.reload();
+        }
+        obAjax.send('Cerrar');
+    }
 var precio = document.getElementsByName('preciocard');
    var preciof = 0;
    
