@@ -34,10 +34,17 @@
                             Categorias <i class="bi bi-list"></i>
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item" href="#">Limpieza</a> </li>
-                            <!-- <li><hr class="dropdown-divider"></li> -->
-                            <li><a class="dropdown-item" href="#">Hogar</a></li>
-                            <li><a class="dropdown-item" href="#">Carniceria</a></li>
+                            <?php
+                                $p = new ProductoBD();
+                                $ListarCategorias = $p -> ObtenerCategorias();
+                                   
+                                    for($i = 1; $i < count($ListarCategorias); $i++){
+
+                                        echo "<li><a class='dropdown-item' href='#'> ".$ListarCategorias[$i] -> getCategoria()."</a> </li>";
+
+                                    }
+                           
+                            ?>
                         </ul>
                     </li>
                 </ul>
