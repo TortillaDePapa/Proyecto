@@ -3,18 +3,23 @@ margin: 0;
 padding: 0;
 font-family: Georgia, 'Times New Roman', Times, serif;
 background: #212529;
-height: 100vh;
-overflow: hidden;
+
 }
 
 .Centrar {
 position: absolute;
-top: 50%;
-left: 50%;
-transform: translate(-50%, -50%);
 width: 400px;
 background: white;
 border-radius: 10px;
+
+
+}
+.container{
+    flex-direction: column;
+    align-items: center;
+    margin: 0 auto;
+    display: flex;
+
 }
 
 .Centrar h1 {
@@ -25,7 +30,7 @@ border-bottom: 1px solid silver;
 
 .Centrar form{
 padding: 0 40px;
-box-sizing: border-box;
+/* box-sizing: border-box; */
 }
 
 form .texto{

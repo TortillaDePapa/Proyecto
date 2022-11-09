@@ -12,10 +12,14 @@ include_once 'Clases/ClasePersona.php';
     <title>Document</title>
 </head>
 <body>
+
+<div class="container">
+        
     <div class="Centrar">
-        <h1>Registro</h1>
             <form action="Registro.php" method="post" autocomplete="off">
+            <h1>Registro</h1>
                 <div class="texto"> <input type="text" required name="usuario"> 
+                
                     <span>
 
                     </span> <label>
@@ -86,7 +90,10 @@ include_once 'Clases/ClasePersona.php';
                 </div>
               
             </form>
-    </div>
+          
+        </div>
+        </div>
+
     
 </body>
 <?php

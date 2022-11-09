@@ -16,9 +16,7 @@
         }
         .card-wrapper{
 
-            position: relative;
-            /* right: 12px; */
-            right: 4%;
+          
         }
         /* form-container{
 
