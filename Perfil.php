@@ -162,7 +162,7 @@ if(!isset($_SESSION['CLIENTE'])){
             echo "  <a  href='#recibo' data-toggle='modal' data-target='#recibo'>  <td> 1 </td> </a>";
             echo "     <td> 20/25/22 </td>";
             echo "     <td>$1250 </td>";
-            echo "     <td> <button type='button' class='btn btn-danger' style='width: 20%; border-radius: 5px !important;' data-bs-toggle='modal' data-bs-target='#recibo'>
+            echo "     <td> <button type='button' class='btn btn-danger'  data-bs-toggle='modal' data-bs-target='#recibo'>
             <i class='bi bi-eye-fill'></i>   </button>";
             echo "</td>";
 

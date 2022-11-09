@@ -34,7 +34,7 @@ if(isset($_POST['buscar'])){
      echo "         <button class='btn' style='width: 60px !important; border-radius: 20px !important; background: rgb(158, 158, 158);' id='myBtn2' name='myBtn2' onclick=\"spanCantidad('mas',".$ListarProductos[$i] -> getIDProducto().")\">+</button>";
      echo "       </div>";
      //  echo "        <p class='card-text'>  ".$ListarProductos[$i] -> getDescripcion()." </p>";
-     echo "          <button class='btn btn-primary btn-dark bg-dark' onclick='MostrarCarrito(\"".$ListarProductos[$i] -> getIDProducto()."\",\"".$ListarProductos[$i] -> getPrecio()."\")'><i class='icon bi-cart3'></i> </button>";
+     echo "          <button class='btn btn-carrito-card btn-primary btn-dark bg-dark' onclick='MostrarCarrito(\"".$ListarProductos[$i] -> getIDProducto()."\",\"".$ListarProductos[$i] -> getPrecio()."\")'><i class='icon bi-cart3'></i> </button>";
      echo "       </div >";
     
      echo "       </div>";
