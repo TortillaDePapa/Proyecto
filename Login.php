@@ -14,6 +14,8 @@ include_once 'Clases/ClaseUsuario.php';
     <title>Document</title>
 </head>
 <body class="body-dark bg-dark">
+
+<div class="container-login">
     <div class="Centrar" >
         <h1>
             Login
@@ -35,13 +37,15 @@ include_once 'Clases/ClaseUsuario.php';
                 </div>
                 <input type="Submit" value="Iniciar" name="Login">
                 <div class="Registro"> 
-                <a href="Registro.php">  ¿No tienes cuenta?  </a>
+                <div> <a href="Registro.php">  ¿No tienes cuenta?  </a>  </div>
+                <div><a href="Reactivar.php">¿Quieres reactivar tu cuenta?</a>   </div>
+
                 </div>
                 
             </form>
 
 </div>
-
+</div>
 <?php
 
  if(isset($_POST['Login'])){

@@ -84,15 +84,15 @@ include_once 'Clases/ClasePersona.php';
                 </div>
                 <input type="submit" value="Registrarse" name="registrar">
                 <div class="Registro"> 
-                <div class="contraseña" ><a href="Reactivar.php">¿Quieres reactivar tu cuenta?</a> </div>
-                <a href="Login.php">  ¿Ya tiene una cuenta?  </a> 
+                <div> <a href="Reactivar.php">¿Quieres recuperar tu cuenta?</a> </div>
+               <div> <a href="Login.php">  ¿Ya tiene una cuenta?  </a>  </div>
                 
                 </div>
               
             </form>
           
         </div>
-        </div>
+      </div>
 
     
 </body>

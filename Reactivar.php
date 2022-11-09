@@ -14,9 +14,10 @@ include_once 'Clases/ClaseUsuario.php';
     <title>Document</title>
 </head>
 <body class="body-dark bg-dark">
+    <div class="container-login">
     <div class="Centrar" >
         <h1>
-            Reactivar cuenta 
+            Recuperar cuenta 
         </h1>
             <form action="" method="post" autocomplete="off">
                 <div class="texto"> <input type="text" name="usuario" required> 
@@ -33,14 +34,14 @@ include_once 'Clases/ClaseUsuario.php';
                                 Contraseña
                             </label> 
                 </div>
-                <div class="contraseña" ><a href="Reactivar.php">¿Quieres reactivar tu cuenta?</a> </div>
                 <input type="Submit" value="Reactivar" name="Reactivar">
                 <div class="Registro"> 
-                <a href="Login.php">   ¿Ya reactivaste la cuenta? </a>
+                <a href="Login.php">   ¿Ya recuperaste la cuenta? </a>
                 </div>
                 
             </form>
 
+</div>
 </div>
 
 <?php
