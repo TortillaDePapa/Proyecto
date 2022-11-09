@@ -48,7 +48,7 @@ if (session_status() == PHP_SESSION_NONE){
 
         }
         }  else{
-            echo "<img src='https://editorialparalelo28.es/images/cartEmpty.png' alt='https://editorialparalelo28.es/images/cartEmpty.png' height='250px'>";
+            echo "<img class='img-carrito' src='https://editorialparalelo28.es/images/cartEmpty.png' alt='https://editorialparalelo28.es/images/cartEmpty.png' height='250px'>";
         }
 
             echo    "</div>";

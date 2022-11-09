@@ -22,5 +22,10 @@
       position: relative !important;
         left: 70px;
 }
+  .img-carrito{
+    position: relative;
+    left: 15%;
+    top: 10%;
+}
   
   
