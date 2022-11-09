@@ -75,7 +75,7 @@ Resumen de la compra
 
 
     <div class="row">
-    <div class="col-7">
+    <div class="col-sm-1 col-md-6">
     <form action="#" class="form pasos">
 
 
@@ -275,17 +275,18 @@ echo "<p> ".$_SESSION['MostrarCarrito'][$i]['Precio']."</p>";
 
 </div>
 </form>
-      <br>
+ 
 
 </div>
 
       
-
+<br>
 
   </div>
-
   
-  <div class="col-5 ">
+  <br>
+  
+  <div class="col-sm-1 col-md-6">
       <div class="d-flex r-compra">
 
       <?php
