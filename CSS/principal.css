@@ -119,9 +119,9 @@ body{
   border: 2px solid #f1f2f3;
 }
 
-.bi-eye-fill{
+.btn-visualizar{
 
-  position: relative !important;
-  right: 5px !important;
+
+  border-radius: 20px !important;
 
 }

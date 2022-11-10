@@ -159,12 +159,11 @@ if(!isset($_SESSION['CLIENTE'])){
             
 
             
-            echo "  <a  href='#recibo' data-toggle='modal' data-target='#recibo'>  <td> 1 </td> </a>";
+            echo "     <td> 1 </td>";
             echo "     <td> 20/25/22 </td>";
             echo "     <td>$1250 </td>";
-            echo "     <td> <button type='button' class='btn btn-danger'  data-bs-toggle='modal' data-bs-target='#recibo'>
-            <i class='bi bi-eye-fill'></i>   </button>";
-            echo "</td>";
+            echo "     <td> <button type='button' class='btn-danger btn-visualizar'  data-bs-toggle='modal' data-bs-target='#recibo'> <i class='bi bi-eye-fill'></i>   </button>";
+            echo "      </td>";
 
             echo "    </tr>";
             
