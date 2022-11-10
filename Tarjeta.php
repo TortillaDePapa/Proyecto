@@ -130,10 +130,16 @@ Resumen de la compra
 
   <hr>
 
-  <form method="post">
+ 
 
-  <label> Calle o direccion </label>
+  <?php
+  
+  echo "<i class='bi bi-house-fill'></i> <input style='padding: 0px; display: inline; width: 50%;'  placeholder='".$_SESSION['CLIENTE'] -> getNombreCalle()."  ".$_SESSION['CLIENTE'] -> getNumeroCasa()."'>";
+  ?>
 
+
+  <br>
+  
   <br>
 
   <div class="">
@@ -150,16 +156,18 @@ Resumen de la compra
   <h5> Horarios: 08:00 - 22:00 Lunes a Sabados </h5>
 
 
-  <div class="text-center">
+  <div class="text-center map-responsive">
   <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3331.19133595375!2d-56.50789268480211!3d-33.39217208079059!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95a6c1ada36e59bf%3A0x9695eb4025ba7978!2sSupermercado%20Largacha!5e0!3m2!1ses!2suy!4v1666899217872!5m2!1ses!2suy" width="450" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
   </div>
   <br>
 
 
 
-
-  <p> Persona que retira:  </p>
-
+<?php
+  echo " <h5> Persona que retira: </h5> ";
+  echo "<i class='bi bi-person-bounding-box'> </i> <input style='padding: 0px; display: inline; width: 50%;' id='nombreCambiar' placeholder='".$_SESSION['CLIENTE'] -> getNombre()."'>";
+  ?>
+  <hr>
   <div class="">
   <a href="#" class="btn btn-next width-50 ml-auto">Siguiente</a>
 </div>
@@ -274,7 +282,7 @@ echo "<p> ".$_SESSION['MostrarCarrito'][$i]['Precio']."</p>";
 
 
 </div>
-</form>
+
  
 
 </div>
@@ -286,7 +294,8 @@ echo "<p> ".$_SESSION['MostrarCarrito'][$i]['Precio']."</p>";
   
   <br>
   
-  <div class="col-sm-1 col-md-6">
+  
+  <div class="col-sm-1 col-md-5">
       <div class="d-flex r-compra">
 
       <?php
@@ -336,7 +345,12 @@ echo "<p> ".$_SESSION['MostrarCarrito'][$i]['Precio']."</p>";
 
   <br>
 
+</form>
+
 </div>
+
+
+  </div>
 
 
 

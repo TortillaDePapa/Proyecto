@@ -14,7 +14,7 @@
 
 <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
         <div class="container-fluid">
-            <a class="navbar-brand" href="index.php"> Auto
+            <a class="navbar-brand" href="index.php" style="position: relative; top: 4px;"> Auto
 <img src="https://cdn-icons-png.flaticon.com/512/3361/3361585.png" width="40" height="40">Servicio
 
             </a>

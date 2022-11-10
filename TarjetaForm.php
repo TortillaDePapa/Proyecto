@@ -5,6 +5,8 @@
     <title>Card &ndash; the better way to collect credit cards</title>
     <meta name="viewport" content="initial-scale=1">
     <!-- CSS is included through the card.js script -->
+
+    
 </head>
 
 <body>
@@ -18,11 +20,14 @@
 
           
         }
-        /* form-container{
+        .input-tarjeta{
 
-          
+        display: inline;
+        margin: 2px;
 
-        } */
+        }
+
+      
 
     </style>
     <div class="demo-container">
@@ -31,10 +36,15 @@
         <br>
 
         <div class="form-container active">
-                <input placeholder="Card number" type="tel" name="number">
-                <input placeholder="Full name" type="text" name="name">
-                <input placeholder="MM/YY" type="tel" name="expiry">
-                <input placeholder="CVC" type="number" name="cvc">
+                <input class="input-tarjeta" style="width: 99%;" placeholder="Numero de tarjeta" type="tel" name="number">
+                <input class="input-tarjeta" style="width: 99%;" placeholder="Nombre titular" type="text" maxlength="25" name="name">
+                <input class="input-tarjeta" style="width: 57%;" type="month" name="expiry"  value="">
+
+
+                <!-- <input class="input-tarjeta" style="width: 57%;" placeholder="MM/YY" type="tel" name="expiry"> -->
+                <input class="input-tarjeta" style="width: 40.5%;" placeholder="CVC" type="number" name="cvc">
+                
+        
         </div>
     </div>
 
@@ -46,6 +56,13 @@
             form: document.querySelector('form'),
             container: '.card-wrapper'
         });
+
+
+        var fecha = document.createElement("input");
+       fecha.setAttribute("type","number");
+       fecha.setAttribute("max",100);
+       fecha.setAttribute("min",2);
+
     </script>
 </body>
 
