@@ -76,7 +76,7 @@ Resumen de la compra
 
     <div class="row">
     <div class="col-sm-1 col-md-6">
-    <form action="#" class="form pasos">
+    <form action="index.php" class="form pasos" method="post">
 
 
 
@@ -185,13 +185,65 @@ Resumen de la compra
 <div class="form-step">
   <div class="input-group">
 
-
+  
 
   <?php
   
-  include_once('TarjetaForm.php');    
+  // include_once('TarjetaForm.php');    
   ?>
 
+
+
+
+<style>
+        .demo-container {
+            width: 100%;
+            max-width: 100%;
+            margin:  auto;
+        }
+
+        .input-tarjeta{
+        display: inline;
+        margin: 2px;
+        }
+
+      
+
+    </style>
+    <div class="demo-container">
+        <div class="card-wrapper" ></div>
+
+        <br>
+
+        <div class="form-container active">
+                <input class="input-tarjeta" style="width: 99%;" placeholder="Numero de tarjeta" type="tel" name="number">
+                <input class="input-tarjeta" style="width: 99%;" placeholder="Nombre titular" type="text" maxlength="25" name="name">
+                <input class="input-tarjeta" style="width: 57%;" type="month" name="expiry"  value="">
+
+
+                <!-- <input class="input-tarjeta" style="width: 57%;" placeholder="MM/YY" type="tel" name="expiry"> -->
+                <input class="input-tarjeta" style="width: 40.5%;" placeholder="CVC" type="number" name="cvc">
+                
+        
+        </div>
+    </div>
+
+    <script src="http://localhost/xampp/proyecto/proyecto/Tarjeta.js/card.js"></script>
+
+    <!-- <script src="http://localhost/Proyecto/Tarjeta.js/card.js"></script> -->
+    <script>
+        var c = new Card({
+            form: document.querySelector('form'),
+            container: '.card-wrapper'
+        });
+
+
+        var fecha = document.createElement("input");
+       fecha.setAttribute("type","number");
+       fecha.setAttribute("max",100);
+       fecha.setAttribute("min",2);
+
+    </script>
 
 
 
@@ -273,7 +325,7 @@ echo "<p> ".$_SESSION['MostrarCarrito'][$i]['Precio']."</p>";
 
   <div class="btns-group" >
     <a href="#" class="btn btn-prev">Volver</a>
-    <button class="btn btn-submit"  onclick="FinalizarCompra()" name="confirmarCompra"> FinalizarCompra</button>
+    <button class="btn btn-submit"  onclick="FinalizarCompra()" name="confirmarCompra"> Finalizar compra</button>
    <div style="display:none;" id="sessiongetusuario">
    <?php
   echo $_SESSION['CLIENTE']->getUsuario();
@@ -370,7 +422,7 @@ echo "<p> ".$_SESSION['MostrarCarrito'][$i]['Precio']."</p>";
 
 }
 
-    const prevBtns = document.querySelectorAll(".btn-prev");
+const prevBtns = document.querySelectorAll(".btn-prev");
 const nextBtns = document.querySelectorAll(".btn-next");
 const progress = document.getElementById("progress");
 const formSteps = document.querySelectorAll(".form-step");
