@@ -76,7 +76,7 @@ Resumen de la compra
 
     <div class="row">
     <div class="col-sm-1 col-md-6">
-    <form action="index.php" class="form pasos" method="post">
+    <form action="" class="form pasos" method="POST">
 
 
 
@@ -228,9 +228,9 @@ Resumen de la compra
         </div>
     </div>
 
-    <script src="http://localhost/xampp/proyecto/proyecto/Tarjeta.js/card.js"></script>
+    <!-- <script src="http://localhost/xampp/proyecto/proyecto/Tarjeta.js/card.js"></script> -->
 
-    <!-- <script src="http://localhost/Proyecto/Tarjeta.js/card.js"></script> -->
+    <script src="http://localhost/Proyecto/Tarjeta.js/card.js"></script>
     <script>
         var c = new Card({
             form: document.querySelector('form'),
@@ -321,16 +321,16 @@ echo "<p> ".$_SESSION['MostrarCarrito'][$i]['Precio']."</p>";
   </div>
 
 </div>
-
-
+ <div style="display:none;" id="sessiongetusuario">
+ <?php
+  echo $_SESSION['CLIENTE'] -> getIDPersona();
+  ?>
+  </div>
   <div class="btns-group" >
     <a href="#" class="btn btn-prev">Volver</a>
     <button class="btn btn-submit"  onclick="FinalizarCompra()" name="confirmarCompra"> Finalizar compra</button>
-   <div style="display:none;" id="sessiongetusuario">
-   <?php
-  echo $_SESSION['CLIENTE']->getUsuario();
-  ?>
-  </div>
+  
+  
 
 
 </div>
@@ -415,10 +415,9 @@ echo "<p> ".$_SESSION['MostrarCarrito'][$i]['Precio']."</p>";
         obAjax.open('POST', 'Persistencia/ControlCompra.php', true);
         obAjax.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
         obAjax.onreadystatechange = function() {
-        //  window.location.reload();
          console.log(this.responseText);
         }
-        obAjax.send('FinalizarCompra='+''+'&usuarioo='+document.getElementById('sessiongetusuario'));
+        obAjax.send('FinalizarCompra='+''+'&usuario='+document.getElementById('sessiongetusuario').innerHTML);
 
 }
 
@@ -471,7 +470,7 @@ function updateProgressbar() {
 }
 document.getElementById('mostrarprecio-div1').innerHTML = '$'+preciof;
 document.getElementById('mostrarprecio-div').innerHTML = '$'+preciof;
-document.getElementById('mostrarprecio-div2').innerHTML = '$'+preciof;
+// document.getElementById('mostrarprecio-div2').innerHTML = '$'+preciof;
 
 
 
