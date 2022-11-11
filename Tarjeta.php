@@ -417,7 +417,7 @@ echo "<p> ".$_SESSION['MostrarCarrito'][$i]['Precio']."</p>";
         obAjax.onreadystatechange = function() {
          console.log(this.responseText);
         }
-        obAjax.send('FinalizarCompra='+''+'&usuario='+document.getElementById('sessiongetusuario').innerHTML);
+        obAjax.send('FinalizarCompra='+''+'&usuario='+document.getElementById('sessiongetusuario').innerHTML+'&MetodoEnvio='+document.getElementById('').innerHTML+'&MetodoPago='+document.getElementById().innerHTML);
 
 }
 
