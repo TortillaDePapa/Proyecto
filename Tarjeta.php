@@ -228,9 +228,9 @@ Resumen de la compra
         </div>
     </div>
 
-    <!-- <script src="http://localhost/xampp/proyecto/proyecto/Tarjeta.js/card.js"></script> -->
+    <script src="http://localhost/xampp/proyecto/proyecto/Tarjeta.js/card.js"></script>
 
-    <script src="http://localhost/Proyecto/Tarjeta.js/card.js"></script>
+    <!-- <script src="http://localhost/Proyecto/Tarjeta.js/card.js"></script> -->
     <script>
         var c = new Card({
             form: document.querySelector('form'),
