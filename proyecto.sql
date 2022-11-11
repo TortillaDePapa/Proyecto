@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 24-08-2022 a las 14:20:39
+-- Tiempo de generación: 11-11-2022 a las 16:00:48
 -- Versión del servidor: 10.4.24-MariaDB
 -- Versión de PHP: 8.1.6
 
@@ -22,6 +22,20 @@ SET time_zone = "+00:00";
 --
 
 -- --------------------------------------------------------
+--
+-- Estructura de tabla para la tabla `selecciona`
+--
+
+CREATE TABLE `selecciona` (
+  `IDCliente` int(11) NOT NULL,
+  `IDProducto` int(11) NOT NULL,
+  `CantidadProducto` tinyint(4) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+
+
+
+-- --------------------------------------------------------
 
 --
 -- Estructura de tabla para la tabla `categorias`
@@ -30,6 +44,25 @@ SET time_zone = "+00:00";
 CREATE TABLE `categorias` (
   `NombreCategoria` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `categorias`
+--
+
+INSERT INTO `categorias` (`NombreCategoria`) VALUES
+('Bebidas'),
+('Carne'),
+('Congelados'),
+('Electrodomesticos'),
+('Fruteria'),
+('Hogar y Bazar'),
+('Jugeteria'),
+('Limpieza'),
+('Mascotas'),
+('Pastas'),
+('Perfumeria'),
+('Ropa'),
+('Verduleria');
 
 -- --------------------------------------------------------
 
@@ -43,6 +76,11 @@ CREATE TABLE `clientes` (
   `Calle` varchar(30) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Volcado de datos para la tabla `clientes`
+--
+
+
 -- --------------------------------------------------------
 
 --
@@ -54,10 +92,12 @@ CREATE TABLE `compras` (
   `IDCliente` int(11) DEFAULT NULL,
   `IDProducto` int(11) DEFAULT NULL,
   `Fecha` date DEFAULT NULL,
-  `Total` float DEFAULT NULL
+  `Total` float DEFAULT NULL,
+  `MetodoDePago` varchar(30) NOT NULL,
+  `MetodoEnvio` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
-
+-- --------------------------------------------------------
 
 --
 -- Estructura de tabla para la tabla `envios`
@@ -69,7 +109,8 @@ CREATE TABLE `envios` (
   `IDCompra` int(11) DEFAULT NULL,
   `IDUsuario` int(11) DEFAULT NULL,
   `IDCliente` int(11) DEFAULT NULL,
-  `IDProducto` int(11) DEFAULT NULL
+  `IDProducto` int(11) DEFAULT NULL,
+  `Estado` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -87,6 +128,7 @@ CREATE TABLE `personas` (
   `Nombre` varchar(30) DEFAULT NULL,
   `Gmail` varchar(40) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
 
 -- --------------------------------------------------------
 
@@ -107,6 +149,9 @@ CREATE TABLE `productos` (
   `Descripcion` varchar(200) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+
+
+
 -- --------------------------------------------------------
 
 --
@@ -116,21 +161,16 @@ CREATE TABLE `productos` (
 CREATE TABLE `proveedores` (
   `IDProveedor` int(11) NOT NULL,
   `Nombre` varchar(30) DEFAULT NULL,
-  `Gmail` varchar(40) DEFAULT NULL
+  `Gmail` varchar(40) DEFAULT NULL,
+  `Estado` tinyint(1) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+
+
 
 -- --------------------------------------------------------
 
---
--- Estructura de tabla para la tabla `selecciona`
---
 
-CREATE TABLE `selecciona` (
-  `IDCliente` int(11) NOT NULL,
-  `IDProducto` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
--- --------------------------------------------------------
 
 --
 -- Estructura de tabla para la tabla `suministra`
@@ -152,6 +192,9 @@ CREATE TABLE `telefonoclientes` (
   `Numero` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+
+
+
 -- --------------------------------------------------------
 
 --
@@ -163,6 +206,9 @@ CREATE TABLE `telefonoproveedores` (
   `Numero` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+
+
+
 -- --------------------------------------------------------
 
 --
@@ -173,9 +219,10 @@ CREATE TABLE `usuario` (
   `IDUsuario` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
---
--- Índices para tablas volcadas
---
+
+
+
+
 
 --
 -- Indices de la tabla `categorias`
@@ -197,8 +244,6 @@ ALTER TABLE `compras`
   ADD KEY `IDCliente` (`IDCliente`),
   ADD KEY `IDProducto` (`IDProducto`);
 
-
-
 --
 -- Indices de la tabla `envios`
 --
@@ -208,6 +253,19 @@ ALTER TABLE `envios`
   ADD KEY `IDUsuario` (`IDUsuario`),
   ADD KEY `IDCliente` (`IDCliente`),
   ADD KEY `IDProducto` (`IDProducto`);
+
+--
+-- Indices de la tabla `selecciona`
+--
+ALTER TABLE `selecciona`
+  ADD PRIMARY KEY (`IDCliente`),
+  ADD PRIMARY KEY (`IDProducto`);
+
+--
+-- Indices de la tabla `compras`
+--
+ALTER TABLE `compras`
+  ADD PRIMARY KEY (`IDcompra`);
 
 --
 -- Indices de la tabla `personas`
@@ -233,7 +291,6 @@ ALTER TABLE `proveedores`
 -- Indices de la tabla `selecciona`
 --
 ALTER TABLE `selecciona`
-  ADD PRIMARY KEY (`IDCliente`,`IDProducto`),
   ADD KEY `IDProducto` (`IDProducto`);
 
 --
@@ -264,11 +321,12 @@ ALTER TABLE `usuario`
 --
 -- AUTO_INCREMENT de las tablas volcadas
 --
+
 --
 -- AUTO_INCREMENT de la tabla `compras`
 --
 ALTER TABLE `compras`
-  MODIFY `IDCompra` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `IDCompra` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `envios`
@@ -280,22 +338,19 @@ ALTER TABLE `envios`
 -- AUTO_INCREMENT de la tabla `personas`
 --
 ALTER TABLE `personas`
-  MODIFY `IDPersona` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `IDPersona` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `productos`
 --
 ALTER TABLE `productos`
-  MODIFY `IDProducto` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `IDProducto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `proveedores`
 --
 ALTER TABLE `proveedores`
-  MODIFY `IDProveedor` int(11) NOT NULL AUTO_INCREMENT;
-
---
-
+  MODIFY `IDProveedor` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT;
 
 --
 -- Restricciones para tablas volcadas
@@ -328,13 +383,6 @@ ALTER TABLE `envios`
 --
 ALTER TABLE `productos`
   ADD CONSTRAINT `productos_ibfk_1` FOREIGN KEY (`NombreCategoria`) REFERENCES `categorias` (`NombreCategoria`);
-
---
--- Filtros para la tabla `selecciona`
---
-ALTER TABLE `selecciona`
-  ADD CONSTRAINT `selecciona_ibfk_1` FOREIGN KEY (`IDCliente`) REFERENCES `clientes` (`IDCliente`),
-  ADD CONSTRAINT `selecciona_ibfk_2` FOREIGN KEY (`IDProducto`) REFERENCES `productos` (`IDProducto`);
 
 --
 -- Filtros para la tabla `suministra`
