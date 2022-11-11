@@ -189,18 +189,15 @@ Resumen de la compra
 
   <div class="accordion accordion-flush" id="accordionFlushExample">
 
-    <div class="row">
-      <div class="col">
+  
   <div class="form-check">
   <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" data-bs-target="#efectivo1" aria-expanded="false" aria-controls="efectivo1" data-bs-toggle="collapse">
   <label class="form-check-label" for="flexRadioDefault1">
     Efectivo
   </label>
 </div>
-</div>
 
 
-    <div class="col">
 <div class="form-check">
   <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" 
   data-bs-toggle="collapse" data-bs-target="#tarjeta2" aria-expanded="false" aria-controls="tarjeta2" >
@@ -208,8 +205,6 @@ Resumen de la compra
     Tarjeta de credito
   </label>
   </div>
-</div>
-</div>
 
 
 
@@ -217,7 +212,7 @@ Resumen de la compra
         <div class="accordion-body">
 
 
-
+<p> </p>
       
        
 
