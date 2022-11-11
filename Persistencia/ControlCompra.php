@@ -7,7 +7,8 @@ if (session_status() == PHP_SESSION_NONE){
 
 if(isset($_POST['FinalizarCompra'])){
     date_default_timezone_set('America/Montevideo');
-
+    $envio = $_POST['MetodoEnvio'];
+    $metodoPago = $_POST['MetodoPago'];
     $newConn = new Conexion(); 
     $newConn -> Conectar();
     $sql = "SELECT idpersona FROM personas WHERE idpersona = '".$_POST['usuario']."'" ;

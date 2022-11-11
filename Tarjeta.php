@@ -411,14 +411,28 @@ echo "<p> ".$_SESSION['MostrarCarrito'][$i]['Precio']."</p>";
 
 
     function FinalizarCompra() {
+       const envio = 'Envio';
+         const  tarjeta = 'tarjeta';
         var obAjax = new XMLHttpRequest();
         obAjax.open('POST', 'Persistencia/ControlCompra.php', true);
         obAjax.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
         obAjax.onreadystatechange = function() {
          console.log(this.responseText);
         }
-        obAjax.send('FinalizarCompra='+''+'&usuario='+document.getElementById('sessiongetusuario').innerHTML+'&MetodoEnvio='+document.getElementById('').innerHTML+'&MetodoPago='+document.getElementById().innerHTML);
+        obAjax.send('FinalizarCompra='+''+'&usuario='+document.getElementById('sessiongetusuario').innerHTML+'&MetodoEnvio='+envio+'&MetodoPago='+tarjeta);
 
+      //   const retiro = document.getElementById('retiro').selected;
+      //   const envio = document.getElementById('envio').selected;
+      //   const  tarjeta = 'tarjeta';
+      //   if(envio == true){
+
+      //   obAjax.send('FinalizarCompra='+''+'&usuario='+document.getElementById('sessiongetusuario').innerHTML+'&MetodoEnvio='+envio+'&MetodoPago='+tarjeta);
+       
+      // }else if (retiro == true){
+
+      //   obAjax.send('FinalizarCompra='+''+'&usuario='+document.getElementById('sessiongetusuario').innerHTML+'&MetodoEnvio='+retiro+'&MetodoPago='+tarjeta);
+
+      //   }
 }
 
 const prevBtns = document.querySelectorAll(".btn-prev");
