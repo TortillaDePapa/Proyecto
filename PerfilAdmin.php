@@ -121,10 +121,6 @@ echo "  </div>";
 </div>
 
  
-
-
-
-  
 <!-- TABLA DE Pedidos -->
 
 
@@ -133,6 +129,9 @@ echo "  </div>";
   <?php
 echo "  <div class='row'>";
 echo "  <input class='form me-3 ' type='' placeholder='Buscar' aria-label='Search' onkeyup='' id='' style='width: 40%;'>";
+
+include_once 'TablaPedidosAdmin.php';
+
 echo "  </div>";
 
 ?>
