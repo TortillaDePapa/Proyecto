@@ -20,15 +20,22 @@ if(isset($_POST['FinalizarCompra'])){
         if(isset($_SESSION['MostrarCarrito'])){
             for($i = 0; $i <count($_SESSION['MostrarCarrito']); $i++){
                 $sql1  = "INSERT into selecciona(IDCliente,IDproducto,CantidadProducto) VALUES('".$fila['idpersona']."', '".$_SESSION['MostrarCarrito'][$i]['id']."', '".$_SESSION['MostrarCarrito'][$i]['Cantidad']."')";
-                $resultado = mysqli_query($newConn -> conn, $sql1);
-                if($resultado){
-                    $sql2 = "SELECT idcliente FROM suministra WHERE idpersona = '".$_POST['usuario']."'" ;
-                    $fechaActual = date('d-m-Y H:i:s');
-                    for($i = 0; $i <count($_SESSION['MostrarCarrito']); $i++){
-                        $sql1  = "INSERT into Compra(IDcompra,IDCliente,IDproducto,Fecha,Total,MetodoDePago,MetodoDeEnvio) VALUES('".$fila['idpersona']."', '".$_SESSION['MostrarCarrito'][$i]['id']."', ".$fechaActual.", '".$_SESSION['MostrarCarrito'][$i]['Precio']*$_SESSION['MostrarCarrito'][$i]['Cantidad']."')";
-                    }
+                $resultado1 = mysqli_query($newConn -> conn, $sql1);
+                 if($resultado1){
+                    $sql2 = "SELECT idcliente FROM selecciona WHERE idcliente = '".$_POST['usuario']."'" ;
+                    $resultado2 = mysqli_query($newConn -> conn, $sql2);
+                    $fila1 = mysqli_fetch_assoc($resultado2);
+                    $fechaActual = date('y-m-d H:i:s');
+                    echo $fila1['idcliente'];
+                    if($resultado2){
+                    $sql3  = "INSERT into Compras(IDCliente,IDproducto,Fecha,Total,MetodoDePago,MetodoEnvio) VALUES('".$fila1['idcliente']."', '".$_SESSION['MostrarCarrito'][$i]['id']."', '".$fechaActual."', '".$_SESSION['MostrarCarrito'][$i]['Precio']*$_SESSION['MostrarCarrito'][$i]['Cantidad']."','".$metodoPago."', '".$envio."')";
+                    $resultado3 = mysqli_query($newConn -> conn, $sql3);
+                    echo $resultado3;
+                    if($resultado3){
 
-                }
+                     }
+                    }
+                 }
             }
         }
        }

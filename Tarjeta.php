@@ -76,7 +76,7 @@ Resumen de la compra
 
     <div class="row">
     <div class="col-sm-1 col-md-6">
-    <form action="" class="form pasos" method="POST">
+    <div class="form pasos" >
 
 
 
@@ -133,8 +133,11 @@ Resumen de la compra
  
 
   <?php
-  
+  if(isset($_SESSION['CLIENTE'])){
   echo "<i class='bi bi-house-fill'></i> <input style='padding: 0px; display: inline; width: 50%;'  placeholder='".$_SESSION['CLIENTE'] -> getNombreCalle()."  ".$_SESSION['CLIENTE'] -> getNumeroCasa()."'>";
+  }else{
+    echo "<i class='bi bi-house-fill'></i> <input style='padding: 0px; display: inline; width: 50%;'  placeholder='Direccion'>";
+  }
   ?>
 
 
@@ -165,8 +168,12 @@ Resumen de la compra
 
 <?php
   echo " <h5> Persona que retira: </h5> ";
+  if(isset($_SESSION['CLIENTE'])){
   echo "<i class='bi bi-person-bounding-box'> </i> <input style='padding: 0px; display: inline; width: 50%;' id='nombreCambiar' placeholder='".$_SESSION['CLIENTE'] -> getNombre()."'>";
-  ?>
+  }else{
+    echo "<i class='bi bi-person-bounding-box'> </i> <input style='padding: 0px; display: inline; width: 50%;' placeholder='NombrePersona'>";
+  }
+ ?>
   <hr>
   <div class="">
   <a href="#" class="btn btn-next width-50 ml-auto">Siguiente</a>
@@ -397,7 +404,7 @@ echo "<p> ".$_SESSION['MostrarCarrito'][$i]['Precio']."</p>";
 
   <br>
 
-</form>
+</div>
 
 </div>
 
