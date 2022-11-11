@@ -22,6 +22,20 @@ SET time_zone = "+00:00";
 --
 
 -- --------------------------------------------------------
+--
+-- Estructura de tabla para la tabla `selecciona`
+--
+
+CREATE TABLE `selecciona` (
+  `IDCliente` int(11) NOT NULL,
+  `IDProducto` int(11) NOT NULL,
+  `CantidadProducto` tinyint(4) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+
+
+
+-- --------------------------------------------------------
 
 --
 -- Estructura de tabla para la tabla `categorias`
@@ -115,9 +129,6 @@ CREATE TABLE `personas` (
   `Gmail` varchar(40) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
---
--- Volcado de datos para la tabla `personas`
---
 
 -- --------------------------------------------------------
 
@@ -138,9 +149,7 @@ CREATE TABLE `productos` (
   `Descripcion` varchar(200) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
---
--- Volcado de datos para la tabla `productos`
---
+
 
 
 -- --------------------------------------------------------
@@ -156,30 +165,12 @@ CREATE TABLE `proveedores` (
   `Estado` tinyint(1) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
---
--- Volcado de datos para la tabla `proveedores`
---
 
 
 
 -- --------------------------------------------------------
 
---
--- Estructura de tabla para la tabla `selecciona`
---
 
-CREATE TABLE `selecciona` (
-  `IDCliente` int(11) NOT NULL,
-  `IDProducto` int(11) NOT NULL,
-  `CantidadProducto` tinyint(4) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Volcado de datos para la tabla `selecciona`
---
-
-
--- --------------------------------------------------------
 
 --
 -- Estructura de tabla para la tabla `suministra`
@@ -201,9 +192,7 @@ CREATE TABLE `telefonoclientes` (
   `Numero` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
---
--- Volcado de datos para la tabla `telefonoclientes`
---
+
 
 
 -- --------------------------------------------------------
@@ -217,9 +206,7 @@ CREATE TABLE `telefonoproveedores` (
   `Numero` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
---
--- Volcado de datos para la tabla `telefonoproveedores`
---
+
 
 
 -- --------------------------------------------------------
@@ -232,15 +219,10 @@ CREATE TABLE `usuario` (
   `IDUsuario` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
---
--- Volcado de datos para la tabla `usuario`
---
 
 
 
---
--- Índices para tablas volcadas
---
+
 
 --
 -- Indices de la tabla `categorias`
@@ -271,6 +253,19 @@ ALTER TABLE `envios`
   ADD KEY `IDUsuario` (`IDUsuario`),
   ADD KEY `IDCliente` (`IDCliente`),
   ADD KEY `IDProducto` (`IDProducto`);
+
+--
+-- Indices de la tabla `selecciona`
+--
+ALTER TABLE `selecciona`
+  ADD PRIMARY KEY (`IDCliente`),
+  ADD PRIMARY KEY (`IDProducto`);
+
+--
+-- Indices de la tabla `compras`
+--
+ALTER TABLE `compras`
+  ADD PRIMARY KEY (`IDcompra`);
 
 --
 -- Indices de la tabla `personas`
