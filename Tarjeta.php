@@ -185,17 +185,53 @@ Resumen de la compra
 <div class="form-step">
   <div class="input-group">
 
-  
-
-  <?php
-  
-  // include_once('TarjetaForm.php');    
-  ?>
 
 
+  <div class="accordion accordion-flush" id="accordionFlushExample">
+
+    <div class="row">
+      <div class="col">
+  <div class="form-check">
+  <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" data-bs-target="#efectivo1" aria-expanded="false" aria-controls="efectivo1" data-bs-toggle="collapse">
+  <label class="form-check-label" for="flexRadioDefault1">
+    Efectivo
+  </label>
+</div>
+</div>
 
 
-<style>
+    <div class="col">
+<div class="form-check">
+  <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" 
+  data-bs-toggle="collapse" data-bs-target="#tarjeta2" aria-expanded="false" aria-controls="tarjeta2" >
+  <label class="form-check-label" for="flexRadioDefault2">
+    Tarjeta de credito
+  </label>
+  </div>
+</div>
+</div>
+
+
+
+      <div id="efectivo1" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+        <div class="accordion-body">
+
+
+
+      
+       
+
+        </div>
+        
+      </div>
+
+      <div id="tarjeta2" class="accordion-collapse collapse" aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
+      <div class="accordion-body" >
+
+
+      <hr>
+   
+      <style>
         .demo-container {
             width: 100%;
             max-width: 100%;
@@ -222,7 +258,7 @@ Resumen de la compra
 
 
                 <!-- <input class="input-tarjeta" style="width: 57%;" placeholder="MM/YY" type="tel" name="expiry"> -->
-                <input class="input-tarjeta" style="width: 40.5%;" placeholder="CVC" type="number" name="cvc">
+                <input class="input-tarjeta" style="width: 40%;" placeholder="CVC" type="number" name="cvc">
                 
         
         </div>
@@ -238,12 +274,24 @@ Resumen de la compra
         });
 
 
-        var fecha = document.createElement("input");
-       fecha.setAttribute("type","number");
-       fecha.setAttribute("max",100);
-       fecha.setAttribute("min",2);
 
     </script>
+
+
+      
+      
+      
+      </div>
+      
+    </div>
+  </div>
+
+
+
+
+
+
+
 
 
 
