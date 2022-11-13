@@ -194,6 +194,9 @@ if(!isset($_SESSION['CLIENTE'])){
 <p>  Metodo de pago: Tarjeta de credito</p>
 
 <hr>
+<table class="table table-striped">
+  ...
+</table> DALE FORRO
 
 <div class="col text-center">
   <p> Descripcion: </p>
