@@ -196,10 +196,10 @@ include_once 'Clases/ClaseEnvasados.php';
        public function Mostrarpedidos($Buscar){
         
         if($Buscar != ''){
-            $sql = "SELECT * FROM  WHERE Nombre like '%".$Buscar."%'";
+            $sql = "SELECT * FROM envios, compras, selecciona, clientes, personas  WHERE Nombre like '%".$Buscar."%' and envios.idcliente = compras.idcliente and compras.idcliente = selecciona.idcliente and selecciona.idcliente = clientes.idcliente and clientes.idcliente = personas.idpersona";
         }else{
 
-            $sql = "SELECT * FROM envios";
+            $sql = "SELECT * FROM envios, compras, selecciona, clientes, personas where envios.idcliente = compras.idcliente and compras.idcliente = selecciona.idcliente and selecciona.idcliente = clientes.idcliente and clientes.idcliente = personas.idpersona ";
 
         }
         
@@ -216,8 +216,9 @@ include_once 'Clases/ClaseEnvasados.php';
                 $p2 = new Envasado();
                 $p -> setIDEnvio($row['IDEnvio']);
                 $p -> setIDProducto($row['IDProducto']);
-                $p -> setNombre($row['Nombre']);
-                $p -> setPrecio($row['Precio']);
+                $p -> setDireccion($row['Direccion']);
+                $p -> setNombre($row['Usuario']);
+                $p -> setIDProducto($row['IDCompra']);
                 $p -> setEstado($row['Estados']);
                 $ListarProductos [] = $p;
             }
