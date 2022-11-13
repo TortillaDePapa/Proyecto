@@ -162,7 +162,7 @@ if(!isset($_SESSION['CLIENTE'])){
             echo "     <td> 1 </td>";
             echo "     <td> 20/25/22 </td>";
             echo "     <td>$1250 </td>";
-            echo "     <td> <button type='button' class='btn-danger btn-visualizar'  data-bs-toggle='modal' data-bs-target='#recibo'> <i class='bi bi-eye-fill'></i>   </button>";
+            echo "     <td> <button type='button' class='btn-danger btn-visualizar'  data-bs-toggle='modal' data-bs-target='#recibo1'> <i class='bi bi-eye-fill'></i>   </button>";
             echo "      </td>";
 
             echo "    </tr>";
@@ -177,7 +177,7 @@ if(!isset($_SESSION['CLIENTE'])){
 </div>
 
 <!-- Modal Recibo -->
-<div class="modal fade" id="recibo" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="recibo1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header text-center" >
@@ -185,53 +185,50 @@ if(!isset($_SESSION['CLIENTE'])){
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        
 
-<div class="row ">
 
-<p>  Titular: Pepe</p>
-<p>  Direccion: 4 de octubre</p>
-<p>  Metodo de pago: Tarjeta de credito</p>
+  <div class="row">
 
-<hr>
-<table class="table table-striped">
-  ...
-</table> DALE FORRO
-
-<div class="col text-center">
-  <p> Descripcion: </p>
-  <p> coca x 1 </p>
-
+      <div class="col">
+        <h5> AutoService Largacha </h5>
 </div>
 
+<div class="col" style="text-align: right;">
+  
+    <small> AutoService Largacha <br>
+              Invencion Ocampo 1567 
 
-<div class="col text-center">
-<p> Precio </p>
-<p> $129 </p>
+    <br> Durazno-Durazno-Uruguay  
 
+    <br>092 724 550 
+
+   autoservice.largacha@gmail.com  </small>
 </div>
 
 </div>
-
-<div class="row text-center">
 
 <hr>
 
-<div class="col">
-Total
-</div>
-
+<div class="row">
 
 <div class="col">
-$1249
+
+<p>Factura #4353  </p>
+
+</div>
+
+<div class="col"  style="text-align: right;">
+
+<small> Fecha: 21/11/22 
+  <br>Vencimiento: 22/11/22
+</small>
+
 </div>
 
 </div>
 
 
 
-
-      </div>
       <div class="modal-footer">
         <button type="button"  class="btn btn-danger">Descargar</button>
       </div>
