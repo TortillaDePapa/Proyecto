@@ -12,6 +12,8 @@ class Producto{
     private $Precio;
     private $FechaVencimiento;
     private $Estado;
+    private $IDEnvio;
+    private $Direccion;
     
     public function getIDProducto()
     {
@@ -111,6 +113,33 @@ class Producto{
     {
         $this->Descripcion = $Descripcion;
 
+    }
+
+
+    public function getIDEnvio()
+    {
+        return $this->IDEnvio;
+    }
+
+   
+    public function setIDEnvio($IDEnvio)
+    {
+        $this->IDEnvio = $IDEnvio;
+
+    }
+
+    
+    public function getDireccion()
+    {
+        return $this->Direccion;
+    }
+
+    
+    public function setDireccion($Direccion)
+    {
+        $this->Direccion = $Direccion;
+
+        
     }
 }
 

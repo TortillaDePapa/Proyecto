@@ -15,7 +15,25 @@ include_once 'Clases/ClaseEnvasados.php';
                 $sql2 = "INSERT INTO Productos(CodigoBarra,Imagen,Stock,Nombre,Precio,Estado,Descripcion,NombreCategoria) VALUES('".$Producto -> getCodBarra()."','".$Producto -> getImagen()."','".$Producto -> getStock()."','".$Producto -> getNombre()."','".$Producto -> getPrecio()."','1','".$Producto -> getDescripcion()."','".$Producto1 ->getCategoria()."')";
                 $resultado1 = mysqli_query($this -> conn, $sql2);     
                 if ($resultado1){
-                      
+                    echo"<script type='text/javascript'>
+                    (() => {
+                        if (window.localStorage) {
+              
+                            // If there is no item as 'reload'
+                            // in localstorage then create one &
+                            // reload the page
+                            if (!localStorage.getItem('reload')) {
+                                localStorage['reload'] = true;
+                                window.location.reload();
+                            } else {
+              
+                                // If there exists a 'reload' item
+                                // then clear the 'reload' item in
+                                // local storage
+                                localStorage.removeItem('reload');
+                            }
+                        }
+                    })();</script>";
                     }else{
                         
                     }
@@ -175,8 +193,38 @@ include_once 'Clases/ClaseEnvasados.php';
         }
        }
 
-       public function Mostrarpedidos(){
+       public function Mostrarpedidos($Buscar){
         
+        if($Buscar != ''){
+            $sql = "SELECT * FROM  WHERE Nombre like '%".$Buscar."%'";
+        }else{
+
+            $sql = "SELECT * FROM envios";
+
+        }
+        
+        $this -> Conectar();
+       $result = mysqli_query($this -> conn, $sql);
+        
+        
+        if($result -> num_rows > 0){
+            $ListarProductos[] = new Producto();
+    
+            while($row = $result -> fetch_assoc()){
+                $p = new Producto(); 
+                $p1 = new Categoria();
+                $p2 = new Envasado();
+                $p -> setIDEnvio($row['IDEnvio']);
+                $p -> setIDProducto($row['IDProducto']);
+                $p -> setNombre($row['Nombre']);
+                $p -> setPrecio($row['Precio']);
+                $p -> setEstado($row['Estados']);
+                $ListarProductos [] = $p;
+            }
+            return $ListarProductos;
+        }else{
+            return array();
+        }
        }
 
     }

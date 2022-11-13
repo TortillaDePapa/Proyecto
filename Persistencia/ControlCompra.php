@@ -46,7 +46,7 @@ if(isset($_POST['FinalizarCompra'])){
                         $resultado4 = mysqli_query($newConn -> conn, $sql4);
                         if($resultado4){
                             unset($_SESSION['MostrarCarrito']);
-                           
+                            echo "<script> window.location('index.php')</script>";
                         }
 
                      }

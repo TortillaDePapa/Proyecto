@@ -11,7 +11,7 @@ if (session_status() == PHP_SESSION_NONE){
 }
 
 
-if(isset($_SESSION['CLIENTE']) or isset($_SESSION['ADMIN'])){
+if(isset($_SESSION['CLIENTE']) or isset($_SESSION['ADMIN']) ){
 
 }else{
   header('Location: index.php');
@@ -268,7 +268,7 @@ Resumen de la compra
 
     <script src="http://localhost/xampp/proyecto/proyecto/Tarjeta.js/card.js"></script>
 
-    <!-- <script src="http://localhost/Proyecto/Tarjeta.js/card.js"></script> -->
+    <script src="http://localhost/Proyecto/Tarjeta.js/card.js"></script>
     <script>
         var c = new Card({
             form: document.querySelector('form'),
@@ -467,7 +467,7 @@ echo "<p> ".$_SESSION['MostrarCarrito'][$i]['Precio']."</p>";
         obAjax.open('POST', 'Persistencia/ControlCompra.php', true);
         obAjax.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
         obAjax.onreadystatechange = function() {
-         console.log(this.responseText);
+        //  console.log(this.responseText);
         }
         obAjax.send('FinalizarCompra='+''+'&usuario='+document.getElementById('sessiongetusuario').innerHTML+'&MetodoEnvio='+envio+'&MetodoPago='+tarjeta);
 
