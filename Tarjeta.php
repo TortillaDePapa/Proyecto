@@ -78,6 +78,8 @@ Resumen de la compra
     <div class="col-sm-1 col-md-6">
     <form class="form pasos"  action="index.php">
 
+    <form class="form pasos"  action="index.php">
+
 
 
 <!-- Progress bar -->
@@ -254,13 +256,10 @@ Resumen de la compra
         <br>
 
         <div class="form-container active">
-                <input class="input-tarjeta" style="width: 99%;" placeholder="Numero de tarjeta" type="tel" name="number" required>
-                <input class="input-tarjeta" style="width: 99%;"  pattern="[A-Za-z]+"  placeholder="Nombre titular" type="text" required maxlength="25" name="name">
+                <input class="input-tarjeta" style="width: 99%;" placeholder="Numero de tarjeta" type="tel" name="number">
+                <input class="input-tarjeta" style="width: 99%;" placeholder="Nombre titular" type="text" maxlength="25" name="name">
                 <input class="input-tarjeta" style="width: 57%;" type="month" name="expiry" requiredvalue="">
-
-
-                <!-- <input class="input-tarjeta" style="width: 57%;" placeholder="MM/YY" type="tel" name="expiry"> -->
-                <input class="input-tarjeta" style="width: 40%;" placeholder="CVC" required type="number" name="cvc">
+                <input class="input-tarjeta" style="width: 40%;" placeholder="CVC" type="number" name="cvc">
                 
         
         </div>
@@ -426,6 +425,7 @@ echo "<p> ".$_SESSION['MostrarCarrito'][$i]['Precio']."</p>";
        
 
   }
+  echo    "</div>";
 }else{
       echo "<img src='https://enigma.uy/img/mini-empty-cart.png' height='150px'>";
   }

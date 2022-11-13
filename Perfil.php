@@ -227,6 +227,31 @@ if(!isset($_SESSION['CLIENTE'])){
 
 </div>
 
+<hr>
+
+<table class="table table-striped">
+      <thead>
+        <tr>
+          <th scope="col">Articulo</th>
+          <th scope="col">Precio</th>
+          <th scope="col">Unidad</th>
+          <th scope="col">Total </th>
+        </tr>
+      </thead>
+      <tbody class="table-group-divider">
+        <tr>
+          <th scope="row">1</th>
+          <td> $ 25</td>
+          <td> 3</td>
+          <td>$ 450</td>
+        </tr>
+        <tr>
+
+      </tbody>
+    </table>
+
+    <h4>  Precio total: $540</h4>
+
 
 
       <div class="modal-footer">
@@ -234,6 +259,7 @@ if(!isset($_SESSION['CLIENTE'])){
       </div>
     </div>
   </div>
+</div>
 </div>
 
 
