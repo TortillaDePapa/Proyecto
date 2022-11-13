@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 13-11-2022 a las 03:31:30
+-- Tiempo de generación: 13-11-2022 a las 04:29:03
 -- Versión del servidor: 10.4.24-MariaDB
 -- Versión de PHP: 8.1.6
 
@@ -80,7 +80,7 @@ CREATE TABLE `compras` (
   `IDCompra` int(11) NOT NULL,
   `IDCliente` int(11) DEFAULT NULL,
   `IDProducto` int(11) DEFAULT NULL,
-  `Fecha` date DEFAULT NULL,
+  `Fecha` datetime DEFAULT NULL,
   `Total` float DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -89,7 +89,9 @@ CREATE TABLE `compras` (
 --
 
 INSERT INTO `compras` (`IDCompra`, `IDCliente`, `IDProducto`, `Fecha`, `Total`) VALUES
-(1, 4, 17, '2022-11-12', 55);
+(14, 4, 17, '2022-11-13 00:11:02', 220),
+(15, 4, 17, '2022-11-13 00:11:23', 330),
+(16, 4, 17, '2022-11-13 00:11:49', 220);
 
 -- --------------------------------------------------------
 
@@ -106,6 +108,15 @@ CREATE TABLE `envios` (
   `IDProducto` int(11) DEFAULT NULL,
   `Estados` tinyint(4) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `envios`
+--
+
+INSERT INTO `envios` (`IDEnvio`, `Direccion`, `IDCompra`, `IDUsuario`, `IDCliente`, `IDProducto`, `Estados`) VALUES
+(6, 'Invencion ocampo1740', 14, 5, 4, 17, 1),
+(7, 'Invencion ocampo1740', 14, 5, 4, 17, 1),
+(8, 'Invencion ocampo1740', 14, 5, 4, 17, 1);
 
 -- --------------------------------------------------------
 
@@ -197,7 +208,9 @@ CREATE TABLE `selecciona` (
 --
 
 INSERT INTO `selecciona` (`IDCliente`, `IDProducto`, `CantidadProducto`, `MetodoDePago`, `MetodoEnvio`) VALUES
-(4, 17, 1, 'tarjeta', 'Envio');
+(4, 17, 4, 'tarjeta', 'Envio'),
+(4, 17, 6, 'tarjeta', 'Envio'),
+(4, 17, 4, 'tarjeta', 'Envio');
 
 -- --------------------------------------------------------
 
@@ -359,13 +372,13 @@ ALTER TABLE `usuario`
 -- AUTO_INCREMENT de la tabla `compras`
 --
 ALTER TABLE `compras`
-  MODIFY `IDCompra` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `IDCompra` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT de la tabla `envios`
 --
 ALTER TABLE `envios`
-  MODIFY `IDEnvio` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `IDEnvio` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT de la tabla `personas`
