@@ -210,6 +210,8 @@ Envio domicilio
 
 
 
+
+  <div class="row">
   
   <div class="form-check">
   <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" data-bs-target="#efectivo1" aria-expanded="false" aria-controls="efectivo1" data-bs-toggle="collapse">
@@ -225,6 +227,8 @@ Envio domicilio
   <label class="form-check-label" for="flexRadioDefault2">
     Tarjeta de credito
   </label>
+  </div>
+
   </div>
 
 
