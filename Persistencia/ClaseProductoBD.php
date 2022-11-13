@@ -174,6 +174,11 @@ include_once 'Clases/ClaseEnvasados.php';
             return null;
         }
        }
+
+       public function Mostrarpedidos(){
+        
+       }
+
     }
 
  

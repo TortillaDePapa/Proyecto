@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 11-11-2022 a las 16:00:48
+-- Tiempo de generación: 13-11-2022 a las 03:31:30
 -- Versión del servidor: 10.4.24-MariaDB
 -- Versión de PHP: 8.1.6
 
@@ -20,20 +20,6 @@ SET time_zone = "+00:00";
 --
 -- Base de datos: `proyecto`
 --
-
--- --------------------------------------------------------
---
--- Estructura de tabla para la tabla `selecciona`
---
-
-CREATE TABLE `selecciona` (
-  `IDCliente` int(11) NOT NULL,
-  `IDProducto` int(11) NOT NULL,
-  `CantidadProducto` tinyint(4) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
-
-
 
 -- --------------------------------------------------------
 
@@ -80,6 +66,9 @@ CREATE TABLE `clientes` (
 -- Volcado de datos para la tabla `clientes`
 --
 
+INSERT INTO `clientes` (`IDCliente`, `NumeroPuerta`, `Calle`) VALUES
+(4, 1740, 'Invencion ocampo'),
+(5, 1734, 'invencion ocampo');
 
 -- --------------------------------------------------------
 
@@ -92,10 +81,15 @@ CREATE TABLE `compras` (
   `IDCliente` int(11) DEFAULT NULL,
   `IDProducto` int(11) DEFAULT NULL,
   `Fecha` date DEFAULT NULL,
-  `Total` float DEFAULT NULL,
-  `MetodoDePago` varchar(30) NOT NULL,
-  `MetodoEnvio` varchar(30) NOT NULL
+  `Total` float DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `compras`
+--
+
+INSERT INTO `compras` (`IDCompra`, `IDCliente`, `IDProducto`, `Fecha`, `Total`) VALUES
+(1, 4, 17, '2022-11-12', 55);
 
 -- --------------------------------------------------------
 
@@ -110,7 +104,7 @@ CREATE TABLE `envios` (
   `IDUsuario` int(11) DEFAULT NULL,
   `IDCliente` int(11) DEFAULT NULL,
   `IDProducto` int(11) DEFAULT NULL,
-  `Estado` tinyint(1) NOT NULL
+  `Estados` tinyint(4) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -129,6 +123,13 @@ CREATE TABLE `personas` (
   `Gmail` varchar(40) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Volcado de datos para la tabla `personas`
+--
+
+INSERT INTO `personas` (`IDPersona`, `Usuario`, `Contraseña`, `Apellido`, `Estado`, `Nombre`, `Gmail`) VALUES
+(4, 'pato', '259823af837e251e560ca1158a4e77c7', 'muñoz', 1, 'pato', 'muñoz@gmail.com'),
+(5, 'benjamin|', '5e0c258c24eb837a139d590f60e5f2ab', 'poloni', 1, 'benjamin', 'benja@gmail.com');
 
 -- --------------------------------------------------------
 
@@ -149,8 +150,12 @@ CREATE TABLE `productos` (
   `Descripcion` varchar(200) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Volcado de datos para la tabla `productos`
+--
 
-
+INSERT INTO `productos` (`IDProducto`, `CodigoBarra`, `Imagen`, `Stock`, `Nombre`, `Precio`, `FechaVencimiento`, `Estado`, `NombreCategoria`, `Descripcion`) VALUES
+(17, 525, 'fideoscololo.jpg', 10, 'Fideos nido', 55, 12, 1, 'Pastas', 'Fideos nido cololo');
 
 -- --------------------------------------------------------
 
@@ -162,15 +167,39 @@ CREATE TABLE `proveedores` (
   `IDProveedor` int(11) NOT NULL,
   `Nombre` varchar(30) DEFAULT NULL,
   `Gmail` varchar(40) DEFAULT NULL,
-  `Estado` tinyint(1) DEFAULT NULL
+  `Estado` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Volcado de datos para la tabla `proveedores`
+--
 
-
+INSERT INTO `proveedores` (`IDProveedor`, `Nombre`, `Gmail`, `Estado`) VALUES
+(5, 'Facundo', 'Facu@gmail.com', 1),
+(6, 'Lucas', 'lucas@gmail.com', 1);
 
 -- --------------------------------------------------------
 
+--
+-- Estructura de tabla para la tabla `selecciona`
+--
 
+CREATE TABLE `selecciona` (
+  `IDCliente` int(11) NOT NULL,
+  `IDProducto` int(11) NOT NULL,
+  `CantidadProducto` tinyint(4) NOT NULL,
+  `MetodoDePago` varchar(30) NOT NULL,
+  `MetodoEnvio` varchar(30) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `selecciona`
+--
+
+INSERT INTO `selecciona` (`IDCliente`, `IDProducto`, `CantidadProducto`, `MetodoDePago`, `MetodoEnvio`) VALUES
+(4, 17, 1, 'tarjeta', 'Envio');
+
+-- --------------------------------------------------------
 
 --
 -- Estructura de tabla para la tabla `suministra`
@@ -192,8 +221,13 @@ CREATE TABLE `telefonoclientes` (
   `Numero` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Volcado de datos para la tabla `telefonoclientes`
+--
 
-
+INSERT INTO `telefonoclientes` (`IDCliente`, `Numero`) VALUES
+(4, 98584855),
+(5, 91413684);
 
 -- --------------------------------------------------------
 
@@ -206,8 +240,13 @@ CREATE TABLE `telefonoproveedores` (
   `Numero` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Volcado de datos para la tabla `telefonoproveedores`
+--
 
-
+INSERT INTO `telefonoproveedores` (`IDProveedor`, `Numero`) VALUES
+(5, 99624847),
+(6, 99624847);
 
 -- --------------------------------------------------------
 
@@ -219,10 +258,16 @@ CREATE TABLE `usuario` (
   `IDUsuario` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Volcado de datos para la tabla `usuario`
+--
 
+INSERT INTO `usuario` (`IDUsuario`) VALUES
+(5);
 
-
-
+--
+-- Índices para tablas volcadas
+--
 
 --
 -- Indices de la tabla `categorias`
@@ -255,19 +300,6 @@ ALTER TABLE `envios`
   ADD KEY `IDProducto` (`IDProducto`);
 
 --
--- Indices de la tabla `selecciona`
---
-ALTER TABLE `selecciona`
-  ADD PRIMARY KEY (`IDCliente`),
-  ADD PRIMARY KEY (`IDProducto`);
-
---
--- Indices de la tabla `compras`
---
-ALTER TABLE `compras`
-  ADD PRIMARY KEY (`IDcompra`);
-
---
 -- Indices de la tabla `personas`
 --
 ALTER TABLE `personas`
@@ -291,7 +323,8 @@ ALTER TABLE `proveedores`
 -- Indices de la tabla `selecciona`
 --
 ALTER TABLE `selecciona`
-  ADD KEY `IDProducto` (`IDProducto`);
+  ADD KEY `IDProducto` (`IDProducto`),
+  ADD KEY `IDCliente` (`IDCliente`);
 
 --
 -- Indices de la tabla `suministra`
@@ -326,7 +359,7 @@ ALTER TABLE `usuario`
 -- AUTO_INCREMENT de la tabla `compras`
 --
 ALTER TABLE `compras`
-  MODIFY `IDCompra` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT;
+  MODIFY `IDCompra` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT de la tabla `envios`
@@ -338,19 +371,19 @@ ALTER TABLE `envios`
 -- AUTO_INCREMENT de la tabla `personas`
 --
 ALTER TABLE `personas`
-  MODIFY `IDPersona` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT;
+  MODIFY `IDPersona` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT de la tabla `productos`
 --
 ALTER TABLE `productos`
-  MODIFY `IDProducto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT;
+  MODIFY `IDProducto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT de la tabla `proveedores`
 --
 ALTER TABLE `proveedores`
-  MODIFY `IDProveedor` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT;
+  MODIFY `IDProveedor` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- Restricciones para tablas volcadas
@@ -383,6 +416,13 @@ ALTER TABLE `envios`
 --
 ALTER TABLE `productos`
   ADD CONSTRAINT `productos_ibfk_1` FOREIGN KEY (`NombreCategoria`) REFERENCES `categorias` (`NombreCategoria`);
+
+--
+-- Filtros para la tabla `selecciona`
+--
+ALTER TABLE `selecciona`
+  ADD CONSTRAINT `selecciona_ibfk_1` FOREIGN KEY (`IDCliente`) REFERENCES `clientes` (`IDCliente`),
+  ADD CONSTRAINT `selecciona_ibfk_2` FOREIGN KEY (`IDProducto`) REFERENCES `productos` (`IDProducto`);
 
 --
 -- Filtros para la tabla `suministra`
