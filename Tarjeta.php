@@ -78,8 +78,6 @@ Resumen de la compra
     <div class="col-sm-1 col-md-6">
     <form class="form pasos"  action="index.php">
 
-    <form class="form pasos"  action="index.php">
-
 
 
 <!-- Progress bar -->
@@ -99,96 +97,111 @@ Resumen de la compra
   </svg></div>
 </div>
 
-<!-- paso Envio -->
+<!-- paso Envio y Retiro -->
+<div class="accordion accordion-flush" id="accordionFlushExample" style="width: 100%;">
+
 <div class="form-step form-step-active">
 
-  <ul class="nav nav-pills mb-3"  id="pills-tab" role="tablist">
-  <li class="nav-item" role="presentation">
-    <button class="nav-link active bg-dark" style="margin: 5px;" id="pills-envio-tab" data-bs-toggle="pill"
-      data-bs-target="#pills-envio" type="button" role="tab" aria-controls="pills-envio"
-      aria-selected="true">
-      Envio
-    </button>
-  </li>
-  <li class="nav-item" role="presentation">
-    <button class="nav-link bg-dark" style="margin: 5px;" id="pills-retiro-tab" data-bs-toggle="pill" data-bs-target="#pills-retiro"
-      type="button" role="tab" aria-controls="pills-retiro" aria-selected="true">
-      Retiro
-    </button>
-  </li>
-</ul>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" data-bs-target="#envio" aria-expanded="false" aria-controls="envio" data-bs-toggle="collapse">
+          <label class="form-check-label" for="flexRadioDefault1">
+            
+Envio domicilio
 
-  <!-- Fin de paso Envio -->
+          </label>
+        </div>
+        
+        
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" 
+          data-bs-toggle="collapse" data-bs-target="#retiro" aria-expanded="false" aria-controls="retiro" >
+          <label class="form-check-label" for="flexRadioDefault2">
+  Retiro local
+          </label>
+          </div>
 
-<!-- Envio y Retiro -->
-<div class="tab-content " id="pills-tabContent">
+          
+          <div id="envio" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+            <div class="accordion-body"  >
+    
+              <h5> 1. Dirección de entrega </h5>
 
-<!-- Envio -->
+              <hr>
+            
+             
+            
+              <?php
+              if(isset($_SESSION['CLIENTE'])){
+              echo "<i class='bi bi-house-fill'></i> <input style='padding: 0px; display: inline; width: 50%;'  placeholder='".$_SESSION['CLIENTE'] -> getNombreCalle()."  ".$_SESSION['CLIENTE'] -> getNumeroCasa()."'>";
+              }else{
+                echo "<i class='bi bi-house-fill'></i> <input style='padding: 0px; display: inline; width: 50%;'  placeholder='Direccion'>";
+              }
+              ?>
+           
+            
+          
+        
+         
+        
+              
+              </div>
+          </div>
 
-<div class="tab-pane fade show active" id="pills-envio" role="tabpanel"
-  aria-labelledby="pills-envio-tab" tabindex="0">
+          <div id="retiro" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+            <div class="accordion-body"  >
 
-  <h5> 1. Dirección de entrega </h5>
+              
 
-  <hr>
+
+
+
+              <h5> Horarios: 08:00 - 22:00 Lunes a Sabados </h5>
+
+
+              <div class="text-center map-responsive">
+              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3331.19133595375!2d-56.50789268480211!3d-33.39217208079059!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95a6c1ada36e59bf%3A0x9695eb4025ba7978!2sSupermercado%20Largacha!5e0!3m2!1ses!2suy!4v1666899217872!5m2!1ses!2suy" width="450" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+              </div>
+              <br>
+            
+            
+            
+            <?php
+              echo " <h5> Persona que retira: </h5> ";
+              if(isset($_SESSION['CLIENTE'])){
+              echo "<i class='bi bi-person-bounding-box'> </i> <input style='padding: 0px; display: inline; width: 50%;' id='nombreCambiar' placeholder='".$_SESSION['CLIENTE'] -> getNombre()."'>";
+              }else{
+                echo "<i class='bi bi-person-bounding-box'> </i> <input style='padding: 0px; display: inline; width: 50%;' placeholder='NombrePersona'>";
+              }
+             ?>
+          
+        
+         
+        
+              
+              </div>
+          </div>
+
+
+          <br>
+
+          <div class="">
+            <a href="#" class="btn btn-next width-50 ml-auto">Siguiente</a>
+          </div>
+
+
+      </div>
+  
 
  
 
-  <?php
-  if(isset($_SESSION['CLIENTE'])){
-  echo "<i class='bi bi-house-fill'></i> <input style='padding: 0px; display: inline; width: 50%;'  placeholder='".$_SESSION['CLIENTE'] -> getNombreCalle()."  ".$_SESSION['CLIENTE'] -> getNumeroCasa()."'>";
-  }else{
-    echo "<i class='bi bi-house-fill'></i> <input style='padding: 0px; display: inline; width: 50%;'  placeholder='Direccion'>";
-  }
-  ?>
-
-
-  <br>
-  
-  <br>
-
-  <div class="">
-  <a href="#" class="btn btn-next width-50 ml-auto">Siguiente</a>
-</div>
-</div>
-
-
-<!-- Retiro  -->
-
-<div class="tab-pane fade " id="pills-retiro" role="tabpanel" aria-labelledby="pills-retiro-tab"
-  tabindex="0">
-
-  <h5> Horarios: 08:00 - 22:00 Lunes a Sabados </h5>
-
-
-  <div class="text-center map-responsive">
-  <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3331.19133595375!2d-56.50789268480211!3d-33.39217208079059!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95a6c1ada36e59bf%3A0x9695eb4025ba7978!2sSupermercado%20Largacha!5e0!3m2!1ses!2suy!4v1666899217872!5m2!1ses!2suy" width="450" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-  </div>
-  <br>
+ 
 
 
 
-<?php
-  echo " <h5> Persona que retira: </h5> ";
-  if(isset($_SESSION['CLIENTE'])){
-  echo "<i class='bi bi-person-bounding-box'> </i> <input style='padding: 0px; display: inline; width: 50%;' id='nombreCambiar' placeholder='".$_SESSION['CLIENTE'] -> getNombre()."'>";
-  }else{
-    echo "<i class='bi bi-person-bounding-box'> </i> <input style='padding: 0px; display: inline; width: 50%;' placeholder='NombrePersona'>";
-  }
- ?>
-  <hr>
-  <div class="">
-  <a href="#" class="btn btn-next width-50 ml-auto">Siguiente</a>
-</div>
-
-</div>
-</div>
-
-<!-- fin Envio y Retiro-->
 
 
 
-</div>
+
 
 
 <div class="form-step">
@@ -196,7 +209,6 @@ Resumen de la compra
 
 
 
-  <div class="accordion accordion-flush" id="accordionFlushExample">
 
   
   <div class="form-check">
@@ -218,19 +230,12 @@ Resumen de la compra
 
 
       <div id="efectivo1" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
-        <div class="accordion-body">
-
-
-<p> </p>
-      
-       
-
-        </div>
+        
         
       </div>
 
       <div id="tarjeta2" class="accordion-collapse collapse" aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
-      <div class="accordion-body" >
+      <div class="accordion-body"  >
 
 
       <hr>
@@ -246,6 +251,32 @@ Resumen de la compra
         display: inline;
         margin: 2px;
         }
+        @media (min-width: 576px) {
+          .col-sm-1 {
+            width: 50% !important;
+          }
+        }
+        @media (max-width: 480px) {
+          .jp-card-lower {
+            width: 80% !important;
+            left: 10% !important;
+          }
+        }
+        @media (max-width: 393px) {
+          .jp-card-number {
+            font-size: 20px !important;
+          }
+          .jp-card-name {
+            font-size: 18px !important;
+          }
+        }
+        @media (max-width: 346px) {
+          .jp-card-number {
+            font-size: 18px !important;
+          }
+        }
+
+
 
       
 
@@ -291,18 +322,18 @@ Resumen de la compra
 
 
 
-
-
-
-
-
-
-  </div>
+<br>
 
   <div class="btns-group" >
     <a href="#" class="btn btn-prev">Volver</a>
     <a href="#" class="btn btn-next">Siguiente</a>
   </div>
+
+
+
+  </div>
+
+  
 </div>
 
 
