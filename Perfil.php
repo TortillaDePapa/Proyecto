@@ -189,11 +189,12 @@ if(!isset($_SESSION['CLIENTE'])){
 
   <div class="row">
 
-      <div class="col">
-        <h5> AutoService Largacha </h5>
+      <div class="col-6">
+        <p> </p>
+        <h5> AutoService <br>Largacha </h5>
 </div>
 
-<div class="col" style="text-align: right;">
+<div class="col-6" style="text-align: right;">
   
     <small> AutoService Largacha <br>
               Invencion Ocampo 1567 
@@ -211,13 +212,13 @@ if(!isset($_SESSION['CLIENTE'])){
 
 <div class="row">
 
-<div class="col">
+<div class="col-6">
 
 <p>Factura #4353  </p>
 
 </div>
 
-<div class="col"  style="text-align: right;">
+<div class="col-6"  style="text-align: right;">
 
 <small> Fecha: 21/11/22 
   <br>Vencimiento: 22/11/22
@@ -245,12 +246,13 @@ if(!isset($_SESSION['CLIENTE'])){
           <td> 3</td>
           <td>$ 450</td>
         </tr>
+        
         <tr>
 
       </tbody>
     </table>
 
-    <h4>  Precio total: $540</h4>
+    <h5 style="text-align: right;">  Precio total: $540</h5>
 
 
 
