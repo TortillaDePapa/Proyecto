@@ -30,6 +30,7 @@ if (session_status() == PHP_SESSION_NONE){
 
 
           for($i = 0; $i <count($_SESSION['MostrarCarrito']); $i++){
+            if($_SESSION['MostrarCarrito'][$i] != null){
             echo    "<div class='card mb-3 d-flex flex-row' style='max-width: 540px;'>";
             echo    " <div class='col-md-4' style='margin: auto !important;'>";
             echo    "<img src='imagenes/".$_SESSION['MostrarCarrito'][$i]['Imagen']."' class='img-fluid rounded-start' alt='...'>";
@@ -45,7 +46,7 @@ if (session_status() == PHP_SESSION_NONE){
             echo    "</div>";
             echo    "</div>";
              echo    "</div>";
-
+            }
         }
         }  else{
             echo "<img class='img-carrito' src='https://editorialparalelo28.es/images/cartEmpty.png' alt='https://editorialparalelo28.es/images/cartEmpty.png' height='250px'>";

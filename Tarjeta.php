@@ -76,7 +76,7 @@ Resumen de la compra
 
     <div class="row">
     <div class="col-sm-1 col-md-6">
-    <form class="form pasos"  action="index.php">
+    <form class="form pasos"   method="post" autocomplete="off">
 
 
 
@@ -99,6 +99,7 @@ Resumen de la compra
 
 <!-- paso Envio y Retiro -->
 <div class="accordion accordion-flush" id="accordionFlushExample" style="width: 100%;">
+
 
 <div class="form-step form-step-active">
 
@@ -279,22 +280,41 @@ Envio domicilio
             font-size: 18px !important;
           }
         }
+        .input-cvc{
+          position: relative;
+          left: 3px;
+        }
+        input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
+}
+
+input[type=number] { -moz-appearance:textfield; }
 
 
 
       
 
     </style>
+
+
     <div class="demo-container">
         <div class="card-wrapper" ></div>
+
+        <?php
+        
+
+
+        ?>
 
         <br>
 
         <div class="form-container active">
-                <input class="input-tarjeta" style="width: 99%;" placeholder="Numero de tarjeta" type="tel" name="number">
-                <input class="input-tarjeta" style="width: 99%;" placeholder="Nombre titular" type="text" maxlength="25" name="name">
-                <input class="input-tarjeta" style="width: 57%;" type="month" name="expiry" requiredvalue="">
-                <input class="input-tarjeta" style="width: 40%;" placeholder="CVC" type="number" name="cvc">
+                <input class="input-tarjeta" style="width: 99%;" placeholder="Numero de tarjeta" type="tel" name="number" required id="number">
+                <input class="input-tarjeta" style="width: 99%;" placeholder="Nombre titular" type="text" maxlength="25" name="name" required id="name">
+                <input class="input-tarjeta" style="width: 57%;" type="month" name="expiry" requiredvalue="" required id="expiry">
+                <input class="input-tarjeta input-cvc" style="width: 40%;" placeholder="CVC" type="number" name="cvc" required id="cvc">
                 
         
         </div>
@@ -311,30 +331,25 @@ Envio domicilio
 
 
 
-    </script>
-
-
-      
-      
-      
-      </div>
-      
+    </script>     
+      </div>     
     </div>
   </div>
-
-
-
-
-
 <br>
-
   <div class="btns-group" >
     <a href="#" class="btn btn-prev">Volver</a>
-    <a href="#" class="btn btn-next">Siguiente</a>
+    <a class="btn btn-next" name="verifique" onclick="obligarotio()">Siguiente</a>
   </div>
 
-
-
+<!-- 
+  <script>
+      if(document.getElementById('flexRadioDefault1').checked == true){
+        document.body.innerHTML =  "<a class='btn btn-next' name='verifique'>Siguiente</a>";
+      }
+    else if(document.getElementById('flexRadioDefault2').checked){
+      document.body.innerHTML = " <a class='btn btn-next' name='verifique' onclick='obligarotio()'>Siguiente</a>"
+    }
+      </script> -->
   </div>
 
   
@@ -358,9 +373,9 @@ Envio domicilio
 if(isset($_SESSION['MostrarCarrito'])){
 
 for($i = 0; $i <count($_SESSION['MostrarCarrito']); $i++){
-
+  if($_SESSION['MostrarCarrito'][$i] != null){
 echo "<p>".$_SESSION['MostrarCarrito'][$i]['Nombre']." x ".$_SESSION['MostrarCarrito'][$i]['Cantidad']." </p>";
-
+  }
 
 }
 
@@ -383,14 +398,15 @@ echo "<p>".$_SESSION['MostrarCarrito'][$i]['Nombre']." x ".$_SESSION['MostrarCar
 <?php
 
 if(isset($_SESSION['MostrarCarrito'])){
+  
 
 for($i = 0; $i <count($_SESSION['MostrarCarrito']); $i++){
-
+if($_SESSION['MostrarCarrito'][$i] != null){
 echo "<p> ".$_SESSION['MostrarCarrito'][$i]['Precio']."</p>";
 
 
 }
-
+}
 }
 
 ?>
@@ -425,8 +441,13 @@ echo "<p> ".$_SESSION['MostrarCarrito'][$i]['Precio']."</p>";
 
       
 <br>
+
+
+</form>
+
+
+
 </div>
-  </div>
   
   <br>
   
@@ -443,6 +464,7 @@ echo "<p> ".$_SESSION['MostrarCarrito'][$i]['Precio']."</p>";
 
 
     for($i = 0; $i <count($_SESSION['MostrarCarrito']); $i++){
+      if($_SESSION['MostrarCarrito'][$i] != null){
       echo    "<div class='card mb-3 d-flex flex-row' style='max-width: 370px; margin: 5px;'>";
       echo    " <div class='col-md-4' style='margin: auto !important;'>";
       echo    "<img src='imagenes/".$_SESSION['MostrarCarrito'][$i]['Imagen']."' class='img-fluid rounded-start' alt='...'>";
@@ -457,7 +479,7 @@ echo "<p> ".$_SESSION['MostrarCarrito'][$i]['Precio']."</p>";
       echo    "</div>";
       echo    "</div>";
        echo    "</div>";
-       
+      }
 
   }
   echo    "</div>";
@@ -571,14 +593,24 @@ document.getElementById('mostrarprecio-div1').innerHTML = '$'+preciof;
 document.getElementById('mostrarprecio-div').innerHTML = '$'+preciof;
 // document.getElementById('mostrarprecio-div2').innerHTML = '$'+preciof;
 
-
-
-
+// function  obligarotio(){
+//   var numero = document.getElementById('number').value;
+//   if(numero.length == 0) {
+//    console.log('hola');
+//   }
+//   var name = document.getElementById('name').value;
+//   if(name.length == 0) {
+   
+//   }
+//   var cvc = document.getElementById('cvc').value;
+//   if (cvc.length < 6) {
+   
+    
+//   }
+// }
 </script>
 
 <br>
-
-
 
 
 </body>

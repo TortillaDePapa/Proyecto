@@ -99,19 +99,27 @@ include_once 'Clases/ClasePersona.php';
 <?php
   
   if(isset($_POST['registrar'])){
-    $p = new Persona();
-    $p2 = new PersonaBD();
-    $p -> setUsuario($_POST['usuario']);
-    $p -> setContraseña(md5($_POST['contraseña']));
-    $p -> setCContraseña(md5($_POST['ccontraseña']));
-    $p -> setNombre($_POST['nombre']);
-    $p -> setApellido($_POST['apellido']);
-    $p -> setGmail($_POST['gmail']);
-    $p -> setTelefono($_POST['Telefono']);
-    $p -> setNumeroCasa($_POST['NumeroCasa']);
-    $p -> setNombreCalle($_POST['Calle']);
-    
-    $p2 -> CargarPersona($p);
+    if(is_string($_POST['usuario'])){
+       if(filter_var($_POST['gmail'], FILTER_VALIDATE_EMAIL)){
+        if(is_numeric($_POST['Telefono'])){
+            $p = new Persona();
+            $p2 = new PersonaBD();
+            $p -> setUsuario($_POST['usuario']);
+            $p -> setContraseña(md5($_POST['contraseña']));
+            $p -> setCContraseña(md5($_POST['ccontraseña']));
+            $p -> setNombre($_POST['nombre']);
+            $p -> setApellido($_POST['apellido']);
+            $p -> setGmail($_POST['gmail']);
+            $p -> setTelefono($_POST['Telefono']);
+            $p -> setNumeroCasa($_POST['NumeroCasa']);
+            $p -> setNombreCalle($_POST['Calle']);
+            
+            $p2 -> CargarPersona($p);
+            }else{
+                echo "<script>alert('no se pudo registrar su cuenta')</script>";
+            }
+        }
+    }
 }
 ?>
 
