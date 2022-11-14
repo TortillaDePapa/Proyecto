@@ -156,7 +156,7 @@ Envio domicilio
 
 
 
-              <h5> Horarios: 08:00 - 22:00 Lunes a Sabados </h5>
+              <h5>2. Horarios: 08:00 - 22:00 Lunes a Sabados </h5>
 
 
               <div class="text-center map-responsive">
