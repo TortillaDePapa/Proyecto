@@ -425,7 +425,7 @@ echo "<p> ".$_SESSION['MostrarCarrito'][$i]['Precio']."</p>";
 
       
 <br>
-</form>
+</div>
   </div>
   
   <br>
