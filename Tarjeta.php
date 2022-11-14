@@ -76,9 +76,9 @@ Resumen de la compra
 
     <div class="row">
     <div class="col-sm-1 col-md-6">
-    <form class="form pasos"  action="index.php">
+    <div>
 
-    <form class="form pasos"  action="index.php">
+    
 
 
 
@@ -390,7 +390,7 @@ echo "<p> ".$_SESSION['MostrarCarrito'][$i]['Precio']."</p>";
 
       
 <br>
-</form>
+</div>
   </div>
   
   <br>

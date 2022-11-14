@@ -207,6 +207,7 @@ echo "  </div>";
           <button  onclick="ActualizarTablaProducto()" name="AgregarArticulos"  id="AgregarArticulos" class="btn btn-primary "> Agregar </button>
         </div>
         </form>
+      
       </div>
     </div>
   </div>

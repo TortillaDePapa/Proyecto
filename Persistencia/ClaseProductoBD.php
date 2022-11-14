@@ -15,30 +15,30 @@ include_once 'Clases/ClaseEnvasados.php';
                 $sql2 = "INSERT INTO Productos(CodigoBarra,Imagen,Stock,Nombre,Precio,Estado,Descripcion,NombreCategoria) VALUES('".$Producto -> getCodBarra()."','".$Producto -> getImagen()."','".$Producto -> getStock()."','".$Producto -> getNombre()."','".$Producto -> getPrecio()."','1','".$Producto -> getDescripcion()."','".$Producto1 ->getCategoria()."')";
                 $resultado1 = mysqli_query($this -> conn, $sql2);     
                 if ($resultado1){
-                    echo"<script type='text/javascript'>
-                    (() => {
-                        if (window.localStorage) {
+                    // echo"<script type='text/javascript'>
+                    // (() => {
+                    //     if (window.localStorage) {
               
-                            // If there is no item as 'reload'
-                            // in localstorage then create one &
-                            // reload the page
-                            if (!localStorage.getItem('reload')) {
-                                localStorage['reload'] = true;
-                                window.location.reload();
-                            } else {
+                    //         // If there is no item as 'reload'
+                    //         // in localstorage then create one &
+                    //         // reload the page
+                    //         if (!localStorage.getItem('reload')) {
+                    //             localStorage['reload'] = true;
+                    //             window.location.reload();
+                    //         } else {
               
-                                // If there exists a 'reload' item
-                                // then clear the 'reload' item in
-                                // local storage
-                                localStorage.removeItem('reload');
-                            }
-                        }
-                    })();</script>";
+                    //             // If there exists a 'reload' item
+                    //             // then clear the 'reload' item in
+                    //             // local storage
+                    //             localStorage.removeItem('reload');
+                    //         }
+                    //     }
+                    // })();</script>";
                     }else{
                         
                     }
              }else {
-               
+            
              }
             }
        public function ListarProductos($Buscar){
