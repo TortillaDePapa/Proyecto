@@ -30,6 +30,9 @@ if(isset($_POST['FinalizarCompra'])){
      $fila3 = mysqli_fetch_assoc($resultado6);
     $sql = "SELECT idpersona FROM personas WHERE idpersona = '".$_POST['usuario']."'" ;
     $resultado = mysqli_query($newConn -> conn,$sql);
+
+
+    
     if($resultado){
         $fila = mysqli_fetch_assoc($resultado);
         echo var_dump($fila['idpersona']);
@@ -53,20 +56,20 @@ if(isset($_POST['FinalizarCompra'])){
                     $resultado5 = mysqli_query($newConn -> conn, $sql5);
                     $fila2 = mysqli_fetch_array($resultado5);  
                     echo var_dump($fila2);
-                     if($resultado3){
-                        $sql4 = "INSERT into Envios(IDEnvio,Direccion,IDCompra,IDUsuario,IDCliente,IDProducto,Estados) VALUES('".$fila8['idenvio']."','".$fila4['calle']."".$fila4['NumeroPuerta']."','".$fila2['IDCompra']."','".$fila3['IDusuario']."','".$fila1['idcliente']."','".$_SESSION['MostrarCarrito'][$i]['id']."', '1')";
-                        $resultado4 = mysqli_query($newConn -> conn, $sql4);
-                        if($resultado4){
-                            // unset($_SESSION['MostrarCarrito'][$i]);
-                            echo "<script> window.location('index.php')</script>";
-                        }
-
-                     }
+                     
                     }
                  }
                 }     
             }
+            if($resultado3){
+                $sql4 = "INSERT into Envios(IDEnvio,Direccion,IDCompra,IDUsuario,Estados) VALUES('".$fila8['idenvio']."','".$fila4['calle']."".$fila4['NumeroPuerta']."','".$fila2['IDCompra']."','".$fila3['IDusuario']."', '1')";
+                $resultado4 = mysqli_query($newConn -> conn, $sql4);
+                if($resultado4){
+                    // unset($_SESSION['MostrarCarrito'][$i]);
+                    echo "<script> window.location('index.php')</script>";
+                }
 
+             }
         }
        }
     }
