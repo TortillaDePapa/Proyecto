@@ -235,7 +235,7 @@ include_once 'Clases/ClaseEnvasados.php';
             $sql = "SELECT * FROM envios, compras, selecciona, clientes, personas  WHERE Nombre like '%".$Buscar."%' and envios.idcliente = compras.idcliente and compras.idcliente = selecciona.idcliente and selecciona.idcliente = clientes.idcliente and clientes.idcliente = personas.idpersona";
         }else{
 
-            $sql = "SELECT * FROM envios, compras, selecciona, clientes, personas where envios.idcliente = compras.idcliente and compras.idcliente = selecciona.idcliente and selecciona.idcliente = clientes.idcliente and clientes.idcliente = personas.idpersona AND personas.idpersona= '".$_SESSION['CLIENTE']-> getIDPersona()."'";
+            $sql = "SELECT DISTINCT * FROM envios, compras, selecciona, clientes, personas where envios.idcliente = compras.idcliente and compras.idcliente = selecciona.idcliente and selecciona.idcliente = clientes.idcliente and clientes.idcliente = personas.idpersona AND envios.IDCompra = compras.IDCompra AND compras.IDProducto = selecciona.IDProducto and envios.IDProducto = compras.IDProducto  AND envios.IDCliente = personas.IDPersona  AND personas.idpersona= '".$_SESSION['CLIENTE']-> getIDPersona()."' ORDER by IDEnvio desc";
 
         }
         

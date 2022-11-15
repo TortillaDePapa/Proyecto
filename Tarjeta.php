@@ -473,8 +473,8 @@ echo "<p> ".$_SESSION['MostrarCarrito'][$i]['Precio']."</p>";
       echo    "<div class='card-body'>";
       echo    "<h5 class='card-title'>".$_SESSION['MostrarCarrito'][$i]['Nombre']."</h5>";
       echo    "<h6 class='card-title'>Cantidad:".$_SESSION['MostrarCarrito'][$i]['Cantidad']." </h6>";
-      echo    "<h6 class='card-title' name=''>Precio $".$_SESSION['MostrarCarrito'][$i]['Precio']."</h6>";
-      echo    "<h6 class='card-title' name='preciocard'>Total $".$_SESSION['MostrarCarrito'][$i]['Precio']*$_SESSION['MostrarCarrito'][$i]['Cantidad']."</h6>";
+      echo    "<h6 class='card-title' name=''>Precio: $".$_SESSION['MostrarCarrito'][$i]['Precio']."</h6>";
+      echo    "<h6 class='card-title' name='preciocard'>Total: $".$_SESSION['MostrarCarrito'][$i]['Precio']*$_SESSION['MostrarCarrito'][$i]['Cantidad']."</h6>";
 
       echo    "</div>";
       echo    "</div>";
