@@ -167,8 +167,8 @@ if(!isset($_SESSION['CLIENTE'])){
             echo "     <td> '".$MostrarPedidos[$i] -> getIDEnvio()."' </td>";
             echo "     <td> '".$MostrarPedidos[$i] -> getFecha()."' </td>";
             echo "     <td> '".$MostrarPedidos[$i] -> getPrecio()."' </td>";
-            echo "     <td> <button type='button' class='btn-danger btn-visualizar'  data-bs-toggle='modal' data-bs-target='#recibo1'> <i class='bi bi-eye-fill'></i>   </button>";
             echo "      </td>";
+            echo "     <td> <button type='button' class='btn-danger btn-visualizar'  data-bs-toggle='modal' data-bs-target='#recibo1' onclick='VerFactura(\"".$MostrarPedidos[$i] -> getIDEnvio()."\")'> <i class='bi bi-eye-fill'></i>   </button>";
 
             echo "    </tr>";
           }  
@@ -219,7 +219,7 @@ if(!isset($_SESSION['CLIENTE'])){
 
 <div class="col-6">
 
-<p>Factura #4353  </p>
+<p id="IDEnvioM">  </p>
 
 </div>
 
@@ -238,7 +238,7 @@ if(!isset($_SESSION['CLIENTE'])){
 <table class="table table-striped">
       <thead>
         <tr>
-          <th scope="col">Articulo</th>
+          <th scope="col" >Articulo</th>
           <th scope="col">Precio</th>
           <th scope="col">Unidad</th>
           <th scope="col">Total </th>
@@ -246,8 +246,8 @@ if(!isset($_SESSION['CLIENTE'])){
       </thead>
       <tbody class="table-group-divider">
         <tr>
-          <th scope="row">1</th>
-          <td> $ 25</td>
+          <th scope="row" id="ArticuloM"></th>
+          <td id="PrecioM"> </td>
           <td> 3</td>
           <td>$ 450</td>
         </tr>
@@ -432,6 +432,22 @@ echo"    </div>";
   
 
   <script>
+    function VerFactura(id){
+      var idenvio = id;
+      var obAjax = new XMLHttpRequest();
+      obAjax.onload = function () {
+  var rellenar = JSON.parse(this.responseText);
+  document.getElementById('IDEnvioM').value = rellenar['IDEnvio'];
+  document.getElementById('ArticuloM').value = rellenar['IDProducto'];
+  document.getElementById('PrecioM').value = rellenar['PrecioU'];
+  // document.getElementById('').value = rellenar[''];
+  console.log(this.responseText);
+}
+obAjax.open('POST', 'Persistencia/ControlMostrarFactura.php', true);
+obAjax.setRequestHeader("Content-type", "application/x-www-form-urlencoded")
+obAjax.send("MostrarFactura="+idenvio);
+    }
+
     function Cerrar() {
       var obAjax = new XMLHttpRequest();
       obAjax.open('POST', 'Persistencia/Control.php', true);
