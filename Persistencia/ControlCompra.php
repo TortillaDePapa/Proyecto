@@ -11,6 +11,13 @@ if(isset($_POST['FinalizarCompra'])){
     $metodoPago = $_POST['MetodoPago'];
     $newConn = new Conexion(); 
     $newConn -> Conectar();
+    $sql7 ="SELECT NumeroPuerta, calle from clientes where IDCliente = '".$_POST['usuario']."' ";
+    $resultado7 = mysqli_query($newConn -> conn, $sql7);
+    $fila4 = mysqli_fetch_assoc($resultado7);
+   
+    $sql6 = "SELECT IDusuario from usuario";
+    $resultado6 = mysqli_query($newConn -> conn, $sql6);
+     $fila3 = mysqli_fetch_assoc($resultado6);
     $sql = "SELECT idpersona FROM personas WHERE idpersona = '".$_POST['usuario']."'" ;
     $resultado = mysqli_query($newConn -> conn,$sql);
     if($resultado){
@@ -32,21 +39,15 @@ if(isset($_POST['FinalizarCompra'])){
                     if($resultado2){
                     $sql3  = "INSERT into Compras(IDCliente,IDproducto,Fecha,Total) VALUES('".$fila1['idcliente']."', '".$_SESSION['MostrarCarrito'][$i]['id']."', '".$fechaActual."', '".$_SESSION['MostrarCarrito'][$i]['Precio']*$_SESSION['MostrarCarrito'][$i]['Cantidad']."')";
                     $resultado3 = mysqli_query($newConn -> conn, $sql3);
-                   
+                    $sql5 = "SELECT IDCompra from Compras order by IDCompra desc" ;
+                    $resultado5 = mysqli_query($newConn -> conn, $sql5);
+                    $fila2 = mysqli_fetch_array($resultado5);  
+                    echo var_dump($fila2);
                      if($resultado3){
-                        $sql7 ="SELECT NumeroPuerta, calle from clientes where IDCliente = '".$_POST['usuario']."' ";
-                        $resultado7 = mysqli_query($newConn -> conn, $sql7);
-                        $fila4 = mysqli_fetch_assoc($resultado7);
-                        $sql5 = "SELECT IDCompra from Compras";
-                        $resultado5 = mysqli_query($newConn -> conn, $sql5);
-                        $fila2 = mysqli_fetch_assoc($resultado5);
-                        $sql6 = "SELECT IDusuario from usuario";
-                        $resultado6 = mysqli_query($newConn -> conn, $sql6);
-                        $fila3 = mysqli_fetch_assoc($resultado6);
                         $sql4 = "INSERT into Envios(Direccion,IDCompra,IDUsuario,IDCliente,IDProducto,Estados) VALUES('".$fila4['calle']."".$fila4['NumeroPuerta']."','".$fila2['IDCompra']."','".$fila3['IDusuario']."','".$fila1['idcliente']."','".$_SESSION['MostrarCarrito'][$i]['id']."', '1')";
                         $resultado4 = mysqli_query($newConn -> conn, $sql4);
                         if($resultado4){
-                            unset($_SESSION['MostrarCarrito'][$i]);
+                            // unset($_SESSION['MostrarCarrito'][$i]);
                             echo "<script> window.location('index.php')</script>";
                         }
 

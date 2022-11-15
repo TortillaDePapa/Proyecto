@@ -228,6 +228,41 @@ include_once 'Clases/ClaseEnvasados.php';
         }
        }
 
+
+       public function Mostrarpedidoscliente($Buscar){
+        
+        if($Buscar != ''){
+            $sql = "SELECT * FROM envios, compras, selecciona, clientes, personas  WHERE Nombre like '%".$Buscar."%' and envios.idcliente = compras.idcliente and compras.idcliente = selecciona.idcliente and selecciona.idcliente = clientes.idcliente and clientes.idcliente = personas.idpersona";
+        }else{
+
+            $sql = "SELECT * FROM envios, compras, selecciona, clientes, personas where envios.idcliente = compras.idcliente and compras.idcliente = selecciona.idcliente and selecciona.idcliente = clientes.idcliente and clientes.idcliente = personas.idpersona AND personas.idpersona= '".$_SESSION['CLIENTE']-> getIDPersona()."'";
+
+        }
+        
+        $this -> Conectar();
+       $result = mysqli_query($this -> conn, $sql);
+        
+        
+        if($result -> num_rows > 0){
+            $ListarProductos[] = new Producto();
+    
+            while($row = $result -> fetch_assoc()){
+                $p = new Producto(); 
+                $p -> setIDEnvio($row['IDEnvio']);
+                $p -> setIDProducto($row['IDProducto']);
+                $p -> setDireccion($row['Direccion']);
+                $p -> setNombre($row['Usuario']);
+                $p -> setIDProducto($row['IDCompra']);
+                $p -> setEstado($row['Estados']);
+                $p -> setFecha($row['Fecha']);
+                $p -> setPrecio($row['Total']);
+                $ListarProductos [] = $p;
+            }
+            return $ListarProductos;
+        }else{
+            return array();
+        }
+       }
     }
 
  

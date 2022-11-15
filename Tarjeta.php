@@ -76,8 +76,8 @@ Resumen de la compra
 
     <div class="row">
     <div class="col-sm-1 col-md-6">
-    <form class="form pasos"   method="post" autocomplete="off">
-
+    <div> 
+<!-- cambiar arriba -->
 
 
 <!-- Progress bar -->
@@ -443,8 +443,8 @@ echo "<p> ".$_SESSION['MostrarCarrito'][$i]['Precio']."</p>";
 <br>
 
 
-</form>
-
+    </div>
+<!-- cambiar arriba -->
 
 
 </div>
@@ -524,7 +524,7 @@ echo "<p> ".$_SESSION['MostrarCarrito'][$i]['Precio']."</p>";
         obAjax.open('POST', 'Persistencia/ControlCompra.php', true);
         obAjax.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
         obAjax.onreadystatechange = function() {
-        //  console.log(this.responseText);
+         console.log(this.responseText);
         }
         obAjax.send('FinalizarCompra='+''+'&usuario='+document.getElementById('sessiongetusuario').innerHTML+'&MetodoEnvio='+envio+'&MetodoPago='+tarjeta);
 

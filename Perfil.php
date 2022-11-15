@@ -145,6 +145,10 @@ if(!isset($_SESSION['CLIENTE'])){
 
           <?php
 
+          $p = new ProductoBD();
+          $MostrarPedidos = $p -> Mostrarpedidoscliente('');
+
+          
             echo "  <table class='table table-dark table-striped table-hover text-center' style='max-width: 100%; min-width: 90%;'>";
             echo "  <thead>";
             echo "  <tr>";
@@ -155,18 +159,19 @@ if(!isset($_SESSION['CLIENTE'])){
             echo " </tr>";
             echo "  </thead>";
             echo " <tbody>";
+            for($i = 1; $i <count($MostrarPedidos); $i++){
             echo "   <tr>";
             
-
             
-            echo "     <td> 1 </td>";
-            echo "     <td> 20/25/22 </td>";
-            echo "     <td>$1250 </td>";
+            
+            echo "     <td> '".$MostrarPedidos[$i] -> getIDEnvio()."' </td>";
+            echo "     <td> '".$MostrarPedidos[$i] -> getFecha()."' </td>";
+            echo "     <td> '".$MostrarPedidos[$i] -> getPrecio()."' </td>";
             echo "     <td> <button type='button' class='btn-danger btn-visualizar'  data-bs-toggle='modal' data-bs-target='#recibo1'> <i class='bi bi-eye-fill'></i>   </button>";
             echo "      </td>";
 
             echo "    </tr>";
-            
+          }  
 
             echo " </tbody>";
             echo " </table>";

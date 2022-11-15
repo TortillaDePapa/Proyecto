@@ -14,6 +14,7 @@ class Producto{
     private $Estado;
     private $IDEnvio;
     private $Direccion;
+    private $fecha;
     
     public function getIDProducto()
     {
@@ -140,6 +141,19 @@ class Producto{
         $this->Direccion = $Direccion;
 
         
+    }
+
+     
+    public function getFecha()
+    {
+        return $this->fecha;
+    }
+
+    
+    public function setFecha($fecha)
+    {
+        $this->fecha = $fecha;
+
     }
 }
 
