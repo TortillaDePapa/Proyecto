@@ -76,7 +76,7 @@ Resumen de la compra
 
     <div class="row">
     <div class="col-sm-1 col-md-6">
-    <div> 
+    <form action="" method="post" class="form pasos" autocomplete="off">  
 <!-- cambiar arriba -->
 
 
@@ -104,7 +104,7 @@ Resumen de la compra
 <div class="form-step form-step-active">
 
         <div class="form-check">
-          <input class="form-check-input" type="radio" name="radio1" id="flexRadioDefault1" data-bs-target="#envio" aria-expanded="false" aria-controls="envio" data-bs-toggle="collapse">
+          <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" data-bs-target="#envio" aria-expanded="false" aria-controls="envio" data-bs-toggle="collapse">
           <label class="form-check-label" for="flexRadioDefault1">
             
 Envio domicilio
@@ -114,7 +114,7 @@ Envio domicilio
         
         
         <div class="form-check">
-          <input class="form-check-input" type="radio" name="radio1" id="flexRadioDefault2" 
+          <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" 
           data-bs-toggle="collapse" data-bs-target="#retiro" aria-expanded="false" aria-controls="retiro" >
           <label class="form-check-label" for="flexRadioDefault2">
   Retiro local
@@ -223,7 +223,7 @@ Envio domicilio
 
 
 <div class="form-check">
-  <input class="form-check-input" type="radio" name="flexRadio" id="flexRadioDefault2" 
+  <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" 
   data-bs-toggle="collapse" data-bs-target="#tarjeta2" aria-expanded="false" aria-controls="tarjeta2" >
   <label class="form-check-label" for="flexRadioDefault2">
     Tarjeta de credito
@@ -443,7 +443,7 @@ echo "<p> ".$_SESSION['MostrarCarrito'][$i]['Precio']."</p>";
 <br>
 
 
-    </div>
+</form>
 <!-- cambiar arriba -->
 
 
