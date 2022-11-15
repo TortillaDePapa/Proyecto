@@ -7,13 +7,15 @@ if(isset($_POST['MostrarFactura'])){
     $IDenvio = $_POST['MostrarFactura']; 
     $newConn = new Conexion();
     $newConn -> Conectar();
-    $sql = "SELECT DISTINCT * FROM envios, compras, selecciona, clientes, personas, productos where envios.idcliente = compras.idcliente and compras.idcliente = selecciona.idcliente and selecciona.idcliente = clientes.idcliente and clientes.idcliente = personas.idpersona AND envios.IDCompra = compras.IDCompra AND compras.IDProducto = selecciona.IDProducto and envios.IDProducto = compras.IDProducto AND envios.IDCliente = personas.IDPersona AND selecciona.IDProducto = productos.IDProducto AND envios.IDEnvio = '".$_POST['MostrarFactura']."'";
+    $sql = "SELECT DISTINCT * FROM envios, compras, selecciona, clientes, personas, productos where selecciona.IDProducto = productos.IDProducto AND compras.idcliente = selecciona.idcliente and selecciona.idcliente = clientes.idcliente AND envios.IDCompra = compras.IDCompra AND compras.IDProducto = selecciona.IDProducto AND clientes.IDCliente = personas.IDPersona AND envios.IDEnvio = '".$_POST['MostrarFactura']."'";
     $resultado = mysqli_query($newConn ->conn, $sql);
-    if($fila = mysqli_fetch_assoc($resultado)){
-
-        echo '{"IDEnvio": "'.$IDenvio.'", "IDProducto": "'.$fila['IDProducto'].'", "PrecioU": "'.$fila['Precio'].'", "Cantidad": "'.$fila['CantidadProducto'].'", "Total": "'.$fila['Total'].'", "Fecha": "'.$fila['Fecha'].'" }';
-
-
+    if($fila = mysqli_fetch_all( $resultado,MYSQLI_ASSOC)){
+       
+        foreach ($fila as $item => $value){
+            // echo var_dump($value['IDEnvio']);
+         echo '{"IDEnvio": "'.$IDenvio.'", "IDProducto": "'.$value['IDProducto'].'", "PrecioU": "'.$value['Precio'].'", "Cantidad": "'.$value['CantidadProducto'].'", "Total": "'.$value['Total'].'", "Fecha": "'.$value['Fecha'].'" }';
+            echo "<br />";
+       }
         
     }
 
