@@ -104,7 +104,7 @@ Resumen de la compra
 <div class="form-step form-step-active">
 
         <div class="form-check">
-          <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" data-bs-target="#envio" aria-expanded="false" aria-controls="envio" data-bs-toggle="collapse">
+          <input class="form-check-input" type="radio" name="envio" id="flexRadioDefault1" data-bs-target="#envio" aria-expanded="false" aria-controls="envio" data-bs-toggle="collapse">
           <label class="form-check-label" for="flexRadioDefault1">
             
 Envio domicilio
@@ -114,7 +114,7 @@ Envio domicilio
         
         
         <div class="form-check">
-          <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" 
+          <input class="form-check-input" type="radio" name="envio" id="flexRadioDefault2" 
           data-bs-toggle="collapse" data-bs-target="#retiro" aria-expanded="false" aria-controls="retiro" >
           <label class="form-check-label" for="flexRadioDefault2">
   Retiro local
@@ -215,7 +215,7 @@ Envio domicilio
   <div class="row">
   
   <div class="form-check">
-  <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" data-bs-target="#efectivo1" aria-expanded="false" aria-controls="efectivo1" data-bs-toggle="collapse">
+  <input class="form-check-input" type="radio" name="pago" id="flexRadioDefault1" data-bs-target="#efectivo1" aria-expanded="false" aria-controls="efectivo1" data-bs-toggle="collapse">
   <label class="form-check-label" for="flexRadioDefault1">
     Efectivo
   </label>
@@ -223,7 +223,7 @@ Envio domicilio
 
 
 <div class="form-check">
-  <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" 
+  <input class="form-check-input" type="radio" name="pago" id="flexRadioDefault2" 
   data-bs-toggle="collapse" data-bs-target="#tarjeta2" aria-expanded="false" aria-controls="tarjeta2" >
   <label class="form-check-label" for="flexRadioDefault2">
     Tarjeta de credito
@@ -361,66 +361,55 @@ input[type=number] { -moz-appearance:textfield; }
 
   <div class="text-center">
 <h5> Datos de compra: </h5>
-<hr>
-
-<div class="row">
+</div>
 
 
+<table class="table">
+  <thead>
+    <tr>
 
-<div class="col">
-<h5> Producto: </h5>
-<?php
-if(isset($_SESSION['MostrarCarrito'])){
+      <th scope="col">Producto</th>
+      <th scope="col">Precio</th>
 
-for($i = 0; $i <count($_SESSION['MostrarCarrito']); $i++){
-  if($_SESSION['MostrarCarrito'][$i] != null){
-echo "<p>".$_SESSION['MostrarCarrito'][$i]['Nombre']." x ".$_SESSION['MostrarCarrito'][$i]['Cantidad']." </p>";
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <?php
+      if(isset($_SESSION['MostrarCarrito'])){
+
+        for($i = 0; $i <count($_SESSION['MostrarCarrito']); $i++){
+          if($_SESSION['MostrarCarrito'][$i] != null){
+      
+    echo "  <td>".$_SESSION['MostrarCarrito'][$i]['Nombre']." x ".$_SESSION['MostrarCarrito'][$i]['Cantidad']."</td>";
+    echo "<td>$".$_SESSION['MostrarCarrito'][$i]['Precio']."</td>";
+
+    
   }
 
 }
-
-}
-
-
-?>
-<h5> Total: </h5>
-
-
-
-</div>
-
-
-
-
-
-<div class="col">
-<h5> Precio: </h5>
-<?php
-
-if(isset($_SESSION['MostrarCarrito'])){
-  
-
-for($i = 0; $i <count($_SESSION['MostrarCarrito']); $i++){
-if($_SESSION['MostrarCarrito'][$i] != null){
-echo "<p> ".$_SESSION['MostrarCarrito'][$i]['Precio']."</p>";
+echo"   </tr>";
+echo"   <tr>";
+echo "<td><b> Total: </b></td>";
+echo "<td><b><div id='mostrarprecio-div1'></div> </b></td>";
+echo"   </tr>";
 
 
 }
-}
-}
+      ?>
+    </tr>
 
-?>
+    <tr>
 
-<h5> <div id="mostrarprecio-div1"></div> </h5>
+    
+    </tr>
+     
+  </tbody>
+</table>
 
 
 
-</div>
 
-
-  </div>
-
-</div>
  <div style="display:none;" id="sessiongetusuario">
  <?php
   echo $_SESSION['CLIENTE'] -> getIDPersona();
@@ -548,9 +537,13 @@ const progress = document.getElementById("progress");
 const formSteps = document.querySelectorAll(".form-step");
 const progressSteps = document.querySelectorAll(".progress-step");
 
+
+
 let formStepsNum = 0;
 
 nextBtns.forEach((btn) => {
+
+
   btn.addEventListener("click", () => {
     formStepsNum++;
     updateFormSteps();
