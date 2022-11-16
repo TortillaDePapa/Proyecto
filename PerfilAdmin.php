@@ -128,7 +128,7 @@ echo "  </div>";
 
   <?php
 echo "  <div class='row'>";
-echo "  <input class='form me-3 ' type='' placeholder='Buscar' aria-label='Search' onkeyup='' id='' style='width: 40%;'>";
+echo "  <input class='form me-3' type='' placeholder='Buscar'  id='buscartablapedido' aria-label='Search' onkeyup='FiltrarPedido()'  style='width: 40%;'>";
 
 include_once 'TablaPedidosAdmin.php';
 
@@ -465,7 +465,17 @@ variable = new XMLHttpRequest();
   variable.open("POST", "TablaProveedorAdmin.php");
   variable.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
   variable.send("buscar="+document.getElementById("buscartablaproveedor").value);
+}
 
+function FiltrarPedido() {
+
+variable = new XMLHttpRequest();
+  variable.onload = function() {
+    document.getElementById("tablapedidos").innerHTML = this.responseText;
+  }
+  variable.open("POST", "TablaPedidosAdmin.php");
+  variable.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+  variable.send("buscar="+document.getElementById("buscartablapedido").value);
 }
 
 

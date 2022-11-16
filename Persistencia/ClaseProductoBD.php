@@ -196,12 +196,14 @@ include_once 'Clases/ClaseEnvasados.php';
        public function Mostrarpedidos($Buscar){
         
         if($Buscar != ''){
-            $sql = "SELECT * FROM envios, compras, selecciona, clientes, personas  WHERE Nombre like '%".$Buscar."%' and envios.idcliente = compras.idcliente and compras.idcliente = selecciona.idcliente and selecciona.idcliente = clientes.idcliente and clientes.idcliente = personas.idpersona";
+            $sql = "SELECT envios.Estados, envios.IDEnvio,envios.Direccion, compras.Fecha, compras.IDCompra,compras.IDProducto,personas.Usuario,SUM( DISTINCT compras.Total) AS Total FROM envios, compras, selecciona, clientes, productos, personas WHERE envios.idenvio like '%".$Buscar."%' and envios.IDCompra = compras.IDCompra AND compras.idcliente = selecciona.idcliente  AND selecciona.idcliente = clientes.idcliente AND clientes.IDCliente = personas.IDPersona AND compras.IDProducto = selecciona.IDProducto AND selecciona.IDProducto = productos.IDProducto    GROUP BY compras.IDCompra ORDER by envios.IDEnvio desc";
         }else{
 
             $sql = "SELECT envios.Estados, envios.IDEnvio,envios.Direccion, compras.Fecha, compras.IDCompra,compras.IDProducto,personas.Usuario,SUM( DISTINCT compras.Total) AS Total FROM envios, compras, selecciona, clientes, productos, personas WHERE envios.IDCompra = compras.IDCompra AND compras.idcliente = selecciona.idcliente  AND selecciona.idcliente = clientes.idcliente AND clientes.IDCliente = personas.IDPersona AND compras.IDProducto = selecciona.IDProducto AND selecciona.IDProducto = productos.IDProducto    GROUP BY compras.IDCompra ORDER by envios.IDEnvio desc";
 
         }
+
+        
         
         $this -> Conectar();
        $result = mysqli_query($this -> conn, $sql);
@@ -230,7 +232,7 @@ include_once 'Clases/ClaseEnvasados.php';
        public function Mostrarpedidoscliente($Buscar){
         
         if($Buscar != ''){
-            $sql = "SELECT * FROM envios, compras, selecciona, clientes, personas  WHERE Nombre like '%".$Buscar."%' and envios.idcliente = compras.idcliente and compras.idcliente = selecciona.idcliente and selecciona.idcliente = clientes.idcliente and clientes.idcliente = personas.idpersona";
+            $sql = "SELECT * FROM envios, compras, selecciona, clientes, personas  WHERE envios.idenvio like '%".$Buscar."%' and envios.idcliente = compras.idcliente and compras.idcliente = selecciona.idcliente and selecciona.idcliente = clientes.idcliente and clientes.idcliente = personas.idpersona";
         }else{
 
             $sql = "SELECT envios.Estados, envios.IDEnvio,envios.Direccion, compras.IDProducto,compras.Fecha, compras.IDCompra,envios.Estados,personas.Usuario,SUM( compras.Total) AS Total  FROM envios,compras,personas WHERE envios.IDCompra = compras.IDCompra AND compras.IDCliente = personas.IDPersona AND compras.IDCliente = '".$_SESSION['CLIENTE'] -> getIDPersona()."'  GROUP by compras.IDCompra ORDER by envios.IDenvio desc";

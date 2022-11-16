@@ -2,13 +2,23 @@
 include_once 'Persistencia/ClaseProductoBD.php';
     
 
-    $p = new ProductoBD();
+
+$p = new ProductoBD();
+if(isset($_POST['buscar'])){
+    $MostrarPedidos = $p -> Mostrarpedidos($_POST['buscar']);
+
+
+}else{
+
     $MostrarPedidos = $p -> Mostrarpedidos('');
 
+}
 
 
 
-echo "  <div class='tabla' id='tablaproductos'>";
+
+
+echo "  <div class='tabla' id='tablapedidos'>";
 echo "  <table class='table table-dark table-striped table-hover text-center'>";
 echo "  <thead>";
 echo "  <tr>";
