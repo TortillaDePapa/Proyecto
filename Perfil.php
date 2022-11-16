@@ -145,39 +145,17 @@ if(!isset($_SESSION['CLIENTE'])){
 
           <?php
 
-          $p = new ProductoBD();
-          $MostrarPedidos = $p -> Mostrarpedidoscliente('');
+echo "  <div class='row'>";
+echo "  <input class='form me-3 ' type='' placeholder='Buscar' aria-label='Search' onkeyup='FiltrarCompra()' id='buscartablacompras' style='width: 40%;'>";
 
-          
-            echo "  <table class='table table-dark table-striped table-hover text-center' style='max-width: 100%; min-width: 90%;'>";
-            echo "  <thead>";
-            echo "  <tr>";
-            echo "  <th scope='col'> Orden de compra </th>";
-            echo "  <th scope='col'> Fecha </th>";
-            echo "  <th scope='col'> Total </th>";
-            echo "  <th scope='col'> Visualizar </th>";
-            echo " </tr>";
-            echo "  </thead>";
-            echo " <tbody>";
-            for($i = 1; $i <count($MostrarPedidos); $i++){
-            echo "   <tr>";
-            
-            
-            
-            echo "     <td> '".$MostrarPedidos[$i] -> getIDEnvio()."' </td>";
-            echo "     <td> '".$MostrarPedidos[$i] -> getFecha()."' </td>";
-            echo "     <td> '".$MostrarPedidos[$i] -> getPrecio()."' </td>";
-            echo "      </td>";
-            echo "     <td> <button type='button' class='btn-danger btn-visualizar'  data-bs-toggle='modal' data-bs-target='#recibo1' onclick='VerFactura(\"".$MostrarPedidos[$i] -> getIDEnvio()."\")'> <i class='bi bi-eye-fill'></i>   </button>";
+  
+include_once 'TablaComprasCliente.php';
 
-            echo "    </tr>";
-          }  
+echo "  </div>";
 
-            echo " </tbody>";
-            echo " </table>";
+?>
             
-            
-            ?>
+      
 
 </div>
 
@@ -457,6 +435,18 @@ obAjax.send("MostrarFactura="+idenvio);
       }
       obAjax.send('Cerrar');
     }
+
+
+    function FiltrarCompra() {
+
+variable = new XMLHttpRequest();
+  variable.onload = function() {
+    document.getElementById("tablacompras").innerHTML = this.responseText;
+  }
+  variable.open("POST", "TablaComprasCliente.php");
+  variable.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+  variable.send("buscar="+document.getElementById("buscartablacompras").value);
+}
   </script>
 
   <?php
@@ -484,6 +474,9 @@ if(isset($_POST['Eliminar'])){
     
     $p1 -> ModificarDatos($p);
   }
+
+
+    
 ?>
 
 </body>
