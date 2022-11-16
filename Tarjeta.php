@@ -104,7 +104,7 @@ Resumen de la compra
 <div class="form-step form-step-active">
 
         <div class="form-check">
-          <input class="form-check-input" type="radio" name="envio" id="flexRadioDefault1" data-bs-target="#envio" aria-expanded="false" aria-controls="envio" data-bs-toggle="collapse" checked>
+          <input class="form-check-input" type="radio" name="envio" id="flexRadioDefault1" data-bs-target="#envio" aria-expanded="false" aria-controls="envio" data-bs-toggle="collapse" >
           <label class="form-check-label" for="flexRadioDefault1">
             
 Envio domicilio
@@ -115,7 +115,7 @@ Envio domicilio
         
         <div class="form-check">
           <input class="form-check-input" type="radio" name="envio" id="flexRadioDefault2" 
-          data-bs-toggle="collapse" data-bs-target="#retiro" aria-expanded="false" aria-controls="retiro" >
+          data-bs-toggle="collapse" data-bs-target="#retiro" aria-expanded="false" aria-controls="retiro">
           <label class="form-check-label" for="flexRadioDefault2">
   Retiro local
           </label>
@@ -215,7 +215,7 @@ Envio domicilio
   <div class="row">
   
   <div class="form-check">
-  <input class="form-check-input" type="radio" name="pago" id="flexRadioDefault1" data-bs-target="#efectivo1" aria-expanded="false" aria-controls="efectivo1" data-bs-toggle="collapse" checked>
+  <input class="form-check-input" type="radio" name="pago" id="flexRadioDefault3" data-bs-target="#efectivo1" aria-expanded="false" aria-controls="efectivo1" data-bs-toggle="collapse" checked>
   <label class="form-check-label" for="flexRadioDefault1">
     Efectivo
   </label>
@@ -223,7 +223,7 @@ Envio domicilio
 
 
 <div class="form-check">
-  <input class="form-check-input" type="radio" name="pago" id="flexRadioDefault2" 
+  <input class="form-check-input" type="radio" name="pago" id="flexRadioDefault4" 
   data-bs-toggle="collapse" data-bs-target="#tarjeta2" aria-expanded="false" aria-controls="tarjeta2" >
   <label class="form-check-label" for="flexRadioDefault2">
     Tarjeta de credito
@@ -507,28 +507,36 @@ echo"   </tr>";
 
 
     function FinalizarCompra() {
-       const envio = 'Envio';
-         const  tarjeta = 'tarjeta';
+      
         var obAjax = new XMLHttpRequest();
         obAjax.open('POST', 'Persistencia/ControlCompra.php', true);
         obAjax.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
         obAjax.onreadystatechange = function() {
          console.log(this.responseText);
         }
-        obAjax.send('FinalizarCompra='+''+'&usuario='+document.getElementById('sessiongetusuario').innerHTML+'&MetodoEnvio='+envio+'&MetodoPago='+tarjeta);
+        
+        const  tarjeta = 'tarjeta';
+        if(document.getElementById('flexRadioDefault1').checked){
+          if(document.getElementById('flexRadioDefault3').checked){
 
-      //   const retiro = document.getElementById('retiro').selected;
-      //   const envio = document.getElementById('envio').selected;
-      //   const  tarjeta = 'tarjeta';
-      //   if(envio == true){
+        obAjax.send('FinalizarCompra='+''+'&usuario='+document.getElementById('sessiongetusuario').innerHTML+'&MetodoEnvio='+'Envio a domicilio'+'&MetodoPago='+'efectivo');
 
-      //   obAjax.send('FinalizarCompra='+''+'&usuario='+document.getElementById('sessiongetusuario').innerHTML+'&MetodoEnvio='+envio+'&MetodoPago='+tarjeta);
-       
-      // }else if (retiro == true){
+          }else if(document.getElementById('flexRadioDefault4').checked){
+            
+            obAjax.send('FinalizarCompra='+''+'&usuario='+document.getElementById('sessiongetusuario').innerHTML+'&MetodoEnvio='+'Envio a domicilio'+'&MetodoPago='+'Tarjeta');
 
-      //   obAjax.send('FinalizarCompra='+''+'&usuario='+document.getElementById('sessiongetusuario').innerHTML+'&MetodoEnvio='+retiro+'&MetodoPago='+tarjeta);
+          }
+      }else if (document.getElementById('flexRadioDefault2').checked){
+        if(document.getElementById('flexRadioDefault3').checked){
 
-      //   }
+        obAjax.send('FinalizarCompra='+''+'&usuario='+document.getElementById('sessiongetusuario').innerHTML+'&MetodoEnvio='+'Retira en local'+'&MetodoPago='+'efectivo');
+
+            }else if(document.getElementById('flexRadioDefault4').checked){
+    
+            obAjax.send('FinalizarCompra='+''+'&usuario='+document.getElementById('sessiongetusuario').innerHTML+'&MetodoEnvio='+'Retira en local'+'&MetodoPago='+'Tarjeta');
+
+            }
+        }
 }
 
 const prevBtns = document.querySelectorAll(".btn-prev");
