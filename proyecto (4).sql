@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 13-11-2022 a las 04:29:03
+-- Tiempo de generación: 16-11-2022 a las 18:57:58
 -- Versión del servidor: 10.4.24-MariaDB
 -- Versión de PHP: 8.1.6
 
@@ -68,7 +68,9 @@ CREATE TABLE `clientes` (
 
 INSERT INTO `clientes` (`IDCliente`, `NumeroPuerta`, `Calle`) VALUES
 (4, 1740, 'Invencion ocampo'),
-(5, 1734, 'invencion ocampo');
+(5, 1734, 'invencion ocampo'),
+(6, 1734, 'invencion '),
+(7, 1734, 'invencion ocampo');
 
 -- --------------------------------------------------------
 
@@ -84,15 +86,6 @@ CREATE TABLE `compras` (
   `Total` float DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
---
--- Volcado de datos para la tabla `compras`
---
-
-INSERT INTO `compras` (`IDCompra`, `IDCliente`, `IDProducto`, `Fecha`, `Total`) VALUES
-(14, 4, 17, '2022-11-13 00:11:02', 220),
-(15, 4, 17, '2022-11-13 00:11:23', 330),
-(16, 4, 17, '2022-11-13 00:11:49', 220);
-
 -- --------------------------------------------------------
 
 --
@@ -104,19 +97,28 @@ CREATE TABLE `envios` (
   `Direccion` varchar(50) DEFAULT NULL,
   `IDCompra` int(11) DEFAULT NULL,
   `IDUsuario` int(11) DEFAULT NULL,
-  `IDCliente` int(11) DEFAULT NULL,
-  `IDProducto` int(11) DEFAULT NULL,
   `Estados` tinyint(4) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+-- --------------------------------------------------------
+
 --
--- Volcado de datos para la tabla `envios`
+-- Estructura de tabla para la tabla `idcompras`
 --
 
-INSERT INTO `envios` (`IDEnvio`, `Direccion`, `IDCompra`, `IDUsuario`, `IDCliente`, `IDProducto`, `Estados`) VALUES
-(6, 'Invencion ocampo1740', 14, 5, 4, 17, 1),
-(7, 'Invencion ocampo1740', 14, 5, 4, 17, 1),
-(8, 'Invencion ocampo1740', 14, 5, 4, 17, 1);
+CREATE TABLE `idcompras` (
+  `IDCompra` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `idenvios`
+--
+
+CREATE TABLE `idenvios` (
+  `idenvio` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -140,7 +142,9 @@ CREATE TABLE `personas` (
 
 INSERT INTO `personas` (`IDPersona`, `Usuario`, `Contraseña`, `Apellido`, `Estado`, `Nombre`, `Gmail`) VALUES
 (4, 'pato', '259823af837e251e560ca1158a4e77c7', 'muñoz', 1, 'pato', 'muñoz@gmail.com'),
-(5, 'benjamin|', '5e0c258c24eb837a139d590f60e5f2ab', 'poloni', 1, 'benjamin', 'benja@gmail.com');
+(5, 'benjamin|', '5e0c258c24eb837a139d590f60e5f2ab', 'poloni', 1, 'benjamin', 'benja@gmail.com'),
+(6, 'benja', '5e0c258c24eb837a139d590f60e5f2ab', 'poloni', 1, 'benja', 'benja@gmail.com'),
+(7, 'benjita', '5e0c258c24eb837a139d590f60e5f2ab', 'poloni', 1, 'benja', 'benja@gmail.com');
 
 -- --------------------------------------------------------
 
@@ -166,7 +170,11 @@ CREATE TABLE `productos` (
 --
 
 INSERT INTO `productos` (`IDProducto`, `CodigoBarra`, `Imagen`, `Stock`, `Nombre`, `Precio`, `FechaVencimiento`, `Estado`, `NombreCategoria`, `Descripcion`) VALUES
-(17, 525, 'fideoscololo.jpg', 10, 'Fideos nido', 55, 12, 1, 'Pastas', 'Fideos nido cololo');
+(17, 525, 'fideoscololo.jpg', 10, 'Fideos nido', 55, 12, 1, 'Pastas', 'Fideos nido cololo'),
+(18, 541, 'Monster-Mango-Loco-473-Ml-2-837702.jpg', 100, 'Monster mango Loco', 110, NULL, 1, 'Bebidas', ' Monster mango loco'),
+(19, 545, 'images.jfif', 100, 'Palmitos en rodajas ', 200, NULL, 1, 'Verduleria', 'Palmitos en rodajas'),
+(24, 2223, '13_0090689_1.png', 110, 'Monster cero', 110, NULL, 1, 'Bebidas', ' Mosnter cero'),
+(25, 2147483647, 'Monster-Mango-Loco-473-Ml-2-837702.jpg', 1, 'Monster mango Loco', 110, NULL, 1, 'Bebidas', ' monsteeeeeeeeeeeee');
 
 -- --------------------------------------------------------
 
@@ -187,7 +195,9 @@ CREATE TABLE `proveedores` (
 
 INSERT INTO `proveedores` (`IDProveedor`, `Nombre`, `Gmail`, `Estado`) VALUES
 (5, 'Facundo', 'Facu@gmail.com', 1),
-(6, 'Lucas', 'lucas@gmail.com', 1);
+(6, 'Lucas', 'lucas@gmail.com', 1),
+(7, 'BenjaQuesos', 'Alfonso@gmail.com', 1),
+(8, 'NaviHelasdos', 'NaviHelados@gmail.com', 1);
 
 -- --------------------------------------------------------
 
@@ -202,15 +212,6 @@ CREATE TABLE `selecciona` (
   `MetodoDePago` varchar(30) NOT NULL,
   `MetodoEnvio` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Volcado de datos para la tabla `selecciona`
---
-
-INSERT INTO `selecciona` (`IDCliente`, `IDProducto`, `CantidadProducto`, `MetodoDePago`, `MetodoEnvio`) VALUES
-(4, 17, 4, 'tarjeta', 'Envio'),
-(4, 17, 6, 'tarjeta', 'Envio'),
-(4, 17, 4, 'tarjeta', 'Envio');
 
 -- --------------------------------------------------------
 
@@ -240,7 +241,9 @@ CREATE TABLE `telefonoclientes` (
 
 INSERT INTO `telefonoclientes` (`IDCliente`, `Numero`) VALUES
 (4, 98584855),
-(5, 91413684);
+(5, 91413684),
+(6, 91413684),
+(7, 91413684);
 
 -- --------------------------------------------------------
 
@@ -259,7 +262,9 @@ CREATE TABLE `telefonoproveedores` (
 
 INSERT INTO `telefonoproveedores` (`IDProveedor`, `Numero`) VALUES
 (5, 99624847),
-(6, 99624847);
+(6, 99624847),
+(7, 988855),
+(8, 3669852);
 
 -- --------------------------------------------------------
 
@@ -298,19 +303,29 @@ ALTER TABLE `clientes`
 -- Indices de la tabla `compras`
 --
 ALTER TABLE `compras`
-  ADD PRIMARY KEY (`IDCompra`),
   ADD KEY `IDCliente` (`IDCliente`),
-  ADD KEY `IDProducto` (`IDProducto`);
+  ADD KEY `IDProducto` (`IDProducto`),
+  ADD KEY `compras_ibfk_3` (`IDCompra`);
 
 --
 -- Indices de la tabla `envios`
 --
 ALTER TABLE `envios`
-  ADD PRIMARY KEY (`IDEnvio`),
   ADD KEY `IDCompra` (`IDCompra`),
   ADD KEY `IDUsuario` (`IDUsuario`),
-  ADD KEY `IDCliente` (`IDCliente`),
-  ADD KEY `IDProducto` (`IDProducto`);
+  ADD KEY `envios_ibfk_5` (`IDEnvio`);
+
+--
+-- Indices de la tabla `idcompras`
+--
+ALTER TABLE `idcompras`
+  ADD PRIMARY KEY (`IDCompra`);
+
+--
+-- Indices de la tabla `idenvios`
+--
+ALTER TABLE `idenvios`
+  ADD PRIMARY KEY (`idenvio`);
 
 --
 -- Indices de la tabla `personas`
@@ -369,34 +384,34 @@ ALTER TABLE `usuario`
 --
 
 --
--- AUTO_INCREMENT de la tabla `compras`
+-- AUTO_INCREMENT de la tabla `idcompras`
 --
-ALTER TABLE `compras`
-  MODIFY `IDCompra` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+ALTER TABLE `idcompras`
+  MODIFY `IDCompra` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `envios`
+-- AUTO_INCREMENT de la tabla `idenvios`
 --
-ALTER TABLE `envios`
-  MODIFY `IDEnvio` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+ALTER TABLE `idenvios`
+  MODIFY `idenvio` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=210;
 
 --
 -- AUTO_INCREMENT de la tabla `personas`
 --
 ALTER TABLE `personas`
-  MODIFY `IDPersona` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `IDPersona` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT de la tabla `productos`
 --
 ALTER TABLE `productos`
-  MODIFY `IDProducto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `IDProducto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
 -- AUTO_INCREMENT de la tabla `proveedores`
 --
 ALTER TABLE `proveedores`
-  MODIFY `IDProveedor` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `IDProveedor` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- Restricciones para tablas volcadas
@@ -412,8 +427,9 @@ ALTER TABLE `clientes`
 -- Filtros para la tabla `compras`
 --
 ALTER TABLE `compras`
-  ADD CONSTRAINT `compras_ibfk_1` FOREIGN KEY (`IDCliente`) REFERENCES `selecciona` (`IDCliente`),
-  ADD CONSTRAINT `compras_ibfk_2` FOREIGN KEY (`IDProducto`) REFERENCES `selecciona` (`IDProducto`);
+  ADD CONSTRAINT `compras_ibfk_1` FOREIGN KEY (`IDCliente`) REFERENCES `selecciona` (`IDCliente`) ON UPDATE CASCADE,
+  ADD CONSTRAINT `compras_ibfk_2` FOREIGN KEY (`IDProducto`) REFERENCES `selecciona` (`IDProducto`) ON UPDATE CASCADE,
+  ADD CONSTRAINT `compras_ibfk_3` FOREIGN KEY (`IDCompra`) REFERENCES `idcompras` (`IDCompra`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Filtros para la tabla `envios`
@@ -421,8 +437,7 @@ ALTER TABLE `compras`
 ALTER TABLE `envios`
   ADD CONSTRAINT `envios_ibfk_1` FOREIGN KEY (`IDCompra`) REFERENCES `compras` (`IDCompra`),
   ADD CONSTRAINT `envios_ibfk_2` FOREIGN KEY (`IDUsuario`) REFERENCES `usuario` (`IDUsuario`),
-  ADD CONSTRAINT `envios_ibfk_3` FOREIGN KEY (`IDCliente`) REFERENCES `compras` (`IDCliente`),
-  ADD CONSTRAINT `envios_ibfk_4` FOREIGN KEY (`IDProducto`) REFERENCES `compras` (`IDProducto`);
+  ADD CONSTRAINT `envios_ibfk_5` FOREIGN KEY (`IDEnvio`) REFERENCES `idenvios` (`idenvio`);
 
 --
 -- Filtros para la tabla `productos`

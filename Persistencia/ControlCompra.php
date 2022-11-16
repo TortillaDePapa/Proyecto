@@ -47,7 +47,7 @@ if(isset($_POST['FinalizarCompra'])){
                     $sql2 = "SELECT idcliente  FROM selecciona WHERE idcliente = '".$_POST['usuario']."'" ;
                     $resultado2 = mysqli_query($newConn -> conn, $sql2);
                     $fila1 = mysqli_fetch_assoc($resultado2);
-                    $fechaActual = date('y-m-d H:m:s');
+                    $fechaActual = date('y-m-d H:i:s');
                     echo $fila1['idcliente'];
                     if($resultado2){
                     $sql3  = "INSERT into Compras(IDCompra,IDCliente,IDproducto,Fecha,Total) VALUES('".$fila5['IDCompra']."','".$fila1['idcliente']."', '".$_SESSION['MostrarCarrito'][$i]['id']."', '".$fechaActual."', '".$_SESSION['MostrarCarrito'][$i]['Precio']*$_SESSION['MostrarCarrito'][$i]['Cantidad']."')";
