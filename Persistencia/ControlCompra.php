@@ -8,7 +8,9 @@ if (session_status() == PHP_SESSION_NONE){
 if(isset($_POST['FinalizarCompra'])){
     date_default_timezone_set('America/Montevideo');
     $envio = $_POST['MetodoEnvio'];
+    echo $envio;
     $metodoPago = $_POST['MetodoPago'];
+    echo $metodoPago;
     $newConn = new Conexion(); 
     $newConn -> Conectar();
     $sql10 = "INSERT into idcompras VALUES(null)";
