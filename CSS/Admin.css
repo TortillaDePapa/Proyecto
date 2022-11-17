@@ -10,7 +10,15 @@
 
   }
 .btn-agregar{
-
-
+  margin-left: 20px;
   width: 15% !important;
 }
+
+.barra-busqueda{
+  width: 40%;
+  border-radius: 20px;
+  box-shadow: 10px 5px 5px black;
+  margin-left: 20px;
+}
+
+

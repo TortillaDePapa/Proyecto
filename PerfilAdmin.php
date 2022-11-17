@@ -88,8 +88,8 @@ session_start();
 
   <?php
 echo "  <div class='row'>";
-echo "  <button class='btn btn-success btn-agregar' type='submit' data-bs-toggle='modal' style='margin: 20px !important;' data-bs-target='#ModalAgregarProducto'> Agregar producto</button>";
-echo "  <input class='form me-3 ' type='' placeholder='Buscar' aria-label='Search' onkeyup='FiltrarProducto()' id='buscartablaproducto' style='width: 40%;'>";
+echo "  <button class='btn btn-success btn-agregar' type='submit' data-bs-toggle='modal' data-bs-target='#ModalAgregarProducto'> Agregar producto</button>";
+echo "  <input class='form me-3 barra-busqueda ' type='' placeholder='Buscar' aria-label='Search' onkeyup='FiltrarProducto()' id='buscartablaproducto' style='width: 40%;'>";
 echo "  <div class='tabla ' id='tablaproductos'>";
 include_once 'TablaProductoAdmin.php';
 echo " </div>";
@@ -108,10 +108,8 @@ echo "  </div>";
 
   <?php
 echo "  <div class='row'>";
-echo "  <button class='btn btn-success btn-agregar' type='submit' data-bs-toggle='modal' style='margin: 20px !important;' data-bs-target='#ModalAgregarProveedor'> Agregar proveedor </button>";
-echo "  <input class='form me-3 ' type='' placeholder='Buscar' aria-label='Search' onkeyup='FiltrarProveedor()' id='buscartablaproveedor' style='width: 40%;'>";
-
-  
+echo "  <button class='btn btn-success btn-agregar' type='submit' data-bs-toggle='modal' data-bs-target='#ModalAgregarProveedor'> Agregar proveedor </button>";
+echo "  <input class='form me-3 barra-busqueda ' type='' placeholder='Buscar' aria-label='Search' onkeyup='FiltrarProveedor()' id='buscartablaproveedor' style='width: 40%;'>";
 include_once 'TablaProveedorAdmin.php';
 
 echo "  </div>";
@@ -128,7 +126,7 @@ echo "  </div>";
 
   <?php
 echo "  <div class='row'>";
-echo "  <input class='form me-3' type='' placeholder='Buscar'  id='buscartablapedido' aria-label='Search' onkeyup='FiltrarPedido()'  style='width: 40%;'>";
+echo "  <input class='form me-3 barra-busqueda' type='' placeholder='Buscar'  id='buscartablapedido' aria-label='Search' onkeyup='FiltrarPedido()'  style='width: 40%;'>";
 
 include_once 'TablaPedidosAdmin.php';
 
@@ -200,13 +198,13 @@ echo "  </div>";
               <input type="number" class="form-control" value="" name="PrecioProducto" id="PrecioProducto">
             </div>
 
-          
+            </form>
         </div>
 
         <div class="modal-footer d-flex justify-content-between">
           <button  onclick="ActualizarTablaProducto()" name="AgregarArticulos"  id="AgregarArticulos" class="btn btn-primary "> Agregar </button>
         </div>
-        </form>
+      
       
       </div>
     </div>
