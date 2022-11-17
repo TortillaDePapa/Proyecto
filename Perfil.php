@@ -23,6 +23,7 @@ if(!isset($_SESSION['CLIENTE'])){
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="CSS/principal.css">
+  <link rel="stylesheet" href="CSS/admin.css">
 
   <!-- Icon Bootstrap CSS -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
@@ -146,7 +147,7 @@ if(!isset($_SESSION['CLIENTE'])){
           <?php
 
 echo "  <div class='row'>";
-echo "  <input class='form me-3 ' type='' placeholder='Buscar' aria-label='Search' onkeyup='FiltrarCompra()' id='buscartablacompras' style='width: 40%;'>";
+echo "  <input class='form me-3 barra-busqueda' type='' placeholder='Buscar' aria-label='Search' onkeyup='FiltrarCompra()' id='buscartablacompras' style='width: 40%;'>";
 
   
 include_once 'TablaComprasCliente.php';
