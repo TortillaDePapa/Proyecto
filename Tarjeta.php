@@ -76,7 +76,7 @@ Resumen de la compra
 
     <div class="row">
     <div class="col-sm-1 col-md-6">
-    <form action="" method="post" class="form pasos" autocomplete="off">  
+    <form action="" method="post" class="form pasos" autocomplete="off" >  
 <!-- cambiar arriba -->
 
 
@@ -104,7 +104,7 @@ Resumen de la compra
 <div class="form-step form-step-active">
 
         <div class="form-check">
-          <input class="form-check-input" type="radio" name="envio" id="flexRadioDefault1" data-bs-target="#envio" aria-expanded="false" aria-controls="envio" data-bs-toggle="collapse" >
+          <input class="form-check-input" type="radio" name="envio" id="flexRadioDefault1" data-bs-target="#envio" aria-expanded="false" aria-controls="envio" data-bs-toggle="collapse" checked>
           <label class="form-check-label" for="flexRadioDefault1">
             
 Envio domicilio
@@ -520,21 +520,21 @@ echo"   </tr>";
           if(document.getElementById('flexRadioDefault3').checked){
 
         obAjax.send('FinalizarCompra='+''+'&usuario='+document.getElementById('sessiongetusuario').innerHTML+'&MetodoEnvio='+'Envio a domicilio'+'&MetodoPago='+'efectivo');
-
+          window.location.reload();
           }else if(document.getElementById('flexRadioDefault4').checked){
             
             obAjax.send('FinalizarCompra='+''+'&usuario='+document.getElementById('sessiongetusuario').innerHTML+'&MetodoEnvio='+'Envio a domicilio'+'&MetodoPago='+'Tarjeta');
-
+            window.location.reload();
           }
       }else if (document.getElementById('flexRadioDefault2').checked){
         if(document.getElementById('flexRadioDefault3').checked){
 
         obAjax.send('FinalizarCompra='+''+'&usuario='+document.getElementById('sessiongetusuario').innerHTML+'&MetodoEnvio='+'Retira en local'+'&MetodoPago='+'efectivo');
-
+        window.location.reload();
             }else if(document.getElementById('flexRadioDefault4').checked){
     
             obAjax.send('FinalizarCompra='+''+'&usuario='+document.getElementById('sessiongetusuario').innerHTML+'&MetodoEnvio='+'Retira en local'+'&MetodoPago='+'Tarjeta');
-
+              window.location.reload();
             }
         }
 }
