@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 16-11-2022 a las 18:57:58
+-- Tiempo de generación: 17-11-2022 a las 23:02:05
 -- Versión del servidor: 10.4.24-MariaDB
 -- Versión de PHP: 8.1.6
 
@@ -70,7 +70,8 @@ INSERT INTO `clientes` (`IDCliente`, `NumeroPuerta`, `Calle`) VALUES
 (4, 1740, 'Invencion ocampo'),
 (5, 1734, 'invencion ocampo'),
 (6, 1734, 'invencion '),
-(7, 1734, 'invencion ocampo');
+(7, 1734, 'invencion ocampo'),
+(8, 1734, 'invencion ocampo');
 
 -- --------------------------------------------------------
 
@@ -83,8 +84,25 @@ CREATE TABLE `compras` (
   `IDCliente` int(11) DEFAULT NULL,
   `IDProducto` int(11) DEFAULT NULL,
   `Fecha` datetime DEFAULT NULL,
-  `Total` float DEFAULT NULL
+  `Total` float DEFAULT NULL,
+  `CantidadProducto` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `compras`
+--
+
+INSERT INTO `compras` (`IDCompra`, `IDCliente`, `IDProducto`, `Fecha`, `Total`, `CantidadProducto`) VALUES
+(1, 4, 19, '2022-11-17 11:00:26', 400, 0),
+(2, 4, 18, '2022-11-17 11:06:43', 770, 0),
+(3, 4, 17, '2022-11-17 11:07:49', 110, 0),
+(4, 4, 18, '2022-11-17 11:09:32', 220, 0),
+(5, 4, 18, '2022-11-17 12:44:04', 220, 0),
+(5, 4, 19, '2022-11-17 12:44:04', 200, 0),
+(8, 4, 19, '2022-11-17 15:06:34', 200, 1),
+(8, 4, 24, '2022-11-17 15:06:34', 220, 2),
+(9, 4, 19, '2022-11-17 15:07:11', 1000, 5),
+(10, 4, 18, '2022-11-17 15:08:28', 1320, 12);
 
 -- --------------------------------------------------------
 
@@ -97,8 +115,23 @@ CREATE TABLE `envios` (
   `Direccion` varchar(50) DEFAULT NULL,
   `IDCompra` int(11) DEFAULT NULL,
   `IDUsuario` int(11) DEFAULT NULL,
-  `Estados` tinyint(4) NOT NULL
+  `Estados` tinyint(4) NOT NULL,
+  `MetodoEnvio` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `envios`
+--
+
+INSERT INTO `envios` (`IDEnvio`, `Direccion`, `IDCompra`, `IDUsuario`, `Estados`, `MetodoEnvio`) VALUES
+(1, 'Invencion ocampo1740', 1, 5, 1, 'Envio a domicilio'),
+(2, 'Invencion ocampo1740', 2, 5, 1, 'Envio a domicilio'),
+(3, 'Invencion ocampo1740', 3, 5, 1, 'Envio a domicilio'),
+(4, 'Invencion ocampo1740', 4, 5, 1, 'Retira en local'),
+(5, 'Invencion ocampo1740', 5, 5, 1, 'Envio a domicilio'),
+(6, 'Invencion ocampo1740', 8, 5, 1, 'Envio a domicilio'),
+(7, 'Invencion ocampo1740', 9, 5, 1, 'Envio a domicilio'),
+(8, 'Invencion ocampo1740', 10, 5, 1, 'Envio a domicilio');
 
 -- --------------------------------------------------------
 
@@ -110,6 +143,22 @@ CREATE TABLE `idcompras` (
   `IDCompra` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Volcado de datos para la tabla `idcompras`
+--
+
+INSERT INTO `idcompras` (`IDCompra`) VALUES
+(1),
+(2),
+(3),
+(4),
+(5),
+(6),
+(7),
+(8),
+(9),
+(10);
+
 -- --------------------------------------------------------
 
 --
@@ -119,6 +168,20 @@ CREATE TABLE `idcompras` (
 CREATE TABLE `idenvios` (
   `idenvio` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `idenvios`
+--
+
+INSERT INTO `idenvios` (`idenvio`) VALUES
+(1),
+(2),
+(3),
+(4),
+(5),
+(6),
+(7),
+(8);
 
 -- --------------------------------------------------------
 
@@ -144,7 +207,8 @@ INSERT INTO `personas` (`IDPersona`, `Usuario`, `Contraseña`, `Apellido`, `Esta
 (4, 'pato', '259823af837e251e560ca1158a4e77c7', 'muñoz', 1, 'pato', 'muñoz@gmail.com'),
 (5, 'benjamin|', '5e0c258c24eb837a139d590f60e5f2ab', 'poloni', 1, 'benjamin', 'benja@gmail.com'),
 (6, 'benja', '5e0c258c24eb837a139d590f60e5f2ab', 'poloni', 1, 'benja', 'benja@gmail.com'),
-(7, 'benjita', '5e0c258c24eb837a139d590f60e5f2ab', 'poloni', 1, 'benja', 'benja@gmail.com');
+(7, 'benjita', '5e0c258c24eb837a139d590f60e5f2ab', 'poloni', 1, 'benja', 'benja@gmail.com'),
+(8, 'benjamin', '5e0c258c24eb837a139d590f60e5f2ab', 'poloni', 1, 'benja', 'benjamin@gmail.com');
 
 -- --------------------------------------------------------
 
@@ -213,6 +277,24 @@ CREATE TABLE `selecciona` (
   `MetodoEnvio` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Volcado de datos para la tabla `selecciona`
+--
+
+INSERT INTO `selecciona` (`IDCliente`, `IDProducto`, `CantidadProducto`, `MetodoDePago`, `MetodoEnvio`) VALUES
+(4, 19, 2, 'efectivo', 'Envio a domicilio'),
+(4, 18, 7, 'efectivo', 'Envio a domicilio'),
+(4, 17, 2, 'efectivo', 'Envio a domicilio'),
+(4, 18, 2, 'Tarjeta', 'Retira en local'),
+(4, 18, 2, 'efectivo', 'Envio a domicilio'),
+(4, 19, 1, 'efectivo', 'Envio a domicilio'),
+(4, 19, 1, 'efectivo', 'Envio a domicilio'),
+(4, 19, 1, 'efectivo', 'Envio a domicilio'),
+(4, 19, 1, 'efectivo', 'Envio a domicilio'),
+(4, 24, 2, 'efectivo', 'Envio a domicilio'),
+(4, 19, 5, 'efectivo', 'Envio a domicilio'),
+(4, 18, 12, 'efectivo', 'Envio a domicilio');
+
 -- --------------------------------------------------------
 
 --
@@ -243,7 +325,8 @@ INSERT INTO `telefonoclientes` (`IDCliente`, `Numero`) VALUES
 (4, 98584855),
 (5, 91413684),
 (6, 91413684),
-(7, 91413684);
+(7, 91413684),
+(8, 98897455);
 
 -- --------------------------------------------------------
 
@@ -387,19 +470,19 @@ ALTER TABLE `usuario`
 -- AUTO_INCREMENT de la tabla `idcompras`
 --
 ALTER TABLE `idcompras`
-  MODIFY `IDCompra` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `IDCompra` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT de la tabla `idenvios`
 --
 ALTER TABLE `idenvios`
-  MODIFY `idenvio` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=210;
+  MODIFY `idenvio` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT de la tabla `personas`
 --
 ALTER TABLE `personas`
-  MODIFY `IDPersona` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `IDPersona` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT de la tabla `productos`

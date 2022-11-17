@@ -415,12 +415,16 @@ echo"    </div>";
       var idenvio = id;
       var obAjax = new XMLHttpRequest();
       obAjax.onload = function () {
-  var rellenar = JSON.parse(this.responseText);
+         var rellenar = JSON.parse(this.responseText);
+
+     
   document.getElementById('IDEnvioM').value = rellenar['IDEnvio'];
   document.getElementById('ArticuloM').value = rellenar['IDProducto'];
   document.getElementById('PrecioM').value = rellenar['PrecioU'];
   // document.getElementById('').value = valorFactura[''];
   console.log(this.responseText);
+        
+
 }
 obAjax.open('POST', 'Persistencia/ControlMostrarFactura.php', true);
 obAjax.setRequestHeader("Content-type", "application/x-www-form-urlencoded")

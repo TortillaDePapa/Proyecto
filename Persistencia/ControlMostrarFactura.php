@@ -13,8 +13,8 @@ if(isset($_POST['MostrarFactura'])){
        
         foreach ($fila as $item => $value){
             // echo var_dump($value['IDEnvio']);
-         echo '{"IDEnvio": "'.$IDenvio.'", "IDProducto": "'.$value['IDProducto'].'", "PrecioU": "'.$value['Precio'].'", "Cantidad": "'.$value['CantidadProducto'].'", "Total": "'.$value['Total'].'", "Fecha": "'.$value['Fecha'].'" }';
-            
+         $data = json_encode('{"IDEnvio": "'.$IDenvio.'", "IDProducto": "'.$value['IDProducto'].'", "PrecioU": "'.$value['Precio'].'", "Cantidad": "'.$value['CantidadProducto'].'", "Total": "'.$value['Total'].'", "Fecha": "'.$value['Fecha'].'" }');
+            echo $data;
        }
         
     }
