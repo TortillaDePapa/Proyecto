@@ -199,7 +199,7 @@ include_once 'Clases/ClaseEnvasados.php';
             $sql = "SELECT envios.Estados, envios.IDEnvio,envios.Direccion, compras.Fecha, compras.IDCompra,compras.IDProducto,personas.Usuario,SUM( DISTINCT compras.Total) AS Total FROM envios, compras, selecciona, clientes, productos, personas WHERE envios.idenvio like '%".$Buscar."%' and envios.IDCompra = compras.IDCompra AND compras.idcliente = selecciona.idcliente  AND selecciona.idcliente = clientes.idcliente AND clientes.IDCliente = personas.IDPersona AND compras.IDProducto = selecciona.IDProducto AND selecciona.IDProducto = productos.IDProducto    GROUP BY compras.IDCompra ORDER by envios.IDEnvio desc";
         }else{
 
-            $sql = "SELECT envios.Estados, envios.IDEnvio,envios.Direccion, compras.Fecha, compras.IDCompra,compras.IDProducto,personas.Usuario,SUM( DISTINCT compras.Total) AS Total FROM envios, compras, selecciona, clientes, productos, personas WHERE envios.IDCompra = compras.IDCompra AND compras.idcliente = selecciona.idcliente  AND selecciona.idcliente = clientes.idcliente AND clientes.IDCliente = personas.IDPersona AND compras.IDProducto = selecciona.IDProducto AND selecciona.IDProducto = productos.IDProducto    GROUP BY compras.IDCompra ORDER by envios.IDEnvio desc";
+            $sql = "SELECT envios.Estados, selecciona.MetodoDePago,envios.MetodoEnvio,envios.IDEnvio,envios.Direccion, compras.Fecha, compras.IDCompra,compras.IDProducto,personas.Usuario,SUM( DISTINCT compras.Total) AS Total FROM envios, compras, selecciona, clientes, productos, personas WHERE envios.IDCompra = compras.IDCompra AND  compras.idcliente = selecciona.idcliente  AND selecciona.idcliente = clientes.idcliente AND clientes.IDCliente = personas.IDPersona AND compras.IDProducto = selecciona.IDProducto AND selecciona.IDProducto = productos.IDProducto    GROUP BY compras.IDCompra ORDER by envios.IDEnvio desc";
 
         }
 
@@ -220,6 +220,8 @@ include_once 'Clases/ClaseEnvasados.php';
                 $p -> setNombre($row['Usuario']);
                 $p -> setIDProducto($row['IDCompra']);
                 $p -> setEstado($row['Estados']);
+                $p -> setEstadoEnvio($row['MetodoEnvio']);
+                $p -> setMetodoPago($row['MetodoDePago']);
                 $ListarProductos [] = $p;
             }
             return $ListarProductos;
@@ -232,10 +234,10 @@ include_once 'Clases/ClaseEnvasados.php';
        public function Mostrarpedidoscliente($Buscar){
         
         if($Buscar != ''){
-            $sql = "SELECT envios.Estados, envios.IDEnvio,envios.Direccion, compras.Fecha, compras.IDCompra,compras.IDProducto,personas.Usuario,SUM( DISTINCT compras.Total) AS Total FROM envios, compras, selecciona, clientes, productos, personas WHERE envios.idenvio like '%".$Buscar."%' and envios.IDCompra = compras.IDCompra AND compras.idcliente = selecciona.idcliente  AND selecciona.idcliente = clientes.idcliente AND clientes.IDCliente = personas.IDPersona AND compras.IDProducto = selecciona.IDProducto AND selecciona.IDProducto = productos.IDProducto    GROUP BY compras.IDCompra ORDER by envios.IDEnvio desc";
+            $sql = "SELECT envios.Estados, envios.MetodoEnvio,envios.IDEnvio,envios.Direccion, compras.Fecha, compras.IDCompra,compras.IDProducto,personas.Usuario,SUM( DISTINCT compras.Total) AS Total FROM envios, compras, selecciona, clientes, productos, personas WHERE envios.idenvio like '%".$Buscar."%' and envios.IDCompra = compras.IDCompra AND compras.idcliente = selecciona.idcliente  AND selecciona.idcliente = clientes.idcliente AND clientes.IDCliente = personas.IDPersona AND compras.IDProducto = selecciona.IDProducto AND selecciona.IDProducto = productos.IDProducto    GROUP BY compras.IDCompra ORDER by envios.IDEnvio desc";
         }else{
 
-            $sql = "SELECT envios.Estados, envios.IDEnvio,envios.Direccion, compras.Fecha, compras.IDCompra,compras.IDProducto,personas.Usuario,SUM( DISTINCT compras.Total) AS Total FROM envios, compras, selecciona, clientes, productos, personas WHERE envios.IDCompra = compras.IDCompra AND compras.idcliente = selecciona.idcliente  AND selecciona.idcliente = clientes.idcliente AND clientes.IDCliente = personas.IDPersona AND compras.IDProducto = selecciona.IDProducto AND selecciona.IDProducto = productos.IDProducto    GROUP BY compras.IDCompra ORDER by envios.IDEnvio desc";
+            $sql = "SELECT envios.Estados, envios.MetodoEnvio, envios.IDEnvio,envios.Direccion, compras.Fecha, compras.IDCompra,compras.IDProducto,personas.Usuario,SUM( DISTINCT compras.Total) AS Total FROM envios, compras, selecciona, clientes, productos, personas WHERE envios.IDCompra = compras.IDCompra AND compras.idcliente = selecciona.idcliente  AND selecciona.idcliente = clientes.idcliente AND clientes.IDCliente = personas.IDPersona AND compras.IDProducto = selecciona.IDProducto AND selecciona.IDProducto = productos.IDProducto    GROUP BY compras.IDCompra ORDER by envios.IDEnvio desc";
 
         }
         
@@ -256,6 +258,7 @@ include_once 'Clases/ClaseEnvasados.php';
                 $p -> setEstado($row['Estados']);
                 $p -> setFecha($row['Fecha']);
                 $p -> setPrecio($row['Total']);
+                $p -> setEstadoEnvio($row['MetodoEnvio']);
                 $ListarProductos [] = $p;
             }
             return $ListarProductos;

@@ -133,7 +133,7 @@ Envio domicilio
             
               <?php
               if(isset($_SESSION['CLIENTE'])){
-              echo "<i class='bi bi-house-fill'></i> <input style='padding: 0px; display: inline; width: 50%;'  placeholder='".$_SESSION['CLIENTE'] -> getNombreCalle()."  ".$_SESSION['CLIENTE'] -> getNumeroCasa()."'>";
+              echo "<i class='bi bi-house-fill'></i> <input style='padding: 0px; display: inline; width: 50%;'  value='".$_SESSION['CLIENTE'] -> getNombreCalle()."  ".$_SESSION['CLIENTE'] -> getNumeroCasa()."' disabled>";
               }else{
                 echo "<i class='bi bi-house-fill'></i> <input style='padding: 0px; display: inline; width: 50%;'  placeholder='Direccion'>";
               }
@@ -169,7 +169,7 @@ Envio domicilio
             <?php
               echo " <h5> Persona que retira: </h5> ";
               if(isset($_SESSION['CLIENTE'])){
-              echo "<i class='bi bi-person-bounding-box'> </i> <input style='padding: 0px; display: inline; width: 50%;' id='nombreCambiar' placeholder='".$_SESSION['CLIENTE'] -> getNombre()."'>";
+              echo "<i class='bi bi-person-bounding-box'> </i> <input style='padding: 0px; display: inline; width: 50%;' id='nombreCambiar' value='".$_SESSION['CLIENTE'] -> getNombre()."' disabled>";
               }else{
                 echo "<i class='bi bi-person-bounding-box'> </i> <input style='padding: 0px; display: inline; width: 50%;' placeholder='NombrePersona'>";
               }

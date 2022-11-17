@@ -214,7 +214,7 @@ echo "  </div>";
 
 <hr>
 
-<table class="table table-striped">
+<table class="table table-striped w-100">
       <thead>
         <tr>
           <th scope="col" >Articulo</th>
@@ -231,7 +231,7 @@ echo "  </div>";
           <td>$ 450</td>
         </tr>
         
-        <tr>
+      
 
       </tbody>
     </table>
@@ -415,11 +415,11 @@ echo"    </div>";
       var idenvio = id;
       var obAjax = new XMLHttpRequest();
       obAjax.onload = function () {
-  // var rellenar = JSON.parse(this.responseText);
-  // document.getElementById('IDEnvioM').value = rellenar['IDEnvio'];
-  // document.getElementById('ArticuloM').value = rellenar['IDProducto'];
-  // document.getElementById('PrecioM').value = rellenar['PrecioU'];
-  // document.getElementById('').value = rellenar[''];
+  var rellenar = JSON.parse(this.responseText);
+  document.getElementById('IDEnvioM').value = rellenar['IDEnvio'];
+  document.getElementById('ArticuloM').value = rellenar['IDProducto'];
+  document.getElementById('PrecioM').value = rellenar['PrecioU'];
+  // document.getElementById('').value = valorFactura[''];
   console.log(this.responseText);
 }
 obAjax.open('POST', 'Persistencia/ControlMostrarFactura.php', true);

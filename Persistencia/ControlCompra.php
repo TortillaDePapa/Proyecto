@@ -46,7 +46,7 @@ if(isset($_POST['FinalizarCompra'])){
                                     $fechaActual = date('y-m-d H:i:s');
                                     echo $fila1['idcliente'];
                                         if($resultado2){
-                                            $sql3  = "INSERT into Compras(IDCompra,IDCliente,IDproducto,Fecha,Total) VALUES('".$fila5['IDCompra']."','".$fila1['idcliente']."', '".$_SESSION['MostrarCarrito'][$i]['id']."', '".$fechaActual."', '".$_SESSION['MostrarCarrito'][$i]['Precio']*$_SESSION['MostrarCarrito'][$i]['Cantidad']."')";
+                                            $sql3  = "INSERT into Compras(IDCompra,IDCliente,IDproducto,Fecha,Total,CantidadProducto) VALUES('".$fila5['IDCompra']."','".$fila1['idcliente']."', '".$_SESSION['MostrarCarrito'][$i]['id']."', '".$fechaActual."', '".$_SESSION['MostrarCarrito'][$i]['Precio']*$_SESSION['MostrarCarrito'][$i]['Cantidad']."', '".$_SESSION['MostrarCarrito'][$i]['Cantidad']."')";
                                             $resultado3 = mysqli_query($newConn -> conn, $sql3);
                                             $sql5 = "SELECT IDCompra from Compras order by IDCompra desc" ;
                                             $resultado5 = mysqli_query($newConn -> conn, $sql5);
@@ -57,7 +57,7 @@ if(isset($_POST['FinalizarCompra'])){
                             }
                 }     
             }
-            if(strcmp($envio , 'Envio a domicilio') === 0){ 
+           
                 $sql11 = "INSERT into idenvios VALUES(null)";
                 $resultado11 = mysqli_query($newConn -> conn, $sql11);
                 $sql12 = "SELECT idenvio from idenvios order by idenvio desc";
@@ -65,7 +65,7 @@ if(isset($_POST['FinalizarCompra'])){
                 $fila8 = mysqli_fetch_assoc($resultado12);
                 echo var_dump($fila8['idenvio']);
                     if($resultado3){
-                        $sql4 = "INSERT into Envios(IDEnvio,Direccion,IDCompra,IDUsuario,Estados) VALUES('".$fila8['idenvio']."','".$fila4['calle']."".$fila4['NumeroPuerta']."','".$fila2['IDCompra']."','".$fila3['IDusuario']."', '1')";
+                        $sql4 = "INSERT into Envios(IDEnvio,Direccion,IDCompra,IDUsuario,Estados,MetodoEnvio) VALUES('".$fila8['idenvio']."','".$fila4['calle']."".$fila4['NumeroPuerta']."','".$fila2['IDCompra']."','".$fila3['IDusuario']."', '1', '".$envio."')";
                         $resultado4 = mysqli_query($newConn -> conn, $sql4);
                             if($resultado4){
                                 unset($_SESSION['MostrarCarrito']);
@@ -73,7 +73,7 @@ if(isset($_POST['FinalizarCompra'])){
                             }
 
                     }
-            }
+            
             unset($_SESSION['MostrarCarrito']);
         }
        }

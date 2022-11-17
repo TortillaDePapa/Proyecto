@@ -15,7 +15,10 @@ class Producto{
     private $IDEnvio;
     private $Direccion;
     private $fecha;
-    
+    private $EstadoEnvio;
+    private $MetodoPago;
+
+
     public function getIDProducto()
     {
         return $this->IDProducto;
@@ -153,6 +156,32 @@ class Producto{
     public function setFecha($fecha)
     {
         $this->fecha = $fecha;
+
+    }
+
+    
+    public function getEstadoEnvio()
+    {
+        return $this->EstadoEnvio;
+    }
+
+    public function setEstadoEnvio($EstadoEnvio)
+    {
+        $this->EstadoEnvio = $EstadoEnvio;
+
+       
+    }
+
+     
+    public function getMetodoPago()
+    {
+        return $this->MetodoPago;
+    }
+
+    
+    public function setMetodoPago($MetodoPago)
+    {
+        $this->MetodoPago = $MetodoPago;
 
     }
 }

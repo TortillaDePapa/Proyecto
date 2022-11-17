@@ -11,13 +11,14 @@ if(isset($_POST['buscar'])){
 
 
 
-  echo "  <div class='tabla' id='tablacompras'>";
-  echo "  <table class='table table-dark table-striped table-hover text-center' style='max-width: 100%; min-width: 90%;'>";
+  echo "  <div class='tabla table-responsive' id='tablacompras'>";
+  echo "  <table class='table  table-dark table-striped table-hover text-center table-sm' style='max-width: 100%; min-width: 90%;'>";
   echo "  <thead>";
   echo "  <tr>";
   echo "  <th scope='col'> Orden de compra </th>";
   echo "  <th scope='col'> Fecha </th>";
   echo "  <th scope='col'> Total </th>";
+  echo "  <th scope='col'> Metodo de entrega </th>";
   echo "  <th scope='col'> Visualizar </th>";
   echo " </tr>";
   echo "  </thead>";
@@ -27,10 +28,10 @@ if(isset($_POST['buscar'])){
   
   
   
-  echo "     <td> '".$MostrarPedidos[$i] -> getIDEnvio()."' </td>";
-  echo "     <td> '".$MostrarPedidos[$i] -> getFecha()."' </td>";
-  echo "     <td> '".$MostrarPedidos[$i] -> getPrecio()."' </td>";
-  echo "      </td>";
+  echo "     <td> ".$MostrarPedidos[$i] -> getIDEnvio()." </td>";
+  echo "     <td> ".$MostrarPedidos[$i] -> getFecha()." </td>";
+  echo "     <td> ".$MostrarPedidos[$i] -> getPrecio()." </td>";
+  echo "     <td><img src='imagenes/tiempo.png' width='70px' height='50px'> </td>";
   echo "     <td> <button type='button' class='btn-danger btn-visualizar'  data-bs-toggle='modal' data-bs-target='#recibo1' onclick='VerFactura(\"".$MostrarPedidos[$i] -> getIDEnvio()."\")'> <i class='bi bi-eye-fill'></i>   </button>";
 
   echo "    </tr>";

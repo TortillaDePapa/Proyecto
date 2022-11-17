@@ -25,7 +25,8 @@ echo "  <tr>";
 echo "   <th scope='col'> IDEnvio </th>";
 echo "   <th scope='col'> Cliente</th>";
 echo "   <th scope='col'> Direccion</th>";
-echo "   <th scope='col'> IDFactura </th>";
+echo "   <th scope='col'> Metodo de pago </th>";
+echo "   <th scope='col'> Metodo de entrega </th>";
 echo "   <th scope='col'> Estado  </th>";
 echo "   <th scope='col'> Control  </th>";
 echo "   <th scope='col'> Factura </th>";
@@ -40,7 +41,8 @@ for($i = 1; $i < count($MostrarPedidos); $i++){
 echo "    <th scope='row'> ".$MostrarPedidos[$i] -> getIDEnvio()." </th>";
 echo "     <td> ".$MostrarPedidos[$i] -> getNombre()." </td>";
 echo "     <td> ".$MostrarPedidos[$i] -> getDireccion()." </td>";
-echo "     <td> ".$MostrarPedidos[$i] -> getIDProducto()." </td>";
+echo "     <td> ".$MostrarPedidos[$i] -> getMetodoPago()." </td>";
+echo "     <td> ".$MostrarPedidos[$i] -> getEstadoEnvio()." </td>";
 
 if($MostrarPedidos[$i] -> getEstado() == 1){
 echo "     <td> 'Esperando'  </td>";
