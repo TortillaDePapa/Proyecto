@@ -4,7 +4,7 @@ class Conexion
     private $nombreServidor = "localhost";
     private $nombreUsuario = "root";
     private $contraseña = "";
-    private $bd = "proyecto";
+    private $bd = "epiz_32963687_proyecto";
     public $conn;
 
     public function Conectar(){
