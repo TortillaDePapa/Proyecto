@@ -31,7 +31,7 @@ if(isset($_POST['buscar'])){
   echo "     <td> ".$MostrarPedidos[$i] -> getIDEnvio()." </td>";
   echo "     <td> ".$MostrarPedidos[$i] -> getFecha()." </td>";
   echo "     <td> ".$MostrarPedidos[$i] -> getPrecio()." </td>";
-  echo "     <td><img src='imagenes/tiempo.png' width='70px' height='50px'> </td>";
+  echo "     <td><img src='imagenes/tiempo.png' width='50px' height='30px'> </td>";
   echo "     <td> <button type='button' class='btn-danger btn-visualizar'  data-bs-toggle='modal' data-bs-target='#recibo1' onclick='VerFactura(\"".$MostrarPedidos[$i] -> getIDEnvio()."\")'> <i class='bi bi-eye-fill'></i>   </button>";
 
   echo "    </tr>";

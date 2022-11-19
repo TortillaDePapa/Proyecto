@@ -320,9 +320,9 @@ input[type=number] { -moz-appearance:textfield; }
         </div>
     </div>
 
-    <!-- <script src="http://localhost/xampp/proyecto/proyecto/Tarjeta.js/card.js"></script> -->
+    <script src="http://localhost/xampp/proyecto/proyecto/Tarjeta.js/card.js"></script>
 
-    <script src="http://localhost/Proyecto/Tarjeta.js/card.js"></script>
+    <!-- <script src="http://localhost/Proyecto/Tarjeta.js/card.js"></script> -->
     <script>
         var c = new Card({
             form: document.querySelector('form'),
