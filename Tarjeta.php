@@ -146,6 +146,10 @@ Envio domicilio
         
               
               </div>
+              
+          <div class="">
+            <a href="#" id="direccion-btn" class="btn btn-next width-50 ml-auto">Siguiente</a>
+          </div>
           </div>
 
           <div id="retiro" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
@@ -180,14 +184,14 @@ Envio domicilio
         
               
               </div>
+              
+          <div class="">
+            <a href="#" id="retiro-btn" class="btn btn-next width-50 ml-auto">Siguiente</a>
+          </div>
           </div>
 
 
           <br>
-
-          <div class="">
-            <a href="#" class="btn btn-next width-50 ml-auto">Siguiente</a>
-          </div>
 
 
       </div>
@@ -235,8 +239,13 @@ Envio domicilio
 
 
       <div id="efectivo1" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
-        
-        
+        <div class="accordion-body">
+
+        </div> 
+        <div class="btns-group" >
+    <a href="#" class="btn btn-prev">Volver</a>
+    <a class="btn btn-next" id="efectivo-btn" name="verifique" >Siguiente</a>
+  </div>        
       </div>
 
       <div id="tarjeta2" class="accordion-collapse collapse" aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
@@ -311,10 +320,10 @@ input[type=number] { -moz-appearance:textfield; }
         <br>
 
         <div class="form-container active">
-                <input class="input-tarjeta" style="width: 99%;" placeholder="Numero de tarjeta" type="tel" name="number" required id="number">
-                <input class="input-tarjeta" style="width: 99%;" placeholder="Nombre titular" type="text" maxlength="25" name="name" required id="name">
-                <input class="input-tarjeta" style="width: 57%;" type="month" name="expiry" requiredvalue="" required id="expiry" min='<?php   echo  date('Y').'-'.date('m')?>' max="<?php   echo  (date('Y')+7).'-12'?>">
-                <input class="input-tarjeta input-cvc" style="width: 40%;" placeholder="CVC" type="number" name="cvc" required id="cvc">
+                <input class="input-tarjeta"  id="numeroTarjeta" style="width: 99%;" placeholder="Numero de tarjeta" type="tel" name="number" required>
+                <input class="input-tarjeta"  id="nombreTarjeta" style="width: 99%;" placeholder="Nombre titular" type="text" maxlength="25" name="name" required >
+                <input class="input-tarjeta" id="venciTarjeta"  style="width: 57%;" type="month" name="expiry" requiredvalue="" required min='<?php   echo  date('Y').'-'.date('m')?>' max="<?php   echo  (date('Y')+7).'-12'?>">
+                <input class="input-tarjeta input-cvc"  id="ccvTarjeta" style="width: 40%;" placeholder="CVC" type="number" name="cvc" required >
                 
         
         </div>
@@ -323,23 +332,16 @@ input[type=number] { -moz-appearance:textfield; }
     <script src="http://localhost/xampp/proyecto/proyecto/Tarjeta.js/card.js"></script>
 
     <!-- <script src="http://localhost/Proyecto/Tarjeta.js/card.js"></script> -->
-    <script>
-        var c = new Card({
-            form: document.querySelector('form'),
-            container: '.card-wrapper'
-        });
-
-
-
-    </script>     
-      </div>     
+    
+      </div>    
+      <div class="btns-group" >
+    <a href="#" class="btn btn-prev">Volver</a>
+    <a class="btn btn-next" id="tarjeta-btn" name="verifique" >Siguiente</a>
+  </div> 
     </div>
   </div>
 <br>
-  <div class="btns-group" >
-    <a href="#" class="btn btn-prev">Volver</a>
-    <a class="btn btn-next" name="verifique" onclick="obligarotio()">Siguiente</a>
-  </div>
+ 
 
 <!-- 
   <script>
@@ -546,18 +548,46 @@ const formSteps = document.querySelectorAll(".form-step");
 const progressSteps = document.querySelectorAll(".progress-step");
 
 
-
+var retiro = 0;
+var efectivo = 0;
 let formStepsNum = 0;
-
-
 
 nextBtns.forEach((btn) => {
   btn.addEventListener("click", () => {
-    formStepsNum++;
+    var truee = false;
+   
+    
+
+    console.log(btn.id);
+    if (btn.id == "direccion-btn") {
+
+    truee = true;
+
+    }else if (btn.id == "retiro-btn"){
+      truee = true;
+      retiro = 1;
+    }else if (btn.id == "efectivo-btn"){
+      truee = true;
+      efectivo = 1;
+    }else if (btn.id == "tarjeta-btn"){
+      var numeroTar = document.getElementById("numeroTarjeta").value;
+    var nombreTar = document.getElementById("nombreTarjeta").value;
+    var venciTar = document.getElementById("venciTarjeta").value;
+    var ccvTar = document.getElementById("ccvTarjeta").value;
+      if (numeroTar != "" && nombreTar != "" && venciTar != "" && ccvTar != "") {
+        truee = true;
+      }
+
+    }
+    if (truee == true) {
+      formStepsNum++;
     updateFormSteps();
-    updateProgressbar();
+    updateProgressbar();}
   });
 });
+
+
+
 
 prevBtns.forEach((btn) => {
   btn.addEventListener("click", () => {
@@ -594,21 +624,26 @@ document.getElementById('mostrarprecio-div1').innerHTML = '$'+preciof;
 document.getElementById('mostrarprecio-div').innerHTML = '$'+preciof;
 // document.getElementById('mostrarprecio-div2').innerHTML = '$'+preciof;
 
-function  obligarotio(){
-  var numero = document.getElementById('number').value;
-  if(numero.length == 0) {
-   console.log('hola');
-  }
-  var name = document.getElementById('name').value;
-  if(name.length == 0) {
+// function  obligarotio(){
+//   var numero = document.getElementById('number').value;
+//   if(numero.length == 0) {
+//    console.log('hola');
+//   }
+//   var name = document.getElementById('name').value;
+//   if(name.length == 0) {
    
-  }
-  var cvc = document.getElementById('cvc').value;
-  if (cvc.length < 6) {
+//   }
+//   var cvc = document.getElementById('cvc').value;
+//   if (cvc.length < 6) {
    
     
-  }
-}
+//   }
+// }
+
+var c = new Card({
+            form: document.querySelector('form'),
+            container: '.card-wrapper'
+        });
 </script>
 
 <br>
