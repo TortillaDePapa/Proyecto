@@ -196,8 +196,7 @@ echo "  </div>";
 
 <div class="row">
 
-<div class="col-6">
-
+<div class="col-6"  >
 <p id="IDEnvioM">  </p>
 
 </div>
@@ -217,6 +216,7 @@ echo "  </div>";
 <table class="table table-striped w-100">
       <thead>
         <tr>
+          <th scope="col"> ID </th>
           <th scope="col" >Articulo</th>
           <th scope="col">Precio</th>
           <th scope="col">Unidad</th>
@@ -225,10 +225,11 @@ echo "  </div>";
       </thead>
       <tbody class="table-group-divider">
         <tr>
-          <th scope="row" id="ArticuloM"></th>
-          <td id="PrecioM"> </td>
-          <td> 3</td>
-          <td>$ 450</td>
+          <td scope="row" id="IDEnvioM"></td>
+          <td scope="row" id="ArticuloM"> </td>
+          <td scope="row" id="PrecioU"> </td>
+          <td scope="row" id="Cantidad"> </td>
+          <td scope="row" id="PrecioM"></td>
         </tr>
         
       
@@ -415,20 +416,20 @@ echo"    </div>";
       var idenvio = id;
       var obAjax = new XMLHttpRequest();
       obAjax.onload = function () {
-         var rellenar = JSON.parse(this.responseText);
+      var rellena = JSON.parse(this.responseText);
+      rellena.forEach((rellenar) => {
+        document.getElementById('IDEnvioM').innerHTML = rellenar['IDEnvio'];
+        document.getElementById('ArticuloM').innerHTML = rellenar['Nombre'];
+        document.getElementById('PrecioM').innerHTML = rellenar['Total'];
+        document.getElementById('PrecioU').innerHTML = rellenar['PrecioU'];
+        document.getElementById('Cantidad').innerHTML = rellenar['Cantidad'];
 
-     
-  document.getElementById('IDEnvioM').value = rellenar['IDEnvio'];
-  document.getElementById('ArticuloM').value = rellenar['IDProducto'];
-  document.getElementById('PrecioM').value = rellenar['PrecioU'];
-  // document.getElementById('').value = valorFactura[''];
-  console.log(this.responseText);
-        
-
-}
-obAjax.open('POST', 'Persistencia/ControlMostrarFactura.php', true);
-obAjax.setRequestHeader("Content-type", "application/x-www-form-urlencoded")
-obAjax.send("MostrarFactura="+idenvio);
+        console.log(this.responseText);       
+      });  
+      }
+      obAjax.open('POST', 'Persistencia/ControlMostrarFactura.php', true);
+      obAjax.setRequestHeader("Content-type", "application/x-www-form-urlencoded")
+      obAjax.send("MostrarFactura="+idenvio);
     }
 
     function Cerrar() {
