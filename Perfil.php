@@ -203,8 +203,8 @@ echo "  </div>";
 
 <div class="col-6"  style="text-align: right;">
 
-<small> Fecha: 21/11/22 
-  <br>Vencimiento: 22/11/22
+<small > Fecha: <small id="FechaF"></small>
+  <br>Vencimiento: <small id="FechaV"></small> 
 </small>
 
 </div>
@@ -423,6 +423,8 @@ echo"    </div>";
         document.getElementById('PrecioM').innerHTML = rellenar['Total'];
         document.getElementById('PrecioU').innerHTML = rellenar['PrecioU'];
         document.getElementById('Cantidad').innerHTML = rellenar['Cantidad'];
+        document.getElementById('FechaF').innerHTML = rellenar['Fecha'];
+        document.getElementById('FechaV').innerHTML = rellenar['FechaV'];
 
         console.log(this.responseText);       
       });  
