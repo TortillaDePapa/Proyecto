@@ -183,6 +183,7 @@ function refrescar(){
        window.location.assign('Tarjeta.php');
    }
 
+ 
    
    
     function MostrarCarrito(idProducto,precioP) {
