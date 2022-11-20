@@ -45,13 +45,13 @@ echo "     <td> ".$MostrarPedidos[$i] -> getMetodoPago()." </td>";
 echo "     <td> ".$MostrarPedidos[$i] -> getEstadoEnvio()." </td>";
 
 if($MostrarPedidos[$i] -> getEstado() == 1){
-echo "     <td> 'Esperando'  </td>";
+echo "     <td> Esperando  </td>";
 }elseif($MostrarPedidos[$i] -> getEstado()==2){
-    echo "     <td> 'En Proseso'  </td>";
+    echo "     <td> En Proseso </td>";
 }elseif($MostrarPedidos[$i] -> getEstado()==3){
-    echo "     <td> 'Finalizado'  </td>";
+    echo "     <td> Finalizado  </td>";
 }
-echo "     <td>  <button class='btn-sm btn-warning'   onclick='MostrarProducto(".$MostrarPedidos[$i] -> getIDProducto().")'> En proceso </button> <button class='btn-sm btn-danger'  onclick='Eliminar(\"".$MostrarPedidos[$i] -> getIDProducto()."\")' > Finalizado </button> </td>";
+echo "     <td>  <button class='btn-sm btn-warning'   onclick='Procesando(".$MostrarPedidos[$i] -> getIDEnvio().")'> En proceso </button> <button class='btn-sm btn-danger'  onclick='FinalizarC(\"".$MostrarPedidos[$i] -> getIDEnvio()."\")' > Finalizado </button> </td>";
 echo "     <td> <button type='button' class='btn-danger btn-visualizar'  data-bs-toggle='modal' data-bs-target='#recibo2' onclick='VerFacturaA(\"".$MostrarPedidos[$i] -> getIDEnvio()."\")'> <i class='bi bi-eye-fill'></i>   </button> </td>";
 echo "    </tr>";
 
@@ -76,5 +76,32 @@ echo " </div>";
       obAjax.open('POST', 'Persistencia/Aumentartabla.php', true);
       obAjax.setRequestHeader("Content-type", "application/x-www-form-urlencoded")
       obAjax.send("MostrarFactura="+idenvio);
+    }
+
+    function Procesando(id){
+        
+      let formData = id;
+      var obAjax = new XMLHttpRequest();
+      obAjax.open('POST', 'Persistencia/ControlPedido.php', true);
+      obAjax.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+      obAjax.onreadystatechange = function () {
+        console.log(this.responseText);
+        window.location.reload();
+      }
+      obAjax.send('ActualizarC1='+formData);
+    }
+    
+    function FinalizarC(id){
+        
+      let formData = id;
+      var obAjax = new XMLHttpRequest();
+      obAjax.open('POST', 'Persistencia/ControlPedido.php', true);
+      obAjax.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+      obAjax.onreadystatechange = function () {
+        console.log(this.responseText);
+        window.location.reload();
+      }
+      obAjax.send('ActualizarC2='+formData);
+    
     }
 </script>
