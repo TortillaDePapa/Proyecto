@@ -258,45 +258,7 @@ Envio domicilio
 
       <hr>
    
-      <style>
-        .demo-container {
-            width: 100%;
-            max-width: 100%;
-            margin:  auto;
-        }
-
-        .input-tarjeta{
-        display: inline;
-        margin: 2px;
-        }
-        @media (min-width: 576px) {
-          .col-sm-1 {
-            width: 50% !important;
-          }
-        }
-        @media (max-width: 480px) {
-          .jp-card-lower {
-            width: 80% !important;
-            left: 10% !important;
-          }
-        }
-        @media (max-width: 393px) {
-          .jp-card-number {
-            font-size: 20px !important;
-          }
-          .jp-card-name {
-            font-size: 18px !important;
-          }
-        }
-        @media (max-width: 346px) {
-          .jp-card-number {
-            font-size: 18px !important;
-          }
-        }
-        .input-cvc{
-          position: relative;
-          left: 3px;
-        }
+      <style> 
         input[type=number]::-webkit-inner-spin-button, 
 input[type=number]::-webkit-outer-spin-button { 
   -webkit-appearance: none; 
@@ -304,10 +266,6 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 input[type=number] { -moz-appearance:textfield; }
-
-
-
-      
 
     </style>
 
