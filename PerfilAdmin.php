@@ -43,7 +43,7 @@ session_start();
 
 </head>
 
-<body>
+<body class="body">
 
 <?php
 

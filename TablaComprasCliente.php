@@ -11,7 +11,7 @@ if(isset($_POST['buscar'])){
 
 
 
-  echo "  <div class='tabla table-responsive' id='tablacompras'>";
+  echo "  <div class='tabla ' id='tablacompras'>";
   echo "  <table class='table  table-dark table-striped table-hover text-center table-sm' style='max-width: 100%; min-width: 90%;'>";
   echo "  <thead>";
   echo "  <tr>";

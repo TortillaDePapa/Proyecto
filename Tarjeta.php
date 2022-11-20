@@ -54,10 +54,14 @@ if(isset($_SESSION['CLIENTE']) or isset($_SESSION['ADMIN']) ){
 
     <br>
 
+   
+
 
   <!-- Example Code -->
 
   <div class="container ">
+
+  
 
      <div class="text-center">
 
@@ -419,7 +423,7 @@ echo"   </tr>";
   </div>
   <div class="btns-group" >
     <a href="#" class="btn btn-prev">Volver</a>
-    <button class="btn btn-submit"  onclick="FinalizarCompra()" name="confirmarCompra"> Finalizar compra</button>
+    <button class="btn btn-submit"  onclick="FinalizarCompra()" id="btn-finalizar" name="confirmarCompra"> Finalizar compra</button>
   
   
 
@@ -502,6 +506,37 @@ echo"   </tr>";
 
   </div>
 
+  <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 11">
+      <div id="liveToast" class="toast fade  toast-tarjeta hide " role="alert" aria-live="assertive" aria-atomic="true" autohide="true" delay='300'> 
+        <div class="toast-header">
+        <img src="https://cdn-icons-png.flaticon.com/512/3361/3361585.png" width="35" height="35">    
+          <strong class="me-auto">AutoService</strong>
+          <small class="text-muted">justo ahora...</small>
+          <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+        </div>
+        <div class="toast-body">
+          Recuerde rellenar todos los campos.
+        </div>
+         </div>
+    
+    </div>
+
+    <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 11">
+      <div id="liveToast" class="toast fade  toast-finalizar-compra hide " role="alert" aria-live="assertive" aria-atomic="true" autohide="true" delay='300'> 
+        <div class="toast-header">
+        <img src="https://cdn-icons-png.flaticon.com/512/3361/3361585.png" width="35" height="35">    
+          <strong class="me-auto">AutoService</strong>
+          <small class="text-muted">justo ahora...</small>
+          <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+        </div>
+        <div class="toast-body">
+         La compra se ha realizado con éxito.
+        </div>
+         </div>
+    
+    </div>
+
+
 
 
 
@@ -541,6 +576,10 @@ echo"   </tr>";
         }
 }
 
+
+
+
+
 const prevBtns = document.querySelectorAll(".btn-prev");
 const nextBtns = document.querySelectorAll(".btn-next");
 const progress = document.getElementById("progress");
@@ -570,12 +609,27 @@ nextBtns.forEach((btn) => {
       truee = true;
       efectivo = 1;
     }else if (btn.id == "tarjeta-btn"){
-      var numeroTar = document.getElementById("numeroTarjeta").value;
+
+
+
+    var numeroTar = document.getElementById("numeroTarjeta").value;
     var nombreTar = document.getElementById("nombreTarjeta").value;
     var venciTar = document.getElementById("venciTarjeta").value;
     var ccvTar = document.getElementById("ccvTarjeta").value;
+
+
+  
       if (numeroTar != "" && nombreTar != "" && venciTar != "" && ccvTar != "") {
         truee = true;
+      }else{
+        var toastElList = [].slice.call(document.querySelectorAll('.toast-tarjeta'))
+        var toastList = toastElList.map(function(toastEl) {
+        // Creates an array of toasts (it only initializes them)
+          return new bootstrap.Toast(toastEl) // No need for options; use the default options
+        });
+       toastList.forEach(toast => toast.show()); // This show them
+
+        console.log(toastList); // Testing to see if it works
       }
 
     }
@@ -585,6 +639,7 @@ nextBtns.forEach((btn) => {
     updateProgressbar();}
   });
 });
+
 
 
 
