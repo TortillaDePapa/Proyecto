@@ -401,6 +401,8 @@ echo"   </tr>";
 
 
 
+
+
  <div style="display:none;" id="sessiongetusuario">
  <?php
   echo $_SESSION['CLIENTE'] -> getIDPersona();
@@ -649,7 +651,7 @@ function updateProgressbar() {
 }
 document.getElementById('mostrarprecio-div1').innerHTML = '$'+preciof;
 document.getElementById('mostrarprecio-div').innerHTML = '$'+preciof;
-// document.getElementById('mostrarprecio-div2').innerHTML = '$'+preciof;
+document.getElementById('mostrarprecio-div2').innerHTML = '$'+preciof;
 
 // function  obligarotio(){
 //   var numero = document.getElementById('number').value;

@@ -37,6 +37,9 @@ if(!isset($_SESSION['CLIENTE'])){
     integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
     </script>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"> </script>
+
+
     <style> 
   
   </style>
@@ -172,7 +175,7 @@ echo "  </div>";
         <h5 class="modal-title text-center" id="exampleModalLabel" > Factura </h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
-      <div class="modal-body">
+      <div class="modal-body" id="reciboPdf">
 
 
   <div class="row">
@@ -206,15 +209,15 @@ echo "  </div>";
 
 </div>
 
-    <h5 style="text-align: right;">  Precio total: $540</h5>
+<div id='mostrarprecio-div2'></div>
 
 
 
+</div>
       <div class="modal-footer">
-        <button type="button"  class="btn btn-danger">Descargar</button>
+        <button type="button" onclick="generarPdf()" class="btn btn-danger">Descargar</button>
       </div>
     </div>
-  </div>
 </div>
 </div>
 
@@ -415,6 +418,18 @@ variable = new XMLHttpRequest();
   variable.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
   variable.send("buscar="+document.getElementById("buscartablacompras").value);
 }
+
+
+function generarPdf(){
+
+
+const element = document.getElementById("reciboPdf");
+
+html2pdf()
+.from(element)
+.save();
+}
+
   </script>
 
   <?php
