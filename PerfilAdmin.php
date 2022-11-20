@@ -138,6 +138,65 @@ echo "  </div>";
 
 </div>
 
+<!-- Modal Recibo -->
+<div class="modal fade" id="recibo2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header text-center" >
+        <h5 class="modal-title text-center" id="exampleModalLabel" > Factura </h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body" id="reciboPdf">
+
+
+  <div class="row">
+
+      <div class="col-6">
+        <p> </p>
+        <h5>  AutoService  <br>Largacha  <img src="Imagenes/carrito.png" width="35" height="35"></h5> 
+</div>
+
+<div class="col-6" style="text-align: right;">
+  
+    <small> AutoService Largacha <br>
+              Invencion Ocampo 1567 
+
+    <br> Durazno-Durazno-Uruguay  
+
+    <br>092 724 550 
+
+   autoservice.largacha@gmail.com  </small>
+</div>
+
+</div>
+
+<hr>
+
+<div class="row" id="TablaF">
+
+
+       
+      
+
+</div>
+
+<div id='mostrarprecio-div2'></div>
+
+
+
+</div>
+      <div class="modal-footer">
+        <button type="button" onclick="generarPdf()" class="btn btn-danger">Descargar</button>
+      </div>
+    </div>
+</div>
+</div>
+
+
+
+
+
+
 <!-- Modal agregar productos -->
 
   <div class="modal fade" id="ModalAgregarProducto" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">

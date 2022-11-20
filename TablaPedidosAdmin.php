@@ -52,7 +52,7 @@ echo "     <td> 'Esperando'  </td>";
     echo "     <td> 'Finalizado'  </td>";
 }
 echo "     <td>  <button class='btn-sm btn-warning'   onclick='MostrarProducto(".$MostrarPedidos[$i] -> getIDProducto().")'> En proceso </button> <button class='btn-sm btn-danger'  onclick='Eliminar(\"".$MostrarPedidos[$i] -> getIDProducto()."\")' > Finalizado </button> </td>";
-echo "     <td> <button type='button' class='btn-danger btn-visualizar'  data-bs-toggle='modal' data-bs-target='#recibo1' onclick='VerFactura(\"".$MostrarPedidos[$i] -> getIDEnvio()."\")'> <i class='bi bi-eye-fill'></i>   </button> </td>";
+echo "     <td> <button type='button' class='btn-danger btn-visualizar'  data-bs-toggle='modal' data-bs-target='#recibo2' onclick='VerFactura(\"".$MostrarPedidos[$i] -> getIDEnvio()."\")'> <i class='bi bi-eye-fill'></i>   </button> </td>";
 echo "    </tr>";
 
 }
