@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 17-11-2022 a las 23:02:05
+-- Tiempo de generación: 20-11-2022 a las 04:01:50
 -- Versión del servidor: 10.4.24-MariaDB
 -- Versión de PHP: 8.1.6
 
@@ -102,7 +102,10 @@ INSERT INTO `compras` (`IDCompra`, `IDCliente`, `IDProducto`, `Fecha`, `Total`, 
 (8, 4, 19, '2022-11-17 15:06:34', 200, 1),
 (8, 4, 24, '2022-11-17 15:06:34', 220, 2),
 (9, 4, 19, '2022-11-17 15:07:11', 1000, 5),
-(10, 4, 18, '2022-11-17 15:08:28', 1320, 12);
+(10, 4, 18, '2022-11-17 15:08:28', 1320, 12),
+(11, 4, 19, '2022-11-19 14:20:25', 600, 3),
+(11, 4, 24, '2022-11-19 14:20:25', 330, 3),
+(11, 4, 18, '2022-11-19 14:20:25', 110, 1);
 
 -- --------------------------------------------------------
 
@@ -131,7 +134,8 @@ INSERT INTO `envios` (`IDEnvio`, `Direccion`, `IDCompra`, `IDUsuario`, `Estados`
 (5, 'Invencion ocampo1740', 5, 5, 1, 'Envio a domicilio'),
 (6, 'Invencion ocampo1740', 8, 5, 1, 'Envio a domicilio'),
 (7, 'Invencion ocampo1740', 9, 5, 1, 'Envio a domicilio'),
-(8, 'Invencion ocampo1740', 10, 5, 1, 'Envio a domicilio');
+(8, 'Invencion ocampo1740', 10, 5, 1, 'Envio a domicilio'),
+(9, 'Invencion ocampo1740', 11, 5, 1, 'Retira en local');
 
 -- --------------------------------------------------------
 
@@ -157,7 +161,8 @@ INSERT INTO `idcompras` (`IDCompra`) VALUES
 (7),
 (8),
 (9),
-(10);
+(10),
+(11);
 
 -- --------------------------------------------------------
 
@@ -181,7 +186,8 @@ INSERT INTO `idenvios` (`idenvio`) VALUES
 (5),
 (6),
 (7),
-(8);
+(8),
+(9);
 
 -- --------------------------------------------------------
 
@@ -293,7 +299,10 @@ INSERT INTO `selecciona` (`IDCliente`, `IDProducto`, `CantidadProducto`, `Metodo
 (4, 19, 1, 'efectivo', 'Envio a domicilio'),
 (4, 24, 2, 'efectivo', 'Envio a domicilio'),
 (4, 19, 5, 'efectivo', 'Envio a domicilio'),
-(4, 18, 12, 'efectivo', 'Envio a domicilio');
+(4, 18, 12, 'efectivo', 'Envio a domicilio'),
+(4, 19, 3, 'Tarjeta', 'Retira en local'),
+(4, 24, 3, 'Tarjeta', 'Retira en local'),
+(4, 18, 1, 'Tarjeta', 'Retira en local');
 
 -- --------------------------------------------------------
 
@@ -470,13 +479,13 @@ ALTER TABLE `usuario`
 -- AUTO_INCREMENT de la tabla `idcompras`
 --
 ALTER TABLE `idcompras`
-  MODIFY `IDCompra` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `IDCompra` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT de la tabla `idenvios`
 --
 ALTER TABLE `idenvios`
-  MODIFY `idenvio` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `idenvio` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT de la tabla `personas`

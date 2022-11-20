@@ -201,14 +201,14 @@ echo "  </div>";
 <div class="row">
 
 <div class="col-6"  >
-<p id="IDEnvioM">  </p>
-
+  Numero de factura: <samll id="IDEnvioM">  </samll> <br>
+ Cliente:  <small id="ClienteF"> </small>
 </div>
 
 <div class="col-6"  style="text-align: right;">
 
-<small> Fecha: 21/11/22 
-  <br>Vencimiento: 22/11/22
+<small > Fecha: <small id="FechaF"></small>
+  <br>Vencimiento: <small id="FechaV"></small> 
 </small>
 
 </div>
@@ -427,6 +427,10 @@ echo"    </div>";
         document.getElementById('PrecioM').innerHTML = rellenar['Total'];
         document.getElementById('PrecioU').innerHTML = rellenar['PrecioU'];
         document.getElementById('Cantidad').innerHTML = rellenar['Cantidad'];
+        document.getElementById('FechaF').innerHTML = rellenar['Fecha'];
+        document.getElementById('FechaV').innerHTML = rellenar['FechaV'];
+        document.getElementById('ClienteF').innerHTML = rellenar['Cliente'];
+
 
         console.log(this.responseText);       
       });  
