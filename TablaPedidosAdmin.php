@@ -52,7 +52,7 @@ echo "     <td> 'Esperando'  </td>";
     echo "     <td> 'Finalizado'  </td>";
 }
 echo "     <td>  <button class='btn-sm btn-warning'   onclick='MostrarProducto(".$MostrarPedidos[$i] -> getIDProducto().")'> En proceso </button> <button class='btn-sm btn-danger'  onclick='Eliminar(\"".$MostrarPedidos[$i] -> getIDProducto()."\")' > Finalizado </button> </td>";
-echo "     <td> <button type='button' class='btn-danger btn-visualizar'  data-bs-toggle='modal' data-bs-target='#recibo2' onclick='VerFactura(\"".$MostrarPedidos[$i] -> getIDEnvio()."\")'> <i class='bi bi-eye-fill'></i>   </button> </td>";
+echo "     <td> <button type='button' class='btn-danger btn-visualizar'  data-bs-toggle='modal' data-bs-target='#recibo2' onclick='VerFacturaA(\"".$MostrarPedidos[$i] -> getIDEnvio()."\")'> <i class='bi bi-eye-fill'></i>   </button> </td>";
 echo "    </tr>";
 
 }
@@ -62,3 +62,19 @@ echo " </div>";
 
 
 ?>
+
+
+<script>
+    function VerFacturaA(id){
+      var idenvio = id;
+      var obAjax = new XMLHttpRequest();
+      obAjax.onload = function () {
+        document.getElementById('TablaF').innerHTML = this.responseText;
+        console.log(this.responseText);       
+   
+      }
+      obAjax.open('POST', 'Persistencia/Aumentartabla.php', true);
+      obAjax.setRequestHeader("Content-type", "application/x-www-form-urlencoded")
+      obAjax.send("MostrarFactura="+idenvio);
+    }
+</script>
