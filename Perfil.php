@@ -198,48 +198,13 @@ echo "  </div>";
 
 <hr>
 
-<div class="row">
+<div class="row" id="TablaF">
 
-<div class="col-6"  >
-  Numero de factura: <samll id="IDEnvioM">  </samll> <br>
- Cliente:  <small id="ClienteF"> </small>
-</div>
 
-<div class="col-6"  style="text-align: right;">
-
-<small > Fecha: <small id="FechaF"></small>
-  <br>Vencimiento: <small id="FechaV"></small> 
-</small>
-
-</div>
-
-</div>
-
-<hr>
-
-<table class="table table-striped w-100">
-      <thead>
-        <tr>
-          <th scope="col"> ID </th>
-          <th scope="col" >Articulo</th>
-          <th scope="col">Precio</th>
-          <th scope="col">Unidad</th>
-          <th scope="col">Total </th>
-        </tr>
-      </thead>
-      <tbody class="table-group-divider">
-        <tr>
-          <td scope="row" id="IDEnvioM"></td>
-          <td scope="row" id="ArticuloM"> </td>
-          <td scope="row" id="PrecioU"> </td>
-          <td scope="row" id="Cantidad"> </td>
-          <td scope="row" id="PrecioM"></td>
-        </tr>
-        
+       
       
 
-      </tbody>
-    </table>
+</div>
 
     <h5 style="text-align: right;">  Precio total: $540</h5>
 
@@ -420,22 +385,11 @@ echo"    </div>";
       var idenvio = id;
       var obAjax = new XMLHttpRequest();
       obAjax.onload = function () {
-      var rellena = JSON.parse(this.responseText);
-      rellena.forEach((rellenar) => {
-        document.getElementById('IDEnvioM').innerHTML = rellenar['IDEnvio'];
-        document.getElementById('ArticuloM').innerHTML = rellenar['Nombre'];
-        document.getElementById('PrecioM').innerHTML = rellenar['Total'];
-        document.getElementById('PrecioU').innerHTML = rellenar['PrecioU'];
-        document.getElementById('Cantidad').innerHTML = rellenar['Cantidad'];
-        document.getElementById('FechaF').innerHTML = rellenar['Fecha'];
-        document.getElementById('FechaV').innerHTML = rellenar['FechaV'];
-        document.getElementById('ClienteF').innerHTML = rellenar['Cliente'];
-
-
+        document.getElementById('TablaF').innerHTML = this.responseText;
         console.log(this.responseText);       
-      });  
+   
       }
-      obAjax.open('POST', 'Persistencia/ControlMostrarFactura.php', true);
+      obAjax.open('POST', 'Persistencia/Aumentartabla.php', true);
       obAjax.setRequestHeader("Content-type", "application/x-www-form-urlencoded")
       obAjax.send("MostrarFactura="+idenvio);
     }
