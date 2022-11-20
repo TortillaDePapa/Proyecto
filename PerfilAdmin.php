@@ -146,7 +146,7 @@ echo "  </div>";
         <h5 class="modal-title text-center" id="exampleModalLabel" > Factura </h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
-      <div class="modal-body" id="reciboPdf">
+      <div class="modal-body" id="reciboPdf-admin">
 
 
   <div class="row">
@@ -537,6 +537,16 @@ variable = new XMLHttpRequest();
 
 
 
+
+function generarPdf(){
+
+
+const element = document.getElementById("reciboPdf-admin");
+
+html2pdf()
+.from(element)
+.save();
+}
 
 
 
