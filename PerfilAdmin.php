@@ -38,6 +38,9 @@ session_start();
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
     crossorigin="anonymous"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"> </script>
+
   <title>TITLE</title>
 
 
@@ -186,7 +189,7 @@ echo "  </div>";
 
 </div>
       <div class="modal-footer">
-        <button type="button" onclick="generarPdf()" class="btn btn-danger">Descargar</button>
+        <button type="button" onclick="generarPdfAdmin()" class="btn btn-danger">Descargar</button>
       </div>
     </div>
 </div>
@@ -538,13 +541,13 @@ variable = new XMLHttpRequest();
 
 
 
-function generarPdf(){
+function generarPdfAdmin(){
 
 
-const element = document.getElementById("reciboPdf-admin");
+const element1 = document.getElementById("reciboPdf-admin");
 
 html2pdf()
-.from(element)
+.from(element1)
 .save();
 }
 
