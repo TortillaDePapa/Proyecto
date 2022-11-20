@@ -197,8 +197,8 @@ echo "  </div>";
 <div class="row">
 
 <div class="col-6"  >
-<p id="IDEnvioM">  </p>
-
+  Numero de factura: <samll id="IDEnvioM">  </samll> <br>
+ Cliente:  <small id="ClienteF"> </small>
 </div>
 
 <div class="col-6"  style="text-align: right;">
@@ -425,6 +425,8 @@ echo"    </div>";
         document.getElementById('Cantidad').innerHTML = rellenar['Cantidad'];
         document.getElementById('FechaF').innerHTML = rellenar['Fecha'];
         document.getElementById('FechaV').innerHTML = rellenar['FechaV'];
+        document.getElementById('ClienteF').innerHTML = rellenar['Cliente'];
+
 
         console.log(this.responseText);       
       });  
