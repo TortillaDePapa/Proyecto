@@ -182,7 +182,7 @@ echo "  </div>";
 
       <div class="col-6">
         <p> </p>
-        <h5> AutoService <br>Largacha </h5>
+        <h5>  AutoService  <br>Largacha  <img src="https://cdn-icons-png.flaticon.com/512/3361/3361585.png" width="35" height="35"></h5> 
 </div>
 
 <div class="col-6" style="text-align: right;">

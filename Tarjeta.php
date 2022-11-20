@@ -22,7 +22,7 @@ if(isset($_SESSION['CLIENTE']) or isset($_SESSION['ADMIN']) ){
 <html lang="en">
 
 <head>
-  
+
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -54,14 +54,14 @@ if(isset($_SESSION['CLIENTE']) or isset($_SESSION['ADMIN']) ){
 
     <br>
 
-   
+
 
 
   <!-- Example Code -->
 
   <div class="container ">
 
-  
+
 
      <div class="text-center">
 
@@ -80,7 +80,7 @@ Resumen de la compra
 
     <div class="row">
     <div class="col-sm-1 col-md-6">
-    <form action="" method="post" class="form pasos" autocomplete="off" >  
+    <form action="" method="post" class="form pasos" autocomplete="off" >
 <!-- cambiar arriba -->
 
 
@@ -110,31 +110,31 @@ Resumen de la compra
         <div class="form-check">
           <input class="form-check-input" type="radio" name="envio" id="flexRadioDefault1" data-bs-target="#envio" aria-expanded="false" aria-controls="envio" data-bs-toggle="collapse" checked>
           <label class="form-check-label" for="flexRadioDefault1">
-            
+
 Envio domicilio
 
           </label>
         </div>
-        
-        
+
+
         <div class="form-check">
-          <input class="form-check-input" type="radio" name="envio" id="flexRadioDefault2" 
+          <input class="form-check-input" type="radio" name="envio" id="flexRadioDefault2"
           data-bs-toggle="collapse" data-bs-target="#retiro" aria-expanded="false" aria-controls="retiro">
           <label class="form-check-label" for="flexRadioDefault2">
   Retiro local
           </label>
           </div>
 
-          
+
           <div id="envio" class="accordion-collapse collapse show active" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
             <div class="accordion-body"  >
-    
+
               <h5> 1. Dirección de entrega </h5>
 
               <hr>
-            
-             
-            
+
+
+
               <?php
               if(isset($_SESSION['CLIENTE'])){
               echo "<i class='bi bi-house-fill'></i> <input style='padding: 0px; display: inline; width: 50%;'  value='".$_SESSION['CLIENTE'] -> getNombreCalle()."  ".$_SESSION['CLIENTE'] -> getNumeroCasa()."' disabled>";
@@ -142,15 +142,15 @@ Envio domicilio
                 echo "<i class='bi bi-house-fill'></i> <input style='padding: 0px; display: inline; width: 50%;'  placeholder='Direccion'>";
               }
               ?>
-           
-            
-          
-        
-         
-        
-              
+
+
+
+
+
+
+
               </div>
-              
+
           <div class="">
             <a href="#" id="direccion-btn" class="btn btn-next width-50 ml-auto">Siguiente</a>
           </div>
@@ -159,7 +159,7 @@ Envio domicilio
           <div id="retiro" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
             <div class="accordion-body"  >
 
-              
+
 
 
 
@@ -173,9 +173,9 @@ Envio domicilio
               <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3331.19133595375!2d-56.50789268480211!3d-33.39217208079059!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95a6c1ada36e59bf%3A0x9695eb4025ba7978!2sSupermercado%20Largacha!5e0!3m2!1ses!2suy!4v1666899217872!5m2!1ses!2suy" width="450" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
               </div>
               <br>
-            
-            
-            
+
+
+
             <?php
               echo " <h5> Persona que retira: </h5> ";
               if(isset($_SESSION['CLIENTE'])){
@@ -184,13 +184,13 @@ Envio domicilio
                 echo "<i class='bi bi-person-bounding-box'> </i> <input style='padding: 0px; display: inline; width: 50%;' placeholder='NombrePersona'>";
               }
              ?>
-          
-        
-         
-        
-              
+
+
+
+
+
               </div>
-              
+
           <div class="">
             <a href="#" id="retiro-btn" class="btn btn-next width-50 ml-auto">Siguiente</a>
           </div>
@@ -201,11 +201,11 @@ Envio domicilio
 
 
       </div>
-  
 
- 
 
- 
+
+
+
 
 
 
@@ -223,7 +223,7 @@ Envio domicilio
 
 
 
-  
+
   <div class="form-check">
   <input class="form-check-input" type="radio" name="pago" id="flexRadioDefault3" data-bs-target="#efectivo1" aria-expanded="false" aria-controls="efectivo1" data-bs-toggle="collapse" checked>
   <label class="form-check-label" for="flexRadioDefault1">
@@ -233,7 +233,7 @@ Envio domicilio
 
 
 <div class="form-check">
-  <input class="form-check-input" type="radio" name="pago" id="flexRadioDefault4" 
+  <input class="form-check-input" type="radio" name="pago" id="flexRadioDefault4"
   data-bs-toggle="collapse" data-bs-target="#tarjeta2" aria-expanded="false" aria-controls="tarjeta2" >
   <label class="form-check-label" for="flexRadioDefault2">
     Tarjeta de credito
@@ -268,28 +268,28 @@ echo "<i class='bi bi-person-bounding-box'> </i> <input style='padding: 0px; dis
 
 
 
-       
 
-        </div> 
+
+        </div>
       <div class="btns-group" >
-          
+
           <a href="#" class="btn btn-prev">Volver</a>
           <a class="btn btn-next" id="efectivo-btn" name="verifique" >Siguiente</a>
-        </div>        
+        </div>
       </div>
-      
+
 
       <div id="tarjeta2" class="accordion-collapse collapse" aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
       <div class="accordion-body"  >
 
 
       <hr>
-   
-      <style> 
-        input[type=number]::-webkit-inner-spin-button, 
-input[type=number]::-webkit-outer-spin-button { 
-  -webkit-appearance: none; 
-  margin: 0; 
+
+      <style>
+        input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }
 
 input[type=number] { -moz-appearance:textfield; }
@@ -301,7 +301,7 @@ input[type=number] { -moz-appearance:textfield; }
         <div class="card-wrapper" ></div>
 
         <?php
-        
+
 
 
         ?>
@@ -313,26 +313,26 @@ input[type=number] { -moz-appearance:textfield; }
                 <input class="input-tarjeta"  id="nombreTarjeta" style="width: 99%;" placeholder="Nombre titular" type="text" maxlength="25" name="name" required >
                 <input class="input-tarjeta" id="venciTarjeta"  style="width: 57%;" type="month" name="expiry" requiredvalue="" required min='<?php   echo  date('Y').'-'.date('m')?>' max="<?php   echo  (date('Y')+7).'-12'?>">
                 <input class="input-tarjeta input-cvc"  id="ccvTarjeta" style="width: 40%;" placeholder="CVC" type="number" name="cvc" required >
-                
-        
+
+
         </div>
     </div>
 
     <script src="http://localhost/xampp/proyecto/proyecto/Tarjeta.js/card.js"></script>
 
     <!-- <script src="http://localhost/Proyecto/Tarjeta.js/card.js"></script> -->
-    
-      </div>    
+
+      </div>
       <div class="btns-group" >
     <a href="#" class="btn btn-prev">Volver</a>
     <a class="btn btn-next" id="tarjeta-btn" name="verifique" >Siguiente</a>
-  </div> 
+  </div>
     </div>
   </div>
 <br>
- 
 
-<!-- 
+
+<!--
   <script>
       if(document.getElementById('flexRadioDefault1').checked == true){
         document.body.innerHTML =  "<a class='btn btn-next' name='verifique'>Siguiente</a>";
@@ -343,7 +343,7 @@ input[type=number] { -moz-appearance:textfield; }
       </script> -->
   </div>
 
-  
+
 </div>
 
 
@@ -371,11 +371,11 @@ input[type=number] { -moz-appearance:textfield; }
 
         for($i = 0; $i <count($_SESSION['MostrarCarrito']); $i++){
           if($_SESSION['MostrarCarrito'][$i] != null){
-      
+
     echo "  <tr><td>".$_SESSION['MostrarCarrito'][$i]['Nombre']." x ".$_SESSION['MostrarCarrito'][$i]['Cantidad']."</td>";
     echo "  <td>$".$_SESSION['MostrarCarrito'][$i]['Precio']."</td></tr>";
-            
-    
+
+
   }
 
 }
@@ -392,9 +392,9 @@ echo"   </tr>";
 
     <tr>
 
-    
+
     </tr>
-     
+
   </tbody>
 </table>
 
@@ -411,17 +411,17 @@ echo"   </tr>";
   <div class="btns-group" >
     <a href="#" class="btn btn-prev">Volver</a>
     <button class="btn btn-submit"  onclick="FinalizarCompra()" id="btn-finalizar" name="confirmarCompra"> Finalizar compra</button>
-  
-  
+
+
 
 
 </div>
 
- 
+
 
 </div>
 
-      
+
 <br>
 
 
@@ -430,10 +430,10 @@ echo"   </tr>";
 
 
 </div>
-  
+
   <br>
-  
-  
+
+
   <div class="col-sm-1 col-md-5">
       <div class="d-flex r-compra">
 
@@ -469,18 +469,18 @@ echo"   </tr>";
       echo "<img src='https://enigma.uy/img/mini-empty-cart.png' height='150px'>";
   }
 
-    
+
       ?>
-   
+
 
       </div>
 
-   
 
 
 
 
-    
+
+
 
 </div>
 
@@ -494,9 +494,9 @@ echo"   </tr>";
   </div>
 
   <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 11">
-      <div id="liveToast" class="toast fade  toast-tarjeta hide " role="alert" aria-live="assertive" aria-atomic="true" autohide="true" delay='300'> 
+      <div id="liveToast" class="toast fade  toast-tarjeta hide " role="alert" aria-live="assertive" aria-atomic="true" autohide="true" delay='300'>
         <div class="toast-header">
-        <img src="https://cdn-icons-png.flaticon.com/512/3361/3361585.png" width="35" height="35">    
+        <img src="https://cdn-icons-png.flaticon.com/512/3361/3361585.png" width="35" height="35">
           <strong class="me-auto">AutoService</strong>
           <small class="text-muted">justo ahora...</small>
           <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
@@ -505,10 +505,10 @@ echo"   </tr>";
           Recuerde rellenar todos los campos.
         </div>
          </div>
-    
+
     </div>
 
-    
+
 
 
 
@@ -518,14 +518,14 @@ echo"   </tr>";
 
 
     function FinalizarCompra() {
-      
+
         var obAjax = new XMLHttpRequest();
         obAjax.open('POST', 'Persistencia/ControlCompra.php', true);
         obAjax.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
         obAjax.onreadystatechange = function() {
          console.log(this.responseText);
         }
-        
+
         const  tarjeta = 'tarjeta';
         if(document.getElementById('flexRadioDefault1').checked){
           if(document.getElementById('flexRadioDefault3').checked){
@@ -533,7 +533,7 @@ echo"   </tr>";
         obAjax.send('FinalizarCompra='+''+'&usuario='+document.getElementById('sessiongetusuario').innerHTML+'&MetodoEnvio='+'Envio a domicilio'+'&MetodoPago='+'efectivo');
           window.location.reload();
           }else if(document.getElementById('flexRadioDefault4').checked){
-            
+
             obAjax.send('FinalizarCompra='+''+'&usuario='+document.getElementById('sessiongetusuario').innerHTML+'&MetodoEnvio='+'Envio a domicilio'+'&MetodoPago='+'Tarjeta');
             window.location.reload();
           }
@@ -543,7 +543,7 @@ echo"   </tr>";
         obAjax.send('FinalizarCompra='+''+'&usuario='+document.getElementById('sessiongetusuario').innerHTML+'&MetodoEnvio='+'Retira en local'+'&MetodoPago='+'efectivo');
         window.location.reload();
             }else if(document.getElementById('flexRadioDefault4').checked){
-    
+
             obAjax.send('FinalizarCompra='+''+'&usuario='+document.getElementById('sessiongetusuario').innerHTML+'&MetodoEnvio='+'Retira en local'+'&MetodoPago='+'Tarjeta');
               window.location.reload();
             }
@@ -568,8 +568,8 @@ let formStepsNum = 0;
 nextBtns.forEach((btn) => {
   btn.addEventListener("click", () => {
     var truee = false;
-   
-    
+
+
 
     console.log(btn.id);
     if (btn.id == "direccion-btn") {
@@ -592,7 +592,7 @@ nextBtns.forEach((btn) => {
     var ccvTar = document.getElementById("ccvTarjeta").value;
 
 
-  
+
       if (numeroTar != "" && nombreTar != "" && venciTar != "" && ccvTar != "") {
         truee = true;
       }else{
@@ -660,12 +660,12 @@ document.getElementById('mostrarprecio-div2').innerHTML = '$'+preciof;
 //   }
 //   var name = document.getElementById('name').value;
 //   if(name.length == 0) {
-   
+
 //   }
 //   var cvc = document.getElementById('cvc').value;
 //   if (cvc.length < 6) {
-   
-    
+
+
 //   }
 // }
 
