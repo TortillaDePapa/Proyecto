@@ -196,6 +196,16 @@ function refrescar(){
         obAjax.onload = function() {
             // console.log(this.responseText);
             ResfrescarCarrito();
+            var toastElList = [].slice.call(document.querySelectorAll('.toast-carrito'))
+        var toastList = toastElList.map(function(toastEl) {
+        // Creates an array of toasts (it only initializes them)
+          return new bootstrap.Toast(toastEl) // No need for options; use the default options
+        });
+       toastList.forEach(toast => toast.show()); // This show them
+
+        console.log(toastList); // Testing to see if it works
+
+
         }
       obAjax.send('id='+formData+'&'+'Precio='+precio+'&'+'Cantidad='+cant); 
 

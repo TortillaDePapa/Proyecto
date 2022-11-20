@@ -129,8 +129,24 @@ variable = new XMLHttpRequest();
     //     }
     //     obAjax.send('Cerrar');
     // }
-    </script>
 
+
+    
+    </script>
+<div class="position-fixed bottom-0 end-0 p-3" style="z-index: 11">
+      <div id="liveToast" class="toast fade  toast-carrito hide " role="alert" aria-live="assertive" aria-atomic="true" autohide="true" delay='300'> 
+        <div class="toast-header">
+        <img src="https://cdn-icons-png.flaticon.com/512/3361/3361585.png" width="35" height="35">    
+          <strong class="me-auto">AutoService</strong>
+          <small class="text-muted">justo ahora...</small>
+          <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+        </div>
+        <div class="toast-body">
+        Articulo/s agregado correctamente.
+        </div>
+         </div>
+    
+    </div>
 
 
 
