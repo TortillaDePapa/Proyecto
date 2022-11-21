@@ -69,7 +69,7 @@ echo " </div>";
       var idenvio = id;
       var obAjax = new XMLHttpRequest();
       obAjax.onload = function () {
-        document.getElementById('TablaF').innerHTML = this.responseText;
+        document.getElementById('reciboPdf-admin').innerHTML = this.responseText;
         console.log(this.responseText);       
    
       }

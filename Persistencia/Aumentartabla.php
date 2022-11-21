@@ -90,6 +90,7 @@ if($fila = mysqli_fetch_all( $resultado,MYSQLI_ASSOC)):
           ?>
            </tbody>
     </table>
+
     </div>
 
-<div id='mostrarprecio-div2'>Precio final: <?php echo $fila1['PrecioFF']; ?></div>
+<div id='mostrarprecio-div2' style="text-align: right;" >Precio final: <?php echo $fila1['PrecioFF']; ?></div>

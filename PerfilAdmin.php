@@ -152,38 +152,7 @@ echo "  </div>";
       <div class="modal-body" id="reciboPdf-admin">
 
 
-  <div class="row">
-
-      <div class="col-6">
-        <p> </p>
-        <h5>  AutoService  <br>Largacha  <img src="Imagenes/carrito.png" width="35" height="35"></h5> 
-</div>
-
-<div class="col-6" style="text-align: right;">
   
-    <small> AutoService Largacha <br>
-              Invencion Ocampo 1567 
-
-    <br> Durazno-Durazno-Uruguay  
-
-    <br>092 724 550 
-
-   autoservice.largacha@gmail.com  </small>
-</div>
-
-</div>
-
-<hr>
-
-<div class="row" id="TablaF">
-
-
-       
-      
-
-</div>
-
-<div id='mostrarprecio-div2'></div>
 
 
 
