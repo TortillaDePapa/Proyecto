@@ -34,11 +34,11 @@ if(isset($_POST['buscar'])){
   echo "     <td> ".$MostrarPedidos[$i] -> getPrecio()." </td>";
   if(strcmp($MostrarPedidos[$i] -> getEstadoEnvio(), "Envio a domicilio" )=== 0){
     if($MostrarPedidos[$i] -> getEstado() == 1){
-    echo "     <td> <img src='imagenes/EnEspera.png' width='50px' height='30px'> aca va imagen1 </td>";
+    echo "     <td> <img src='imagenes/EnEspera.png' width='50px' height='30px'>  </td>";
     }elseif($MostrarPedidos[$i] -> getEstado()== 2){
       echo "     <td> <img src='imagenes/EnCamino.png' width='50px' height='30px'> </td>";
     }elseif($MostrarPedidos[$i] -> getEstado() == 3){
-      echo "     <td> <img src='imagenes/EntregaLista.png' width='50px' height='30px'> aca va imagen 3 </td>";
+      echo "     <td> <img src='imagenes/EntregaLista.png' width='50px' height='30px'>  </td>";
     }
   }elseif(strcmp($MostrarPedidos[$i] -> getEstadoEnvio(), "Retira en local" )=== 0){
     if($MostrarPedidos[$i] -> getEstado() == 1){
