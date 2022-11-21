@@ -216,7 +216,6 @@ Envio domicilio
 
 
 <div class="form-step">
-  <div class="input-group">
 
 
 
@@ -245,32 +244,7 @@ Envio domicilio
 
 
       <div id="efectivo1" class="accordion-collapse collapse show active" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
-        <div class="accordion-body">
-
-        <h5>2. Horarios: 08:00 - 22:00 Lunes a Sabados </h5>
-
-
-<div class="text-center map-responsive">
-<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3331.19133595375!2d-56.50789268480211!3d-33.39217208079059!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95a6c1ada36e59bf%3A0x9695eb4025ba7978!2sSupermercado%20Largacha!5e0!3m2!1ses!2suy!4v1666899217872!5m2!1ses!2suy" width="450" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-</div>
-<br>
-
-
-
-<?php
-echo " <h5> Persona que retira: </h5> ";
-if(isset($_SESSION['CLIENTE'])){
-echo "<i class='bi bi-person-bounding-box'> </i> <input style='padding: 0px; display: inline; width: 50%;' id='nombreCambiar' value='".$_SESSION['CLIENTE'] -> getNombre()."' disabled>";
-}else{
-  echo "<i class='bi bi-person-bounding-box'> </i> <input style='padding: 0px; display: inline; width: 50%;' placeholder='NombrePersona'>";
-}
-?>
-
-
-
-
-
-        </div>
+  
       <div class="btns-group" >
 
           <a href="#" class="btn btn-prev">Volver</a>
@@ -318,9 +292,9 @@ input[type=number] { -moz-appearance:textfield; }
         </div>
     </div>
 
-    <!-- <script src="http://localhost/xampp/proyecto/proyecto/Tarjeta.js/card.js"></script> -->
+    <script src="http://localhost/xampp/proyecto/proyecto/Tarjeta.js/card.js"></script>
 
-    <script src="http://localhost/xampp/htdocs/Proyecto/Tarjeta.js/card.js"></script>
+    <!-- <script src="http://localhost/xampp/htdocs/Proyecto/Tarjeta.js/card.js"></script> -->
 
       </div>
       <div class="btns-group" >
@@ -328,7 +302,6 @@ input[type=number] { -moz-appearance:textfield; }
     <a class="btn btn-next" id="tarjeta-btn" name="verifique" >Siguiente</a>
   </div>
     </div>
-  </div>
 <br>
 
 
@@ -508,6 +481,22 @@ echo"   </tr>";
 
     </div>
 
+    
+  <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 11">
+      <div id="liveToast" class="toast fade  toast-compra hide " role="alert" aria-live="assertive" aria-atomic="true" autohide="true" delay='300'>
+        <div class="toast-header">
+        <img src="https://cdn-icons-png.flaticon.com/512/3361/3361585.png" width="35" height="35">
+          <strong class="me-auto">AutoService</strong>
+          <small class="text-muted">justo ahora...</small>
+          <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+        </div>
+        <div class="toast-body">
+         Se ha realizado la compra con éxito.
+        </div>
+         </div>
+
+    </div>
+
 
 
 
@@ -532,11 +521,13 @@ echo"   </tr>";
 
         obAjax.send('FinalizarCompra='+''+'&usuario='+document.getElementById('sessiongetusuario').innerHTML+'&MetodoEnvio='+'Envio a domicilio'+'&MetodoPago='+'efectivo');
           window.location.reload();
+          
           }else if(document.getElementById('flexRadioDefault4').checked){
 
             obAjax.send('FinalizarCompra='+''+'&usuario='+document.getElementById('sessiongetusuario').innerHTML+'&MetodoEnvio='+'Envio a domicilio'+'&MetodoPago='+'Tarjeta');
             window.location.reload();
           }
+      
       }else if (document.getElementById('flexRadioDefault2').checked){
         if(document.getElementById('flexRadioDefault3').checked){
 
