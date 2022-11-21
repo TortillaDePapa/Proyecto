@@ -292,9 +292,9 @@ input[type=number] { -moz-appearance:textfield; }
         </div>
     </div>
 
-    <script src="http://localhost/xampp/proyecto/proyecto/Tarjeta.js/card.js"></script>
+    <!-- <script src="http://localhost/xampp/proyecto/proyecto/Tarjeta.js/card.js"></script> -->
 
-    <!-- <script src="http://localhost/xampp/htdocs/Proyecto/Tarjeta.js/card.js"></script> -->
+    <script src="http://localhost/Proyecto/Tarjeta.js/card.js"></script>
 
       </div>
       <div class="btns-group" >

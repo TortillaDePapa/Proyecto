@@ -134,7 +134,7 @@ variable = new XMLHttpRequest();
     
     </script>
 <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 11">
-      <div id="liveToast" class="toast fade  toast-carrito hide " role="alert" aria-live="assertive" aria-atomic="true" autohide="true" delay='300'> 
+      <div id="liveToast" class="toast fade  toast-carrito hide " role="alert" aria-live="assertive" aria-atomic="true" autohide="true" delay='100'> 
         <div class="toast-header">
         <img src="https://cdn-icons-png.flaticon.com/512/3361/3361585.png" width="35" height="35">    
           <strong class="me-auto">AutoService</strong>
